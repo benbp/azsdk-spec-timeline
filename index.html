@@ -12,6 +12,7 @@
       <div class="header-top">
         <h1>Azure SDK Generation Timeline</h1>
         <div class="header-controls">
+          <button id="back-btn" class="btn-back hidden" title="Back to sample list">← Samples</button>
           <button id="theme-toggle" title="Toggle light/dark mode">☀️</button>
           <label class="file-input-label" for="file-input">Load JSON</label>
           <input type="file" id="file-input" accept=".json" hidden>
@@ -64,8 +65,9 @@
     <div id="empty-state" class="empty-state">
       <div class="empty-icon">📊</div>
       <h2>Azure SDK Generation Timeline</h2>
-      <p>Load a timeline JSON file or use the sample data to visualize the end-to-end SDK generation process.</p>
-      <button id="load-sample" class="btn-primary">Load Sample Data (DurableTask)</button>
+      <p>Visualize the end-to-end SDK generation process — from spec PR to SDK PRs across all languages.</p>
+      <p class="empty-hint" style="margin-bottom: 8px">Choose a sample timeline to explore:</p>
+      <div class="sample-buttons" id="sample-buttons"></div>
       <p class="empty-hint">Or drag & drop a JSON file anywhere on this page</p>
     </div>
   </div>

@@ -1,0 +1,963 @@
+{
+  "title": "Add Microsoft.AppLink API specs for 2025-08-01-preview (public preview)",
+  "owner": "deveshdama",
+  "startDate": "2026-02-28T06:55:59Z",
+  "endDate": "2026-03-27T17:30:31Z",
+  "specPR": {
+    "repo": "Azure/azure-rest-api-specs",
+    "number": 40886,
+    "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886",
+    "title": "Add Microsoft.AppLink API specs for 2025-08-01-preview (public preview)",
+    "author": "deveshdama",
+    "createdAt": "2026-02-28T06:55:59Z",
+    "mergedAt": "2026-03-11T17:46:56Z",
+    "mergedBy": "deveshdama",
+    "state": "merged",
+    "labels": [
+      "ARMSignedOff",
+      "ARMReview",
+      "resource-manager",
+      "RPaaS",
+      "new-api-version",
+      "new-rp-namespace",
+      "TypeSpec",
+      "RPaaSException"
+    ],
+    "reviewers": [
+      "razvanbadea-msft",
+      "sathyaj01",
+      "qiaozha",
+      "mikeharder"
+    ],
+    "events": [
+      {
+        "type": "pr_created",
+        "timestamp": "2026-02-28T06:55:59Z",
+        "actor": "deveshdama",
+        "actorRole": "author",
+        "description": "Opened spec PR for Microsoft.AppLink API 2025-08-01-preview (new RP)",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-02-28T06:56:26Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "CI bot posted Next Steps to Merge checklist",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#issuecomment-3976552442"
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-28T06:59:43Z",
+        "actor": "deveshdama",
+        "actorRole": "author",
+        "description": "Author noted specs already in private repo, added RPaaSException label",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#issuecomment-3976556255",
+          "body": "Microsoft.AppLink specs are already present on RPSaaSMaster in the private repo. Added label RPaaSException."
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-28T06:59:43Z",
+        "endTimestamp": "2026-03-04T18:04:47Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "4.5-day wait for first review activity",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 107.1
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-04T18:04:47Z",
+        "actor": "copilot-pull-request-reviewer[bot]",
+        "actorRole": "copilot",
+        "description": "Copilot code review \u2014 generated 6 comments about naming, grammar, and conventions",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#pullrequestreview-3891081956",
+          "reviewState": "COMMENTED"
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-03-04T18:04:47Z",
+        "endTimestamp": "2026-03-10T14:27:06Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "5.8-day wait for human review after Copilot review",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 140.4
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-10T14:27:06Z",
+        "actor": "razvanbadea-msft",
+        "actorRole": "reviewer",
+        "description": "Asked if AppLinkProperties only has provisioningState",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2912141836",
+          "body": "this model has only provisioningState as properties?",
+          "reviewState": "COMMENTED"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-10T14:32:32Z",
+        "actor": "razvanbadea-msft",
+        "actorRole": "reviewer",
+        "description": "Suggested using armResourceIdentifier instead of string type",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2912185210",
+          "body": "you can use the armResourceIdentifier for this property",
+          "reviewState": "COMMENTED"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-10T16:06:39Z",
+        "actor": "deveshdama",
+        "actorRole": "author",
+        "description": "Responded \u2014 AppLink only has provisioningState for now, will expand later",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2912851437",
+          "body": "yes for now, Applink object only has provisioningState. We plan to expand it in future."
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-10T16:19:23Z",
+        "actor": "deveshdama",
+        "actorRole": "author",
+        "description": "Responded \u2014 string type used for cross-cloud resource IDs (AWS/GCP support planned)",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2912928295",
+          "body": "when clusterType is not AKS in future releases, we expect resourceId to contain resource identifier for other cloud providers, like AWS/GCP. string type is for that intent."
+        }
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-03-11T17:36:29Z",
+        "actor": "sathyaj01",
+        "actorRole": "reviewer",
+        "description": "Approved by sathyaj01 (ARM reviewer)",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#pullrequestreview-3931329155",
+          "reviewState": "APPROVED"
+        }
+      },
+      {
+        "type": "pr_merged",
+        "timestamp": "2026-03-11T17:46:56Z",
+        "actor": "deveshdama",
+        "actorRole": "author",
+        "description": "Spec PR merged by deveshdama",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-13T01:59:39Z",
+        "actor": "qiaozha",
+        "actorRole": "reviewer",
+        "description": "Post-merge comment \u2014 asked mikeharder about folder structure v1",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2928534896",
+          "body": "@mikeharder how is this folder structure v1 PR get merged?",
+          "reviewState": "COMMENTED"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-03-13T19:40:14Z",
+        "actor": "mikeharder",
+        "actorRole": "reviewer",
+        "description": "Responded \u2014 feature still in development, linked related PR",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40886#discussion_r2933393107",
+          "body": "feature is still in development. will try to get it merged in the next few days."
+        }
+      }
+    ]
+  },
+  "sdkPRs": [
+    {
+      "repo": "Azure/azure-sdk-for-java",
+      "language": "Java",
+      "number": 48570,
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570",
+      "title": "[AutoPR azure-resourcemanager-appnetwork] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-25T06:51:19Z",
+      "mergedAt": "2026-03-26T04:49:46Z",
+      "mergedBy": "weidongxu-microsoft",
+      "state": "merged",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "weidongxu-microsoft",
+        "deveshdama"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-25T06:51:19Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Java SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-25T07:18:14Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView link generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#issuecomment-4124322318"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-25T07:40:41Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft approved (SDK dev)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#pullrequestreview-4004615014",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-25T07:45:41Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "SDK dev approved, will merge when service dev also approves",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#issuecomment-4124450554",
+            "body": "SDK dev approved. We will merge when service dev also approves the PR."
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-25T07:52:46Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Waiting for other languages to get approved as well",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#issuecomment-4124485447",
+            "body": "Waiting for other langs to get approved as well, thanks"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-25T07:52:46Z",
+          "endTimestamp": "2026-03-26T04:17:25Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "20-hour gap while waiting for other languages",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 20.4
+          }
+        },
+        {
+          "type": "author_nag",
+          "timestamp": "2026-03-26T04:17:25Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Asked @weidongxu-microsoft to move forward with merge",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#issuecomment-4131536012",
+            "body": "By service dev, you mean Appnetwork dev. If thats the case, can we move forward with merge on this? @weidongxu-microsoft",
+            "targetUser": "weidongxu-microsoft"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-26T04:25:34Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "deveshdama approved (service team)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#pullrequestreview-4011301101",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-26T04:49:38Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft re-approved after service dev approval",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#pullrequestreview-4011689838",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-26T04:49:55Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Confirmed and merged",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570#issuecomment-4131645640",
+            "body": "Yes. Merged."
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-26T04:49:46Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Java SDK PR merged by weidongxu-microsoft",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48570"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-go",
+      "language": "Go",
+      "number": 26397,
+      "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397",
+      "title": "[AutoPR armappnetwork] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-25T06:48:39Z",
+      "mergedAt": "2026-03-26T05:58:57Z",
+      "mergedBy": "deveshdama",
+      "state": "merged",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "tadelesh",
+        "deveshdama"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-25T06:48:39Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Go SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-25T07:13:10Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView link generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397#issuecomment-4124302362"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-25T07:53:00Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review \u2014 no comments generated, all files reviewed",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397#pullrequestreview-4004675865",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-26T03:58:45Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "Asked to refine the README to correct the service name",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397#discussion_r2992315854",
+            "body": "Could you refine the readme to correct the service name?",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-26T04:13:11Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Responded \u2014 updated service name to 'Azure Kubernetes Application Network'",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397#discussion_r2992351272",
+            "body": "Done. Using Azure Kubernetes Application Network now."
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-26T05:50:00Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Pushed commit updating README service name",
+          "sentiment": "neutral",
+          "details": {
+            "commitSha": "1b1a00833f38121781cc0a9e2a2862e91b8aaf3e"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-26T05:58:54Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "tadelesh approved (Go SDK owner)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397#pullrequestreview-4011638404",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-26T05:58:57Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Go SDK PR merged by deveshdama",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26397"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-python",
+      "language": "Python",
+      "number": 45893,
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893",
+      "title": "[AutoPR azure-mgmt-appnetwork] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-25T06:40:59Z",
+      "mergedAt": "2026-03-26T06:13:47Z",
+      "mergedBy": "deveshdama",
+      "state": "merged",
+      "labels": [],
+      "reviewers": [
+        "ChenxiJiang333",
+        "msyyc",
+        "deveshdama"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-25T06:40:59Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Python SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-25T06:56:24Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review \u2014 1 comment about API version mismatch in metadata",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#pullrequestreview-4004419423",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-25T18:13:35Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Author triggered CI pipeline manually: /azp run python - pullrequest",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#issuecomment-4128728864",
+            "body": "/azp run python - pullrequest"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-25T18:14:08Z",
+          "actor": "azure-pipelines[bot]",
+          "actorRole": "bot",
+          "description": "Azure Pipelines started running 1 pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#issuecomment-4128733918"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-26T02:58:20Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "Noted service is behind a feature flag, recommended public deployment before SDK release",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#issuecomment-4131242888",
+            "body": "Hi @deveshdama, it seems the service is behind a feature flag, we recommend making sure the api version to be deployed publicly in all locations before releasing the SDK."
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-26T02:58:38Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "Asked @msyyc to help review",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#issuecomment-4131244046",
+            "body": "@msyyc, please help review",
+            "targetUser": "msyyc"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-26T03:37:17Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Responded \u2014 service only in selected regions, listed supported regions",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#issuecomment-4131401510",
+            "body": "we are only in selected regions at the moment: centralus, eastus2, westus2, westus3, northeurope, southeastasia"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-26T06:13:45Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "msyyc approved (Python SDK senior reviewer)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893#pullrequestreview-4011689838",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-26T06:13:47Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Python SDK PR merged by deveshdama",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45893"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-net",
+      "language": ".NET",
+      "number": 57448,
+      "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448",
+      "title": "[AutoPR Azure.ResourceManager.AppNetwork] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-25T06:48:49Z",
+      "mergedAt": "2026-03-27T17:30:31Z",
+      "mergedBy": "deveshdama",
+      "state": "merged",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "ArcturusZhang",
+        "ArthurMa1978",
+        "jsquire",
+        "deveshdama"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-25T06:48:49Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": ".NET SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-26T03:15:27Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView link generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#issuecomment-4131332290"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-25T16:07:08Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Detailed SDK review \u2014 flagged 8 contextual naming issues (ProvisioningState, ClusterType, etc.)",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4007943502",
+            "body": "Mgmt SDK PR Review \u2014 Azure.ResourceManager.AppNetwork: Phase 2 API Review flagged 8 contextual naming issues requiring @@clientName decorators.",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-26T00:49:47Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Re-review \u2014 found 4 remaining naming issues after first round of fixes",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4010768064",
+            "body": "Re-Review: Found 4 remaining naming issues (AvailableVersion, UpgradeHistory, GetByLocation, GetByAppLinkMember).",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-26T01:00:54Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review \u2014 flagged NullReferenceException risks and config mismatches",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4010796162",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-26T03:53:38Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "reviewer",
+          "description": "Suggested fixing tsp-location.yaml to point to correct spec repo commit",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4010768064",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-27T06:19:17Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "Asked to update CHANGELOG with expected release date",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4019170327",
+            "body": "Please update the Unreleased with your expected release date.",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_changes_requested",
+          "timestamp": "2026-03-27T06:31:08Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "ArthurMa1978 requested changes \u2014 properties bags not flattened, naming issues",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4019170327",
+            "body": "4 properties bags not flattened (AppLinkMemberData, AppLinkAvailableVersion, AppLinkMemberPatch, AppLinkUpgradeHistory). Plus naming issues with EastWestGatewayVisibility and AKS acronym.",
+            "reviewState": "CHANGES_REQUESTED"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-27T16:00:00Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Pushed commits addressing review feedback \u2014 naming fixes and property flattening",
+          "sentiment": "neutral",
+          "details": {
+            "commitSha": "a92e522eed267024aa3a7ffb95046d5a46576eab"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-27T16:24:43Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "ArthurMa1978 approved after fixes",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4019170327",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-27T16:37:03Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "deveshdama approved (service team)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4019170327",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-27T17:30:28Z",
+          "actor": "jsquire",
+          "actorRole": "reviewer",
+          "description": "jsquire approved",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448#pullrequestreview-4019170327",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-27T17:30:31Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": ".NET SDK PR merged by deveshdama",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57448"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-js",
+      "language": "JavaScript",
+      "number": 37826,
+      "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826",
+      "title": "[AutoPR @azure-arm-appnetwork] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-25T06:49:08Z",
+      "mergedAt": "2026-03-26T04:18:20Z",
+      "mergedBy": "deveshdama",
+      "state": "merged",
+      "labels": [
+        "Mgmt",
+        "mgmt-review-needed"
+      ],
+      "reviewers": [
+        "MaryGao",
+        "deveshdama"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-25T06:49:08Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "JavaScript SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-25T07:14:14Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView link generated",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826#issuecomment-4124306477"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-25T07:51:22Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review \u2014 flagged ESM/CJS packaging issue and metadata casing mismatch",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826#pullrequestreview-4004667938",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-26T04:02:35Z",
+          "actor": "MaryGao",
+          "actorRole": "reviewer",
+          "description": "Asked about namespace review and relationship between applink and appnetwork",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826#discussion_r2992324053",
+            "body": "do we have a namespace review for package name? what is the relationship among @azure/arm-applink and appnetwork?",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-26T04:06:02Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "Explained naming \u2014 RP is Microsoft.AppLink, marketing name is Application Network",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826#discussion_r2992331759",
+            "body": "Applink was the name we started the project with, And Application Network is what marketing approved. Our RP namespace is still Microsoft.Applink for SDK we are going with Appnet."
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-26T04:13:27Z",
+          "actor": "MaryGao",
+          "actorRole": "reviewer",
+          "description": "MaryGao approved (JS SDK team)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826#pullrequestreview-4011301101",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-26T04:18:20Z",
+          "actor": "deveshdama",
+          "actorRole": "author",
+          "description": "JavaScript SDK PR merged by deveshdama",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37826"
+          }
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "type": "bottleneck",
+      "severity": "critical",
+      "description": "13.54-day gap between spec PR merge (Mar 11) and SDK PR creation (Mar 25) \u2014 pipeline/scheduling latency",
+      "startDate": "2026-03-11T17:46:56Z",
+      "endDate": "2026-03-25T06:40:59Z",
+      "durationDays": 13.54
+    },
+    {
+      "type": "idle",
+      "severity": "critical",
+      "description": "4.5-day wait for first review on spec PR \u2014 no reviewer activity from Feb 28 to Mar 4 (only Copilot reviewed)",
+      "startDate": "2026-02-28T06:59:43Z",
+      "endDate": "2026-03-04T18:04:47Z",
+      "durationDays": 4.5,
+      "prRef": "Azure/azure-rest-api-specs#40886"
+    },
+    {
+      "type": "idle",
+      "severity": "critical",
+      "description": "5.8-day wait after Copilot review before first human review on spec PR",
+      "startDate": "2026-03-04T18:04:47Z",
+      "endDate": "2026-03-10T14:27:06Z",
+      "durationDays": 5.8,
+      "prRef": "Azure/azure-rest-api-specs#40886"
+    },
+    {
+      "type": "bottleneck",
+      "severity": "warning",
+      "description": ".NET SDK PR took longest \u2014 2.4 days due to thorough naming review (CHANGES_REQUESTED by ArthurMa1978)",
+      "startDate": "2026-03-25T06:48:49Z",
+      "endDate": "2026-03-27T17:30:31Z",
+      "durationDays": 2.45,
+      "prRef": "Azure/azure-sdk-for-net#57448"
+    },
+    {
+      "type": "nag",
+      "severity": "warning",
+      "description": "Author nagged @weidongxu-microsoft on Java PR to move forward with merge",
+      "startDate": "2026-03-26T04:17:25Z",
+      "prRef": "Azure/azure-sdk-for-java#48570"
+    },
+    {
+      "type": "summary",
+      "severity": "info",
+      "description": "New RP (Microsoft.AppLink) required naming review iterations in .NET SDK PR \u2014 contextual naming issues typical for new resource providers"
+    },
+    {
+      "type": "positive",
+      "severity": "info",
+      "description": "JavaScript SDK PR was the fastest \u2014 merged in ~0.9 days after creation",
+      "prRef": "Azure/azure-sdk-for-js#37826"
+    },
+    {
+      "type": "positive",
+      "severity": "info",
+      "description": "All 5 SDK PRs created within 11 minutes of each other \u2014 pipeline generation worked efficiently",
+      "startDate": "2026-03-25T06:40:59Z",
+      "endDate": "2026-03-25T06:51:19Z"
+    },
+    {
+      "type": "summary",
+      "severity": "info",
+      "description": "End-to-end process took 27.44 days: 11.45 days for spec PR, 13.54 days pipeline gap, and 2.45 days for slowest SDK PR (.NET)"
+    }
+  ],
+  "summary": {
+    "totalDurationDays": 27.44,
+    "specPRDays": 11.45,
+    "pipelineGapDays": 13.54,
+    "sdkPRMaxDays": 2.45,
+    "fastestSDKPR": {
+      "language": "JavaScript",
+      "days": 0.9
+    },
+    "slowestSDKPR": {
+      "language": ".NET",
+      "days": 2.45
+    },
+    "totalUniqueReviewers": 13,
+    "totalNags": 1,
+    "totalManualFixes": 0
+  }
+}

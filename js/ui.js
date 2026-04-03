@@ -6,6 +6,29 @@ const UI = (() => {
   const tooltip = () => document.getElementById('tooltip');
   const detailPanel = () => document.getElementById('detail-panel');
 
+  const SAMPLES = [
+    {
+      file: 'data/sample-durabletask.json',
+      name: 'DurableTask',
+      meta: 'berndverst · 31d · 4 nags · 1 manual fix'
+    },
+    {
+      file: 'data/sample-playwright.json',
+      name: 'Playwright Testing',
+      meta: 'mjmadhu · 57d · 49d pipeline gap'
+    },
+    {
+      file: 'data/sample-containerservice.json',
+      name: 'Container Service (AKS)',
+      meta: 'FumingZhang · 42d · breaking changes'
+    },
+    {
+      file: 'data/sample-appnetwork.json',
+      name: 'AppNetwork (AppLink)',
+      meta: 'deveshdama · 27d · new RP onboarding'
+    }
+  ];
+
   function init() {
     // Theme toggle
     document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
@@ -13,8 +36,11 @@ const UI = (() => {
     // File input
     document.getElementById('file-input').addEventListener('change', handleFileInput);
 
-    // Load sample button
-    document.getElementById('load-sample').addEventListener('click', loadSample);
+    // Build sample buttons
+    buildSampleButtons();
+
+    // Back button
+    document.getElementById('back-btn').addEventListener('click', showHome);
 
     // Detail panel close
     document.getElementById('detail-close').addEventListener('click', closeDetail);
@@ -70,6 +96,33 @@ const UI = (() => {
     document.getElementById('theme-toggle').textContent = next === 'dark' ? '☀️' : '🌙';
   }
 
+  function buildSampleButtons() {
+    const container = document.getElementById('sample-buttons');
+    if (!container) return;
+    container.innerHTML = '';
+    for (const sample of SAMPLES) {
+      const btn = document.createElement('button');
+      btn.className = 'sample-btn';
+      btn.innerHTML = `
+        <div class="sample-name">${sample.name}</div>
+        <div class="sample-meta">${sample.meta}</div>
+      `;
+      btn.addEventListener('click', () => loadSample(sample.file));
+      container.appendChild(btn);
+    }
+  }
+
+  function showHome() {
+    window._timelineData = null;
+    for (const id of ['header-info', 'summary-cards', 'filters', 'timeline-container', 'insights-panel']) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden');
+    }
+    document.getElementById('empty-state')?.classList.remove('hidden');
+    document.getElementById('back-btn')?.classList.add('hidden');
+    closeDetail();
+  }
+
   function handleFileInput(e) {
     const file = e.target.files[0];
     if (file) loadFile(file);
@@ -82,6 +135,7 @@ const UI = (() => {
         const data = DataLoader.loadFromString(e.target.result);
         window._timelineData = data;
         Timeline.render(data);
+        document.getElementById('back-btn')?.classList.remove('hidden');
       } catch (err) {
         alert('Error loading file: ' + err.message);
       }
@@ -89,11 +143,12 @@ const UI = (() => {
     reader.readAsText(file);
   }
 
-  async function loadSample() {
+  async function loadSample(file) {
     try {
-      const data = await DataLoader.loadFromUrl('data/sample-durabletask.json');
+      const data = await DataLoader.loadFromUrl(file || 'data/sample-durabletask.json');
       window._timelineData = data;
       Timeline.render(data);
+      document.getElementById('back-btn')?.classList.remove('hidden');
     } catch (err) {
       alert('Error loading sample data: ' + err.message);
     }

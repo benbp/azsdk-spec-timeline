@@ -1,0 +1,655 @@
+{
+  "title": "Added new property for reporting flag (Playwright Testing)",
+  "owner": "mjmadhu",
+  "startDate": "2026-02-04T08:38:51Z",
+  "endDate": "2026-04-02T11:02:36Z",
+  "specPR": {
+    "repo": "Azure/azure-rest-api-specs",
+    "number": 40148,
+    "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148",
+    "title": "Added new property for reporting flag",
+    "author": "mjmadhu",
+    "createdAt": "2026-02-04T08:38:51Z",
+    "mergedAt": "2026-02-11T17:45:03Z",
+    "mergedBy": "mjmadhu",
+    "state": "merged",
+    "labels": [
+      "ARMSignedOff",
+      "Load Test Service",
+      "ARMReview",
+      "resource-manager",
+      "RPaaS",
+      "TypeSpec",
+      "VersioningReviewRequired",
+      "Versioning-Approved-BranchPolicyException",
+      "PublishToCustomers",
+      "ARMAutoSignedOff-IncrementalTSP"
+    ],
+    "reviewers": [
+      "mitsha-microsoft",
+      "kashish2508"
+    ],
+    "events": [
+      {
+        "type": "pr_created",
+        "timestamp": "2026-02-04T08:38:51Z",
+        "actor": "mjmadhu",
+        "actorRole": "author",
+        "description": "Opened spec PR for Playwright Testing reporting flag property",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-02-04T08:39:14Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "CI bot posted Next Steps to Merge checklist",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148#issuecomment-3846092870"
+        }
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-02-04T08:40:19Z",
+        "actor": "mitsha-microsoft",
+        "actorRole": "reviewer",
+        "description": "Approved by mitsha-microsoft",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148#pullrequestreview-3749699560",
+          "reviewState": "APPROVED"
+        }
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-02-04T08:42:28Z",
+        "actor": "kashish2508",
+        "actorRole": "reviewer",
+        "description": "Approved by kashish2508",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148#pullrequestreview-3749707736",
+          "reviewState": "APPROVED"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-02-04T08:43:59Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "API Change Check \u2014 ApiView links generated for all languages",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148#issuecomment-3846111141"
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-04T08:52:17Z",
+        "actor": "mjmadhu",
+        "actorRole": "author",
+        "description": "Author noted this version was merged yesterday and not yet live to users",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148#issuecomment-3846145562",
+          "body": "This version was merged yesterday only and not yet live to the users."
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-04T08:52:17Z",
+        "endTimestamp": "2026-02-11T17:45:03Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "7-day wait after approval before merge \u2014 likely versioning review process",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 176.9
+        }
+      },
+      {
+        "type": "pr_merged",
+        "timestamp": "2026-02-11T17:45:03Z",
+        "actor": "mjmadhu",
+        "actorRole": "author",
+        "description": "Spec PR merged by mjmadhu",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40148"
+        }
+      }
+    ]
+  },
+  "sdkPRs": [
+    {
+      "repo": "Azure/azure-sdk-for-java",
+      "language": "Java",
+      "number": 48660,
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660",
+      "title": "[AutoPR azure-resourcemanager-playwright] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-04-01T10:24:50Z",
+      "mergedAt": "2026-04-02T07:45:18Z",
+      "mergedBy": "kashish2508",
+      "state": "merged",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "ArthurMa1978",
+        "haolingdong-msft",
+        "XiaofeiCao",
+        "weidongxu-microsoft",
+        "kashish2508"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-04-01T10:24:50Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Java SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-04-01T10:37:45Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView link generated for Java SDK",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660#issuecomment-4169143056"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-04-01T11:37:01Z",
+          "actor": "kashish2508",
+          "actorRole": "reviewer",
+          "description": "kashish2508 ran /check-enforcer override to unblock CI",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660#issuecomment-4169451693",
+            "body": "/check-enforcer override"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-01T11:44:03Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review \u2014 generated 4 comments about Javadoc wording and punctuation",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660#pullrequestreview-4043598212",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-02T02:32:15Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft approved",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660#pullrequestreview-4048014574",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-04-02T07:45:18Z",
+          "actor": "kashish2508",
+          "actorRole": "reviewer",
+          "description": "Java SDK PR merged by kashish2508",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48660"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-go",
+      "language": "Go",
+      "number": 26469,
+      "url": "https://github.com/Azure/azure-sdk-for-go/pull/26469",
+      "title": "[AutoPR armplaywright] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-04-01T10:21:46Z",
+      "mergedAt": "2026-04-02T07:45:25Z",
+      "mergedBy": "kashish2508",
+      "state": "merged",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "lirenhe",
+        "JiaqiZhang-Dev",
+        "tadelesh",
+        "kashish2508"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-04-01T10:21:46Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Go SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26469"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-04-01T10:33:51Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView link generated for Go SDK",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26469#issuecomment-4169123681"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-01T11:42:14Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review \u2014 generated 2 comments about doc wording (boolean vs enum)",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26469#pullrequestreview-4043583160",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-02T02:06:26Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "tadelesh approved (Go language owner)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26469#pullrequestreview-4047955478",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-04-02T07:45:25Z",
+          "actor": "kashish2508",
+          "actorRole": "reviewer",
+          "description": "Go SDK PR merged by kashish2508",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26469"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-python",
+      "language": "Python",
+      "number": 46051,
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/46051",
+      "title": "[AutoPR azure-mgmt-playwright] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-04-01T10:23:18Z",
+      "mergedAt": "2026-04-02T07:44:31Z",
+      "mergedBy": "kashish2508",
+      "state": "merged",
+      "labels": [],
+      "reviewers": [
+        "msyyc",
+        "ChenxiJiang333",
+        "kashish2508"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-04-01T10:23:18Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Python SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/46051"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-01T11:43:16Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review \u2014 no comments generated, clean review",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/46051#pullrequestreview-4043592297",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-02T06:54:04Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "ChenxiJiang333 approved (Python SDK team)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/46051#pullrequestreview-4048724212",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-04-02T07:44:31Z",
+          "actor": "kashish2508",
+          "actorRole": "reviewer",
+          "description": "Python SDK PR merged by kashish2508",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/46051"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-net",
+      "language": ".NET",
+      "number": 57661,
+      "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661",
+      "title": "[AutoPR Azure.ResourceManager.Playwright] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-04-01T10:22:23Z",
+      "mergedAt": "2026-04-02T09:30:25Z",
+      "mergedBy": "ArthurMa1978",
+      "state": "merged",
+      "labels": [
+        "Mgmt"
+      ],
+      "reviewers": [
+        "live1206",
+        "ArcturusZhang",
+        "ArthurMa1978"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-04-01T10:22:23Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": ".NET SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-04-01T10:42:02Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView link generated for .NET SDK",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661#issuecomment-4169164755"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-01T11:43:25Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review \u2014 generated 2 comments about StorageUri serialization safety",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661#pullrequestreview-4043593517",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "review_changes_requested",
+          "timestamp": "2026-04-02T01:42:31Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "ArthurMa1978 requested changes \u2014 update changelog.md with released date",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661#pullrequestreview-4047904698",
+            "reviewState": "CHANGES_REQUESTED",
+            "body": "Please update the changelog.md file to specify the released date"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-02T09:30:13Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "ArthurMa1978 approved after changelog fix",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661#pullrequestreview-4049479666",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-04-02T09:30:25Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": ".NET SDK PR merged by ArthurMa1978",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/57661"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-js",
+      "language": "JavaScript",
+      "number": 37926,
+      "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926",
+      "title": "[AutoPR @azure-arm-playwright] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-04-01T10:22:26Z",
+      "mergedAt": "2026-04-02T11:02:36Z",
+      "mergedBy": "kashish2508",
+      "state": "merged",
+      "labels": [
+        "Mgmt",
+        "Self-Service Release",
+        "mgmt-review-needed"
+      ],
+      "reviewers": [
+        "MaryGao",
+        "qiaozha",
+        "JialinHuang803",
+        "kazrael2119",
+        "kashish2508"
+      ],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-04-01T10:22:26Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "JavaScript SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-04-01T10:34:47Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "API Change Check \u2014 ApiView link generated for JS SDK",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#issuecomment-4169128347"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-04-01T11:45:23Z",
+          "actor": "copilot-pull-request-reviewer[bot]",
+          "actorRole": "copilot",
+          "description": "Copilot code review \u2014 no blocking comments, 2 low-confidence suggestions suppressed",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#pullrequestreview-4043607602",
+            "reviewState": "COMMENTED"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-04-02T09:10:31Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "CI bot posted Next Steps to Merge \u2014 all checks passed, pending reviewer approvals",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#issuecomment-4175816628"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-04-02T09:10:32Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "Management Release Assistant review \u2014 no API design issues found, clean report",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#pullrequestreview-4049369159"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-04-02T09:18:32Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "kazrael2119 commented LGTM, cc'd JialinHuang803",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#issuecomment-4175863032",
+            "body": "LGTM\ncc @JialinHuang803",
+            "targetUser": "JialinHuang803"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-04-02T10:16:33Z",
+          "actor": "JialinHuang803",
+          "actorRole": "reviewer",
+          "description": "JialinHuang803 approved",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926#pullrequestreview-4049711646",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-04-02T11:02:36Z",
+          "actor": "kashish2508",
+          "actorRole": "reviewer",
+          "description": "JavaScript SDK PR merged by kashish2508",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37926"
+          }
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "type": "bottleneck",
+      "severity": "critical",
+      "description": "49-day gap between spec PR merge (Feb 11) and SDK PR creation (Apr 1) \u2014 massive pipeline/scheduling latency",
+      "startDate": "2026-02-11T17:45:03Z",
+      "endDate": "2026-04-01T10:21:46Z",
+      "durationDays": 48.69
+    },
+    {
+      "type": "idle",
+      "severity": "critical",
+      "description": "7-day wait on spec PR after dual approval before merge \u2014 likely versioning review process (VersioningReviewRequired label)",
+      "startDate": "2026-02-04T08:52:17Z",
+      "endDate": "2026-02-11T17:45:03Z",
+      "durationDays": 7.37,
+      "prRef": "Azure/azure-rest-api-specs#40148"
+    },
+    {
+      "type": "bottleneck",
+      "severity": "warning",
+      "description": ".NET PR had changes requested by ArthurMa1978 \u2014 changelog.md missing released date, delayed merge by ~8 hours vs other SDK PRs",
+      "startDate": "2026-04-02T01:42:31Z",
+      "endDate": "2026-04-02T09:30:25Z",
+      "durationDays": 0.32,
+      "prRef": "Azure/azure-sdk-for-net#57661"
+    },
+    {
+      "type": "positive",
+      "severity": "info",
+      "description": "All 5 SDK PRs merged within ~25 hours of creation \u2014 very fast turnaround once the pipeline triggered"
+    },
+    {
+      "type": "positive",
+      "severity": "info",
+      "description": "No author nags needed \u2014 reviewers responded without being prompted by the spec PR author"
+    },
+    {
+      "type": "positive",
+      "severity": "info",
+      "description": "No manual fixes needed \u2014 all auto-generated SDK PRs passed without manual code intervention"
+    },
+    {
+      "type": "positive",
+      "severity": "info",
+      "description": "Spec PR approved within 4 minutes of creation by two reviewers (mitsha-microsoft, kashish2508)",
+      "prRef": "Azure/azure-rest-api-specs#40148"
+    },
+    {
+      "type": "positive",
+      "severity": "info",
+      "description": "Java SDK PR was the fastest \u2014 merged in ~21.3 hours after creation",
+      "prRef": "Azure/azure-sdk-for-java#48660"
+    },
+    {
+      "type": "summary",
+      "severity": "info",
+      "description": "kashish2508 (spec PR reviewer) merged 4 of 5 SDK PRs (Java, Go, Python, JS), streamlining the process. ArthurMa1978 handled .NET."
+    }
+  ],
+  "summary": {
+    "totalDurationDays": 57.1,
+    "specPRDays": 7.38,
+    "pipelineGapDays": 48.69,
+    "sdkPRMaxDays": 1.03,
+    "fastestSDKPR": {
+      "language": "Java",
+      "days": 0.89
+    },
+    "slowestSDKPR": {
+      "language": "JavaScript",
+      "days": 1.03
+    },
+    "totalUniqueReviewers": 8,
+    "totalNags": 0,
+    "totalManualFixes": 0
+  }
+}

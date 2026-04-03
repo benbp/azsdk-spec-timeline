@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azure SDK Generation Timeline</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <div class="header-top">
+        <h1>Azure SDK Generation Timeline</h1>
+        <div class="header-controls">
+          <button id="theme-toggle" title="Toggle light/dark mode">☀️</button>
+          <label class="file-input-label" for="file-input">Load JSON</label>
+          <input type="file" id="file-input" accept=".json" hidden>
+        </div>
+      </div>
+      <div id="header-info" class="header-info hidden">
+        <h2 id="timeline-title"></h2>
+        <div class="header-meta">
+          <span id="meta-owner"></span>
+          <span id="meta-duration"></span>
+          <span id="meta-dates"></span>
+        </div>
+      </div>
+    </header>
+
+    <section id="summary-cards" class="summary-cards hidden"></section>
+
+    <section id="filters" class="filters hidden">
+      <span class="filters-label">Show:</span>
+      <div id="filter-buttons" class="filter-buttons"></div>
+    </section>
+
+    <section id="timeline-container" class="timeline-container hidden">
+      <div id="timeline-header" class="timeline-header">
+        <div class="lane-label-spacer"></div>
+        <div id="time-axis" class="time-axis"></div>
+      </div>
+      <div id="lanes" class="lanes"></div>
+      <div id="timeline-footer" class="timeline-footer">
+        <div class="lane-label-spacer"></div>
+        <div id="time-axis-bottom" class="time-axis"></div>
+      </div>
+    </section>
+
+    <section id="insights-panel" class="insights-panel hidden">
+      <h3>🔍 Insights</h3>
+      <div id="insights-list" class="insights-list"></div>
+    </section>
+
+    <div id="detail-panel" class="detail-panel hidden">
+      <div class="detail-header">
+        <h3 id="detail-title"></h3>
+        <button id="detail-close" class="detail-close">✕</button>
+      </div>
+      <div id="detail-body" class="detail-body"></div>
+    </div>
+
+    <div id="tooltip" class="tooltip hidden"></div>
+
+    <div id="empty-state" class="empty-state">
+      <div class="empty-icon">📊</div>
+      <h2>Azure SDK Generation Timeline</h2>
+      <p>Load a timeline JSON file or use the sample data to visualize the end-to-end SDK generation process.</p>
+      <button id="load-sample" class="btn-primary">Load Sample Data (DurableTask)</button>
+      <p class="empty-hint">Or drag & drop a JSON file anywhere on this page</p>
+    </div>
+  </div>
+
+  <script src="js/data-loader.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

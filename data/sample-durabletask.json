@@ -1,0 +1,786 @@
+{
+  "title": "Add DurableTask API version 2026-02-01",
+  "owner": "berndverst",
+  "startDate": "2026-02-10T01:17:34Z",
+  "endDate": "2026-03-13T19:40:35Z",
+
+  "specPR": {
+    "repo": "Azure/azure-rest-api-specs",
+    "number": 40272,
+    "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272",
+    "title": "Add DurableTask API version 2026-02-01",
+    "author": "berndverst",
+    "createdAt": "2026-02-10T01:17:34Z",
+    "mergedAt": "2026-02-20T15:19:47Z",
+    "mergedBy": "berndverst",
+    "state": "merged",
+    "labels": ["ARMSignedOff", "ARMReview", "TypeSpec", "new-api-version", "RPaaS"],
+    "reviewers": ["psah434", "kaibocai", "raosuhas"],
+    "events": [
+      {
+        "type": "pr_created",
+        "timestamp": "2026-02-10T01:17:34Z",
+        "actor": "berndverst",
+        "actorRole": "author",
+        "description": "Opened spec PR for DurableTask API v2026-02-01",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-02-10T01:17:59Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "CI bot posted Next Steps to Merge checklist",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#issuecomment-3874774420"
+        }
+      },
+      {
+        "type": "bot_comment",
+        "timestamp": "2026-02-10T01:24:07Z",
+        "actor": "github-actions[bot]",
+        "actorRole": "bot",
+        "description": "API Change Check — ApiView links generated for all languages",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#issuecomment-3874795207"
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-10T01:24:07Z",
+        "endTimestamp": "2026-02-17T22:14:59Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "7-day wait for first human review",
+        "sentiment": "blocking",
+        "details": {
+          "durationHours": 188.8
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-17T22:14:59Z",
+        "actor": "psah434",
+        "actorRole": "reviewer",
+        "description": "Inline comment: questioned suppressions in readme.md",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#discussion_r2819333213",
+          "body": "shouldnt this suppression have been present for another api version"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-17T22:15:42Z",
+        "actor": "psah434",
+        "actorRole": "reviewer",
+        "description": "Inline comment: asked if naming can be changed to avoid flagging",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#discussion_r2819335363",
+          "body": "can the name be changed so it doesnt get flagged"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-17T22:16:15Z",
+        "actor": "copilot-pull-request-reviewer[bot]",
+        "actorRole": "copilot",
+        "description": "Copilot code review — generated 5 comments about PATCH LRO pattern",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#pullrequestreview-3816575809"
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-17T22:18:16Z",
+        "actor": "psah434",
+        "actorRole": "reviewer",
+        "description": "Asked about three-commit convention for new API versions",
+        "sentiment": "blocking",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#issuecomment-3917363062",
+          "body": "New api version needs three commits - first should be a direct copy of a stable version, second should be just the api version change and third should be the actual changes. Could you please add these details on which commits these are?"
+        }
+      },
+      {
+        "type": "idle_gap",
+        "timestamp": "2026-02-17T22:18:16Z",
+        "endTimestamp": "2026-02-19T21:02:49Z",
+        "actor": "system",
+        "actorRole": "bot",
+        "description": "2-day gap before author responded to review comments",
+        "sentiment": "neutral",
+        "details": {
+          "durationHours": 46.7
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-19T21:02:49Z",
+        "actor": "berndverst",
+        "actorRole": "author",
+        "description": "Responded to PATCH LRO review comment — disagreed, noted it would be a breaking change",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#discussion_r2830152745",
+          "body": "Changing this would be a breaking change. We will not do this."
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-19T21:05:36Z",
+        "actor": "berndverst",
+        "actorRole": "author",
+        "description": "Responded to naming comment — explained it's a standard name from other RPs",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#discussion_r2830164193",
+          "body": "It cannot and should not. This is the standard name that must be used."
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-19T21:06:50Z",
+        "actor": "berndverst",
+        "actorRole": "author",
+        "description": "Responded to suppression comment — noted old APIs are grandfathered",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#discussion_r2830169585",
+          "body": "Yes - this is not anything new. Surely this is not a blocking comment..."
+        }
+      },
+      {
+        "type": "issue_comment",
+        "timestamp": "2026-02-19T21:22:36Z",
+        "actor": "berndverst",
+        "actorRole": "author",
+        "description": "Responded to three-commit convention — pushed back, said it should be clear from main.tsp",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#issuecomment-3930147720",
+          "body": "I have never needed to supply this and nobody has asked for a specific number of commits."
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-19T23:23:55Z",
+        "actor": "raosuhas",
+        "actorRole": "reviewer",
+        "description": "Questioned Copilot's PATCH LRO advice, asked for source",
+        "sentiment": "neutral",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#discussion_r2830627370",
+          "body": "@copilot can you share where the REST api guidelines advice implementing PATCH as an LRO? This is incorrect advise"
+        }
+      },
+      {
+        "type": "review_comment",
+        "timestamp": "2026-02-19T23:34:02Z",
+        "actor": "raosuhas",
+        "actorRole": "reviewer",
+        "description": "Told author to ignore Copilot review comments",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#discussion_r2830652904",
+          "body": "please ignore these comments from copilot for now"
+        }
+      },
+      {
+        "type": "commit_pushed",
+        "timestamp": "2026-02-20T05:44:57Z",
+        "actor": "berndverst",
+        "actorRole": "author",
+        "description": "Pushed final commit addressing review feedback",
+        "sentiment": "neutral",
+        "details": {
+          "commitSha": "50ccb8b49705c1c7edb762dab1e4b408f6639d07"
+        }
+      },
+      {
+        "type": "review_approved",
+        "timestamp": "2026-02-20T15:19:45Z",
+        "actor": "kaibocai",
+        "actorRole": "reviewer",
+        "description": "Approved by kaibocai",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272#pullrequestreview-3832630705",
+          "reviewState": "APPROVED"
+        }
+      },
+      {
+        "type": "pr_merged",
+        "timestamp": "2026-02-20T15:19:47Z",
+        "actor": "berndverst",
+        "actorRole": "author",
+        "description": "Spec PR merged by berndverst",
+        "sentiment": "positive",
+        "details": {
+          "url": "https://github.com/Azure/azure-rest-api-specs/pull/40272"
+        }
+      }
+    ]
+  },
+
+  "sdkPRs": [
+    {
+      "repo": "Azure/azure-sdk-for-java",
+      "language": "Java",
+      "number": 48340,
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/48340",
+      "title": "[AutoPR azure-resourcemanager-durabletask] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-09T20:05:41Z",
+      "mergedAt": "2026-03-10T02:06:45Z",
+      "mergedBy": "weidongxu-microsoft",
+      "state": "merged",
+      "labels": ["Mgmt"],
+      "reviewers": ["ArthurMa1978", "haolingdong-msft", "XiaofeiCao", "weidongxu-microsoft"],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-09T20:05:41Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Java SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48340"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-09T21:15:41Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "berndverst approved — 'Approved from DurableTask team'",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48340#pullrequestreview-3918258966",
+            "reviewState": "APPROVED",
+            "body": "Approved from DurableTask team"
+          }
+        },
+        {
+          "type": "author_nag",
+          "timestamp": "2026-03-09T21:16:52Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "Asked @ArthurMa1978 to approve and merge",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48340#issuecomment-4026967583",
+            "body": "@ArthurMa1978 could you approve and merge this for me? It can be merged / release immediately. Thanks.",
+            "targetUser": "ArthurMa1978"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-10T02:06:38Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "weidongxu-microsoft approved",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48340#pullrequestreview-3919247630",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-10T02:06:45Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "reviewer",
+          "description": "Java SDK PR merged by weidongxu-microsoft",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-java/pull/48340"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-go",
+      "language": "Go",
+      "number": 26182,
+      "url": "https://github.com/Azure/azure-sdk-for-go/pull/26182",
+      "title": "[AutoPR armdurabletask] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-09T20:02:29Z",
+      "mergedAt": "2026-03-12T16:50:38Z",
+      "mergedBy": "berndverst",
+      "state": "merged",
+      "labels": ["Mgmt"],
+      "reviewers": ["lirenhe", "JiaqiZhang-Dev", "tadelesh"],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-09T20:02:29Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Go SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26182"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-09T21:13:11Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "berndverst approved — 'Approved from DurableTask team'",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26182#pullrequestreview-3918248665",
+            "reviewState": "APPROVED",
+            "body": "Approved from DurableTask team"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-10T08:55:56Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "tadelesh approved (Go language owner)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26182#pullrequestreview-3920793073",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-10T08:55:56Z",
+          "endTimestamp": "2026-03-12T16:50:38Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2-day wait after approval before merge",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 55.9
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-12T16:50:38Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "Go SDK PR merged by berndverst",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-go/pull/26182"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-python",
+      "language": "Python",
+      "number": 45588,
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/45588",
+      "title": "[AutoPR azure-mgmt-durabletask] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-09T20:04:02Z",
+      "mergedAt": "2026-03-13T19:40:35Z",
+      "mergedBy": "berndverst",
+      "state": "merged",
+      "labels": [],
+      "reviewers": ["ChenxiJiang333", "msyyc"],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-09T20:04:02Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "Python SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45588"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-09T21:10:13Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "berndverst approved — 'Approved from DurableTask team'",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45588#pullrequestreview-3918236552",
+            "reviewState": "APPROVED",
+            "body": "Approved from DurableTask team"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-10T02:38:26Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "ChenxiJiang333 approved (Python SDK team)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45588#pullrequestreview-3919345700",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-10T02:38:48Z",
+          "actor": "ChenxiJiang333",
+          "actorRole": "reviewer",
+          "description": "Asked msyyc to help review",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45588#issuecomment-4028207418",
+            "body": "@msyyc pr ready, please help review",
+            "targetUser": "msyyc"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-10T02:38:48Z",
+          "endTimestamp": "2026-03-13T08:33:17Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "3-day wait for final approval from msyyc",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 77.9
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-13T08:33:17Z",
+          "actor": "msyyc",
+          "actorRole": "reviewer",
+          "description": "msyyc approved (Python SDK senior reviewer)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45588#pullrequestreview-3942449677",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-13T19:40:35Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "Python SDK PR merged by berndverst",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-python/pull/45588"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-net",
+      "language": ".NET",
+      "number": 56886,
+      "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886",
+      "title": "[AutoPR Azure.ResourceManager.DurableTask] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-09T20:02:56Z",
+      "mergedAt": "2026-03-12T05:53:57Z",
+      "mergedBy": "ArthurMa1978",
+      "state": "merged",
+      "labels": ["Mgmt", "Durable Task Scheduler"],
+      "reviewers": ["cgillum", "philliphoff", "torosent", "kaibocai", "ArthurMa1978"],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-09T20:02:56Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": ".NET SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-09T21:19:27Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "berndverst approved — 'Approved from DurableTask team'",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886#pullrequestreview-3918280245",
+            "reviewState": "APPROVED",
+            "body": "Approved from DurableTask team"
+          }
+        },
+        {
+          "type": "manual_fix",
+          "timestamp": "2026-03-09T22:16:01Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "Author had to manually fix auto-generated PR — edited CHANGELOG and ran ExportAPI script",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886#issuecomment-4027257771",
+            "body": "This auto generated PR is not passing without manual intervention. I manually edited the CHANGELOG (usually this is autogenerated in other SDKs). I also manually ran the ExportAPI script."
+          }
+        },
+        {
+          "type": "author_nag",
+          "timestamp": "2026-03-10T17:48:08Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "Asked @ArthurMa1978 to check if OK to merge",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886#issuecomment-4033323166",
+            "body": "@ArthurMa1978 could you check whether this is OK to merge from your perspective?\n\nThanks!",
+            "targetUser": "ArthurMa1978"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-11T07:56:07Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "ArthurMa1978 reviewed — noted API naming issues, suggested @@clientName decorators",
+          "sentiment": "blocking",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886#pullrequestreview-3927605600",
+            "reviewState": "COMMENTED",
+            "body": "Several new public types are missing the DurableTask service prefix required for contextual disambiguation."
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-12T03:44:47Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "Posted detailed PR review analysis (versioning, API surface, breaking changes — all PASS)",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886#issuecomment-4043716787",
+            "body": "PR Review: Azure.ResourceManager.DurableTask v1.1.0 — All three review phases pass."
+          }
+        },
+        {
+          "type": "author_nag",
+          "timestamp": "2026-03-12T03:46:19Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "Asked @ArthurMa1978 to approve and merge now",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886#issuecomment-4043721568",
+            "body": "@ArthurMa1978 can you approve and merge now :) - I can trigger the release pipeline myself, or you can do it for me.",
+            "targetUser": "ArthurMa1978"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-12T05:53:15Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": "ArthurMa1978 approved",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886#pullrequestreview-3934134450",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-12T05:53:57Z",
+          "actor": "ArthurMa1978",
+          "actorRole": "reviewer",
+          "description": ".NET SDK PR merged by ArthurMa1978",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-net/pull/56886"
+          }
+        }
+      ]
+    },
+    {
+      "repo": "Azure/azure-sdk-for-js",
+      "language": "JavaScript",
+      "number": 37544,
+      "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544",
+      "title": "[AutoPR @azure-arm-durabletask] SDK Generation",
+      "author": "azure-sdk",
+      "createdAt": "2026-03-09T20:03:16Z",
+      "mergedAt": "2026-03-13T02:59:23Z",
+      "mergedBy": "berndverst",
+      "state": "merged",
+      "labels": ["Mgmt", "Self-Service Release"],
+      "reviewers": ["MaryGao", "qiaozha", "JialinHuang803", "kazrael2119"],
+      "events": [
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-09T20:03:16Z",
+          "actor": "azure-sdk",
+          "actorRole": "bot",
+          "description": "JavaScript SDK PR auto-generated by pipeline",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-09T21:18:01Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "berndverst approved — 'Approved from DurableTask team'",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544#pullrequestreview-3918271970",
+            "reviewState": "APPROVED",
+            "body": "Approved from DurableTask team"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-10T08:41:33Z",
+          "actor": "kazrael2119",
+          "actorRole": "reviewer",
+          "description": "kazrael2119 commented LGTM, cc'd JialinHuang803",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544#issuecomment-4029638804",
+            "body": "LGTM\ncc @JialinHuang803",
+            "targetUser": "JialinHuang803"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-10T08:41:33Z",
+          "endTimestamp": "2026-03-12T16:50:20Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "2.3-day wait for JialinHuang803 to act after being cc'd",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 56.1
+          }
+        },
+        {
+          "type": "author_nag",
+          "timestamp": "2026-03-12T16:50:20Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "Asked @JialinHuang803 to merge",
+          "sentiment": "negative",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544#issuecomment-4048327303",
+            "body": "@JialinHuang803 can you merge :)",
+            "targetUser": "JialinHuang803"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-13T02:59:21Z",
+          "actor": "JialinHuang803",
+          "actorRole": "reviewer",
+          "description": "JialinHuang803 approved",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544#pullrequestreview-3941298669",
+            "reviewState": "APPROVED"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-13T02:59:23Z",
+          "actor": "berndverst",
+          "actorRole": "author",
+          "description": "JavaScript SDK PR merged by berndverst",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-sdk-for-js/pull/37544"
+          }
+        }
+      ]
+    }
+  ],
+
+  "insights": [
+    {
+      "type": "bottleneck",
+      "severity": "critical",
+      "description": "17-day gap between spec PR merge (Feb 20) and SDK PR creation (Mar 9) — pipeline/scheduling latency",
+      "startDate": "2026-02-20T15:19:47Z",
+      "endDate": "2026-03-09T20:02:29Z",
+      "durationDays": 17.2
+    },
+    {
+      "type": "idle",
+      "severity": "critical",
+      "description": "7-day wait for first human review on spec PR — no reviewer activity from Feb 10 to Feb 17",
+      "startDate": "2026-02-10T01:24:07Z",
+      "endDate": "2026-02-17T22:14:59Z",
+      "durationDays": 7.9,
+      "prRef": "Azure/azure-rest-api-specs#40272"
+    },
+    {
+      "type": "nag",
+      "severity": "warning",
+      "description": "Author nagged @ArthurMa1978 twice on .NET PR (Mar 10, Mar 12) before getting approval",
+      "startDate": "2026-03-10T17:48:08Z",
+      "endDate": "2026-03-12T05:53:15Z",
+      "durationDays": 1.5,
+      "prRef": "Azure/azure-sdk-for-net#56886"
+    },
+    {
+      "type": "nag",
+      "severity": "warning",
+      "description": "Author nagged @ArthurMa1978 on Java PR to approve/merge",
+      "startDate": "2026-03-09T21:16:52Z",
+      "prRef": "Azure/azure-sdk-for-java#48340"
+    },
+    {
+      "type": "nag",
+      "severity": "warning",
+      "description": "Author nagged @JialinHuang803 on JS PR to merge after 2-day wait",
+      "startDate": "2026-03-12T16:50:20Z",
+      "prRef": "Azure/azure-sdk-for-js#37544"
+    },
+    {
+      "type": "manual_fix",
+      "severity": "warning",
+      "description": ".NET auto-generated PR required manual fixes — author edited CHANGELOG and ran ExportAPI script",
+      "startDate": "2026-03-09T22:16:01Z",
+      "prRef": "Azure/azure-sdk-for-net#56886"
+    },
+    {
+      "type": "positive",
+      "severity": "info",
+      "description": "Java SDK PR was the fastest — merged in ~6 hours after creation",
+      "prRef": "Azure/azure-sdk-for-java#48340"
+    },
+    {
+      "type": "summary",
+      "severity": "info",
+      "description": "Author (berndverst) approved all 5 SDK PRs within ~1.3 hours of creation, then waited 0.25–4 days for language-specific reviewers"
+    }
+  ],
+
+  "summary": {
+    "totalDurationDays": 31.8,
+    "specPRDays": 10.6,
+    "pipelineGapDays": 17.2,
+    "sdkPRMaxDays": 3.98,
+    "fastestSDKPR": { "language": "Java", "days": 0.25 },
+    "slowestSDKPR": { "language": "Python", "days": 3.98 },
+    "totalUniqueReviewers": 14,
+    "totalNags": 4,
+    "totalManualFixes": 1
+  }
+}

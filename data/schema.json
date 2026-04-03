@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Azure SDK Generation Timeline",
+  "description": "Data model for visualizing the end-to-end Azure SDK generation process from a spec PR through downstream SDK PRs.",
+  "type": "object",
+  "required": ["title", "owner", "startDate", "endDate", "specPR", "sdkPRs"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Human-readable title for this timeline (e.g. the spec PR title)"
+    },
+    "owner": {
+      "type": "string",
+      "description": "GitHub username of the primary user driving the process"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Earliest event timestamp (usually spec PR creation)"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Latest event timestamp (usually last SDK PR merge)"
+    },
+    "specPR": { "$ref": "#/definitions/pullRequest" },
+    "sdkPRs": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/pullRequest" }
+    },
+    "insights": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/insight" }
+    },
+    "summary": { "$ref": "#/definitions/summary" }
+  },
+  "definitions": {
+    "pullRequest": {
+      "type": "object",
+      "required": ["repo", "number", "url", "title", "author", "createdAt", "events"],
+      "properties": {
+        "repo": { "type": "string", "description": "Full repo name e.g. Azure/azure-rest-api-specs" },
+        "language": { "type": "string", "description": "SDK language (Java, Go, Python, .NET, JS). Absent for spec PR." },
+        "number": { "type": "integer" },
+        "url": { "type": "string", "format": "uri" },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "mergedAt": { "type": ["string", "null"], "format": "date-time" },
+        "closedAt": { "type": ["string", "null"], "format": "date-time" },
+        "mergedBy": { "type": ["string", "null"] },
+        "state": { "type": "string", "enum": ["open", "closed", "merged"] },
+        "labels": { "type": "array", "items": { "type": "string" } },
+        "reviewers": { "type": "array", "items": { "type": "string" } },
+        "events": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/timelineEvent" }
+        }
+      }
+    },
+    "timelineEvent": {
+      "type": "object",
+      "required": ["type", "timestamp", "actor", "description"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "pr_created",
+            "pr_merged",
+            "pr_closed",
+            "commit_pushed",
+            "review_approved",
+            "review_changes_requested",
+            "review_comment",
+            "issue_comment",
+            "bot_comment",
+            "author_nag",
+            "reviewer_responds",
+            "label_added",
+            "manual_fix",
+            "idle_gap",
+            "ci_status"
+          ]
+        },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "endTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "End time for duration events like idle_gap"
+        },
+        "actor": { "type": "string", "description": "GitHub username or bot name" },
+        "actorRole": {
+          "type": "string",
+          "enum": ["author", "reviewer", "bot", "copilot"]
+        },
+        "description": { "type": "string", "description": "Short human-readable description" },
+        "sentiment": {
+          "type": "string",
+          "enum": ["neutral", "positive", "negative", "blocking"]
+        },
+        "details": {
+          "type": "object",
+          "description": "Type-specific payload",
+          "properties": {
+            "body": { "type": "string", "description": "Full comment/review body text" },
+            "url": { "type": "string", "format": "uri", "description": "Link to this event on GitHub" },
+            "targetUser": { "type": "string", "description": "User being @mentioned or addressed" },
+            "label": { "type": "string", "description": "Label name for label_added events" },
+            "durationHours": { "type": "number", "description": "Duration in hours for idle_gap events" },
+            "commitSha": { "type": "string", "description": "Commit SHA for commit_pushed events" },
+            "reviewState": { "type": "string", "description": "Review state (APPROVED, CHANGES_REQUESTED, COMMENTED)" }
+          }
+        }
+      }
+    },
+    "insight": {
+      "type": "object",
+      "required": ["type", "description"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["bottleneck", "nag", "manual_fix", "idle", "positive", "summary"]
+        },
+        "description": { "type": "string" },
+        "severity": {
+          "type": "string",
+          "enum": ["info", "warning", "critical"]
+        },
+        "startDate": { "type": "string", "format": "date-time" },
+        "endDate": { "type": "string", "format": "date-time" },
+        "durationDays": { "type": "number" },
+        "prRef": { "type": "string", "description": "Reference to a PR e.g. Azure/azure-sdk-for-net#56886" }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "totalDurationDays": { "type": "number" },
+        "specPRDays": { "type": "number" },
+        "pipelineGapDays": { "type": "number" },
+        "sdkPRMaxDays": { "type": "number" },
+        "fastestSDKPR": {
+          "type": "object",
+          "properties": {
+            "language": { "type": "string" },
+            "days": { "type": "number" }
+          }
+        },
+        "slowestSDKPR": {
+          "type": "object",
+          "properties": {
+            "language": { "type": "string" },
+            "days": { "type": "number" }
+          }
+        },
+        "totalUniqueReviewers": { "type": "integer" },
+        "totalNags": { "type": "integer" },
+        "totalManualFixes": { "type": "integer" }
+      }
+    }
+  }
+}

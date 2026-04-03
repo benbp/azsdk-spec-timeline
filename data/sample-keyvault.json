@@ -813,6 +813,7 @@
     },
     "totalUniqueReviewers": 10,
     "totalNags": 3,
-    "totalManualFixes": 3
+    "totalManualFixes": 3,
+    "totalDurationDays": 30.2
   }
 }

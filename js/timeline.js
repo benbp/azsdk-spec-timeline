@@ -47,7 +47,7 @@ const Timeline = (() => {
       { label: 'Pipeline Gap', value: `${s.pipelineGapDays || '—'}d`, sub: 'Merge → SDK PRs', cls: s.pipelineGapDays > 7 ? 'critical' : 'warning' },
       { label: 'Slowest SDK', value: `${s.slowestSDKPR?.days || '—'}d`, sub: s.slowestSDKPR?.language || '', cls: 'warning' },
       { label: 'Fastest SDK', value: `${s.fastestSDKPR?.days || '—'}d`, sub: s.fastestSDKPR?.language || '', cls: 'positive' },
-      { label: 'Total', value: `${s.totalDurationDays || '—'}d`, sub: 'End to end', cls: 'info' },
+      { label: 'Total', value: `${s.totalDurationDays || DataLoader.computeDurationDays(data.startDate, data.endDate) || '—'}d`, sub: 'End to end', cls: 'info' },
       { label: 'Nags', value: `${s.totalNags || 0}`, sub: 'Author nudges', cls: s.totalNags > 0 ? 'warning' : 'positive' },
       { label: 'Manual Fixes', value: `${s.totalManualFixes || 0}`, sub: 'On auto PRs', cls: s.totalManualFixes > 0 ? 'warning' : 'positive' },
       { label: 'Reviewers', value: `${s.totalUniqueReviewers || '—'}`, sub: 'Unique people', cls: 'info' }

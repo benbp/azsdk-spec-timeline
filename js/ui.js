@@ -26,6 +26,16 @@ const UI = (() => {
       file: 'data/sample-appnetwork.json',
       name: 'AppNetwork (AppLink)',
       meta: 'deveshdama · 27d · new RP onboarding'
+    },
+    {
+      file: 'data/sample-keyvault.json',
+      name: 'Key Vault',
+      meta: 'melissamserv · 30d · 22d pipeline gap · 3 nags'
+    },
+    {
+      file: 'data/sample-nginx.json',
+      name: 'Nginx.NginxPlus',
+      meta: 'briantkim93 · 52d · 31d pipeline gap · 3 nags'
     }
   ];
 

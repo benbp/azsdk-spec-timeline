@@ -118,8 +118,8 @@ const UI = (() => {
       hasTooling: false
     },
     {
-      file: 'data/sample-monitor.json',
-      name: 'Azure Monitor',
+      file: 'data/sample-cloudhealth.json',
+      name: 'CloudHealth',
       meta: 'Mar 4 – Apr 14 · sebader · 41d · 4 open PRs · no JS',
       hasTooling: false,
       inFlight: true
@@ -141,6 +141,26 @@ const UI = (() => {
       file: 'data/service-containerregistry.json',
       name: 'ContainerRegistry',
       meta: '30 spec PRs · 20 SDK PRs · 5 languages · 3 release windows · 1yr lookback'
+    },
+    {
+      file: 'data/service-cloudhealth.json',
+      name: 'CloudHealth',
+      meta: '7 spec PRs · 7 SDK PRs · 5 languages · 2 release windows · 1yr lookback'
+    },
+    {
+      file: 'data/service-kubernetes.json',
+      name: 'Kubernetes',
+      meta: '6 spec PRs · 13 SDK PRs · 5 languages · 2 release windows · 1yr lookback'
+    },
+    {
+      file: 'data/service-confluent.json',
+      name: 'Liftr-Confluent',
+      meta: '8 spec PRs · 6 SDK PRs · 5 languages · 3 release windows · 1yr lookback'
+    },
+    {
+      file: 'data/service-keyvault.json',
+      name: 'Key Vault',
+      meta: '8 spec PRs · 7 SDK PRs · 5 languages · 1 release window · 1yr lookback'
     }
   ];
 

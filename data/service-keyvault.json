@@ -1,0 +1,3600 @@
+{
+  "type": "service-timeline",
+  "service": "Key Vault",
+  "specPath": "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault",
+  "namespace": "Microsoft.KeyVault",
+  "generatedAt": "2026-04-21T21:28:20.525Z",
+  "lookback": {
+    "requestedDays": 365,
+    "startDate": "2025-04-21T21:21:42.339Z",
+    "endDate": "2026-04-21T21:21:42.339Z"
+  },
+  "startDate": "2025-11-07T06:45:27Z",
+  "endDate": "2026-04-09T07:18:46.9733333Z",
+  "packages": {
+    ".NET": {
+      "name": "Azure.ResourceManager.KeyVault",
+      "serviceDir": "sdk/keyvault",
+      "packageDir": "sdk/keyvault/Azure.ResourceManager.KeyVault",
+      "repo": "Azure/azure-sdk-for-net",
+      "emitter": "@azure-typespec/http-client-csharp-mgmt"
+    },
+    "Python": {
+      "name": "azure-mgmt-keyvault",
+      "serviceDir": "sdk/keyvault",
+      "packageDir": "sdk/keyvault/azure-mgmt-keyvault",
+      "repo": "Azure/azure-sdk-for-python",
+      "emitter": "@azure-tools/typespec-python"
+    },
+    "Java": {
+      "name": "com.azure.resourcemanager:azure-resourcemanager-keyvault",
+      "serviceDir": "sdk/keyvault",
+      "packageDir": "sdk/keyvault/azure-resourcemanager-keyvault",
+      "repo": "Azure/azure-sdk-for-java",
+      "emitter": "@azure-tools/typespec-java"
+    },
+    "JavaScript": {
+      "name": "@azure/arm-keyvault",
+      "serviceDir": "sdk/keyvault",
+      "packageDir": "sdk/keyvault/arm-keyvault",
+      "repo": "Azure/azure-sdk-for-js",
+      "emitter": "@azure-tools/typespec-ts"
+    },
+    "Go": {
+      "name": "sdk/resourcemanager/keyvault/armkeyvault/v2",
+      "serviceDir": "sdk/resourcemanager/keyvault",
+      "packageDir": "sdk/resourcemanager/keyvault/armkeyvault",
+      "repo": "Azure/azure-sdk-for-go",
+      "emitter": "@azure-tools/typespec-go"
+    }
+  },
+  "specPRs": [
+    {
+      "repo": "Azure/azure-rest-api-specs",
+      "language": null,
+      "number": 38668,
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/38668",
+      "title": "Refactor(keyvault): migrate to unified folder structure",
+      "author": "v-xuto",
+      "createdAt": "2025-11-07T07:06:58Z",
+      "mergedAt": "2026-03-10T11:28:29Z",
+      "closedAt": "2026-03-10T11:28:29Z",
+      "mergedBy": "qiaozha",
+      "state": "merged",
+      "isDraft": false,
+      "readyForReviewAt": "2025-11-13T11:33:14Z",
+      "generationFlow": "manual",
+      "labels": [
+        "KeyVault",
+        "Approved-Avocado",
+        "Approved-LintDiff",
+        "Approved-ModelValidation",
+        "ARMReview",
+        "resource-manager",
+        "data-plane",
+        "BreakingChangeReviewRequired",
+        "Approved-Suppression",
+        "SuppressionReviewRequired",
+        "new-api-version",
+        "new-rp-namespace",
+        "CI-NewRPNamespaceWithoutRPaaS",
+        "TypeSpec",
+        "BreakingChange-Approved-Benign",
+        "NotReadyForARMReview",
+        "PublishToCustomers",
+        "FolderMigrationV2"
+      ],
+      "reviewers": [
+        "heaths",
+        "chen-karen",
+        "qiaozha"
+      ],
+      "_changedFiles": [
+        "specification/keyvault/Security.KeyVault.Administration/administration.tsp",
+        "specification/keyvault/Security.KeyVault.BackupRestore/tspconfig.yaml",
+        "specification/keyvault/Security.KeyVault.RBAC/tspconfig.yaml",
+        "specification/keyvault/Security.KeyVault.Settings/tspconfig.yaml",
+        "specification/keyvault/cspell.yaml",
+        "specification/keyvault/data-plane/Administration/BackupRestore/client.tsp",
+        "specification/keyvault/data-plane/Administration/BackupRestore/main.tsp",
+        "specification/keyvault/data-plane/Administration/BackupRestore/models.tsp",
+        "specification/keyvault/data-plane/Administration/BackupRestore/routes.tsp",
+        "specification/keyvault/data-plane/Administration/BackupRestore/tspconfig.yaml",
+        "specification/keyvault/data-plane/Administration/RBAC/client.tsp",
+        "specification/keyvault/data-plane/Administration/RBAC/main.tsp",
+        "specification/keyvault/data-plane/Administration/RBAC/models.tsp",
+        "specification/keyvault/data-plane/Administration/RBAC/routes.tsp",
+        "specification/keyvault/data-plane/Administration/RBAC/tspconfig.yaml",
+        "specification/keyvault/data-plane/Administration/README.md",
+        "specification/keyvault/data-plane/Administration/Settings/client.tsp",
+        "specification/keyvault/data-plane/Administration/Settings/main.tsp",
+        "specification/keyvault/data-plane/Administration/Settings/models.tsp",
+        "specification/keyvault/data-plane/Administration/Settings/routes.tsp",
+        "specification/keyvault/data-plane/Administration/Settings/tspconfig.yaml",
+        "specification/keyvault/data-plane/Administration/administration.tsp",
+        "specification/keyvault/data-plane/Administration/client.tsp",
+        "specification/keyvault/data-plane/Administration/common/common.tsp",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/DeleteRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/DeleteRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/FullBackup-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/FullBackup-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/FullRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/GetRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/GetRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/GetSetting-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/ListRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/ListRoleDefinitions-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/ListSettings-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/PreFullBackup-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/PreFullRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/PutRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/PutRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/Restore-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/SelectiveRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/SelectiveRestore-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-06-01-preview/UpdateSetting-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/DeleteRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/DeleteRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/FullBackup-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/FullBackup-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/FullRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/GetRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/GetRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/GetSetting-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/ListRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/ListRoleDefinitions-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/ListSettings-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/PreFullBackup-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/PreFullRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/PutRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/PutRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/Restore-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/SelectiveRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/SelectiveRestore-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/2025-07-01/UpdateSetting-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/DeleteRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/DeleteRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/FullBackup-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/FullBackup-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/FullRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/GetRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/GetRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/GetSetting-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/ListRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/ListRoleDefinitions-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/ListSettings-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/PutRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/PutRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/Restore-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/SelectiveRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/SelectiveRestore-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.5/UpdateSetting-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/DeleteRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/DeleteRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/FullBackup-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/FullBackup-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/FullRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/GetRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/GetRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/GetSetting-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/ListRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/ListRoleDefinitions-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/ListSettings-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/PreFullBackup-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/PreFullRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/PutRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/PutRoleDefinition-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/Restore-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/SelectiveRestore-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/SelectiveRestore-pending-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6-preview.2/UpdateSetting-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6/DeleteRoleAssignments-example.json",
+        "specification/keyvault/data-plane/Administration/examples/7.6/DeleteRoleDefinition-example.json"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-07T06:45:27Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Refactor keyvault folder structure to comply with Azure Guid",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/d6c452993f6d83caf93fadf1d84cc886982d60ec"
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2025-11-07T07:06:58Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "PR #38668 opened: Refactor(keyvault): migrate to unified folder structure",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/38668"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2025-11-07T07:07:15Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ Your PR r",
+          "sentiment": "neutral",
+          "details": {
+            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ Your PR requires an API stewardship board review as it introduces a new API version (label: <code>new-api-version</code>). Schedule the review by following <a href=\"https://aka.ms/azsdk/onboarding/restapischedule\">aka.ms/azsdk/onboarding/restapischedule</a>.</li><li>❌ This PR is <code>NotReadyForARMReview</code> because it has the <code>CI-NewRPNamespaceWithoutRPaaS</code> label.<br/></li><li>❌ This PR has",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/38668#issuecomment-3501040121"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-07T07:11:59Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Merge remote-tracking branch 'origin/main' into keyvault-fol",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/bf60a65f0dc150e0b6034851e36c012f31e293d4"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-07T07:25:51Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Fix ci error",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/ce0f31fa5e3f6969eaede4d7e65c631fc674ce68"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-07T11:08:50Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Remove examples files for BackupRestore, Certificates and Ky",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/a5197bd6cd741494d88a0cae75fc732a6cbaf3d9"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2025-11-07T11:08:50Z",
+          "endTimestamp": "2025-11-10T05:35:07Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 66h (2.8d)",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 66.4
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-10T05:35:07Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Remove examples files for RBAC, Secrets, SecretsStorage, Sec",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/a4a54631513a1ce78187e9e51e21927b097eba7c"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2025-11-10T05:43:19Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "## API Change Check",
+          "sentiment": "neutral",
+          "details": {
+            "body": "## API Change Check\r\n\r\nAPIView identified API level changes in this PR and created the following API reviews\r\n\r\n| Language | API Review for Package |\r\n|----------|---------|\r\n| TypeSpec | [KeyVault](https://spa.apiview.dev/review/0529655b61bc404ebd37d2d5192ba45a?activeApiRevisionId=cc7b07ac4569440cac34e9b23ffbb1b6) |\r\n| TypeSpec | [Microsoft.KeyVault](https://spa.apiview.dev/review/27235770f6aa48c5b7aefde28b7993a8?activeApiRevisionId=c5938c2b197f403886a2597e36a1f696) |\r\n| Swagger | [Administrati",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/38668#issuecomment-3509513230"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-10T06:41:53Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Add ReleasePolicy-example for keyvault dataplane keys",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/f9478fcd5f438ece58dd2fdde2d2e270313c5b84"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-10T06:42:13Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Merge remote-tracking branch 'origin/main' into keyvault-fol",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/8c40d20df009078b08ff1a5544394022b6fee8b4"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2025-11-10T06:42:13Z",
+          "endTimestamp": "2025-11-12T09:03:05Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 50h (2.1d)",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 50.3
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-12T09:03:05Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Add main.tsp for Administration",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/c6f19dfddbb86853470a7221c6e5d37391a2dd67"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-13T06:37:18Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Fix ci error",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/4675420ff1f5ca2c0c39ca44c927b2a8fc4ec052"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-13T10:19:38Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Fix Typespec Validation ci error",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/ab3cae9371d405edb1649a0a0b4f9d28e6a0b5a9"
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2025-11-13T11:33:14Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/38668"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-14T02:02:58Z",
+          "actor": "qiaozha",
+          "actorRole": "reviewer",
+          "description": "remove duplicate import",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/acbede078663e64992c8c9aaf68fc7e551859e65"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-14T07:30:03Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Merge remote-tracking branch 'origin/main' into keyvault-fol",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/d389dc9983c27c4a2ed72c804604d898e061c894"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2025-11-14T07:30:03Z",
+          "endTimestamp": "2025-11-17T07:05:42Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 72h (3.0d)",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 71.6
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-17T07:05:42Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "Go customization",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/17126965fbb59eb015f57fe4e94b0b094c62f9ad"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-17T07:19:08Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Resolve conflicts",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/0e6c604924fff6c8f349fdf615f28539c9c188b2"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-17T08:12:56Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "rename",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/d8ecda57628cadc2792b2f7cbb7453eee886eeb4"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2025-11-17T08:12:56Z",
+          "endTimestamp": "2025-11-25T06:23:12Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 190h (7.9d)",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 190.2
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-11-25T06:23:12Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Merge remote-tracking branch 'origin/main' into keyvault-fol",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/4b22bb4b9e60c996e52bf05f2bdacae6ee48ecbb"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2025-11-25T06:23:12Z",
+          "endTimestamp": "2025-12-04T03:00:01Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 213h (8.9d)",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 212.6
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-12-04T03:00:01Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "adjust for go",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/a028a91cda208146632be8e466d74ba30d722fde"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-12-04T03:27:47Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "fix import issue",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/9907e54744fa60adf85d7bca6ef279341bfe27f9"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-12-04T03:40:34Z",
+          "actor": "tadelesh",
+          "actorRole": "reviewer",
+          "description": "fix",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/63a1781123f1531bd7e3ad79c17589a0b020840c"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2025-12-04T03:40:34Z",
+          "endTimestamp": "2025-12-08T03:14:24Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 96h (4.0d)",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 95.6
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2025-12-08T03:14:24Z",
+          "actor": "qiaozha",
+          "actorRole": "reviewer",
+          "description": "Merge branch 'main' into keyvault-folder-structure-refactor",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/c58ad5b1bc3cfbc5c3bc7e2eb98639d9d636b684"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2025-12-08T03:14:24Z",
+          "endTimestamp": "2026-01-08T06:41:27Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 747h (31.1d)",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 747.5
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-01-08T06:41:27Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Resolve conflicts",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/75453c91382e07d89a270d64190efa19523bff72"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-01-08T06:41:27Z",
+          "endTimestamp": "2026-02-10T06:39:17Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 792h (33.0d)",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 792
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-10T06:39:17Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Resolve conflicts",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/85b1bc04e34eec2856e4c634b388610b6a069358"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-10T06:39:17Z",
+          "endTimestamp": "2026-02-27T07:33:59Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 409h (17.0d)",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 408.9
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-02-27T07:33:59Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Resolve conflicts",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/656fe98a281ce49da3f48d227682e250e494eba1"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-02-27T07:33:59Z",
+          "endTimestamp": "2026-03-02T05:18:42Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 70h (2.9d)",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 69.7
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-02T05:18:42Z",
+          "actor": "qiaozha",
+          "actorRole": "reviewer",
+          "description": "Merge branch 'main' into keyvault-folder-structure-refactor",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/18ebc9be094a20c7d4d19e00805184b8725d9eee"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-02T17:32:45Z",
+          "actor": "raych1",
+          "actorRole": "reviewer",
+          "description": "Merge branch 'main' into keyvault-folder-structure-refactor",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/fa4a8d1f96d99010a535ad0011bcb0a48b739067"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-02T21:12:28Z",
+          "actor": "raych1",
+          "actorRole": "reviewer",
+          "description": "Merge branch 'main' into keyvault-folder-structure-refactor",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/fbd990a582bca8d4169ac3623c218b6ed0f9fcff"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-02T21:12:28Z",
+          "endTimestamp": "2026-03-05T02:26:12Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 53h (2.2d)",
+          "sentiment": "neutral",
+          "details": {
+            "durationHours": 53.2
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-05T02:26:12Z",
+          "actor": "Kyle Zhang",
+          "actorRole": "reviewer",
+          "description": "add suppressions for TypeSpecValidation to support new KeyVa",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/49ae75b9b41f3255da064990ac89d2df8f616a92"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-05T03:27:58Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Merge remote-tracking branch 'origin/main' into keyvault-fol",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/216d7c21be91b332bc493332e7b430d6ac9ba1d5"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-05T07:01:04Z",
+          "actor": "Kyle Zhang",
+          "actorRole": "reviewer",
+          "description": "Add emit directive for TypeSpecAutorest in KeyVault tspconfi",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/fc8f8b87314dc63cdf53743f1ef26e0937ec49d7"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-05T07:01:04Z",
+          "endTimestamp": "2026-03-09T06:40:46Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 96h (4.0d)",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 95.7
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-09T06:40:46Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Merge remote-tracking branch 'origin/main' into keyvault-fol",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/84195ffd7c9c95dc4fc9a55cbb87a3b8034f8478"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-09T10:01:30Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Fix INCONSISTENT_API_VERSION and UNREFERENCED_JSON_FILE erro",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/5aef3351961f32788ad783b25cc771fc3c52ae11"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-09T10:48:50Z",
+          "actor": "qiaozha",
+          "actorRole": "reviewer",
+          "description": "@mikeharder could you help take a look at the SpellCheck failure, it seems like a tooling failure ht",
+          "sentiment": "neutral",
+          "details": {
+            "body": "@mikeharder could you help take a look at the SpellCheck failure, it seems like a tooling failure https://github.com/Azure/azure-rest-api-specs/actions/runs/22849491508/job/66274187062?pr=38668 ? ",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/38668#issuecomment-4022854625"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-09T11:03:47Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Update suppressions.yaml",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/93113a0ff37f343bbd4bb1387f652db326629c1e"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-10T05:53:14Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Moved suppressions.yaml",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/20ebd3ed55f976e2240482499ec471d9d38d2ad9"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-10T06:40:43Z",
+          "actor": "v-xuto",
+          "actorRole": "author",
+          "description": "Merge branch 'main' into keyvault-folder-structure-refactor",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/689c271fb5841d5e1e90837566e9404b9867ac6d"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-10T08:08:46Z",
+          "actor": "qiaozha",
+          "actorRole": "reviewer",
+          "description": "Approved by qiaozha",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/38668#pullrequestreview-3920541922"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-10T11:28:29Z",
+          "actor": "qiaozha",
+          "actorRole": "reviewer",
+          "description": "PR #38668 merged",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/38668"
+          }
+        }
+      ],
+      "reviewWaitDays": 66.62,
+      "reviewWaitCycles": 8
+    },
+    {
+      "repo": "Azure/azure-rest-api-specs",
+      "language": null,
+      "number": 41297,
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/41297",
+      "title": "Fix the enum member order issue in keyvault",
+      "author": "ArcturusZhang",
+      "createdAt": "2026-03-12T06:08:33Z",
+      "mergedAt": "2026-03-12T08:35:36Z",
+      "closedAt": "2026-03-12T08:35:36Z",
+      "mergedBy": "ArcturusZhang",
+      "state": "merged",
+      "isDraft": false,
+      "readyForReviewAt": null,
+      "generationFlow": "manual",
+      "labels": [
+        "Compute",
+        "KeyVault",
+        "ARMSignedOff",
+        "ARMReview",
+        "resource-manager",
+        "TypeSpec",
+        "PublishToCustomers",
+        "ARMAutoSignedOff-Trivial"
+      ],
+      "reviewers": [
+        "haagha",
+        "chen-karen",
+        "audreyttt",
+        "ookoka",
+        "live1206"
+      ],
+      "_changedFiles": [
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/client.tsp",
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/models.tsp",
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/tspconfig.yaml"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T05:57:15Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "move some csharp specific models to client.tsp",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/76c6bd2488e224cc72663980ed009ee56d3938a1"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T06:06:55Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "update keyvault",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/aba487e5976fb6b99afef209541c877512a7c19b"
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-12T06:08:33Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR #41297 opened: Fix the enum member order issue in keyvault",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41297"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-12T06:08:58Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "sentiment": "neutral",
+          "details": {
+            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/22991618856\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41297#issuecomment-4044234136"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-12T06:21:46Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "this should be reverted",
+          "sentiment": "blocking",
+          "details": {
+            "body": "this should be reverted",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41297#discussion_r2922540199"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-12T06:24:42Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "why is this needed?",
+          "sentiment": "blocking",
+          "details": {
+            "body": "why is this needed?",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41297#discussion_r2922552931"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-12T06:29:29Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "its latest version is a preview version.",
+          "sentiment": "neutral",
+          "details": {
+            "body": "its latest version is a preview version.\r\nI am adding this to minimize the changes.\r\nAfter this PR is merged, I will open another to remove this.",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41297#discussion_r2922569559"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T06:32:20Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "revert compute tspconfig changes",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/90337130aefdd9ad7bbba7824431174c4eecfda9"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T06:49:23Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Merge branch 'main' into fix-keyvault",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/cd795610334d7d9305c0ff7ad797a1c66d886285"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T07:06:59Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "fix validation issue",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/31f888d7e50933f6036f98ef8fb442f5ecd3f92d"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-12T07:23:25Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "format",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/4053dad5ab12c60a6115128b40380daf65e5213e"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-12T07:38:17Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "Approved by live1206",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41297#pullrequestreview-3934552771"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-12T08:35:36Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR #41297 merged",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41297"
+          }
+        }
+      ],
+      "reviewWaitDays": 0.06,
+      "reviewWaitCycles": 2
+    },
+    {
+      "repo": "Azure/azure-rest-api-specs",
+      "language": null,
+      "number": 41401,
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/41401",
+      "title": "Add provisioning emitter config for KeyVault",
+      "author": "ArcturusZhang",
+      "createdAt": "2026-03-14T11:15:49Z",
+      "mergedAt": "2026-03-24T08:50:31Z",
+      "closedAt": "2026-03-24T08:50:31Z",
+      "mergedBy": "ArcturusZhang",
+      "state": "merged",
+      "isDraft": false,
+      "readyForReviewAt": "2026-03-23T08:41:18Z",
+      "generationFlow": "manual",
+      "labels": [
+        "KeyVault",
+        "ARMSignedOff",
+        "ARMReview",
+        "resource-manager",
+        "TypeSpec",
+        "PublishToCustomers",
+        "ARMAutoSignedOff-Trivial"
+      ],
+      "reviewers": [
+        "chen-karen",
+        "chlowell",
+        "live1206"
+      ],
+      "_changedFiles": [
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/tspconfig.yaml"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-14T11:15:25Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Add provisioning emitter config for KeyVault with api-versio",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/7d93fd75958d1276002018a1a5d7ae57134f475f"
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-14T11:15:49Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR #41401 opened: Add provisioning emitter config for KeyVault",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41401"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-14T11:16:19Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "sentiment": "neutral",
+          "details": {
+            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/23480862287\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41401#issuecomment-4060305674"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-14T11:30:48Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Add provisioning emitter config for KeyVault with api-versio",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/d95c58e55f5ecc091903caa0c57b3a8fe3d043d8"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-14T11:31:57Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Update provisioning config: api-version 2025-05-01, enable s",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/8acf8b09bdaa8fd35e349c156baf36e73ae8ffb7"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-14T12:39:38Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Remove save-inputs from provisioning config",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/29d675a8783be0405c5c748b0c82906acaf20e93"
+          }
+        },
+        {
+          "type": "idle_gap",
+          "timestamp": "2026-03-14T12:39:38Z",
+          "endTimestamp": "2026-03-23T08:41:18Z",
+          "actor": "system",
+          "actorRole": "bot",
+          "description": "Idle for 212h (8.8d)",
+          "sentiment": "blocking",
+          "details": {
+            "durationHours": 212
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-23T08:41:18Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41401"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T08:45:00Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Merge remote-tracking branch 'origin/main' into add-keyvault",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/08c5270b93aef653ddcfa02935fd6c01ff64748d"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-23T15:06:05Z",
+          "actor": "chlowell",
+          "actorRole": "reviewer",
+          "description": "Approved by chlowell",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41401#pullrequestreview-3992457549"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-24T06:49:28Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Merge branch 'main' into add-keyvault-provisioning-config",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/cd2ac0f668faf0a26db25574ed9312c3aa0818f9"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-24T08:24:57Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "Approved by live1206",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41401#pullrequestreview-3997201637"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-24T08:50:31Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR #41401 merged",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41401"
+          }
+        }
+      ],
+      "reviewWaitDays": 0.33,
+      "reviewWaitCycles": 2
+    },
+    {
+      "repo": "Azure/azure-rest-api-specs",
+      "language": null,
+      "number": 41450,
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/41450",
+      "title": "Remove api-version setting from keyvault resource-manager tspconfig.yaml",
+      "author": "ArcturusZhang",
+      "createdAt": "2026-03-17T00:53:51Z",
+      "mergedAt": "2026-03-17T08:07:42Z",
+      "closedAt": "2026-03-17T08:07:42Z",
+      "mergedBy": "ArcturusZhang",
+      "state": "merged",
+      "isDraft": false,
+      "readyForReviewAt": "2026-03-17T02:53:28Z",
+      "generationFlow": "manual",
+      "labels": [
+        "KeyVault",
+        "ARMSignedOff",
+        "ARMReview",
+        "resource-manager",
+        "TypeSpec",
+        "PublishToCustomers",
+        "ARMAutoSignedOff-Trivial"
+      ],
+      "reviewers": [
+        "chen-karen",
+        "live1206"
+      ],
+      "_changedFiles": [
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/tspconfig.yaml"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-17T00:52:29Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Remove api-version setting from keyvault resource-manager ts",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/ed82069bad8f1c650a1d1d3d62086cd4e36c3151"
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-17T00:53:51Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR #41450 opened: Remove api-version setting from keyvault resource-manager ts",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41450"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-17T00:54:27Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "sentiment": "neutral",
+          "details": {
+            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/23184499665\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41450#issuecomment-4071612851"
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-17T02:53:28Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41450"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-17T03:08:49Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "Approved by live1206",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41450#pullrequestreview-3957926757"
+          }
+        },
+        {
+          "type": "issue_comment",
+          "timestamp": "2026-03-17T08:07:34Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "this only changes the config, no need for ARM's review.",
+          "sentiment": "neutral",
+          "details": {
+            "body": "this only changes the config, no need for ARM's review.",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41450#issuecomment-4073090467"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-17T08:07:42Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR #41450 merged",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41450"
+          }
+        }
+      ],
+      "reviewWaitDays": 0.01,
+      "reviewWaitCycles": 1
+    },
+    {
+      "repo": "Azure/azure-rest-api-specs",
+      "language": null,
+      "number": 41466,
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/41466",
+      "title": "mgmt, keyvault, pin api-version to 2026-02-01 for release",
+      "author": "weidongxu-microsoft",
+      "createdAt": "2026-03-17T08:15:44Z",
+      "mergedAt": "2026-03-17T08:59:30Z",
+      "closedAt": "2026-03-17T08:59:30Z",
+      "mergedBy": "weidongxu-microsoft",
+      "state": "merged",
+      "isDraft": false,
+      "readyForReviewAt": "2026-03-17T08:43:26Z",
+      "generationFlow": "manual",
+      "labels": [
+        "KeyVault",
+        "ARMSignedOff",
+        "ARMReview",
+        "resource-manager",
+        "TypeSpec",
+        "PublishToCustomers",
+        "ARMAutoSignedOff-Trivial"
+      ],
+      "reviewers": [
+        "chen-karen",
+        "XiaofeiCao"
+      ],
+      "_changedFiles": [
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/tspconfig.yaml"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-17T08:15:22Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "author",
+          "description": "mgmt, keyvault, pin api-version to 2026-02-01 for release",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/40b3d1210345115d8112d5b8d05190a127418e5d"
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-17T08:15:44Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "author",
+          "description": "PR #41466 opened: mgmt, keyvault, pin api-version to 2026-02-01 for release",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41466"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-17T08:16:18Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "sentiment": "neutral",
+          "details": {
+            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/23186474726\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41466#issuecomment-4073135145"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-17T08:25:04Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "add api-version 2026-02-01 for csharp emitter",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/e240d760df55f9c6c5a22c9d5a8a3803a31752bd"
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-17T08:43:26Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41466"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-17T08:54:33Z",
+          "actor": "XiaofeiCao",
+          "actorRole": "reviewer",
+          "description": "Approved by XiaofeiCao",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41466#pullrequestreview-3959098321"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-17T08:59:30Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "author",
+          "description": "PR #41466 merged",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41466"
+          }
+        }
+      ],
+      "reviewWaitDays": 0.01,
+      "reviewWaitCycles": 1
+    },
+    {
+      "repo": "Azure/azure-rest-api-specs",
+      "language": null,
+      "number": 41624,
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/41624",
+      "title": "Prep for KV mgmt SDK for Rust",
+      "author": "jhendrixMSFT",
+      "createdAt": "2026-03-20T16:53:00Z",
+      "mergedAt": "2026-03-20T18:13:43Z",
+      "closedAt": "2026-03-20T18:13:43Z",
+      "mergedBy": "jhendrixMSFT",
+      "state": "merged",
+      "isDraft": false,
+      "readyForReviewAt": null,
+      "generationFlow": "manual",
+      "labels": [
+        "KeyVault",
+        "ARMSignedOff",
+        "ARMReview",
+        "resource-manager",
+        "TypeSpec",
+        "PublishToCustomers",
+        "ARMAutoSignedOff-Trivial"
+      ],
+      "reviewers": [
+        "chen-karen",
+        "chlowell",
+        "RickWinter"
+      ],
+      "_changedFiles": [
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/client.tsp",
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/tspconfig.yaml"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-20T16:50:44Z",
+          "actor": "jhendrixMSFT",
+          "actorRole": "author",
+          "description": "Prep for KV mgmt SDK for Rust",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/61fa5ee78efa5e8bc1de9b622ee7055fd4e3877c"
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-20T16:53:00Z",
+          "actor": "jhendrixMSFT",
+          "actorRole": "author",
+          "description": "PR #41624 opened: Prep for KV mgmt SDK for Rust",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41624"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-20T17:21:07Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "sentiment": "neutral",
+          "details": {
+            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/23356554279\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41624#issuecomment-4099719801"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-20T17:28:05Z",
+          "actor": "chlowell",
+          "actorRole": "reviewer",
+          "description": "Approved by chlowell",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41624#pullrequestreview-3982982904"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-20T17:56:09Z",
+          "actor": "chlowell",
+          "actorRole": "reviewer",
+          "description": "Approved by chlowell",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41624#pullrequestreview-3983157256"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-20T17:57:06Z",
+          "actor": "RickWinter",
+          "actorRole": "reviewer",
+          "description": "Approved by RickWinter",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41624#pullrequestreview-3983163100"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-20T18:13:43Z",
+          "actor": "jhendrixMSFT",
+          "actorRole": "author",
+          "description": "PR #41624 merged",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41624"
+          }
+        }
+      ],
+      "reviewWaitDays": 0.02,
+      "reviewWaitCycles": 1
+    },
+    {
+      "repo": "Azure/azure-rest-api-specs",
+      "language": null,
+      "number": 41649,
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/41649",
+      "title": "java, mgmt, disable generated tests",
+      "author": "weidongxu-microsoft",
+      "createdAt": "2026-03-23T07:05:28Z",
+      "mergedAt": "2026-03-25T02:16:18Z",
+      "closedAt": "2026-03-25T02:16:18Z",
+      "mergedBy": "weidongxu-microsoft",
+      "state": "merged",
+      "isDraft": false,
+      "readyForReviewAt": "2026-03-24T05:38:51Z",
+      "generationFlow": "manual",
+      "labels": [
+        "KeyVault",
+        "Container Registry",
+        "WaitForARMFeedback",
+        "ARMReview",
+        "resource-manager",
+        "TypeSpec",
+        "PublishToCustomers"
+      ],
+      "reviewers": [
+        "chen-karen",
+        "XiaofeiCao",
+        "chlowell"
+      ],
+      "_changedFiles": [
+        "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/tspconfig.yaml",
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/tspconfig.yaml"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-23T07:04:55Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "author",
+          "description": "java, mgmt, disable generated tests",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/a96a71679dad83f684d5978e7178757b5429b113"
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-23T07:05:28Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "author",
+          "description": "PR #41649 opened: java, mgmt, disable generated tests",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41649"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-23T07:05:58Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR i",
+          "sentiment": "neutral",
+          "details": {
+            "body": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR is in purview of the ARM review (label: <code>ARMReview</code>). This PR must get <code>ARMSignedOff</code> label from an ARM reviewer.<br/>This PR is awaiting ARM reviewer feedback (label: <code>WaitForARMFeedback</code>).<br/>To learn when this PR will get reviewed, see ARM review queue at <a href=\"https://aka.ms/azsdk/pr-arm-review\">aka.ms/azsdk/pr-arm-review</a><br/>For details of the ARM revie",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41649#issuecomment-4108463277"
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-24T05:38:51Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41649"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-24T06:16:26Z",
+          "actor": "XiaofeiCao",
+          "actorRole": "reviewer",
+          "description": "Approved by XiaofeiCao",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41649#pullrequestreview-3996604568"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-24T14:15:45Z",
+          "actor": "chlowell",
+          "actorRole": "reviewer",
+          "description": "Approved by chlowell",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41649#pullrequestreview-3999580871"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-25T02:16:18Z",
+          "actor": "weidongxu-microsoft",
+          "actorRole": "author",
+          "description": "PR #41649 merged",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41649"
+          }
+        }
+      ],
+      "reviewWaitDays": 0.03,
+      "reviewWaitCycles": 1
+    },
+    {
+      "repo": "Azure/azure-rest-api-specs",
+      "language": null,
+      "number": 41731,
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731",
+      "title": "Add RBAC role definitions for KeyVault provisioning",
+      "author": "ArcturusZhang",
+      "createdAt": "2026-03-25T03:23:48Z",
+      "mergedAt": "2026-03-25T06:03:32Z",
+      "closedAt": "2026-03-25T06:03:32Z",
+      "mergedBy": "ArcturusZhang",
+      "state": "merged",
+      "isDraft": false,
+      "readyForReviewAt": "2026-03-25T03:25:11Z",
+      "generationFlow": "manual",
+      "labels": [
+        "KeyVault",
+        "ARMSignedOff",
+        "ARMReview",
+        "resource-manager",
+        "TypeSpec",
+        "PublishToCustomers",
+        "ARMAutoSignedOff-Trivial"
+      ],
+      "reviewers": [
+        "live1206"
+      ],
+      "_changedFiles": [
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/Vault.tsp",
+        "specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/client.tsp"
+      ],
+      "events": [
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-25T03:23:25Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Add RBAC role definitions for KeyVault provisioning",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/68cc29df25522c58229c4d78868c60ee6cf1c2e5"
+          }
+        },
+        {
+          "type": "pr_created",
+          "timestamp": "2026-03-25T03:23:48Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR #41731 opened: Add RBAC role definitions for KeyVault provisioning",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731"
+          }
+        },
+        {
+          "type": "bot_comment",
+          "timestamp": "2026-03-25T03:24:20Z",
+          "actor": "github-actions[bot]",
+          "actorRole": "bot",
+          "description": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merge",
+          "sentiment": "neutral",
+          "details": {
+            "body": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://github.com/Azure/azure-rest-api-specs/actions/runs/23527324467\">summarize-checks</a> workflow run.\n<!-- NextStepsToMerge -->",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731#issuecomment-4122867695"
+          }
+        },
+        {
+          "type": "ready_for_review",
+          "timestamp": "2026-03-25T03:25:11Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR marked ready for review",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-25T03:45:04Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "Approved by live1206",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731#pullrequestreview-4003726626"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-25T03:53:44Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Move all RBAC roles onto Vault resource only",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/447d0f315bce4932efd293b0dd365abc88cf6305"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-25T04:10:27Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Add suppression on Vault model for @@clientOption diagnostic",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/1c846d6d62d3cd117206d2c2a938174980ab635c"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-25T05:00:12Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "update to 4090 since this one is closed?",
+          "sentiment": "blocking",
+          "details": {
+            "body": "update to 4090 since this one is closed?",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731#discussion_r2985761929"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-25T05:29:28Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "```suggestion",
+          "sentiment": "neutral",
+          "details": {
+            "body": "```suggestion\n#suppress \"@azure-tools/typespec-client-generator-core/client-option\" \"https://github.com/Azure/typespec-azure/issues/4090\"\n#suppress \"@azure-tools/typespec-client-generator-core/client-option-requires-scope\" \"https://github.com/Azure/typespec-azure/issues/4090\"\n```",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731#discussion_r2985865314"
+          }
+        },
+        {
+          "type": "review_comment",
+          "timestamp": "2026-03-25T05:29:44Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "```suggestion",
+          "sentiment": "neutral",
+          "details": {
+            "body": "```suggestion\n#suppress \"@azure-tools/typespec-client-generator-core/client-option\" \"https://github.com/Azure/typespec-azure/issues/4090\"\n#suppress \"@azure-tools/typespec-client-generator-core/client-option-requires-scope\" \"https://github.com/Azure/typespec-azure/issues/4090\"\n```",
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731#discussion_r2985866580"
+          }
+        },
+        {
+          "type": "commit_pushed",
+          "timestamp": "2026-03-25T05:29:53Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "Apply suggestions from code review",
+          "sentiment": "neutral",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/commit/b609d8601836132f284eaa2f130900b4873bb35a"
+          }
+        },
+        {
+          "type": "review_approved",
+          "timestamp": "2026-03-25T05:31:18Z",
+          "actor": "live1206",
+          "actorRole": "reviewer",
+          "description": "Approved by live1206",
+          "sentiment": "positive",
+          "details": {
+            "body": null,
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731#pullrequestreview-4004065274"
+          }
+        },
+        {
+          "type": "pr_merged",
+          "timestamp": "2026-03-25T06:03:32Z",
+          "actor": "ArcturusZhang",
+          "actorRole": "author",
+          "description": "PR #41731 merged",
+          "sentiment": "positive",
+          "details": {
+            "url": "https://github.com/Azure/azure-rest-api-specs/pull/41731"
+          }
+        }
+      ],
+      "reviewWaitDays": 0.06,
+      "reviewWaitCycles": 3
+    }
+  ],
+  "sdkPRs": {
+    ".NET": [
+      {
+        "repo": "Azure/azure-sdk-for-net",
+        "language": ".NET",
+        "number": 57347,
+        "url": "https://github.com/Azure/azure-sdk-for-net/pull/57347",
+        "title": "Update azure-typespec/http-client-csharp-mgmt version to prerelease 1.0.0-alpha.20260322.4",
+        "author": "azure-sdk",
+        "createdAt": "2026-03-23T07:27:58Z",
+        "mergedAt": "2026-03-23T09:26:55Z",
+        "closedAt": "2026-03-23T09:26:55Z",
+        "mergedBy": "ArcturusZhang",
+        "state": "merged",
+        "isDraft": false,
+        "readyForReviewAt": null,
+        "generationFlow": "automated",
+        "labels": [
+          "Mgmt",
+          "Quota",
+          "HybridConnectivity",
+          "Communication - Resource Manager",
+          "Nginx",
+          "Large Instance",
+          "Self Help",
+          "Hardware Security Modules",
+          "Neon Postgres",
+          "Elastic",
+          "Grafana"
+        ],
+        "reviewers": [
+          "live1206",
+          "8Gitbrix",
+          "amwaleh",
+          "bangbingsyb",
+          "ArthurMa1978",
+          "emmeliaAra",
+          "SpencerOfwiti",
+          "JoshLove-msft",
+          "m-nash",
+          "qingquanzhao",
+          "jorgerangel-msft",
+          "jamesfan1",
+          "ArcturusZhang"
+        ],
+        "_changedFiles": [
+          "eng/azure-typespec-http-client-csharp-mgmt-emitter-package-lock.json",
+          "eng/azure-typespec-http-client-csharp-mgmt-emitter-package.json",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/KeyVaultResource.cs",
+          "sdk/trafficmanager/Azure.ResourceManager.TrafficManager/src/Generated/TrafficManagerEndpointCollection.cs"
+        ],
+        "events": [
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-23T06:56:30Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Regenerate repository SDK with TypeSpec build 20260322.4",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/1ae2616239938629277205d3265cf3b572125f50"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-23T07:19:31Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Update SDK code ne_re_3",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/14982e2692033663dd36722d4f05c1f2570cade2"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-23T07:20:42Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Update SDK code el_my_2",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/e60f31a4acadb71de336462485fb64ec8bb4e3f1"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-23T07:20:53Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Update SDK code ad_co_0",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/e824babd5fce0c31b384848dfaacd3adc058c47a"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-23T07:21:07Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Update SDK code re_wo_4",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/a34396015a41cf42e6d1ef007625bf30ea8e4c6b"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-23T07:22:13Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Update SDK code co_el_1",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/67e7f668e20c15d93e07fd410fd0553bacd65424"
+            }
+          },
+          {
+            "type": "pr_created",
+            "timestamp": "2026-03-23T07:27:58Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "PR #57347 opened: Update azure-typespec/http-client-csharp-mgmt version to pre",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57347"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-23T07:32:46Z",
+            "actor": "copilot-pull-request-reviewer[bot]",
+            "actorRole": "copilot",
+            "description": "Review comment by copilot-pull-request-reviewer[bot]",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## Pull request overview\n\nUpdates the pinned `@azure-typespec/http-client-csharp-mgmt` emitter to `1.0.0-alpha.20260322.4` and applies the regenerated .NET SDK outputs produced by that prerelease.\n\n**Changes:**\n- Bump mgmt emitter dependency version (and related TypeSpec toolchain versions) under `eng/`.\n- Regenerate multiple ARM SDKs, including request-building tweaks (only set `Content-Type: application/json` when a request body is present) and enum path parameter serialization (`ToString()` →",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57347#pullrequestreview-3989832921"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-23T07:32:46Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "`RGListAsync` now returns `AsyncPageable<GuestConfigurationAssignmentData>` and returns the raw `Gue",
+            "sentiment": "blocking",
+            "details": {
+              "body": "`RGListAsync` now returns `AsyncPageable<GuestConfigurationAssignmentData>` and returns the raw `GuestConfigurationAssignmentsRGListAsyncCollectionResultOfT`. This appears to be a breaking change/regression: existing customization code assumes `RGListAsync` returns `AsyncPageable<GuestConfigurationVmAssignmentResource>` and wraps it (see `src/Customized/Extensions/MockableGuestConfigurationResourceGroupResource.cs:28-32`), which will no longer compile. The public API listings also still declare ",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57347#discussion_r2973336027"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-23T07:32:46Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "`RGList` was changed to return `Pageable<GuestConfigurationAssignmentData>`, which is inconsistent w",
+            "sentiment": "blocking",
+            "details": {
+              "body": "`RGList` was changed to return `Pageable<GuestConfigurationAssignmentData>`, which is inconsistent with the existing customization layer that expects `RGList` to yield `GuestConfigurationVmAssignmentResource` instances (see `src/Customized/Extensions/MockableGuestConfigurationResourceGroupResource.cs:18-22`). As-is, this is very likely to break compilation and/or the intended resource-oriented API shape. Please revert `RGList` to return the resource wrapper type (and project underlying `GuestCon",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57347#discussion_r2973336053"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-23T08:41:13Z",
+            "actor": "live1206",
+            "actorRole": "reviewer",
+            "description": "Merge main into PR branch and resolve conflicts",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/30763ff96705c41dfa3a660078aac8dcefeabcc1"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-23T08:51:49Z",
+            "actor": "live1206",
+            "actorRole": "reviewer",
+            "description": "Revert guestconfiguration to main branch versions",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/108ea2f71fb175c80c6d2f74ee34c6fc4855dc1b"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-23T09:26:48Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "Approved by ArcturusZhang",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57347#pullrequestreview-3990396947"
+            }
+          },
+          {
+            "type": "pr_merged",
+            "timestamp": "2026-03-23T09:26:55Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "PR #57347 merged",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57347"
+            }
+          },
+          {
+            "type": "release_pending",
+            "timestamp": "2026-03-23T09:26:55Z",
+            "actor": "system",
+            "actorRole": "bot",
+            "description": "Package release pending: net - keyvault - mgmt",
+            "sentiment": "neutral",
+            "details": {}
+          }
+        ],
+        "reviewWaitDays": 0.05,
+        "reviewWaitCycles": 1,
+        "release": {
+          "packageName": "Azure.ResourceManager.KeyVault",
+          "pipelineName": "net - keyvault - mgmt",
+          "pipelineUrl": null,
+          "buildId": null,
+          "releasedAt": null,
+          "releaseGapDays": null,
+          "status": "pending"
+        }
+      },
+      {
+        "repo": "Azure/azure-sdk-for-net",
+        "language": ".NET",
+        "number": 57181,
+        "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181",
+        "title": "[AutoPR Azure.ResourceManager.KeyVault]-generated-from-SDK Generation - .NET-6022786",
+        "author": "azure-sdk",
+        "createdAt": "2026-03-17T18:06:19Z",
+        "mergedAt": "2026-03-19T03:38:15Z",
+        "closedAt": "2026-03-19T03:38:15Z",
+        "mergedBy": "live1206",
+        "state": "merged",
+        "isDraft": false,
+        "readyForReviewAt": "2026-03-19T00:23:35Z",
+        "generationFlow": "automated",
+        "labels": [
+          "Mgmt"
+        ],
+        "reviewers": [
+          "ArcturusZhang",
+          "ArthurMa1978",
+          "live1206"
+        ],
+        "_changedFiles": [
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/CHANGELOG.md",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/metadata.json",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Azure.ResourceManager.KeyVault.csproj",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/DeletedKeyVaultCollection.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/DeletedKeyVaultResource.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/DeletedManagedHsmCollection.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/DeletedManagedHsmResource.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/Extensions/MockableKeyVaultResourceGroupResource.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/Extensions/MockableKeyVaultSubscriptionResource.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/KeyVaultCollection.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/KeyVaultPrivateEndpointConnectionCollection.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/KeyVaultPrivateEndpointConnectionResource.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/KeyVaultResource.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/KeyVaultSecretCollection.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/KeyVaultSecretResource.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/ManagedHsmCollection.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/ManagedHsmPrivateEndpointConnectionCollection.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/ManagedHsmPrivateEndpointConnectionResource.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/ManagedHsmResource.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/tsp-location.yaml"
+        ],
+        "events": [
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-17T18:06:15Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Configurations:  'specification/keyvault/resource-manager/Mi",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/39cdba5058c0be9736277d795ce6026253843d40"
+            }
+          },
+          {
+            "type": "pr_created",
+            "timestamp": "2026-03-17T18:06:19Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "PR #57181 opened: [AutoPR Azure.ResourceManager.KeyVault]-generated-from-SDK G",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181"
+            }
+          },
+          {
+            "type": "issue_comment",
+            "timestamp": "2026-03-18T08:10:52Z",
+            "actor": "live1206",
+            "actorRole": "reviewer",
+            "description": "## 🔍 CI Failure Analysis for PR #57181",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## 🔍 CI Failure Analysis for PR #57181\n\n### Check Status Summary\n\n| Check | Status |\n|-------|--------|\n| Build Analyze PRBatch | ✅ Pass |\n| Build Build PRBatch | ❌ **5 errors / 1 warning** |\n| Build Compliance | ✅ Pass |\n| All test jobs (8/8) | ✅ Pass |\n| license/cla | ✅ Pass |\n| SDL Sources | ✅ Pass |\n\n### Root Cause: CHANGELOG version mismatch\n\nThe `Build Build PRBatch` job failed because the **CHANGELOG does not have an entry for version `1.4.0`**.\n\n**What happened:** The auto-generation pi",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181#issuecomment-4080519105"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-18T19:55:10Z",
+            "actor": "FRL200",
+            "actorRole": "reviewer",
+            "description": "Update ChangeLog",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/3ca24c602ed37db63da6c6c9a0966203150d3eeb"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-18T19:58:06Z",
+            "actor": "FRL200",
+            "actorRole": "reviewer",
+            "description": "Updated release date",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/6626d87d9429b3c9c58b4e5b714d6767381bd92f"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-18T23:40:49Z",
+            "actor": "FRL200",
+            "actorRole": "reviewer",
+            "description": "Remove uneeded section",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/8cd349351b80973984a8fdcaca5cf9b7a46b191f"
+            }
+          },
+          {
+            "type": "ready_for_review",
+            "timestamp": "2026-03-19T00:23:35Z",
+            "actor": "FRL200",
+            "actorRole": "reviewer",
+            "description": "PR marked ready for review",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-19T00:29:45Z",
+            "actor": "copilot-pull-request-reviewer[bot]",
+            "actorRole": "copilot",
+            "description": "Review comment by copilot-pull-request-reviewer[bot]",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## Pull request overview\n\nUpdates the **Azure.ResourceManager.KeyVault** management SDK to align with the Key Vault RP **2026-02-01** TypeSpec/spec commit and prepares the package for a **1.4.0 stable** release.\n\n**Changes:**\n- Updated TypeSpec input reference (`tsp-location.yaml`) to the new spec commit.\n- Regenerated KeyVault/ManagedHsm resource and collection clients to default to API version `2026-02-01`.\n- Promoted package version to `1.4.0`, updated metadata and changelog for the new API v",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181#pullrequestreview-3971778565"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-19T03:35:53Z",
+            "actor": "live1206",
+            "actorRole": "reviewer",
+            "description": "Approved by live1206",
+            "sentiment": "positive",
+            "details": {
+              "body": "## Mgmt SDK PR Review — Azure.ResourceManager.KeyVault #57181\n\n### Phase 1: Versioning Review ✅ PASS\n- **Version**: 1.4.0-beta.1 → 1.4.0 (minor bump only, no major version change)\n- **ApiCompatVersion**: 1.3.3 retained — API compatibility enforcement intact\n- **ApiCompatBaseline.txt**: No changes — no suppressed breaking changes\n\n### Phase 2: API Review ✅ PASS\n- **No API surface changes in this PR.** The ^Gpi/*.cs files are not modified.\n- This PR only updates the default API version string from",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181#pullrequestreview-3972623252"
+            }
+          },
+          {
+            "type": "pr_merged",
+            "timestamp": "2026-03-19T03:38:15Z",
+            "actor": "live1206",
+            "actorRole": "reviewer",
+            "description": "PR #57181 merged",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57181"
+            }
+          },
+          {
+            "type": "release_pipeline_started",
+            "timestamp": "2026-03-20T18:52:36.3633333Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Release pipeline started: net - keyvault - mgmt",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6042012&view=results",
+              "body": "Build 6042012"
+            }
+          },
+          {
+            "type": "release_pipeline_completed",
+            "timestamp": "2026-03-20T19:23:22.97Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Package released: Azure.ResourceManager.KeyVault",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6042012&view=results",
+              "body": "Build 6042012 succeeded"
+            }
+          }
+        ],
+        "reviewWaitDays": 0.13,
+        "reviewWaitCycles": 1,
+        "release": {
+          "packageName": "Azure.ResourceManager.KeyVault",
+          "packageVersion": null,
+          "pipelineName": "net - keyvault - mgmt",
+          "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6042012&view=results",
+          "buildId": "6042012",
+          "releasedAt": "2026-03-20T19:23:22.97Z",
+          "releaseGapDays": 1.7,
+          "status": "released"
+        }
+      },
+      {
+        "repo": "Azure/azure-sdk-for-net",
+        "language": ".NET",
+        "number": 57005,
+        "url": "https://github.com/Azure/azure-sdk-for-net/pull/57005",
+        "title": "Replace custom KeyVault CreateMode/PatchMode enums with generated versions",
+        "author": "ArcturusZhang",
+        "createdAt": "2026-03-12T06:13:08Z",
+        "mergedAt": "2026-03-12T09:52:04Z",
+        "closedAt": "2026-03-12T09:52:04Z",
+        "mergedBy": "ArcturusZhang",
+        "state": "merged",
+        "isDraft": false,
+        "readyForReviewAt": "2026-03-12T06:14:02Z",
+        "generationFlow": "manual",
+        "labels": [
+          "Mgmt"
+        ],
+        "reviewers": [
+          "ArthurMa1978",
+          "live1206"
+        ],
+        "_changedFiles": [
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/Models/KeyVaultCreateMode.Serialization.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/Models/KeyVaultCreateMode.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/Models/KeyVaultPatchMode.Serialization.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/Models/KeyVaultPatchMode.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/Models/ManagedHsmCreateMode.Serialization.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/src/Generated/Models/ManagedHsmCreateMode.cs",
+          "sdk/keyvault/Azure.ResourceManager.KeyVault/tsp-location.yaml"
+        ],
+        "events": [
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-12T06:11:25Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "Replace custom KeyVault CreateMode/PatchMode enums with gene",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/4bad5dc67529931d22bb3446b4e385421842a93d"
+            }
+          },
+          {
+            "type": "pr_created",
+            "timestamp": "2026-03-12T06:13:08Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "PR #57005 opened: Replace custom KeyVault CreateMode/PatchMode enums with gene",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57005"
+            }
+          },
+          {
+            "type": "ready_for_review",
+            "timestamp": "2026-03-12T06:14:02Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "PR marked ready for review",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57005"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-12T06:14:48Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "Remove custom CreateMode/PatchMode enum customization files",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/233f849aa6011b10cb26b0fea10cbf1bd8e6d788"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-12T06:16:42Z",
+            "actor": "copilot-pull-request-reviewer[bot]",
+            "actorRole": "copilot",
+            "description": "Review comment by copilot-pull-request-reviewer[bot]",
+            "sentiment": "neutral",
+            "details": {
+              "body": "Copilot wasn't able to review any files in this pull request.\n\n\n\n---\n\nYou can also share your feedback on Copilot code review. [Take the survey](https://www.surveymonkey.com/r/XP6L3XJ).",
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57005#pullrequestreview-3934207131"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-12T06:32:49Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "update commit id",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/baba8edd96d5fdc6a129f7a335f34b65c3ade898"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-12T08:54:02Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "Update tsp-location.yaml to latest azure-rest-api-specs comm",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/7dabeb7c9dbb2dd5d7465cf370767241adec276f"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-12T08:56:47Z",
+            "actor": "live1206",
+            "actorRole": "reviewer",
+            "description": "Approved by live1206",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57005#pullrequestreview-3934920180"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-12T09:22:27Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "Fix tsp-location.yaml directory path",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/commit/43cc171893d0655cf8b01b9b2dd7d1e96aae6047"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-12T09:23:58Z",
+            "actor": "live1206",
+            "actorRole": "reviewer",
+            "description": "Approved by live1206",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57005#pullrequestreview-3935078024"
+            }
+          },
+          {
+            "type": "pr_merged",
+            "timestamp": "2026-03-12T09:52:04Z",
+            "actor": "ArcturusZhang",
+            "actorRole": "author",
+            "description": "PR #57005 merged",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-net/pull/57005"
+            }
+          },
+          {
+            "type": "release_pipeline_started",
+            "timestamp": "2026-03-20T18:52:36.3633333Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Release pipeline started: net - keyvault - mgmt",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6042012&view=results",
+              "body": "Build 6042012"
+            }
+          },
+          {
+            "type": "release_pipeline_completed",
+            "timestamp": "2026-03-20T19:23:22.97Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Package released: Azure.ResourceManager.KeyVault",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6042012&view=results",
+              "body": "Build 6042012 succeeded"
+            }
+          }
+        ],
+        "reviewWaitDays": 0.11,
+        "reviewWaitCycles": 2,
+        "release": {
+          "packageName": "Azure.ResourceManager.KeyVault",
+          "packageVersion": null,
+          "pipelineName": "net - keyvault - mgmt",
+          "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6042012&view=results",
+          "buildId": "6042012",
+          "releasedAt": "2026-03-20T19:23:22.97Z",
+          "releaseGapDays": 8.4,
+          "status": "released"
+        }
+      }
+    ],
+    "Python": [
+      {
+        "repo": "Azure/azure-sdk-for-python",
+        "language": "Python",
+        "number": 45955,
+        "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955",
+        "title": "[keyvault] Fix azure-mgmt-keyvault vaults.list() api-version for next-link pagination",
+        "author": "msyyc",
+        "createdAt": "2026-03-27T03:40:17Z",
+        "mergedAt": "2026-03-27T06:54:54Z",
+        "closedAt": "2026-03-27T06:54:54Z",
+        "mergedBy": "msyyc",
+        "state": "merged",
+        "isDraft": false,
+        "readyForReviewAt": null,
+        "generationFlow": "manual",
+        "labels": [],
+        "reviewers": [
+          "ChenxiJiang333",
+          "Ari4ka"
+        ],
+        "_changedFiles": [
+          "sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/_version.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/aio/operations/_operations.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/operations/_operations.py",
+          "sdk/keyvault/azure-mgmt-keyvault/tests/test_unittest.py"
+        ],
+        "events": [
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-27T03:39:36Z",
+            "actor": "msyyc",
+            "actorRole": "author",
+            "description": "Fix azure-mgmt-keyvault vaults.list() api-version for next-l",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/commit/f4623111ed75a366dde9d56bbfd4eb4252d6f8c9"
+            }
+          },
+          {
+            "type": "pr_created",
+            "timestamp": "2026-03-27T03:40:17Z",
+            "actor": "msyyc",
+            "actorRole": "author",
+            "description": "PR #45955 opened: [keyvault] Fix azure-mgmt-keyvault vaults.list() api-version",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-27T03:46:28Z",
+            "actor": "msyyc",
+            "actorRole": "author",
+            "description": "Update test_key_vault_management_vaults_operations_test.py",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/commit/a149146d886fa85f5a7e70584f7dc31743fbc175"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-27T03:46:45Z",
+            "actor": "ChenxiJiang333",
+            "actorRole": "reviewer",
+            "description": "Approved by ChenxiJiang333",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955#pullrequestreview-4018695930"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-27T03:47:08Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "Changelog entry wording is unclear/grammatically incorrect (\"Fix wrong replacement about api-version",
+            "sentiment": "blocking",
+            "details": {
+              "body": "Changelog entry wording is unclear/grammatically incorrect (\"Fix wrong replacement about api-version...\"). Please rephrase to clearly describe the user-visible bug fix, e.g. that `VaultsOperations.list` nextLink paging now uses api-version 2015-11-01 consistently.\n```suggestion\n  - Fixed `VaultsOperations.list` paging to use api-version `2015-11-01` consistently when following `next_link` URLs.\n```",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955#discussion_r2998816381"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-27T03:47:09Z",
+            "actor": "copilot-pull-request-reviewer[bot]",
+            "actorRole": "copilot",
+            "description": "Review comment by copilot-pull-request-reviewer[bot]",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## Pull request overview\n\nFixes a regression in `VaultsOperations.list()` paging where follow-up (nextLink) requests must keep using the legacy `api-version=2015-11-01`, and adds unit tests to prevent future regeneration regressions.\n\n**Changes:**\n- Use the operation-scoped `api_version` (2015-11-01) for nextLink paging in both sync and async `vaults.list()`.\n- Add sync + async mock-transport unit tests asserting `api-version` is correct for both initial and nextLink requests.\n- Bump package ver",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955#pullrequestreview-4018696767"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-27T03:47:09Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "The comment immediately above says the next-link request uses the client's api-version, but this bra",
+            "sentiment": "blocking",
+            "details": {
+              "body": "The comment immediately above says the next-link request uses the client's api-version, but this branch now intentionally forces the operation-scoped `api_version` (2015-11-01). Please update/remove that comment so it matches the behavior and doesn't mislead future regen/customization work.",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955#discussion_r2998816407"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-27T03:47:09Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "The comment immediately above says the next-link request uses the client's api-version, but this bra",
+            "sentiment": "blocking",
+            "details": {
+              "body": "The comment immediately above says the next-link request uses the client's api-version, but this branch now intentionally forces the operation-scoped `api_version` (2015-11-01). Please update/remove that comment so it matches the behavior and doesn't mislead future regen/customization work.",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955#discussion_r2998816429"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-27T05:37:57Z",
+            "actor": "ChenxiJiang333",
+            "actorRole": "reviewer",
+            "description": "Approved by ChenxiJiang333",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955#pullrequestreview-4018991929"
+            }
+          },
+          {
+            "type": "pr_merged",
+            "timestamp": "2026-03-27T06:54:54Z",
+            "actor": "msyyc",
+            "actorRole": "author",
+            "description": "PR #45955 merged",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955"
+            }
+          },
+          {
+            "type": "release_pending",
+            "timestamp": "2026-03-27T06:54:54Z",
+            "actor": "system",
+            "actorRole": "bot",
+            "description": "Package release pending: python - keyvault",
+            "sentiment": "neutral",
+            "details": {}
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-27T07:24:22Z",
+            "actor": "Ari4ka",
+            "actorRole": "reviewer",
+            "description": "Approved by Ari4ka",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45955#pullrequestreview-4019349933"
+            }
+          }
+        ],
+        "reviewWaitDays": 0.1,
+        "reviewWaitCycles": 3,
+        "release": {
+          "packageName": "azure-mgmt-keyvault",
+          "pipelineName": "python - keyvault",
+          "pipelineUrl": null,
+          "buildId": null,
+          "releasedAt": null,
+          "releaseGapDays": null,
+          "status": "pending"
+        }
+      },
+      {
+        "repo": "Azure/azure-sdk-for-python",
+        "language": "Python",
+        "number": 45750,
+        "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750",
+        "title": "[AutoPR azure-mgmt-keyvault]-generated-from-SDK Generation - Python-6022787",
+        "author": "azure-sdk",
+        "createdAt": "2026-03-17T18:05:31Z",
+        "mergedAt": "2026-03-19T16:07:29Z",
+        "closedAt": "2026-03-19T16:07:30Z",
+        "mergedBy": "FRL200",
+        "state": "merged",
+        "isDraft": false,
+        "readyForReviewAt": "2026-03-17T21:24:21Z",
+        "generationFlow": "automated",
+        "labels": [],
+        "reviewers": [
+          "ChenxiJiang333",
+          "msyyc"
+        ],
+        "_changedFiles": [
+          "sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md",
+          "sdk/keyvault/azure-mgmt-keyvault/_metadata.json",
+          "sdk/keyvault/azure-mgmt-keyvault/apiview-properties.json",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/_client.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/_configuration.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/_utils/model_base.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/_utils/serialization.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/_version.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/aio/_client.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/aio/_configuration.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/aio/operations/_operations.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/models/__init__.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/models/_enums.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/models/_models.py",
+          "sdk/keyvault/azure-mgmt-keyvault/azure/mgmt/keyvault/operations/_operations.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/check_vault_name_availability.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/create_key.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/create_secret.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/create_vault.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/create_vault_with_network_acls.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/delete_private_endpoint_connection.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/delete_vault.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/deleted_managed_hsm_get.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/deleted_managed_hsm_list.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/deleted_managed_hsm_purge.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/get_deleted_vault.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/get_key.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/get_key_version.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/get_private_endpoint_connection.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/get_secret.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/get_vault.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_deleted_vaults.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_key_versions.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_keys.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_operations.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_private_endpoint_connection.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_private_link_resources.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_secrets.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_vault.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_vault_by_resource_group.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/list_vault_by_subscription.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_check_mhsm_name_availability.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_create_key.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_create_or_update.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_delete.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_delete_private_endpoint_connection.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_get.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_get_key.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_get_key_version.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_get_private_endpoint_connection.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_list_by_resource_group.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_list_by_subscription.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_list_key_versions.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_list_keys.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_list_private_endpoint_connections_by_resource.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_list_private_link_resources.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_list_regions_by_resource.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_put_private_endpoint_connection.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/managed_hsm_update.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/purge_deleted_vault.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/put_private_endpoint_connection.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/update_access_policies_add.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/update_secret.py",
+          "sdk/keyvault/azure-mgmt-keyvault/generated_samples/update_vault.py",
+          "sdk/keyvault/azure-mgmt-keyvault/tsp-location.yaml"
+        ],
+        "events": [
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-17T18:05:27Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Configurations:  'specification/keyvault/resource-manager/Mi",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/commit/115518e3ebcb9ff23113fa10ca80000dbf260151"
+            }
+          },
+          {
+            "type": "pr_created",
+            "timestamp": "2026-03-17T18:05:31Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "PR #45750 opened: [AutoPR azure-mgmt-keyvault]-generated-from-SDK Generation -",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750"
+            }
+          },
+          {
+            "type": "ready_for_review",
+            "timestamp": "2026-03-17T21:24:21Z",
+            "actor": "FRL200",
+            "actorRole": "reviewer",
+            "description": "PR marked ready for review",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-17T21:28:02Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "The docstring claims the `api_version` kwarg has known values \"2026-02-01\" and `None`, but the publi",
+            "sentiment": "blocking",
+            "details": {
+              "body": "The docstring claims the `api_version` kwarg has known values \"2026-02-01\" and `None`, but the public signature/typing documents `api_version` as `str` and the client/operation request building logic doesn’t appear to special-case `None`. Either remove `and None` from the docstring, or change the kwarg type to `Optional[str]` and ensure `None` is handled safely (e.g., falls back to the default API version).\n",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750#discussion_r2949657796"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-17T21:28:02Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "The docstring claims the `api_version` kwarg has known values \"2026-02-01\" and `None`, but the publi",
+            "sentiment": "blocking",
+            "details": {
+              "body": "The docstring claims the `api_version` kwarg has known values \"2026-02-01\" and `None`, but the public signature/typing documents `api_version` as `str` and the client/operation request building logic doesn’t appear to special-case `None`. Either remove `and None` from the docstring, or change the kwarg type to `Optional[str]` and ensure `None` is handled safely (e.g., falls back to the default API version).\n",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750#discussion_r2949657818"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-17T21:28:02Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "The 14.0.0 entry doesn’t mention that the SDK was regenerated for API version 2026-02-01 (and the de",
+            "sentiment": "blocking",
+            "details": {
+              "body": "The 14.0.0 entry doesn’t mention that the SDK was regenerated for API version 2026-02-01 (and the default `api_version` changed accordingly). Please add a brief note under \"Features Added\" (or \"Breaking Changes\" if applicable) so consumers can correlate the major version bump with the API version update.\n",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750#discussion_r2949657831"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-17T21:28:03Z",
+            "actor": "copilot-pull-request-reviewer[bot]",
+            "actorRole": "copilot",
+            "description": "Review comment by copilot-pull-request-reviewer[bot]",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## Pull request overview\n\nRegenerates `azure-mgmt-keyvault` from the Key Vault TypeSpec configuration for API version **2026-02-01**, updating generated client/operation/model code and metadata for a new **stable** release.\n\n**Changes:**\n- Updated TypeSpec source location/commit and package metadata to reflect specs commit `2607e4b...` and API version `2026-02-01`.\n- Regenerated management-plane client library code (sync + async) and API surface, including model set changes and request pipeline ",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750#pullrequestreview-3963863017"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-18T02:31:01Z",
+            "actor": "ChenxiJiang333",
+            "actorRole": "reviewer",
+            "description": "update",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/commit/4b12eb96cc87292788ba7faab7dc1da6adac8c87"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-18T02:31:14Z",
+            "actor": "ChenxiJiang333",
+            "actorRole": "reviewer",
+            "description": "Merge branch 'main' into sdkauto/azure-mgmt-keyvault-6022787",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/commit/34fbd78675091e8edeca21d8be330e3632c32b00"
+            }
+          },
+          {
+            "type": "issue_comment",
+            "timestamp": "2026-03-18T02:31:57Z",
+            "actor": "ChenxiJiang333",
+            "actorRole": "reviewer",
+            "description": "@msyyc pr ready, please help review",
+            "sentiment": "neutral",
+            "details": {
+              "body": "@msyyc pr ready, please help review",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750#issuecomment-4079217009"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-18T02:37:46Z",
+            "actor": "msyyc",
+            "actorRole": "reviewer",
+            "description": "Approved by msyyc",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750#pullrequestreview-3964685290"
+            }
+          },
+          {
+            "type": "issue_comment",
+            "timestamp": "2026-03-18T02:50:27Z",
+            "actor": "ChenxiJiang333",
+            "actorRole": "reviewer",
+            "description": "@FRL200, pr ready, feel free to merge and release",
+            "sentiment": "neutral",
+            "details": {
+              "body": "@FRL200, pr ready, feel free to merge and release",
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750#issuecomment-4079268168"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-19T02:31:57Z",
+            "actor": "ChenxiJiang333",
+            "actorRole": "reviewer",
+            "description": "Merge branch 'main' into sdkauto/azure-mgmt-keyvault-6022787",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/commit/4b8f258bdd3f3504f6ee9a74997b0a5b3836ed28"
+            }
+          },
+          {
+            "type": "pr_merged",
+            "timestamp": "2026-03-19T16:07:29Z",
+            "actor": "FRL200",
+            "actorRole": "reviewer",
+            "description": "PR #45750 merged",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-python/pull/45750"
+            }
+          },
+          {
+            "type": "release_pending",
+            "timestamp": "2026-03-19T16:07:29Z",
+            "actor": "system",
+            "actorRole": "bot",
+            "description": "Package release pending: python - keyvault",
+            "sentiment": "neutral",
+            "details": {}
+          }
+        ],
+        "reviewWaitDays": 0.21,
+        "reviewWaitCycles": 1,
+        "release": {
+          "packageName": "azure-mgmt-keyvault",
+          "pipelineName": "python - keyvault",
+          "pipelineUrl": null,
+          "buildId": null,
+          "releasedAt": null,
+          "releaseGapDays": null,
+          "status": "pending"
+        }
+      }
+    ],
+    "Java": [
+      {
+        "repo": "Azure/azure-sdk-for-java",
+        "language": "Java",
+        "number": 48446,
+        "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446",
+        "title": "[AutoPR azure-resourcemanager-keyvault]-generated-from-SDK Generation - Java-6022785",
+        "author": "azure-sdk",
+        "createdAt": "2026-03-17T18:09:42Z",
+        "mergedAt": "2026-03-19T07:12:20Z",
+        "closedAt": "2026-03-19T07:12:20Z",
+        "mergedBy": "weidongxu-microsoft",
+        "state": "merged",
+        "isDraft": false,
+        "readyForReviewAt": "2026-03-19T00:39:28Z",
+        "generationFlow": "automated",
+        "labels": [
+          "Mgmt"
+        ],
+        "reviewers": [
+          "JonathanGiles",
+          "moarychan",
+          "ArthurMa1978",
+          "saragluna",
+          "alzimmermsft",
+          "srnagar",
+          "haolingdong-msft",
+          "Netyyyy",
+          "rujche",
+          "weidongxu-microsoft",
+          "XiaofeiCao"
+        ],
+        "_changedFiles": [
+          "eng/lintingconfigs/revapi/track2/revapi.json",
+          "eng/versioning/version_client.txt",
+          "sdk/keyvault/azure-resourcemanager-keyvault/CHANGELOG.md",
+          "sdk/keyvault/azure-resourcemanager-keyvault/README.md",
+          "sdk/keyvault/azure-resourcemanager-keyvault/pom.xml",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/main/java/com/azure/resourcemanager/keyvault/fluent/models/ManagedHsmInner.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/main/java/com/azure/resourcemanager/keyvault/fluent/models/MhsmPrivateEndpointConnectionInner.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/main/java/com/azure/resourcemanager/keyvault/implementation/KeyVaultManagementClientImpl.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/main/java/com/azure/resourcemanager/keyvault/models/ManagedHsmResource.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/main/java/com/azure/resourcemanager/keyvault/models/MhsmPrivateLinkResource.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/main/resources/META-INF/azure-resourcemanager-keyvault_metadata.json",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/KeysCreateIfNotExistSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/KeysGetSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/KeysGetVersionSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/KeysListSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/KeysListVersionsSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmKeysCreateIfNotExistSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmKeysGetSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmKeysGetVersionSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmKeysListSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmKeysListVersionsSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsCheckMhsmNameAvailabilitySamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsCreateOrUpdateSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsDeleteSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsGetByResourceGroupSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsGetDeletedSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsListByResourceGroupSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsListDeletedSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsListSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsPurgeDeletedSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmsUpdateSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateEndpointConnectionsDeleteSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateEndpointConnectionsGetSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateEndpointConnectionsListByResourceSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateEndpointConnectionsPutSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateLinkResourcesListByMhsmResourceSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/MhsmRegionsListByResourceSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/OperationsListSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/PrivateEndpointConnectionsDeleteSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/PrivateEndpointConnectionsGetSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/PrivateEndpointConnectionsListByResourceSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/PrivateEndpointConnectionsPutSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/PrivateLinkResourcesListByVaultSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/SecretsCreateOrUpdateSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/SecretsGetSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/SecretsListSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/SecretsUpdateSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsCheckNameAvailabilitySamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsCreateOrUpdateSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsDeleteSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsGetByResourceGroupSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsGetDeletedSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsListByResourceGroupSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsListBySubscriptionSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsListDeletedSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsListSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsPurgeDeletedSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsUpdateAccessPolicySamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/samples/java/com/azure/resourcemanager/keyvault/generated/VaultsUpdateSamples.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ActionTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/AttributesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/CheckMhsmNameAvailabilityParametersTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/CheckMhsmNameAvailabilityResultInnerTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/DeletedManagedHsmInnerTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/DeletedManagedHsmListResultTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/DeletedManagedHsmPropertiesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/KeyAttributesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/KeyReleasePolicyTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/KeyRotationPolicyAttributesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/LifetimeActionTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MHSMPrivateEndpointConnectionsListResultTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmInnerTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmKeyAttributesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmKeyReleasePolicyTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmKeyRotationPolicyAttributesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmLifetimeActionTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmListResultTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmPropertiesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmResourceTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmRotationPolicyTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmSecurityDomainPropertiesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedHsmTriggerTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/ManagedServiceIdentityTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmGeoReplicatedRegionInnerTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmNetworkRuleSetTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateEndpointConnectionInnerTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateEndpointConnectionItemTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateEndpointConnectionPropertiesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateEndpointTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateLinkResourceListResultInnerTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateLinkResourcePropertiesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateLinkResourceTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmPrivateLinkServiceConnectionStateTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmRegionsListResultTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmServiceTagRuleTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmVirtualNetworkRuleTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/MhsmipRuleTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/PrivateLinkResourceListResultInnerTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/PrivateLinkResourcePropertiesTests.java",
+          "sdk/keyvault/azure-resourcemanager-keyvault/src/test/java/com/azure/resourcemanager/keyvault/generated/PrivateLinkResourceTests.java"
+        ],
+        "events": [
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-17T07:59:26Z",
+            "actor": "weidongxu-microsoft",
+            "actorRole": "reviewer",
+            "description": "revapi suppress for the removal of ManagedHsmResource class",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-java/commit/a3585a79f6a62f85e21c14fd4096f75440cc04ff"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-17T18:09:38Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Configurations:  'specification/keyvault/resource-manager/Mi",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-java/commit/809c7924207d822d579a382cea100e2dffa91553"
+            }
+          },
+          {
+            "type": "pr_created",
+            "timestamp": "2026-03-17T18:09:42Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "PR #48446 opened: [AutoPR azure-resourcemanager-keyvault]-generated-from-SDK G",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-18T01:41:33Z",
+            "actor": "weidongxu-microsoft",
+            "actorRole": "reviewer",
+            "description": "Update CHANGELOG.md",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-java/commit/b8fca32d5bd138bc083d13907d78f0a4b4505ddb"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-18T02:27:15Z",
+            "actor": "weidongxu-microsoft",
+            "actorRole": "reviewer",
+            "description": "Approved by weidongxu-microsoft",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#pullrequestreview-3964661424"
+            }
+          },
+          {
+            "type": "ready_for_review",
+            "timestamp": "2026-03-19T00:39:28Z",
+            "actor": "FRL200",
+            "actorRole": "reviewer",
+            "description": "PR marked ready for review",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-19T00:49:42Z",
+            "actor": "copilot-pull-request-reviewer[bot]",
+            "actorRole": "copilot",
+            "description": "Review comment by copilot-pull-request-reviewer[bot]",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## Pull request overview\n\nUpdates the **Azure Resource Manager Key Vault** Java SDK (`azure-resourcemanager-keyvault`) generated from the Key Vault management TypeSpec for API version **2026-02-01**, preparing a **stable** release.\n\n**Changes:**\n- Updated TypeSpec input location/commit and bumped the service `api-version` to `2026-02-01`.\n- Regenerated models/tests/samples for the new API version, including refactoring base resource usage (removing `ManagedHsmResource`).\n- Finalized package vers",
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#pullrequestreview-3971852647"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-19T00:49:42Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "`MhsmPrivateLinkResource` now extends `com.azure.core.management.Resource`, but it also redeclares `",
+            "sentiment": "blocking",
+            "details": {
+              "body": "`MhsmPrivateLinkResource` now extends `com.azure.core.management.Resource`, but it also redeclares `id`, `name`, and `type` fields and overrides the corresponding getters to return these new fields. This shadows the existing `id/name/type` state in `ProxyResource` (the superclass of `Resource`) and can lead to inconsistent behavior if any code path populates the base resource via `ProxyResourceAccessHelper`/Jackson while these shadow fields remain unset. Consider removing the duplicate fields/ov",
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#discussion_r2957075202"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-19T00:49:42Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "The changelog no longer has a top \"(Unreleased)\" section for the next version. Other management libr",
+            "sentiment": "blocking",
+            "details": {
+              "body": "The changelog no longer has a top \"(Unreleased)\" section for the next version. Other management libraries in this repo keep an \"(Unreleased)\" header at the top even after cutting a release (for example, `sdk/network/azure-resourcemanager-network/CHANGELOG.md`). Consider re-adding the next version’s Unreleased section above `2.55.0` to keep the changelog ready for subsequent changes.",
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#discussion_r2957075212"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-19T00:49:42Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "This release includes a documented breaking change (`ManagedHsmResource` removal in CHANGELOG) but t",
+            "sentiment": "blocking",
+            "details": {
+              "body": "This release includes a documented breaking change (`ManagedHsmResource` removal in CHANGELOG) but the Maven version is being finalized as `2.55.0` (a minor bump from `2.54.x`). Under semantic versioning, removing a public type is a major breaking change; consider either restoring binary compatibility (e.g., keep `ManagedHsmResource` as a deprecated alias/wrapper) or bumping the major version to reflect the break.\n",
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#discussion_r2957075224"
+            }
+          },
+          {
+            "type": "issue_comment",
+            "timestamp": "2026-03-19T02:17:13Z",
+            "actor": "weidongxu-microsoft",
+            "actorRole": "reviewer",
+            "description": "I will skip the test from source CI. It seems cosmos_spark again having problem.",
+            "sentiment": "neutral",
+            "details": {
+              "body": "I will skip the test from source CI. It seems cosmos_spark again having problem.\r\n\r\n```\r\n[ERROR] Failed to execute goal on project azure-cosmos-spark_3: Could not resolve dependencies for project com.azure.cosmos.spark:azure-cosmos-spark_3:pom:0.0.1-beta.1\r\n[ERROR] dependency: com.azure:azure-monitor-opentelemetry-autoconfigure:jar:1.5.0-beta.1 (compile)\r\n[ERROR] \tCould not find artifact com.azure:azure-monitor-opentelemetry-autoconfigure:jar:1.5.0-beta.1 in azure-sdk-for-java (https://pkgs.dev.",
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#issuecomment-4087119645"
+            }
+          },
+          {
+            "type": "issue_comment",
+            "timestamp": "2026-03-19T02:17:22Z",
+            "actor": "weidongxu-microsoft",
+            "actorRole": "reviewer",
+            "description": "/check-enforcer override",
+            "sentiment": "neutral",
+            "details": {
+              "body": "/check-enforcer override",
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#issuecomment-4087120593"
+            }
+          },
+          {
+            "type": "issue_comment",
+            "timestamp": "2026-03-19T02:17:29Z",
+            "actor": "weidongxu-microsoft",
+            "actorRole": "reviewer",
+            "description": "@XiaofeiCao for review",
+            "sentiment": "neutral",
+            "details": {
+              "body": "@XiaofeiCao for review",
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#issuecomment-4087121268"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-19T02:52:43Z",
+            "actor": "XiaofeiCao",
+            "actorRole": "reviewer",
+            "description": "Approved by XiaofeiCao",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446#pullrequestreview-3972419302"
+            }
+          },
+          {
+            "type": "pr_merged",
+            "timestamp": "2026-03-19T07:12:20Z",
+            "actor": "weidongxu-microsoft",
+            "actorRole": "reviewer",
+            "description": "PR #48446 merged",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-java/pull/48446"
+            }
+          },
+          {
+            "type": "release_pipeline_started",
+            "timestamp": "2026-04-09T06:52:40.0833333Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Release pipeline started: java - keyvault",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6128032&view=results",
+              "body": "Build 6128032"
+            }
+          },
+          {
+            "type": "release_pipeline_completed",
+            "timestamp": "2026-04-09T07:18:46.9733333Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Package released: com.azure.resourcemanager:azure-resourcemanager-keyvault",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6128032&view=results",
+              "body": "Build 6128032 succeeded"
+            }
+          }
+        ],
+        "reviewWaitDays": 0.07,
+        "reviewWaitCycles": 1,
+        "release": {
+          "packageName": "com.azure.resourcemanager:azure-resourcemanager-keyvault",
+          "packageVersion": null,
+          "pipelineName": "java - keyvault",
+          "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6128032&view=results",
+          "buildId": "6128032",
+          "releasedAt": "2026-04-09T07:18:46.9733333Z",
+          "releaseGapDays": 21,
+          "status": "released"
+        }
+      }
+    ],
+    "JavaScript": [],
+    "Go": [
+      {
+        "repo": "Azure/azure-sdk-for-go",
+        "language": "Go",
+        "number": 26294,
+        "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294",
+        "title": "[AutoPR sdk-resourcemanager/keyvault/armkeyvault]-generated-from-SDK Generation - Go-6022784",
+        "author": "azure-sdk",
+        "createdAt": "2026-03-17T18:01:56Z",
+        "mergedAt": "2026-03-19T00:38:52Z",
+        "closedAt": "2026-03-19T00:38:52Z",
+        "mergedBy": "FRL200",
+        "state": "merged",
+        "isDraft": false,
+        "readyForReviewAt": "2026-03-18T06:03:03Z",
+        "generationFlow": "automated",
+        "labels": [
+          "Mgmt"
+        ],
+        "reviewers": [
+          "lirenhe",
+          "JiaqiZhang-Dev",
+          "tadelesh"
+        ],
+        "_changedFiles": [
+          "sdk/resourcemanager/keyvault/armkeyvault/CHANGELOG.md",
+          "sdk/resourcemanager/keyvault/armkeyvault/assets.json",
+          "sdk/resourcemanager/keyvault/armkeyvault/fake/internal.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/fake/server_factory.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/keys_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/keys_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/managedhsmkeys_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/managedhsmkeys_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/managedhsms_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/managedhsms_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/mhsmprivateendpointconnections_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/mhsmprivateendpointconnections_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/mhsmprivatelinkresources_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/mhsmprivatelinkresources_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/mhsmregions_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/mhsmregions_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/models.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/operations_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/operations_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/privateendpointconnections_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/privateendpointconnections_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/privatelinkresources_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/privatelinkresources_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/secrets_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/secrets_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/testdata/_metadata.json",
+          "sdk/resourcemanager/keyvault/armkeyvault/tsp-location.yaml",
+          "sdk/resourcemanager/keyvault/armkeyvault/vaults_client.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/vaults_client_example_test.go",
+          "sdk/resourcemanager/keyvault/armkeyvault/version.go"
+        ],
+        "events": [
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-17T18:01:53Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "Configurations:  'specification/keyvault/resource-manager/Mi",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/commit/f4601d0c72a68eff45c7c692807ccdac68c32ce6"
+            }
+          },
+          {
+            "type": "pr_created",
+            "timestamp": "2026-03-17T18:01:56Z",
+            "actor": "azure-sdk",
+            "actorRole": "bot",
+            "description": "PR #26294 opened: [AutoPR sdk-resourcemanager/keyvault/armkeyvault]-generated-",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-18T03:17:44Z",
+            "actor": "tadelesh",
+            "actorRole": "reviewer",
+            "description": "Update CHANGELOG.md",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/commit/f81534dfffc46f35412f784b4bfe0a9a2faceb9e"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-18T04:01:43Z",
+            "actor": "tadelesh",
+            "actorRole": "reviewer",
+            "description": "fix example",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/commit/59c17163026ec58c07fbe393ace77b162bc1f8be"
+            }
+          },
+          {
+            "type": "commit_pushed",
+            "timestamp": "2026-03-18T05:55:14Z",
+            "actor": "jliusan",
+            "actorRole": "reviewer",
+            "description": "update assets.json",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/commit/2a5eb1b7232baa6abea1599fe152be879e859cd2"
+            }
+          },
+          {
+            "type": "ready_for_review",
+            "timestamp": "2026-03-18T06:03:03Z",
+            "actor": "tadelesh",
+            "actorRole": "reviewer",
+            "description": "PR marked ready for review",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294"
+            }
+          },
+          {
+            "type": "review_approved",
+            "timestamp": "2026-03-18T06:03:09Z",
+            "actor": "tadelesh",
+            "actorRole": "reviewer",
+            "description": "Approved by tadelesh",
+            "sentiment": "positive",
+            "details": {
+              "body": null,
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294#pullrequestreview-3965313778"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-18T06:05:58Z",
+            "actor": "copilot-pull-request-reviewer[bot]",
+            "actorRole": "copilot",
+            "description": "Review comment by copilot-pull-request-reviewer[bot]",
+            "sentiment": "neutral",
+            "details": {
+              "body": "## Pull request overview\n\nAuto-generated update for the `armkeyvault` Resource Manager Go SDK to align with the KeyVault RP spec `2026-02-01` (per tspconfig), including version bump and regenerated clients/examples/test artifacts.\n\n**Changes:**\n- Bump package version to `v2.0.2` and add a changelog entry for the API version upgrade.\n- Update generated clients to use `api-version=2026-02-01` and refresh example files accordingly.\n- Update TypeSpec location metadata/testdata metadata and adjust fa",
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294#pullrequestreview-3965325448"
+            }
+          },
+          {
+            "type": "review_comment",
+            "timestamp": "2026-03-18T06:05:58Z",
+            "actor": "Copilot",
+            "actorRole": "copilot",
+            "description": "The example NextLink URL has an invalid `api-version` value (`22026-02-01`). This looks like an acci",
+            "sentiment": "blocking",
+            "details": {
+              "body": "The example NextLink URL has an invalid `api-version` value (`22026-02-01`). This looks like an accidental extra \"22\" prefix and should be `2026-02-01` to match the rest of the SDK and the example definition version.\n",
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294#discussion_r2951149961"
+            }
+          },
+          {
+            "type": "pr_merged",
+            "timestamp": "2026-03-19T00:38:52Z",
+            "actor": "FRL200",
+            "actorRole": "reviewer",
+            "description": "PR #26294 merged",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://github.com/Azure/azure-sdk-for-go/pull/26294"
+            }
+          },
+          {
+            "type": "release_pipeline_started",
+            "timestamp": "2026-03-20T17:06:27.14Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Release pipeline started: go - armkeyvault",
+            "sentiment": "neutral",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6041691&view=results",
+              "body": "Build 6041691"
+            }
+          },
+          {
+            "type": "release_pipeline_completed",
+            "timestamp": "2026-03-20T17:09:54.0266667Z",
+            "actor": "azure-pipelines[bot]",
+            "actorRole": "bot",
+            "description": "Package released: sdk/resourcemanager/keyvault/armkeyvault/v2",
+            "sentiment": "positive",
+            "details": {
+              "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6041691&view=results",
+              "body": "Build 6041691 succeeded"
+            }
+          }
+        ],
+        "reviewWaitDays": 0.77,
+        "reviewWaitCycles": 2,
+        "release": {
+          "packageName": "sdk/resourcemanager/keyvault/armkeyvault/v2",
+          "packageVersion": null,
+          "pipelineName": "go - armkeyvault",
+          "pipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=6041691&view=results",
+          "buildId": "6041691",
+          "releasedAt": "2026-03-20T17:09:54.0266667Z",
+          "releaseGapDays": 1.7,
+          "status": "released"
+        }
+      }
+    ]
+  },
+  "releaseWindows": [
+    {
+      "id": "rw-1",
+      "label": "API 2026-02-01",
+      "startDate": "2025-11-07T07:06:58Z",
+      "endDate": "2026-04-09T07:18:46.9733333Z",
+      "specPRNumbers": [
+        41466,
+        38668,
+        41297,
+        41401,
+        41450,
+        41624,
+        41649,
+        41731
+      ],
+      "sdkPRNumbers": {
+        ".NET": [
+          57181,
+          57005,
+          57347
+        ],
+        "Python": [
+          45750,
+          45955
+        ],
+        "Java": [
+          48446
+        ],
+        "Go": [
+          26294
+        ]
+      },
+      "summary": {
+        "totalDurationDays": 153.01,
+        "specPRDays": 135.48,
+        "specPRCount": 8,
+        "pipelineGapDays": 1.78,
+        "totalNags": 0,
+        "totalManualFixes": 0,
+        "totalUniqueReviewers": 14,
+        "totalReviewWaitDays": 68.58,
+        "totalReviewWaitCycles": 30
+      }
+    }
+  ],
+  "summary": {
+    "totalSpecPRs": 8,
+    "totalSDKPRs": 7,
+    "totalReleases": 4,
+    "avgCycleTimeDays": 153.01,
+    "avgPipelineGapDays": 1.78,
+    "avgReviewWaitDays": 4.57,
+    "totalNags": 0,
+    "totalManualFixes": 0,
+    "totalToolCalls": 0,
+    "toolCallSuccessRate": null,
+    "languageBreakdown": {
+      ".NET": {
+        "prCount": 3,
+        "mergedCount": 3,
+        "avgDays": 0.54,
+        "releaseCount": 2
+      },
+      "Python": {
+        "prCount": 2,
+        "mergedCount": 2,
+        "avgDays": 1.03,
+        "releaseCount": 0
+      },
+      "Java": {
+        "prCount": 1,
+        "mergedCount": 1,
+        "avgDays": 1.54,
+        "releaseCount": 1
+      },
+      "JavaScript": {
+        "prCount": 0,
+        "mergedCount": 0,
+        "avgDays": null,
+        "releaseCount": 0
+      },
+      "Go": {
+        "prCount": 1,
+        "mergedCount": 1,
+        "avgDays": 1.28,
+        "releaseCount": 1
+      }
+    },
+    "topReviewers": [
+      {
+        "login": "live1206",
+        "reviewCount": 16
+      },
+      {
+        "login": "tadelesh",
+        "reviewCount": 9
+      },
+      {
+        "login": "FRL200",
+        "reviewCount": 8
+      },
+      {
+        "login": "ChenxiJiang333",
+        "reviewCount": 7
+      },
+      {
+        "login": "weidongxu-microsoft",
+        "reviewCount": 7
+      },
+      {
+        "login": "qiaozha",
+        "reviewCount": 6
+      },
+      {
+        "login": "chlowell",
+        "reviewCount": 4
+      },
+      {
+        "login": "XiaofeiCao",
+        "reviewCount": 3
+      },
+      {
+        "login": "raych1",
+        "reviewCount": 2
+      },
+      {
+        "login": "Kyle Zhang",
+        "reviewCount": 2
+      }
+    ],
+    "automationRate": 0.71
+  },
+  "insights": [
+    {
+      "type": "summary",
+      "severity": "warning",
+      "description": "Average release cycle: 153.01d across 1 windows"
+    }
+  ]
+}

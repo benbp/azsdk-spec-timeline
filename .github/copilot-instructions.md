@@ -6,78 +6,22 @@ This repo is a waterfall timeline visualization for the Azure SDK generation pro
 
 **Goal**: Identify bottlenecks, review delays, nag patterns, idle gaps, and friction in the end-to-end SDK generation process.
 
-## Architecture
-
-**Tech stack**: Vanilla HTML, CSS, JavaScript. No frameworks, no bundler, no build step.
-
-**Entry point**: `index.html` — single-page app with a homepage (sample list) and timeline view.
-
-### JavaScript modules (IIFE pattern)
-
-| File | Module | Role |
-|---|---|---|
-| `js/timeline.js` | `Timeline` | Core renderer: swim lanes, time axis, event markers, idle gaps, gap compaction, zoom, collision resolution |
-| `js/ui.js` | `UI` | Tooltips, detail panel, file loading, theme toggle, actor/event type filters, homepage sample list |
-| `js/data-loader.js` | `DataLoader` | JSON validation and loading |
-
-### Styles
-
-`css/styles.css` — all CSS in one file. Dark/light theme via `html[data-theme]`.
-
-### Data
-
-`data/sample-*.json` — pre-generated timeline datasets. Each file is a self-contained timeline.
-
-### Scripts (Node.js, run via CLI)
-
-| Script | Purpose |
-|---|---|
-| `scripts/fetch-timeline.js` | Fetches raw PR data via `gh` CLI (GitHub API + Azure DevOps pipelines) |
-| `scripts/process-timeline.js` | Classifies events, detects patterns (nags, manual fixes, idle gaps), generates final timeline JSON |
-
 ### Skills (`.github/skills/`)
 
 | Skill | When to use |
 |---|---|
-| `generate-timeline-data` | Orchestrates full data generation: spec PR discovery → SDK PR fetch → event classification → JSON output. Invoke when asked to generate timeline data for a spec PR. |
 | `playwright-cli` | Browser automation for testing. Always use this skill instead of raw Playwright APIs. |
-
-## Data Pipeline
-
-Two-step process to generate a timeline dataset:
-
-```bash
-# Step 1: Fetch raw data (uses gh CLI, takes 2-5 minutes)
-node scripts/fetch-timeline.js <spec-pr-url> --sdk-prs <url1> <url2> ... [--skip-releases] > raw.json
-
-# Step 2: Process into final timeline JSON
-node scripts/process-timeline.js raw.json data/sample-<name>.json "<Title>"
-```
-
-After generating, add an entry to the `SAMPLES` array in `js/ui.js`.
-
-To run the full pipeline with AI-assisted analysis, invoke the `generate-timeline-data` skill.
-
-## Running Locally
-
-```bash
-npx http-server . -p 8765
-# Open http://localhost:8765
-```
-
-No build step needed — edit files and reload.
 
 ## Operational Rules
 
 - **Never git push** — you may commit freely, but the user handles pushing.
 - **Testing**: Always use the `playwright-cli` skill for browser testing. Do not use raw Playwright APIs or install Playwright separately.
   - Save screenshots from playwright testing to the `screenshots/` directory, so they get ignored by git
-- **No new dependencies** — this is a zero-dependency frontend. Scripts use Node.js built-ins and `gh` CLI.
+- **No new dependencies** — this is a zero-dependency frontend except for alpine.js. Scripts use Node.js built-ins and `gh` CLI.
 
 ## Approach to Making Changes
 
 - Edit files directly and reload — no compilation or transpilation.
-- CSS is in one file (`css/styles.css`). JS uses the IIFE module pattern (`Timeline`, `UI`, `DataLoader`).
 - When adding new timeline datasets: generate data via the pipeline, add to SAMPLES in `js/ui.js`, test with `playwright-cli`.
 - When changing rendering: test across multiple datasets (different sizes, in-flight vs complete, with/without releases).
 - File naming for data: `data/sample-<lowercase-name>.json`.

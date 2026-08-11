@@ -1,45 +1,22 @@
-## Azure SDK Development Visualizer
+# Azure SDK Generation Timeline v2
 
-This repo contains a website and data to represent azure sdk generation flows from typespec PR to language PR to merge and release.
+This repository is the planning and research workspace for a static, Alpine.js-based dashboard that reconstructs Azure SDK generation and release timelines from Azure DevOps Release Plan work items and linked GitHub pull requests.
 
-### Hosting
+The v2 site is intentionally **not implemented yet**. The proposed architecture, research evidence, and data investment backlog are awaiting approval:
 
-The main site is hosted at [https://benbp.net/azsdk-spec-timeline](https://benbp.net/azsdk-spec-timeline)
+- [Research findings](docs/research-findings.md)
+- [V2 architecture plan](docs/v2-architecture-plan.md)
+- [Data gap investment backlog](docs/data-gap-backlog.md)
 
-The site is deployed automatically on pushes to main from the [azsdk-spec-timeline](https://github.com/benbp/azsdk-spec-timeline) repository.
+## Release Plan profiler
 
-The staging site is hosted at [https://benbp.net/azsdk-spec-timeline-staging](https://benbp.net/azsdk-spec-timeline-staging)
-
-Staging is deployed automatically on pushes to main from the [azsdk-spec-timeline-staging](https://github.com/benbp/azsdk-spec-timeline-staging) repository.
-
-```
-# Deploy to main site
-git remote add origin https://github.com/benbp/azsdk-spec-timeline.git
-git push origin
-
-# Deploy to staging site
-git remote add staging https://github.com/benbp/azsdk-spec-timeline-staging.git
-git push staging
-```
-
-### Development
-
-This is almost an entirely vibe coded single page app. Beware.
-
-See `.github/copilot-instructions.md` and `.github/skills` for relevant docs that can guide coding agents to make contributions. The conventions are set up to be auto-loaded with the github copilot cli. More exhaustive development docs can be found in the `.github/copilot-instructions.md` file.
-
-Locally, the site can be tested via:
+The zero-dependency profiler used for the initial Azure DevOps analysis can be rerun with an authenticated Azure CLI session:
 
 ```bash
-npx http-server . -p 8765
-# Open http://localhost:8765
+node scripts/profile-release-plans.js \
+  --days 365 \
+  --revision-sample 30 \
+  > /tmp/release-plan-profile.json
 ```
 
-Agents use `playwright-cli` for testing.
-
-### Dependencies
-
-- node/npm/npx
-- github cli
-- playwright-cli
-- azure cli with devops extension
+It emits aggregate coverage, correlation, quality, and revision-history statistics. It does not emit raw work item field values, identities, comments, or URLs.

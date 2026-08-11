@@ -11,6 +11,7 @@ This repo is a waterfall timeline visualization for the Azure SDK generation pro
 | Skill | When to use |
 |---|---|
 | `playwright-cli` | Browser automation for testing. Always use this skill instead of raw Playwright APIs. |
+| `refresh-spec-flow-data` | Gathering, refreshing, validating, or publishing spec-flow timeline data. |
 
 ## Operational Rules
 

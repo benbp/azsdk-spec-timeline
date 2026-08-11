@@ -65,12 +65,28 @@
           </div>
 
           <section class="panel scorecard">
-            <div class="section-heading">
+            <div
+              class="section-heading scorecard-toggle"
+              role="button"
+              tabindex="0"
+              aria-controls="scorecard-trends"
+              :aria-expanded="trendsExpanded"
+              :aria-label="trendsExpanded ? 'Collapse scorecard trends' : 'Expand scorecard trends'"
+              @click="trendsExpanded = !trendsExpanded"
+              @keydown.enter.prevent="trendsExpanded = !trendsExpanded"
+              @keydown.space.prevent="trendsExpanded = !trendsExpanded"
+            >
               <div>
                 <p class="eyebrow">Fleet scorecard</p>
                 <h2>Stage duration</h2>
               </div>
-              <span class="confidence-badge observed">Initial cohort</span>
+              <span
+                class="trend-toggle"
+                aria-hidden="true"
+              >
+                <span x-text="trendsExpanded ? 'Collapse trends' : 'Expand trends'"></span>
+                <i :class="{ open: trendsExpanded }">⌄</i>
+              </span>
             </div>
             <div class="metric-strip">
               <template x-for="metric in scorecardMetrics" :key="metric.metricId">
@@ -91,9 +107,261 @@
                     <span>P90</span>
                     <b x-text="formatDuration(metric.statistics.p90)"></b>
                   </p>
+                  <div class="compact-trends">
+                    <div>
+                      <span>WoW</span>
+                      <div
+                        class="mini-column-chart"
+                        role="img"
+                        :aria-label="trendAriaLabel(metric, 'weekly')"
+                      >
+                        <template
+                          x-for="bucket in completeTrendSeries(metric.trends.weekly)"
+                          :key="`mini-week:${metric.metricId}:${bucket.key}`"
+                        >
+                          <button
+                            type="button"
+                            class="mini-column"
+                            :class="{ empty: bucket.p50 === null }"
+                            :style="miniColumnStyle(bucket.p50, completeTrendSeries(metric.trends.weekly))"
+                            :data-tooltip="columnTooltip(bucket, 'p50')"
+                            :aria-label="columnTooltip(bucket, 'p50')"
+                            :disabled="bucket.p50 === null"
+                          ></button>
+                        </template>
+                      </div>
+                      <b
+                        :class="rollingTrendChange(metric.trends.weekly).direction"
+                        :title="trendComparisonTitle(rollingTrendChange(metric.trends.weekly))"
+                        x-text="`${formatTrendChange(rollingTrendChange(metric.trends.weekly))} avg`"
+                      ></b>
+                    </div>
+                    <div>
+                      <span>MoM</span>
+                      <div
+                        class="mini-column-chart"
+                        role="img"
+                        :aria-label="trendAriaLabel(metric, 'monthly')"
+                      >
+                        <template
+                          x-for="bucket in completeTrendSeries(metric.trends.monthly)"
+                          :key="`mini-month:${metric.metricId}:${bucket.key}`"
+                        >
+                          <button
+                            type="button"
+                            class="mini-column"
+                            :class="{ empty: bucket.p50 === null }"
+                            :style="miniColumnStyle(bucket.p50, completeTrendSeries(metric.trends.monthly))"
+                            :data-tooltip="columnTooltip(bucket, 'p50')"
+                            :aria-label="columnTooltip(bucket, 'p50')"
+                            :disabled="bucket.p50 === null"
+                          ></button>
+                        </template>
+                      </div>
+                      <b
+                        :class="rollingTrendChange(metric.trends.monthly).direction"
+                        :title="trendComparisonTitle(rollingTrendChange(metric.trends.monthly))"
+                        x-text="`${formatTrendChange(rollingTrendChange(metric.trends.monthly))} avg`"
+                      ></b>
+                    </div>
+                  </div>
                   <small
-                    x-text="`${metric.population.included}/${metric.population.eligible} results`"
+                    x-text="`${metric.population.included}/${metric.population.eligible} completed-flow results`"
                   ></small>
+                </article>
+              </template>
+            </div>
+            <div
+              id="scorecard-trends"
+              class="trend-expansion"
+              x-show="trendsExpanded"
+              x-transition.opacity
+            >
+              <template
+                x-for="metric in scorecardMetrics"
+                :key="`trend:${metric.metricId}`"
+              >
+                <article class="trend-detail">
+                  <header>
+                    <div>
+                      <span x-text="metric.metricId"></span>
+                      <strong x-text="metric.name"></strong>
+                    </div>
+                    <p>
+                      Historical benchmark
+                      <b x-text="`P50 ${formatDuration(metric.statistics.p50)}`"></b>
+                    </p>
+                  </header>
+                  <div class="chart-legend" aria-label="Chart legend">
+                    <span><i class="legend-column p50"></i>P50 duration</span>
+                    <span><i class="legend-column p90"></i>P90 duration</span>
+                    <span><i class="legend-line"></i>Historical P50 benchmark</span>
+                    <span class="scale-note">Square-root Y scale</span>
+                  </div>
+                  <div class="trend-graphs">
+                    <section>
+                      <div>
+                        <strong>Week over week</strong>
+                        <span
+                          :class="rollingTrendChange(metric.trends.weekly, true).direction"
+                          :title="trendComparisonTitle(rollingTrendChange(metric.trends.weekly, true))"
+                          x-text="`Live ${formatTrendChange(rollingTrendChange(metric.trends.weekly, true))} vs 3mo avg · ${trendSampleLabel(rollingTrendChange(metric.trends.weekly, true))}`"
+                        ></span>
+                      </div>
+                      <div
+                        class="column-chart-scroll"
+                        role="img"
+                        :aria-label="trendAriaLabel(metric, 'weekly', true)"
+                      >
+                        <div class="column-chart">
+                          <div class="y-axis">
+                            <span class="axis-title">Duration</span>
+                            <template
+                              x-for="tick in chartTicks(metric, metric.trends.weekly)"
+                              :key="`week-tick:${metric.metricId}:${tick.position}`"
+                            >
+                              <i :style="`top:${tick.pixel}px`">
+                                <span x-text="formatDuration(tick.value)"></span>
+                              </i>
+                            </template>
+                          </div>
+                          <div class="column-plot">
+                            <template
+                              x-for="tick in chartTicks(metric, metric.trends.weekly)"
+                              :key="`week-grid:${metric.metricId}:${tick.position}`"
+                            >
+                              <i
+                                class="grid-line"
+                                :style="`top:${tick.pixel}px`"
+                              ></i>
+                            </template>
+                            <i
+                              class="benchmark-line"
+                              :style="benchmarkStyle(metric, metric.trends.weekly)"
+                            ></i>
+                            <div
+                              class="column-buckets"
+                              :style="`grid-template-columns:repeat(${metric.trends.weekly.series.length}, minmax(24px, 1fr))`"
+                            >
+                              <template
+                                x-for="(bucket, index) in metric.trends.weekly.series"
+                                :key="`week-bar:${metric.metricId}:${bucket.key}`"
+                              >
+                                <div
+                                  class="column-bucket"
+                                  :class="{ partial: bucket.partial }"
+                                >
+                                  <div class="column-pair">
+                                    <button
+                                      type="button"
+                                      class="chart-column p50"
+                                      x-show="bucket.p50 !== null"
+                                      :style="columnStyle(bucket.p50, metric, metric.trends.weekly)"
+                                      :data-tooltip="columnTooltip(bucket, 'p50')"
+                                      :aria-label="columnTooltip(bucket, 'p50')"
+                                    ></button>
+                                    <button
+                                      type="button"
+                                      class="chart-column p90"
+                                      x-show="bucket.p90 !== null"
+                                      :style="columnStyle(bucket.p90, metric, metric.trends.weekly)"
+                                      :data-tooltip="columnTooltip(bucket, 'p90')"
+                                      :aria-label="columnTooltip(bucket, 'p90')"
+                                    ></button>
+                                  </div>
+                                  <span
+                                    x-text="bucketAxisLabel(bucket, index, metric.trends.weekly.series.length, 'week')"
+                                  ></span>
+                                </div>
+                              </template>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <small>Header compares the live partial week · hover or focus a column for values</small>
+                    </section>
+                    <section>
+                      <div>
+                        <strong>Month over month</strong>
+                        <span
+                          :class="rollingTrendChange(metric.trends.monthly, true).direction"
+                          :title="trendComparisonTitle(rollingTrendChange(metric.trends.monthly, true))"
+                          x-text="`Live ${formatTrendChange(rollingTrendChange(metric.trends.monthly, true))} vs 3mo avg · ${trendSampleLabel(rollingTrendChange(metric.trends.monthly, true))}`"
+                        ></span>
+                      </div>
+                      <div
+                        class="column-chart-scroll"
+                        role="img"
+                        :aria-label="trendAriaLabel(metric, 'monthly', true)"
+                      >
+                        <div class="column-chart">
+                          <div class="y-axis">
+                            <span class="axis-title">Duration</span>
+                            <template
+                              x-for="tick in chartTicks(metric, metric.trends.monthly)"
+                              :key="`month-tick:${metric.metricId}:${tick.position}`"
+                            >
+                              <i :style="`top:${tick.pixel}px`">
+                                <span x-text="formatDuration(tick.value)"></span>
+                              </i>
+                            </template>
+                          </div>
+                          <div class="column-plot">
+                            <template
+                              x-for="tick in chartTicks(metric, metric.trends.monthly)"
+                              :key="`month-grid:${metric.metricId}:${tick.position}`"
+                            >
+                              <i
+                                class="grid-line"
+                                :style="`top:${tick.pixel}px`"
+                              ></i>
+                            </template>
+                            <i
+                              class="benchmark-line"
+                              :style="benchmarkStyle(metric, metric.trends.monthly)"
+                            ></i>
+                            <div
+                              class="column-buckets"
+                              :style="`grid-template-columns:repeat(${metric.trends.monthly.series.length}, minmax(56px, 1fr))`"
+                            >
+                              <template
+                                x-for="(bucket, index) in metric.trends.monthly.series"
+                                :key="`month-bar:${metric.metricId}:${bucket.key}`"
+                              >
+                                <div
+                                  class="column-bucket"
+                                  :class="{ partial: bucket.partial }"
+                                >
+                                  <div class="column-pair">
+                                    <button
+                                      type="button"
+                                      class="chart-column p50"
+                                      x-show="bucket.p50 !== null"
+                                      :style="columnStyle(bucket.p50, metric, metric.trends.monthly)"
+                                      :data-tooltip="columnTooltip(bucket, 'p50')"
+                                      :aria-label="columnTooltip(bucket, 'p50')"
+                                    ></button>
+                                    <button
+                                      type="button"
+                                      class="chart-column p90"
+                                      x-show="bucket.p90 !== null"
+                                      :style="columnStyle(bucket.p90, metric, metric.trends.monthly)"
+                                      :data-tooltip="columnTooltip(bucket, 'p90')"
+                                      :aria-label="columnTooltip(bucket, 'p90')"
+                                    ></button>
+                                  </div>
+                                  <span
+                                    x-text="bucketAxisLabel(bucket, index, metric.trends.monthly.series.length, 'month')"
+                                  ></span>
+                                </div>
+                              </template>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <small>Header compares the live partial month · partial buckets are hatched</small>
+                    </section>
+                  </div>
                 </article>
               </template>
             </div>

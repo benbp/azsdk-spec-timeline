@@ -654,7 +654,7 @@ Approve:
 
 - Add vendored Alpine and component stores.
 - Build portfolio, service, and plan navigation with fixtures.
-- Establish visual tokens and responsive layout.
+- Establish visual tokens and the desktop dashboard layout.
 
 **Gate:** URL-driven navigation, loading/error states, and accessibility work before full timeline rendering.
 

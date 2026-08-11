@@ -98,7 +98,7 @@ function main() {
   );
   const portfolio = buildPortfolio(plans, source, github, pipelineSource);
   const services = buildServices(plans);
-  const scorecard = buildScorecard(plans);
+  const scorecard = buildScorecard(plans, source.generatedAt);
 
   writeJson(join(buildRoot, "portfolio.json"), portfolio);
   writeJson(
@@ -679,15 +679,18 @@ function buildMetrics(source, prMap, events, runs) {
   const allIntendedReleased =
     source.languages.length > 0 &&
     releases.length === source.languages.length;
-  metrics.push(
-    durationMetric(
-      "L1",
-      { planId: source.id },
-      specCreated,
-      allIntendedReleased ? latest(releases) : null,
-      "observed",
-    ),
+  const l1 = durationMetric(
+    "L1",
+    { planId: source.id },
+    specCreated,
+    allIntendedReleased ? latest(releases) : null,
+    "observed",
   );
+  if (!source.languages.length) {
+    l1.outcome = "ineligible";
+    l1.missingBoundaryReason = "no-intended-artifacts";
+  }
+  metrics.push(l1);
   return metrics;
 }
 
@@ -849,20 +852,27 @@ function buildServices(plans) {
   return [...grouped.values()];
 }
 
-function buildScorecard(plans) {
+function buildScorecard(plans, generatedAt) {
+  const completedPlans = plans.filter((plan) => plan.state === "finished");
   return {
     schemaVersion: 1,
     cohort: {
-      kind: "initial-completed-management-plane",
-      planCount: plans.length,
+      kind: "finished-management-plane",
+      planCount: completedPlans.length,
+      totalPlanCount: plans.length,
+      generatedAt,
     },
     metrics: METRIC_DEFINITIONS.map((definition) => {
-      const results = plans.flatMap((plan) =>
+      const results = completedPlans.flatMap((plan) =>
         plan.metrics.filter((metric) => metric.metricId === definition.id),
       );
-      const values = results
-        .filter((metric) => metric.outcome === "complete")
-        .map((metric) => metric.value);
+      const completeResults = results.filter(
+        (metric) => metric.outcome === "complete",
+      );
+      const eligibleResults = results.filter(
+        (metric) => metric.outcome !== "ineligible",
+      );
+      const values = completeResults.map((metric) => metric.value);
       return {
         metricId: definition.id,
         definitionVersion: definition.version,
@@ -871,12 +881,18 @@ function buildScorecard(plans) {
           p90: percentile(values, 0.9),
         },
         population: {
-          eligible: results.length,
+          eligible: eligibleResults.length,
           included: values.length,
-          incomplete: results.length - values.length,
-          censored: 0,
-          excluded: 0,
-          ineligible: 0,
+          incomplete: results.filter(
+            (metric) => metric.outcome === "incomplete",
+          ).length,
+          censored: results.filter((metric) => metric.outcome === "censored")
+            .length,
+          excluded: results.filter((metric) => metric.outcome === "excluded")
+            .length,
+          ineligible: results.filter(
+            (metric) => metric.outcome === "ineligible",
+          ).length,
         },
         confidenceCounts: {
           authoritative: results.filter(
@@ -890,9 +906,141 @@ function buildScorecard(plans) {
           ).length,
           inferred: 0,
         },
+        trends: {
+          weekly: buildTrend(completeResults, "week", generatedAt, 13),
+          monthly: buildTrend(completeResults, "month", generatedAt, 4),
+        },
       };
     }),
   };
+}
+
+function buildTrend(results, cadence, generatedAt, bucketCount) {
+  const currentStart =
+    cadence === "week"
+      ? startOfUtcWeek(generatedAt)
+      : startOfUtcMonth(generatedAt);
+  const starts = Array.from({ length: bucketCount }, (_, index) =>
+    shiftBucket(currentStart, cadence, index - bucketCount + 1),
+  );
+  const series = starts.map((start, index) => {
+    const end = shiftBucket(start, cadence, 1);
+    const values = results
+      .filter((result) => {
+        const occurredAt = result.evidence?.endAt;
+        return occurredAt && new Date(occurredAt) >= start && new Date(occurredAt) < end;
+      })
+      .map((result) => result.value);
+    return {
+      key: bucketKey(start, cadence),
+      label: bucketLabel(start, cadence),
+      start: start.toISOString(),
+      end: end.toISOString(),
+      partial: index === starts.length - 1,
+      count: values.length,
+      p50: percentile(values, 0.5),
+      p90: percentile(values, 0.9),
+    };
+  });
+  return {
+    cadence,
+    series,
+    comparison: "current-period-vs-prior-three-month-average",
+    change: rollingPeriodChange(series, -2),
+    liveChange: rollingPeriodChange(series, -1),
+  };
+}
+
+function rollingPeriodChange(series, currentOffset) {
+  const currentIndex =
+    currentOffset < 0 ? series.length + currentOffset : currentOffset;
+  const current = series[currentIndex];
+  const baselineStart = new Date(current.start);
+  baselineStart.setUTCMonth(baselineStart.getUTCMonth() - 3);
+  const baselineBuckets = series
+    .slice(0, currentIndex)
+    .filter(
+      (bucket) =>
+        new Date(bucket.start) >= baselineStart &&
+        bucket.p50 !== null &&
+        bucket.p50 !== undefined,
+    );
+  const baselineValue = baselineBuckets.length
+    ? Math.round(
+        (baselineBuckets.reduce((sum, bucket) => sum + bucket.p50, 0) /
+          baselineBuckets.length) *
+          10,
+      ) / 10
+    : null;
+  const comparison = {
+    baselineValue,
+    baselinePeriodCount: baselineBuckets.length,
+    baselineSampleCount: baselineBuckets.reduce(
+      (sum, bucket) => sum + bucket.count,
+      0,
+    ),
+    baselineKeys: baselineBuckets.map((bucket) => bucket.key),
+    currentKey: current?.key || null,
+    currentSampleCount: current?.count || 0,
+  };
+  if (
+    baselineValue === null ||
+    current?.p50 === null ||
+    current?.p50 === undefined
+  )
+    return {
+      ...comparison,
+      outcome: "insufficient-data",
+      absolute: null,
+      percent: null,
+      direction: "unknown",
+    };
+  const absolute = Math.round((current.p50 - baselineValue) * 10) / 10;
+  const percent =
+    baselineValue === 0
+      ? null
+      : Math.round((absolute / baselineValue) * 1000) / 10;
+  return {
+    ...comparison,
+    outcome: "complete",
+    absolute,
+    percent,
+    direction: absolute < 0 ? "improving" : absolute > 0 ? "slowing" : "flat",
+  };
+}
+
+function startOfUtcWeek(value) {
+  const date = new Date(value);
+  date.setUTCHours(0, 0, 0, 0);
+  const day = date.getUTCDay() || 7;
+  date.setUTCDate(date.getUTCDate() - day + 1);
+  return date;
+}
+
+function startOfUtcMonth(value) {
+  const date = new Date(value);
+  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), 1));
+}
+
+function shiftBucket(value, cadence, amount) {
+  const date = new Date(value);
+  if (cadence === "week") date.setUTCDate(date.getUTCDate() + amount * 7);
+  else date.setUTCMonth(date.getUTCMonth() + amount);
+  return date;
+}
+
+function bucketKey(date, cadence) {
+  return cadence === "week"
+    ? date.toISOString().slice(0, 10)
+    : date.toISOString().slice(0, 7);
+}
+
+function bucketLabel(date, cadence) {
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    ...(cadence === "week" ? { day: "numeric" } : {}),
+    timeZone: "UTC",
+  }).format(date);
 }
 
 function firstReleaseEvent(events, track) {
@@ -1024,11 +1172,12 @@ function latest(values) {
 function percentile(values, fraction) {
   if (!values.length) return null;
   const sorted = [...values].sort((left, right) => left - right);
-  const index = Math.min(
-    sorted.length - 1,
-    Math.floor((sorted.length - 1) * fraction),
-  );
-  return Math.round(sorted[index] * 10) / 10;
+  const index = (sorted.length - 1) * fraction;
+  const lower = Math.floor(index);
+  const upper = Math.ceil(index);
+  const interpolated =
+    sorted[lower] + (sorted[upper] - sorted[lower]) * (index - lower);
+  return Math.round(interpolated * 10) / 10;
 }
 
 function slugify(value) {

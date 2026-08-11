@@ -3,6 +3,7 @@ import { DataStore } from "./data-store.js";
 import { createTimelineScale, median } from "./timeline-scale.js";
 
 const store = new DataStore();
+const REPORTED_METRIC_IDS = new Set(["L1", "S1", "S4", "S5"]);
 
 Alpine.data("timelineApp", () => ({
   loading: true,
@@ -17,6 +18,7 @@ Alpine.data("timelineApp", () => ({
   search: "",
   stateFilter: "all",
   eventFilter: "milestones",
+  trendsExpanded: false,
 
   async init() {
     window.addEventListener("popstate", () => this.loadRoute());
@@ -95,22 +97,157 @@ Alpine.data("timelineApp", () => ({
   },
 
   get scorecardMetrics() {
-    return (this.scorecard?.metrics || []).map((metric) => ({
-      ...metric,
-      ...this.definition(metric.metricId),
+    return (this.scorecard?.metrics || [])
+      .filter((metric) => REPORTED_METRIC_IDS.has(metric.metricId))
+      .map((metric) => ({
+        ...metric,
+        ...this.definition(metric.metricId),
+      }));
+  },
+
+  completeTrendSeries(trend) {
+    return trend.series.filter((bucket) => !bucket.partial);
+  },
+
+  miniColumnStyle(value, series) {
+    if (value === null) return "height:0";
+    const maximum = Math.max(
+      ...series.map((bucket) => bucket.p50).filter((item) => item !== null),
+      1,
+    );
+    const height = Math.sqrt(Math.max(0, value) / maximum) * 100;
+    return `height:${Math.max(4, height).toFixed(1)}%`;
+  },
+
+  trendMaximum(metric, trend) {
+    return Math.max(
+      metric.statistics.p90 || 0,
+      ...trend.series.flatMap((bucket) =>
+        [bucket.p50, bucket.p90].filter((value) => value !== null),
+      ),
+      1,
+    );
+  },
+
+  columnHeight(value, metric, trend) {
+    if (value === null) return 0;
+    return (
+      Math.sqrt(Math.max(0, value) / this.trendMaximum(metric, trend)) * 100
+    );
+  },
+
+  columnStyle(value, metric, trend) {
+    const height = this.columnHeight(value, metric, trend);
+    return `height:${Math.max(value > 0 ? 2 : 0, height).toFixed(1)}%`;
+  },
+
+  benchmarkStyle(metric, trend) {
+    const top = 100 - this.columnHeight(metric.statistics.p50, metric, trend);
+    return `top:${((top / 100) * 192).toFixed(1)}px`;
+  },
+
+  chartTicks(metric, trend) {
+    const maximum = this.trendMaximum(metric, trend);
+    return [0, 25, 50, 75, 100].map((position) => ({
+      position,
+      pixel: (position / 100) * 192,
+      value: maximum * ((100 - position) / 100) ** 2,
     }));
+  },
+
+  columnTooltip(bucket, field) {
+    if (bucket[field] === null)
+      return `${bucket.label}: no completed-flow data`;
+    return `${bucket.label}${bucket.partial ? " (partial)" : ""}: ${field.toUpperCase()} ${this.formatDuration(bucket[field])}, n=${bucket.count}`;
+  },
+
+  bucketAxisLabel(bucket, index, length, cadence) {
+    if (cadence === "month")
+      return `${bucket.label}${bucket.partial ? "*" : ""}`;
+    if (index === 0 || index === length - 1 || index % 2 === 0)
+      return `${bucket.label}${bucket.partial ? "*" : ""}`;
+    return "";
+  },
+
+  formatTrendChange(change) {
+    if (change?.outcome !== "complete" || change.percent === null) return "—";
+    const sign = change.percent > 0 ? "+" : "";
+    return `${sign}${change.percent.toFixed(1)}%`;
+  },
+
+  rollingTrendChange(trend, live = false) {
+    if (
+      trend.comparison ===
+      "current-period-vs-prior-three-month-average"
+    )
+      return live ? trend.liveChange : trend.change;
+    const currentIndex = trend.series.length + (live ? -1 : -2);
+    const current = trend.series[currentIndex];
+    const baselineStart = new Date(current.start);
+    baselineStart.setUTCMonth(baselineStart.getUTCMonth() - 3);
+    const baseline = trend.series
+      .slice(0, currentIndex)
+      .filter(
+        (bucket) =>
+          new Date(bucket.start) >= baselineStart && bucket.p50 !== null,
+      );
+    const baselineValue = baseline.length
+      ? baseline.reduce((sum, bucket) => sum + bucket.p50, 0) / baseline.length
+      : null;
+    const comparison = {
+      baselinePeriodCount: baseline.length,
+      baselineSampleCount: baseline.reduce(
+        (sum, bucket) => sum + bucket.count,
+        0,
+      ),
+      currentSampleCount: current.count,
+    };
+    if (baselineValue === null || current.p50 === null)
+      return {
+        ...comparison,
+        outcome: "insufficient-data",
+        percent: null,
+        direction: "unknown",
+      };
+    const absolute = current.p50 - baselineValue;
+    return {
+      ...comparison,
+      outcome: "complete",
+      percent:
+        baselineValue === 0
+          ? null
+          : Math.round((absolute / baselineValue) * 1000) / 10,
+      direction:
+        absolute < 0 ? "improving" : absolute > 0 ? "slowing" : "flat",
+    };
+  },
+
+  trendSampleLabel(change) {
+    return `n=${change.currentSampleCount} vs baseline n=${change.baselineSampleCount}`;
+  },
+
+  trendComparisonTitle(change) {
+    const periods = change.baselinePeriodCount;
+    if (!periods)
+      return "No populated comparison periods are available in the prior 3 months";
+    return `Compared with the average of ${periods} available period${periods === 1 ? "" : "s"} from the prior 3 months`;
+  },
+
+  trendAriaLabel(metric, cadence, live = false) {
+    const trend = metric.trends[cadence];
+    const period = cadence === "weekly" ? "week over week" : "month over month";
+    const change = this.rollingTrendChange(trend, live);
+    return `${metric.name} ${live ? "live " : "completed-period "}${period}: ${this.formatTrendChange(change)} in median duration against the prior three-month average`;
   },
 
   get workflowStages() {
     if (!this.plan) return [];
     const spec = this.completedMetricValues("S1");
-    const generation = this.completedMetricValues("S3");
     const sdk = this.completedMetricValues("S4");
     const release = this.completedMetricValues("S5");
     return [
       { name: "Plan intake", detail: this.formatDate(this.plan.createdAt) },
       { name: "Spec review", detail: this.formatDuration(median(spec)) },
-      { name: "Generation", detail: this.formatDuration(median(generation)) },
       { name: "SDK review", detail: this.formatDuration(median(sdk)) },
       {
         name:
@@ -143,26 +280,28 @@ Alpine.data("timelineApp", () => ({
 
   get groupedPlanMetrics() {
     if (!this.plan) return [];
-    return this.definitions.map((definition) => {
-      const results = this.plan.metrics.filter(
-        (metric) => metric.metricId === definition.id,
-      );
-      const complete = results.filter(
-        (metric) => metric.outcome === "complete",
-      );
-      return {
-        metricId: definition.id,
-        name: definition.name,
-        median: median(complete.map((metric) => metric.value)),
-        complete: complete.length,
-        total: results.length,
-        confidence: complete.some(
-          (metric) => metric.confidence === "observed",
-        )
-          ? "observed"
-          : "authoritative",
-      };
-    });
+    return this.definitions
+      .filter((definition) => REPORTED_METRIC_IDS.has(definition.id))
+      .map((definition) => {
+        const results = this.plan.metrics.filter(
+          (metric) => metric.metricId === definition.id,
+        );
+        const complete = results.filter(
+          (metric) => metric.outcome === "complete",
+        );
+        return {
+          metricId: definition.id,
+          name: definition.name,
+          median: median(complete.map((metric) => metric.value)),
+          complete: complete.length,
+          total: results.length,
+          confidence: complete.some(
+            (metric) => metric.confidence === "observed",
+          )
+            ? "observed"
+            : "authoritative",
+        };
+      });
   },
 
   definition(id) {
@@ -184,7 +323,8 @@ Alpine.data("timelineApp", () => ({
 
   intervalsFor(trackId) {
     return (this.plan?.intervals || []).filter(
-      (interval) => interval.trackId === trackId,
+      (interval) =>
+        interval.trackId === trackId && interval.phase !== "generation",
     );
   },
 
@@ -293,6 +433,7 @@ Alpine.data("timelineApp", () => ({
 
   formatDuration(hours) {
     if (hours === null || hours === undefined) return "Unavailable";
+    if (hours === 0) return "0";
     if (hours < 1) return `${Math.max(1, Math.round(hours * 60))}m`;
     if (hours < 48) return `${Math.round(hours)}h`;
     const days = hours / 24;

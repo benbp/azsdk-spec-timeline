@@ -39,12 +39,14 @@ if (errors.length) {
 function validateScorecard(value) {
   for (const metric of value.metrics || []) {
     const population = metric.population;
-    const notIncluded =
+    const eligibleNotIncluded =
       population.incomplete +
       population.censored +
-      population.excluded +
-      population.ineligible;
-    if (population.included + notIncluded !== population.eligible)
+      population.excluded;
+    if (
+      population.included + eligibleNotIncluded !==
+      population.eligible
+    )
       errors.push(`${metric.metricId}: aggregate population does not reconcile`);
     const confidenceTotal = Object.values(metric.confidenceCounts).reduce(
       (sum, count) => sum + count,
@@ -52,7 +54,59 @@ function validateScorecard(value) {
     );
     if (confidenceTotal !== population.included)
       errors.push(`${metric.metricId}: confidence counts do not reconcile`);
+    for (const cadence of ["weekly", "monthly"]) {
+      const trend = metric.trends?.[cadence];
+      const expectedLength = cadence === "weekly" ? 13 : 4;
+      if (!trend || trend.series.length !== expectedLength) {
+        errors.push(`${metric.metricId}: invalid ${cadence} trend length`);
+        continue;
+      }
+      for (const bucket of trend.series) {
+        if (bucket.count === 0 && (bucket.p50 !== null || bucket.p90 !== null))
+          errors.push(
+            `${metric.metricId}: empty ${cadence} bucket ${bucket.key} has statistics`,
+          );
+        if (bucket.count > 0 && (bucket.p50 === null || bucket.p90 === null))
+          errors.push(
+            `${metric.metricId}: populated ${cadence} bucket ${bucket.key} lacks statistics`,
+          );
+      }
+      if (
+        trend.comparison !==
+        "current-period-vs-prior-three-month-average"
+      )
+        errors.push(`${metric.metricId}: ${cadence} comparison is outdated`);
+      validateTrendChange(metric.metricId, cadence, trend, "change", -2);
+      validateTrendChange(metric.metricId, cadence, trend, "liveChange", -1);
+    }
   }
+}
+
+function validateTrendChange(metricId, cadence, trend, field, currentOffset) {
+  const currentIndex = trend.series.length + currentOffset;
+  const current = trend.series[currentIndex];
+  const baselineStart = new Date(current.start);
+  baselineStart.setUTCMonth(baselineStart.getUTCMonth() - 3);
+  const baseline = trend.series
+    .slice(0, currentIndex)
+    .filter(
+      (bucket) =>
+        new Date(bucket.start) >= baselineStart && bucket.p50 !== null,
+    );
+  const change = trend[field];
+  const expectedKeys = baseline.map((bucket) => bucket.key);
+  if (
+    change.currentKey !== current.key ||
+    change.baselinePeriodCount !== expectedKeys.length ||
+    JSON.stringify(change.baselineKeys) !== JSON.stringify(expectedKeys)
+  )
+    errors.push(`${metricId}: ${cadence} ${field} baseline drifted`);
+  const expectedSamples = baseline.reduce(
+    (sum, bucket) => sum + bucket.count,
+    0,
+  );
+  if (change.baselineSampleCount !== expectedSamples)
+    errors.push(`${metricId}: ${cadence} ${field} sample count drifted`);
 }
 
 function validatePlan(plan) {

@@ -2,7 +2,7 @@
 
 This repository contains a static, Alpine.js-based dashboard that reconstructs Azure SDK generation and release timelines from Azure DevOps Release Plan work items, exact linked GitHub pull requests, and exact linked Azure Pipeline runs.
 
-The current V2 dataset covers all management-plane Release Plans created in the last 90 days. The published cohort includes active, finished, new, and abandoned plans with portfolio metrics, plan timelines, intended-language releases, metric evidence, and event/PR drill-downs. Missing boundaries are retained as incomplete results rather than inferred.
+The current V2 dataset covers all management-plane Release Plans created in the last 90 days. The published cohort includes active, finished, new, and abandoned plans with portfolio metrics, weekly/monthly finished-flow trends compared with the available prior three-month rolling average, historical benchmarks, plan timelines, intended-language releases, metric evidence, and event/PR drill-downs. Missing boundaries are retained as incomplete results rather than inferred.
 
 - [Research findings](docs/research-findings.md)
 - [V2 architecture plan](docs/v2-architecture-plan.md)
@@ -18,6 +18,9 @@ python3 -m http.server 4173
 ```
 
 Then open <http://localhost:4173/>.
+
+The dashboard intentionally targets desktop browsers and uses a fixed-width
+desktop canvas rather than mobile-specific layouts.
 
 ## Refresh the current cohort
 

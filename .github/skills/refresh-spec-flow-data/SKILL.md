@@ -41,8 +41,8 @@ Never print, persist, or pass either access token manually. The scripts acquire 
 
 For the dashboard's current production cohort, use:
 
-- `--mode all-management`: all management-plane Release Plans **created** in the lookback window, including active, finished, new, and abandoned plans.
-- `--days 90`: the current rolling lookback.
+- `--mode all-management`: core-correlated management-plane Release Plans **created** in the lookback window, including active, finished, new, and abandoned plans with an explicit Release Plan ID and exact spec PR.
+- `--days 180`: the current rolling lookback. The Release Plan collector fast-fails snapshots missing either correlation root before fetching revisions or downstream source history.
 - `--limit 0`: collect every eligible plan. A positive value is for small development samples only.
 - `--build-id`: a unique UTC identifier. Build directories are immutable and the builder refuses to overwrite one.
 
@@ -55,7 +55,7 @@ Create a unique build ID and run the orchestrator:
 ```bash
 BUILD_ID="$(date -u +%Y%m%dT%H%M%SZ)"
 node scripts/refresh-v2-data.js \
-  --days 90 \
+  --days 180 \
   --limit 0 \
   --mode all-management \
   --build-id "$BUILD_ID"
@@ -71,7 +71,7 @@ Each stage reads the previous stage's cached JSON, so rerun only the failed stag
 
 ```bash
 node scripts/collect-release-plans.js \
-  --days 90 --limit 0 --mode all-management
+  --days 180 --limit 0 --mode all-management
 node scripts/collect-github-prs.js
 node scripts/collect-pipeline-runs.js
 node scripts/build-view-data.js --build-id "$BUILD_ID"
@@ -97,7 +97,7 @@ console.log({
 '
 ```
 
-Treat nonzero skipped counts as a data-quality finding, not automatically as a failed build. Investigate abrupt changes from the prior manifest, especially plan count, event count, source coverage, and skipped artifacts. Do not publish if validation fails or if a cohort change is unexplained.
+Treat preflight skips as expected correlation filtering unless their count changes abruptly. Downstream PR and pipeline skips are data-quality findings that produce incomplete metrics rather than removing plans. Investigate changes in candidate plans, event count, per-source coverage, and skipped artifacts. Do not publish if validation fails or if a cohort change is unexplained.
 
 ## Smoke-test the dashboard
 

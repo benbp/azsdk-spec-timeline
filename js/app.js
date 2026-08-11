@@ -122,21 +122,16 @@ Alpine.data("timelineApp", () => ({
       }));
   },
 
-  get scorecardPeriodLabel() {
-    const generatedAt =
-      this.scorecard?.cohort?.generatedAt || this.manifest?.generatedAt;
-    const days = this.portfolio?.selection?.days;
-    if (!generatedAt || !days) return "";
-    const end = new Date(generatedAt);
-    const start = new Date(end);
-    start.setUTCDate(start.getUTCDate() - days);
+  get scorecardStatisticsPeriodLabel() {
+    const period = this.scorecard?.cohort?.statisticsPeriod;
+    if (!period?.startAt || !period?.endAt) return "";
     const formatter = new Intl.DateTimeFormat("en", {
       month: "short",
       day: "numeric",
       year: "numeric",
       timeZone: "UTC",
     });
-    return `Reporting period · ${formatter.format(start)}–${formatter.format(end)} · P50/P90 for completed flows from plans created in this window`;
+    return `P50/P90 · ${formatter.format(new Date(period.startAt))}–${formatter.format(new Date(period.endAt))}`;
   },
 
   completeTrendSeries(trend) {
@@ -155,7 +150,7 @@ Alpine.data("timelineApp", () => ({
 
   trendMaximum(metric, trend) {
     return Math.max(
-      metric.statistics.p90 || 0,
+      this.historicalStatistic(metric, "p90") || 0,
       ...trend.series.flatMap((bucket) =>
         [bucket.p50, bucket.p90].filter((value) => value !== null),
       ),
@@ -176,8 +171,18 @@ Alpine.data("timelineApp", () => ({
   },
 
   benchmarkStyle(metric, trend) {
-    const top = 100 - this.columnHeight(metric.statistics.p50, metric, trend);
+    const top =
+      100 -
+      this.columnHeight(
+        this.historicalStatistic(metric, "p50"),
+        metric,
+        trend,
+      );
     return `top:${((top / 100) * 192).toFixed(1)}px`;
+  },
+
+  historicalStatistic(metric, field) {
+    return metric.historicalStatistics?.[field] ?? metric.statistics[field];
   },
 
   chartTicks(metric, trend) {
@@ -217,6 +222,15 @@ Alpine.data("timelineApp", () => ({
       return live ? trend.liveChange : trend.change;
     const currentIndex = trend.series.length + (live ? -1 : -2);
     const current = trend.series[currentIndex];
+    if (!current)
+      return {
+        baselinePeriodCount: 0,
+        baselineSampleCount: 0,
+        currentSampleCount: 0,
+        outcome: "insufficient-data",
+        percent: null,
+        direction: "unknown",
+      };
     const baselineStart = new Date(current.start);
     baselineStart.setUTCMonth(baselineStart.getUTCMonth() - 3);
     const baseline = trend.series

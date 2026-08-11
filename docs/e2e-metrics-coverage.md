@@ -35,6 +35,8 @@ V2 should not initially publish canonical values for:
 
 A separate fleet-level metrics page is technically feasible and architecturally preferable to mixing leadership trends into the operational portfolio. It should remain out of initial implementation scope until a fixed-cohort proof establishes metric coverage, denominator rules, payload size, privacy, and evidence drill-down.
 
+The implemented dashboard uses a **core-correlated tracked cohort** for that proof. It inventories 180 days of management-plane Release Plans and fast-fails snapshots without an explicit Release Plan ID or exact spec PR. Missing downstream GitHub, Azure Pipeline, or release-version evidence remains visible through metric-specific incomplete results instead of excluding the whole plan. Release-pipeline URL coverage is diagnostic for the current observed release metrics. This cohort must not be interpreted as fleet-wide performance.
+
 ## Status vocabulary
 
 Every metric should use one of these display states:

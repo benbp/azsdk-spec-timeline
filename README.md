@@ -2,7 +2,9 @@
 
 This repository contains a static, Alpine.js-based dashboard that reconstructs Azure SDK generation and release timelines from Azure DevOps Release Plan work items, exact linked GitHub pull requests, and exact linked Azure Pipeline runs.
 
-The current V2 dataset covers all management-plane Release Plans created in the last 90 days. The published cohort includes active, finished, new, and abandoned plans with portfolio metrics, weekly/monthly finished-flow trends compared with the available prior three-month rolling average, historical benchmarks, plan timelines, intended-language releases, metric evidence, and event/PR drill-downs. Missing boundaries are retained as incomplete results rather than inferred.
+The current V2 dataset looks back 180 days for management-plane Release Plans and publishes flows with the two stable correlation roots: an explicitly populated Release Plan ID and an exact spec PR link. A cheap Release Plan/API Spec preflight rejects records missing either root before revision, GitHub, or pipeline enrichment. Missing downstream SDK PRs, versions, pipeline links, or inaccessible sources remain visible as incomplete metric evidence instead of deleting the plan. This is a core-correlated tracked cohort, not a fleet-complete population.
+
+Top-line scorecard percentiles use completed results from the rolling 30-day statistics period. Weekly trends retain 13 weeks, while monthly trends grow with available tracked history up to 12 months; both compare the current period with the available prior three-month rolling average. Each metric applies its own evidence contract: S1/S4 require exact GitHub boundaries, S2/S3 require an exact generation run, and observed S5/L1 release boundaries additionally require the Release Plan's released version. Release-pipeline URL coverage remains diagnostic and does not exclude an otherwise useful flow.
 
 - [Research findings](docs/research-findings.md)
 - [V2 architecture plan](docs/v2-architecture-plan.md)
@@ -28,13 +30,15 @@ The zero-dependency collection pipeline requires authenticated `az` and `gh` CLI
 
 ```bash
 node scripts/refresh-v2-data.js \
-  --days 90 \
+  --days 180 \
   --limit 0 \
   --mode all-management \
   --build-id "$(date -u +%Y%m%dT%H)"
 ```
 
 Private normalized inputs are written under ignored `cache/`. Public output is written under `data/builds/<build-id>/`, and `data/manifest.json` is updated last.
+
+The preflight requires only an explicitly populated Release Plan ID and exact spec PR. Plans that fail either root check are not sent to the expensive revision, GitHub, or pipeline collectors. Exact downstream links are enriched when present, but missing evidence produces incomplete metrics and quality warnings. Pipeline names and timestamps are never used to guess missing relationships.
 
 The intended initial production cadence is daily. Scheduling is intentionally left out of this proof until the deployment environment has an Azure identity with Release project access.
 

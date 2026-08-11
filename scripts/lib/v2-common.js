@@ -163,6 +163,26 @@ function parsePrUrl(value) {
   };
 }
 
+function parsePipelineUrl(rawUrl) {
+  try {
+    const url = new URL(rawUrl);
+    const rawBuildId = url.searchParams.get("buildId");
+    if (!rawBuildId || !/^\d+$/.test(rawBuildId)) return null;
+    const buildId = Number(rawBuildId);
+    const segments = url.pathname.split("/").filter(Boolean);
+    const project = segments[0] === "azure-sdk" ? segments[1] : segments[0];
+    if (!project || !Number.isInteger(buildId) || buildId <= 0) return null;
+    return {
+      id: `ado-build:${project}:${buildId}`,
+      project,
+      buildId,
+      url: rawUrl,
+    };
+  } catch {
+    return null;
+  }
+}
+
 function extractPrUrls(value) {
   const pattern = new RegExp(GITHUB_PR.source, "gi");
   return [...String(value || "").matchAll(pattern)].map(
@@ -242,6 +262,7 @@ module.exports = {
   isLanguageApplicable,
   lower,
   parseArgs,
+  parsePipelineUrl,
   parsePrUrl,
   plainText,
   queryReleasePlanIds,

@@ -24,7 +24,7 @@ if (plans.length !== manifest.counts.plans)
   );
 
 for (const plan of plans) validatePlan(plan);
-validateScorecard(scorecard);
+validateScorecard(scorecard, plans);
 scanPublishedFiles(args.data);
 
 if (errors.length) {
@@ -36,8 +36,43 @@ if (errors.length) {
   );
 }
 
-function validateScorecard(value) {
+function validateScorecard(value, sourcePlans) {
+  const statisticsPeriod = value.cohort?.statisticsPeriod;
+  if (
+    statisticsPeriod?.kind !== "rolling-30-days" ||
+    !statisticsPeriod.startAt ||
+    !statisticsPeriod.endAt
+  )
+    errors.push("Scorecard statistics period is missing");
   for (const metric of value.metrics || []) {
+    const periodValues = sourcePlans
+      .filter((plan) => plan.state === "finished")
+      .flatMap((plan) =>
+        plan.metrics.filter(
+          (result) =>
+            result.metricId === metric.metricId &&
+            result.outcome === "complete" &&
+            result.evidence?.endAt &&
+            new Date(result.evidence.endAt) >=
+              new Date(statisticsPeriod.startAt) &&
+            new Date(result.evidence.endAt) <=
+              new Date(statisticsPeriod.endAt),
+        ),
+      )
+      .map((result) => result.value);
+    if (metric.statisticsPopulation?.included !== periodValues.length)
+      errors.push(
+        `${metric.metricId}: statistics-period population does not reconcile`,
+      );
+    for (const [field, quantile] of [
+      ["p50", 0.5],
+      ["p90", 0.9],
+    ]) {
+      if (metric.statistics[field] !== percentile(periodValues, quantile))
+        errors.push(
+          `${metric.metricId}: statistics-period ${field} does not reconcile`,
+        );
+    }
     const population = metric.population;
     const eligibleNotIncluded =
       population.incomplete +
@@ -56,11 +91,21 @@ function validateScorecard(value) {
       errors.push(`${metric.metricId}: confidence counts do not reconcile`);
     for (const cadence of ["weekly", "monthly"]) {
       const trend = metric.trends?.[cadence];
-      const expectedLength = cadence === "weekly" ? 13 : 4;
-      if (!trend || trend.series.length !== expectedLength) {
+      const validLength =
+        cadence === "weekly"
+          ? trend?.series.length === 13
+          : trend?.series.length >= 1 && trend.series.length <= 12;
+      if (!trend || !validLength) {
         errors.push(`${metric.metricId}: invalid ${cadence} trend length`);
         continue;
       }
+      if (
+        cadence === "monthly" &&
+        trend.series.length > 1 &&
+        trend.series[0].count === 0
+      )
+        errors.push(`${metric.metricId}: monthly trend has a leading empty bucket`);
+
       for (const bucket of trend.series) {
         if (bucket.count === 0 && (bucket.p50 !== null || bucket.p90 !== null))
           errors.push(
@@ -82,9 +127,35 @@ function validateScorecard(value) {
   }
 }
 
+function percentile(values, quantile) {
+  if (!values.length) return null;
+  const sorted = [...values].sort((left, right) => left - right);
+  const index = (sorted.length - 1) * quantile;
+  const lower = Math.floor(index);
+  const upper = Math.ceil(index);
+  if (lower === upper) return Math.round(sorted[lower] * 10) / 10;
+  const weight = index - lower;
+  return (
+    Math.round(
+      (sorted[lower] * (1 - weight) + sorted[upper] * weight) * 10,
+    ) / 10
+  );
+}
+
 function validateTrendChange(metricId, cadence, trend, field, currentOffset) {
   const currentIndex = trend.series.length + currentOffset;
   const current = trend.series[currentIndex];
+  const change = trend[field];
+  if (!current) {
+    if (
+      change.currentKey !== null ||
+      change.outcome !== "insufficient-data" ||
+      change.baselinePeriodCount !== 0 ||
+      change.baselineSampleCount !== 0
+    )
+      errors.push(`${metricId}: ${cadence} ${field} empty baseline drifted`);
+    return;
+  }
   const baselineStart = new Date(current.start);
   baselineStart.setUTCMonth(baselineStart.getUTCMonth() - 3);
   const baseline = trend.series
@@ -93,7 +164,6 @@ function validateTrendChange(metricId, cadence, trend, field, currentOffset) {
       (bucket) =>
         new Date(bucket.start) >= baselineStart && bucket.p50 !== null,
     );
-  const change = trend[field];
   const expectedKeys = baseline.map((bucket) => bucket.key);
   if (
     change.currentKey !== current.key ||
@@ -110,6 +180,11 @@ function validateTrendChange(metricId, cadence, trend, field, currentOffset) {
 }
 
 function validatePlan(plan) {
+  if (
+    plan.correlation?.policyVersion !== 1 ||
+    plan.correlation?.preflight !== "passed"
+  )
+    errors.push(`${plan.id}: core correlation is missing`);
   const eventIds = new Set();
   for (const event of plan.events) {
     if (eventIds.has(event.id))

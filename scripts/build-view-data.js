@@ -14,6 +14,7 @@ const {
   readJson,
   writeJson,
 } = require("./lib/v2-common");
+const { POLICY_VERSION } = require("./lib/instrumentation-compliance");
 
 const args = parseArgs(process.argv.slice(2), {
   plans: "cache/v2/release-plans.json",
@@ -93,10 +94,17 @@ function main() {
   }
   mkdirSync(buildRoot, { recursive: true });
 
+  const buildSource = {
+    ...source,
+    selection: {
+      ...source.selection,
+      publishedCount: source.plans.length,
+    },
+  };
   const plans = source.plans.map((plan) =>
     buildPlan(plan, prMap, pipelineRuns, source.generatedAt),
   );
-  const portfolio = buildPortfolio(plans, source, github, pipelineSource);
+  const portfolio = buildPortfolio(plans, buildSource, github, pipelineSource);
   const services = buildServices(plans);
   const scorecard = buildScorecard(plans, source.generatedAt);
 
@@ -137,7 +145,7 @@ function main() {
       pipelineRuns: pipelineSource.runCount,
       events: plans.reduce((sum, plan) => sum + plan.events.length, 0),
       services: services.length,
-      skippedPlans: source.skippedPlans?.length || 0,
+      skippedPlans: buildSource.skippedPlans?.length || 0,
       skippedPullRequests: github.skippedPrCount || 0,
       skippedPipelineRuns: pipelineSource.skippedRunCount || 0,
     },
@@ -259,6 +267,10 @@ function buildPlan(source, prMap, pipelineRuns, generatedAt) {
   return {
     schemaVersion: 1,
     id: source.id,
+    correlation: {
+      policyVersion: source.correlation?.policyVersion || POLICY_VERSION,
+      preflight: source.correlation?.preflight || "passed",
+    },
     releasePlanId: source.releasePlanId,
     title: source.title,
     service: serviceName(source),
@@ -570,7 +582,9 @@ function buildIntervals(source, prMap, events, runs) {
         confidence: "authoritative",
       });
     }
-    const released = firstReleaseEvent(events, trackId(language));
+    const released = language.releasedVersion
+      ? firstReleaseEvent(events, trackId(language))
+      : null;
     if (pr.mergedAt && released) {
       intervals.push({
         id: `interval:${source.id}:${language.key}:release`,
@@ -664,7 +678,9 @@ function buildMetrics(source, prMap, events, runs) {
         "authoritative",
       ),
     );
-    const released = firstReleaseEvent(events, trackId(language));
+    const released = language.releasedVersion
+      ? firstReleaseEvent(events, trackId(language))
+      : null;
     if (released) releases.push(released.occurredAt);
     metrics.push(
       durationMetric(
@@ -854,13 +870,21 @@ function buildServices(plans) {
 
 function buildScorecard(plans, generatedAt) {
   const completedPlans = plans.filter((plan) => plan.state === "finished");
+  const periodEnd = new Date(generatedAt);
+  const periodStart = new Date(periodEnd);
+  periodStart.setUTCDate(periodStart.getUTCDate() - 30);
   return {
     schemaVersion: 1,
     cohort: {
-      kind: "finished-management-plane",
+      kind: "core-correlated-finished-management-plane",
       planCount: completedPlans.length,
       totalPlanCount: plans.length,
       generatedAt,
+      statisticsPeriod: {
+        kind: "rolling-30-days",
+        startAt: periodStart.toISOString(),
+        endAt: periodEnd.toISOString(),
+      },
     },
     metrics: METRIC_DEFINITIONS.map((definition) => {
       const results = completedPlans.flatMap((plan) =>
@@ -869,14 +893,28 @@ function buildScorecard(plans, generatedAt) {
       const completeResults = results.filter(
         (metric) => metric.outcome === "complete",
       );
+      const periodCompleteResults = completeResults.filter((metric) => {
+        const endAt = metric.evidence?.endAt;
+        if (!endAt) return false;
+        const date = new Date(endAt);
+        return date >= periodStart && date <= periodEnd;
+      });
       const eligibleResults = results.filter(
         (metric) => metric.outcome !== "ineligible",
       );
       const values = completeResults.map((metric) => metric.value);
+      const periodValues = periodCompleteResults.map((metric) => metric.value);
       return {
         metricId: definition.id,
         definitionVersion: definition.version,
         statistics: {
+          p50: percentile(periodValues, 0.5),
+          p90: percentile(periodValues, 0.9),
+        },
+        statisticsPopulation: {
+          included: periodValues.length,
+        },
+        historicalStatistics: {
           p50: percentile(values, 0.5),
           p90: percentile(values, 0.9),
         },
@@ -908,7 +946,12 @@ function buildScorecard(plans, generatedAt) {
         },
         trends: {
           weekly: buildTrend(completeResults, "week", generatedAt, 13),
-          monthly: buildTrend(completeResults, "month", generatedAt, 4),
+          monthly: buildTrend(
+            completeResults,
+            "month",
+            generatedAt,
+            monthlyBucketCount(completeResults, generatedAt),
+          ),
         },
       };
     }),
@@ -951,10 +994,45 @@ function buildTrend(results, cadence, generatedAt, bucketCount) {
   };
 }
 
+function monthlyBucketCount(results, generatedAt) {
+  const currentStart = startOfUtcMonth(generatedAt);
+  const earliestAllowed = shiftBucket(currentStart, "month", -11);
+  const dates = results
+    .map((result) => result.evidence?.endAt)
+    .filter(Boolean)
+    .map((value) => startOfUtcMonth(value))
+    .filter(
+      (value) =>
+        !Number.isNaN(value.getTime()) &&
+        value >= earliestAllowed &&
+        value <= currentStart,
+    );
+  if (!dates.length) return 1;
+  const earliest = new Date(Math.min(...dates));
+  const difference =
+    (currentStart.getUTCFullYear() - earliest.getUTCFullYear()) * 12 +
+    currentStart.getUTCMonth() -
+    earliest.getUTCMonth();
+  return Math.min(12, Math.max(1, difference + 1));
+}
+
 function rollingPeriodChange(series, currentOffset) {
   const currentIndex =
     currentOffset < 0 ? series.length + currentOffset : currentOffset;
   const current = series[currentIndex];
+  if (!current)
+    return {
+      baselineValue: null,
+      baselinePeriodCount: 0,
+      baselineSampleCount: 0,
+      baselineKeys: [],
+      currentKey: null,
+      currentSampleCount: 0,
+      outcome: "insufficient-data",
+      absolute: null,
+      percent: null,
+      direction: "unknown",
+    };
   const baselineStart = new Date(current.start);
   baselineStart.setUTCMonth(baselineStart.getUTCMonth() - 3);
   const baselineBuckets = series

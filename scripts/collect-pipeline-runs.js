@@ -5,6 +5,7 @@ const {
   adoRequest,
   concurrentMap,
   parseArgs,
+  parsePipelineUrl,
   readJson,
   writeJson,
 } = require("./lib/v2-common");
@@ -110,26 +111,6 @@ function addReference(map, rawUrl, planId, language, role) {
   if (!parsed) return;
   if (!map.has(parsed.id)) map.set(parsed.id, { ...parsed, references: [] });
   map.get(parsed.id).references.push({ planId, language, role });
-}
-
-function parsePipelineUrl(rawUrl) {
-  try {
-    const url = new URL(rawUrl);
-    const rawBuildId = url.searchParams.get("buildId");
-    if (!rawBuildId || !/^\d+$/.test(rawBuildId)) return null;
-    const buildId = Number(rawBuildId);
-    const segments = url.pathname.split("/").filter(Boolean);
-    const project = segments[0] === "azure-sdk" ? segments[1] : segments[0];
-    if (!project || !Number.isInteger(buildId) || buildId <= 0) return null;
-    return {
-      id: `ado-build:${project}:${buildId}`,
-      project,
-      buildId,
-      url: rawUrl,
-    };
-  } catch {
-    return null;
-  }
 }
 
 async function collectRun(reference) {

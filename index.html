@@ -81,8 +81,14 @@
               @keydown.space.prevent="trendsExpanded = !trendsExpanded"
             >
               <div>
-                <p class="eyebrow">Fleet scorecard</p>
-                <h2>Stage duration</h2>
+                <p class="eyebrow">Tracked cohort scorecard</p>
+                <div class="scorecard-title">
+                  <h2>Stage duration</h2>
+                  <span
+                    x-show="scorecardStatisticsPeriodLabel"
+                    x-text="scorecardStatisticsPeriodLabel"
+                  ></span>
+                </div>
               </div>
               <span
                 class="trend-toggle"
@@ -171,16 +177,11 @@
                     </div>
                   </div>
                   <small
-                    x-text="`${metric.population.included}/${metric.population.eligible} completed-flow results`"
+                    x-text="`${metric.statisticsPopulation?.included ?? metric.population.included} completed-flow results in period`"
                   ></small>
                 </article>
               </template>
             </div>
-            <p
-              class="scorecard-period-note"
-              x-show="scorecardPeriodLabel"
-              x-text="scorecardPeriodLabel"
-            ></p>
             <div
               id="scorecard-trends"
               class="trend-expansion"
@@ -199,7 +200,7 @@
                     </div>
                     <p>
                       Historical benchmark
-                      <b x-text="`P50 ${formatDuration(metric.statistics.p50)}`"></b>
+                      <b x-text="`P50 ${formatDuration(historicalStatistic(metric, 'p50'))}`"></b>
                     </p>
                   </header>
                   <div class="chart-legend" aria-label="Chart legend">

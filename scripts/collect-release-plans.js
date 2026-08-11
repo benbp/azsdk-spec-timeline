@@ -4,8 +4,6 @@ const {
   LANGUAGES,
   childIds,
   concurrentMap,
-  displayLanguage,
-  extractPrUrls,
   fetchRevisions,
   fetchWorkItems,
   isLanguageApplicable,
@@ -16,6 +14,10 @@ const {
   queryReleasePlanIds,
   writeJson,
 } = require("./lib/v2-common");
+const {
+  POLICY_VERSION,
+  assessPreflight,
+} = require("./lib/instrumentation-compliance");
 
 const args = parseArgs(process.argv.slice(2), {
   days: 180,
@@ -55,31 +57,36 @@ async function main() {
       .filter((item) => item.fields?.["System.WorkItemType"] === "API Spec")
       .map((item) => [item.id, item]),
   );
-  const eligibleCandidates =
-    args.mode === "complete"
-      ? preliminaryCandidates.filter((item) =>
-          childIds(item)
-            .map((id) => children.get(id))
-            .filter(Boolean)
-            .some(hasExactSpecPr),
-        )
-      : preliminaryCandidates;
+  const assessedCandidates = preliminaryCandidates.map((item) => {
+    const specs = childIds(item)
+      .map((id) => children.get(id))
+      .filter(Boolean);
+    return { item, specs, preflight: assessPreflight(item, specs) };
+  });
+  const preflightSkippedPlans = assessedCandidates
+    .filter((candidate) => !candidate.preflight.compliant)
+    .map(({ item, preflight }) => ({
+      id: String(item.id),
+      title: plainText(item.fields?.["System.Title"], 180),
+      stage: "preflight",
+      reason: preflight.reasons.join(", ").slice(0, 300),
+    }));
+  const eligibleCandidates = assessedCandidates.filter(
+    (candidate) => candidate.preflight.compliant,
+  );
   const candidates =
     args.limit > 0 ? eligibleCandidates.slice(0, args.limit) : eligibleCandidates;
   if (args.limit > 0 && candidates.length < args.limit) {
     throw new Error(
-      `Only ${candidates.length} complete management-plane plans found in ${args.days} days`,
+      `Only ${candidates.length} core-correlated management-plane plans found in ${args.days} days`,
     );
   }
 
   const collected = await concurrentMap(
     candidates,
     args.concurrency,
-    async (item) => {
+    async ({ item, specs, preflight }) => {
       try {
-        const specs = childIds(item)
-          .map((id) => children.get(id))
-          .filter(Boolean);
         const [revisions, specRevisions] = await Promise.all([
           fetchRevisions(item.id),
           concurrentMap(specs, 3, async (spec) => ({
@@ -88,7 +95,13 @@ async function main() {
           })),
         ]);
         return {
-          plan: sanitizePlan(item, specs, revisions, specRevisions),
+          plan: sanitizePlan(
+            item,
+            specs,
+            revisions,
+            specRevisions,
+            preflight,
+          ),
           skipped: null,
         };
       } catch (error) {
@@ -97,6 +110,7 @@ async function main() {
           skipped: {
             id: String(item.id),
             title: plainText(item.fields?.["System.Title"], 180),
+            stage: "revision-collection",
             reason: error.message.slice(0, 300),
           },
         };
@@ -104,9 +118,10 @@ async function main() {
     },
   );
   const plans = collected.map((result) => result.plan).filter(Boolean);
-  const skippedPlans = collected
-    .map((result) => result.skipped)
-    .filter(Boolean);
+  const skippedPlans = [
+    ...preflightSkippedPlans,
+    ...collected.map((result) => result.skipped).filter(Boolean),
+  ];
 
   const output = {
     schemaVersion: 1,
@@ -117,10 +132,12 @@ async function main() {
       requested: args.limit || "all",
       criteria:
         args.mode === "all-management"
-          ? `all management-plane Release Plans created in the last ${args.days} days`
-          : "recent Finished management-plane plans with a spec PR and every intended language released with an SDK PR",
+          ? `core-correlated management-plane Release Plans created in the last ${args.days} days`
+          : "recent core-correlated Finished management-plane plans with complete released artifacts",
       inventoryCount: inventory.length,
+      managementCount: preliminaryCandidates.length,
       candidateCount: eligibleCandidates.length,
+      preflightSkippedCount: preflightSkippedPlans.length,
       collectedCount: plans.length,
       skippedCount: skippedPlans.length,
     },
@@ -130,13 +147,6 @@ async function main() {
   writeJson(args.output, output);
   console.log(
     `Collected ${plans.length} release plans (${skippedPlans.length} skipped) into ${args.output}`,
-  );
-}
-
-function hasExactSpecPr(item) {
-  if (parsePrUrl(item.fields?.["Custom.ActiveSpecPullRequestUrl"])) return true;
-  return extractPrUrls(item.fields?.["Custom.RESTAPIReviews"]).some((url) =>
-    parsePrUrl(url),
   );
 }
 
@@ -161,56 +171,31 @@ function isCompleteManagementPlan(item) {
   return childIds(item).length > 0;
 }
 
-function sanitizePlan(item, specs, revisions, specRevisionGroups) {
+function sanitizePlan(
+  item,
+  specs,
+  revisions,
+  specRevisionGroups,
+  preflight,
+) {
   const fields = item.fields || {};
-  const languages = LANGUAGES.filter((language) =>
-    isLanguageApplicable(fields, language),
-  ).map((language) => {
-    const sdkPr = parsePrUrl(fields[`Custom.SDKPullRequestFor${language}`]);
+  const languages = preflight.languages.map((snapshot) => {
+    const sdkPr = snapshot.sdkPr;
     const history = new Map();
     for (const revision of revisions) {
       const linked = parsePrUrl(
-        revision.fields?.[`Custom.SDKPullRequestFor${language}`],
+        revision.fields?.[`Custom.SDKPullRequestFor${snapshot.key}`],
       );
       if (linked) history.set(linked.id, linked);
     }
     if (sdkPr) history.set(sdkPr.id, sdkPr);
     return {
-      id: displayLanguage(language),
-      key: language,
-      package: plainText(fields[`Custom.${language}PackageName`], 160),
-      generationStatus: plainText(
-        fields[`Custom.GenerationStatusFor${language}`],
-        80,
-      ),
-      generationPipelineUrl:
-        String(fields[`Custom.SDKGenerationPipelineFor${language}`] || "") ||
-        null,
+      ...snapshot,
       sdkPr,
       sdkPrHistory: [...history.values()],
-      sdkPrObservedStatus: plainText(
-        fields[`Custom.SDKPullRequestStatusFor${language}`],
-        80,
-      ),
-      releaseStatus: plainText(
-        fields[`Custom.ReleaseStatusFor${language}`],
-        80,
-      ),
-      releasePipelineUrl:
-        String(fields[`Custom.ReleasePipelineFor${language}`] || "") || null,
-      releasedVersion:
-        plainText(fields[`Custom.ReleasedVersionFor${language}`], 100) || null,
     };
   });
-  const specPrs = new Map();
-  for (const spec of specs) {
-    const active = parsePrUrl(spec.fields?.["Custom.ActiveSpecPullRequestUrl"]);
-    if (active) specPrs.set(active.id, active);
-    for (const url of extractPrUrls(spec.fields?.["Custom.RESTAPIReviews"])) {
-      const pr = parsePrUrl(url);
-      if (pr) specPrs.set(pr.id, pr);
-    }
-  }
+  const specPrs = new Map(preflight.specPrs.map((pr) => [pr.id, pr]));
   for (const group of specRevisionGroups) {
     for (const revision of group.revisions) {
       const pr = parsePrUrl(
@@ -222,8 +207,7 @@ function sanitizePlan(item, specs, revisions, specRevisionGroups) {
 
   return {
     id: String(item.id),
-    releasePlanId:
-      plainText(fields["Custom.ReleasePlanID"], 100) || String(item.id),
+    releasePlanId: preflight.releasePlanId,
     title: plainText(fields["System.Title"], 180),
     service: plainText(
       fields["Custom.ServiceName"] ||
@@ -249,6 +233,10 @@ function sanitizePlan(item, specs, revisions, specRevisionGroups) {
     specRevisionEvents: specRevisionGroups.flatMap((group) =>
       normalizeSpecRevisions(group.id, group.revisions),
     ),
+    correlation: {
+      policyVersion: POLICY_VERSION,
+      preflight: "passed",
+    },
   };
 }
 

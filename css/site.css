@@ -260,6 +260,18 @@ select:focus-visible {
   margin: 0.25rem 0 0;
 }
 
+.scorecard-title {
+  align-items: baseline;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.scorecard-title > span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
 .scorecard-toggle {
   cursor: pointer;
   transition: background 120ms ease;
@@ -324,17 +336,6 @@ select:focus-visible {
 .metric-strip small {
   display: block;
   margin-top: 0.75rem;
-}
-
-.scorecard-period-note {
-  background: #f7f9fa;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin: 0;
-  padding: 0.65rem 1.5rem;
-  text-align: right;
 }
 
 .trend-toggle {

@@ -95,6 +95,7 @@ select:focus-visible {
   gap: 0.75rem;
   padding: 0;
   text-align: left;
+  text-decoration: none;
 }
 
 .brand-mark {
@@ -808,6 +809,7 @@ select:focus-visible {
   grid-template-columns: 70px minmax(220px, 1.7fr) minmax(150px, 0.8fr) 100px 90px 90px 20px;
   padding: 1.05rem 1.8rem;
   text-align: left;
+  text-decoration: none;
   transition: background 120ms ease;
   width: 100%;
 }
@@ -975,12 +977,13 @@ select:focus-visible {
   padding-top: 1.6rem;
 }
 
-.breadcrumbs button {
+.breadcrumbs a {
   background: transparent;
   border: 0;
   color: var(--teal);
   cursor: pointer;
   padding: 0;
+  text-decoration: none;
 }
 
 .breadcrumbs strong {
@@ -1371,7 +1374,7 @@ select:focus-visible {
   overflow-y: auto;
 }
 
-.event-feed button {
+.event-feed a {
   align-items: center;
   background: white;
   border: 0;
@@ -1383,10 +1386,11 @@ select:focus-visible {
   grid-template-columns: 155px minmax(180px, 1fr) 150px 80px;
   padding: 0.7rem 1.8rem;
   text-align: left;
+  text-decoration: none;
   width: 100%;
 }
 
-.event-feed button:hover {
+.event-feed a:hover {
   background: #f8fbfa;
 }
 
@@ -1481,13 +1485,13 @@ select:focus-visible {
   padding: 0.85rem 1.5rem;
 }
 
-.event-feed button {
+.event-feed a {
   grid-template-columns: 1fr auto;
   padding: 0.7rem 1rem;
 }
 
-.event-feed button time,
-.event-feed button i {
+.event-feed a time,
+.event-feed a i {
   display: none;
 }
 

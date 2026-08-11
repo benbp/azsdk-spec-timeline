@@ -15,13 +15,17 @@
   <body x-data="timelineApp" x-init="init()" x-cloak>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <button class="brand" type="button" @click="navigate({ view: 'portfolio' })">
+      <a
+        class="brand"
+        :href="routeUrl({ view: 'portfolio' })"
+        @click="navigateLink($event, { view: 'portfolio' })"
+      >
         <span class="brand-mark">AZ</span>
         <span>
           <strong>SDK Flow</strong>
           <small>Generation and release intelligence</small>
         </span>
-      </button>
+      </a>
       <div class="freshness" x-show="manifest">
         <span class="status-dot"></span>
         Daily snapshot
@@ -421,10 +425,10 @@
                 :key="releasePlan.id"
               >
                 <article class="plan-row">
-                  <button
+                  <a
                     class="plan-main"
-                    type="button"
-                    @click="navigate({ view: 'plan', plan: releasePlan.id })"
+                    :href="routeUrl({ view: 'plan', plan: releasePlan.id })"
+                    @click="navigateLink($event, { view: 'plan', plan: releasePlan.id })"
                   >
                     <span
                       class="plan-state"
@@ -463,7 +467,7 @@
                       x-text="releasePlan.warnings ? `${releasePlan.warnings} note${releasePlan.warnings > 1 ? 's' : ''}` : 'Complete'"
                     ></span>
                     <span class="arrow" aria-hidden="true">→</span>
-                  </button>
+                  </a>
                 </article>
               </template>
               <p class="empty" x-show="filteredPlans.length === 0">
@@ -484,9 +488,12 @@
       <section x-show="!loading && !error && view === 'plan' && plan">
         <div class="shell plan-page">
           <nav class="breadcrumbs" aria-label="Breadcrumb">
-            <button type="button" @click="navigate({ view: 'portfolio' })">
+            <a
+              :href="routeUrl({ view: 'portfolio' })"
+              @click="navigateLink($event, { view: 'portfolio' })"
+            >
               Portfolio
-            </button>
+            </a>
             <span>/</span>
             <span x-text="plan?.service"></span>
             <span>/</span>
@@ -620,14 +627,14 @@
                         x-for="event in eventsFor(track.id)"
                         :key="event.id"
                       >
-                        <button
-                          type="button"
+                        <a
                           class="event-marker"
                           :class="eventClass(event)"
                           :style="eventStyle(event)"
+                          :href="routeUrl({ view: 'plan', plan: plan.id, event: event.id })"
                           :aria-label="`${event.title} at ${formatDateTime(event.occurredAt)}`"
-                          @click="selectEvent(event)"
-                        ></button>
+                          @click="selectEventLink($event, event)"
+                        ></a>
                       </template>
                     </div>
                   </div>
@@ -642,12 +649,15 @@
               </summary>
               <div>
                 <template x-for="event in filteredEventFeed" :key="`feed:${event.id}`">
-                  <button type="button" @click="selectEvent(event)">
+                  <a
+                    :href="routeUrl({ view: 'plan', plan: plan.id, event: event.id })"
+                    @click="selectEventLink($event, event)"
+                  >
                     <time x-text="formatDateTime(event.occurredAt)"></time>
                     <strong x-text="event.title"></strong>
                     <span x-text="event.actor?.publicId || event.source?.system"></span>
                     <i x-text="event.confidence"></i>
-                  </button>
+                  </a>
                 </template>
               </div>
             </details>

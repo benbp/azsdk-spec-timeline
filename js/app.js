@@ -65,9 +65,26 @@ Alpine.data("timelineApp", () => ({
   },
 
   async navigate(values) {
-    const params = new URLSearchParams(values);
-    history.pushState({}, "", `${location.pathname}?${params}`);
+    history.pushState({}, "", this.routeUrl(values));
     await this.loadRoute();
+  },
+
+  routeUrl(values) {
+    const params = new URLSearchParams(values);
+    return `${location.pathname}?${params}`;
+  },
+
+  navigateLink(event, values) {
+    if (
+      event.button !== 0 ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.shiftKey ||
+      event.altKey
+    )
+      return;
+    event.preventDefault();
+    this.navigate(values);
   },
 
   get filteredPlans() {
@@ -398,6 +415,19 @@ Alpine.data("timelineApp", () => ({
     const params = new URLSearchParams(location.search);
     params.set("event", event.id);
     history.replaceState({}, "", `${location.pathname}?${params}`);
+  },
+
+  selectEventLink(clickEvent, event) {
+    if (
+      clickEvent.button !== 0 ||
+      clickEvent.ctrlKey ||
+      clickEvent.metaKey ||
+      clickEvent.shiftKey ||
+      clickEvent.altKey
+    )
+      return;
+    clickEvent.preventDefault();
+    this.selectEvent(event);
   },
 
   closeEvent() {

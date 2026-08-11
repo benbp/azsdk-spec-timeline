@@ -18,9 +18,9 @@ This is a display and feasibility assessment. It does not make currently incompl
 V2 can natively support a useful but intentionally narrow first metric set:
 
 - **High confidence:** S1 Spec PR cycle time, S4 SDK PR cycle time, and Q7 review-wait cycles.
-- **Coverage-dependent:** L1 full/post-spec Time-to-SDK, S2 generation trigger latency, S3 generation execution time, and S5 release latency.
+- **Provisional where covered:** L1 full/post-spec Time-to-SDK, S2 generation trigger latency, S3 generation execution time, and S5 release latency.
 - **Provisional classifier:** Q8 author-nag rate.
-- **Scale context after deduplication:** C2 SDK releases per month and C3 services completing the flow.
+- **Provisional scale context after deduplication:** C2 SDK releases per month and C3 services completing the flow.
 
 V2 should not initially publish canonical values for:
 
@@ -92,8 +92,9 @@ Limitations:
 
 - One mutable field per language cannot represent multiple packages, attempts, or PRs without reconstructing revisions.
 - PR status is stale: 459 of 948 released language instances in the one-year profile retained a nonterminal ADO PR status.
-- Finished-plan release pipeline URL coverage was only 0-5%.
+- Finished-plan release pipeline URL coverage ranged from 0% to approximately 5% by language.
 - Finished-plan released-version coverage was approximately 53-60%.
+- The one-year profile contains 197 abandoned plans out of 652. Abandoned-flow policy is therefore a material denominator decision, not a negligible edge case.
 - A revision timestamp is when orchestration updated ADO, not necessarily when the external event occurred.
 
 ### API Spec child revisions
@@ -203,7 +204,7 @@ The metric result must state:
 - Final boundary source and confidence
 - Whether the flow is complete, censored, abandoned, or ineligible
 
-An open flow can show current age, but it must not enter a completed-flow percentile as if `now` were a release boundary.
+An open flow can show current age, but it must not enter a completed-flow percentile as if `now` were a release boundary. Abandoned flows must remain a separate outcome until policy explicitly defines eligibility for each rate; they cannot be silently dropped from rate denominators or treated as censored successes.
 
 ### Lifecycle and schedule diagnostics
 
@@ -211,7 +212,7 @@ An open flow can show current age, but it must not enter a completed-flow percen
 |---|---|---|---|---|---|
 | **S1** | Spec PR cycle time | Displayed as `specPRDays` | **Validated candidate.** GitHub provides exact open and merge timestamps. | Lock treatment of draft, closed-unmerged, replaced/shared spec PRs, and censored flows. Publish p50/P90 and evidence IDs. | Native plan, service, and aggregate metric. |
 | **S2** | Generation trigger latency | Combined into pipeline gap | **Provisional.** Exact where a correlated generation pipeline start exists; observed fallback from status revision is lower confidence. | Persist exact generation run ID, queue/start timestamp, language/package/artifact ID, retry number, and trigger. Establish source-coverage threshold for aggregate use. | Show exact S2 where covered. Otherwise label the combined S2+S3 interval; never silently call it trigger latency. |
-| **S3** | Generation execution time | Missing as a separate stage | **Provisional.** Exact generation start plus GitHub PR open can produce a per-language value. | Map each generation attempt to language/package/PR, preserve retries and failed attempts, and decide whether artifact-complete is a separate boundary. | Native plan/service metric for covered runs; aggregate only after coverage validation. |
+| **S3** | Generation execution time | Missing as a separate stage | **Provisional.** Exact generation start plus GitHub PR open can produce a value for each generated language. Historical runs commonly generate multiple languages, so a shared run start may be the only authoritative start boundary. | Map each generation attempt to language/package/PR, preserve retries and failed attempts, record whether the start is shared or language-specific, and decide whether artifact-complete is a separate boundary. | Native plan/service metric for covered runs. Label shared-start values because they include cross-language sequencing or queue effects; aggregate only after coverage validation. |
 | **S4** | SDK PR cycle time | Displayed per language | **Validated candidate.** Exact GitHub PR open and merge. | Define which PR is the successful artifact when PRs are replaced, and how one shared PR contributes to multiple plans. Separate open/closed-unmerged. | Native plan, service, and aggregate metric. |
 | **S5** | Release latency | Partial release gap | **Provisional.** Exact PR merge plus package publication is sufficient where joined. | Standardize publication source, tuple dedupe, release run/approval events, and version/timestamp completeness. | Native plan/service metric with source confidence; aggregate only above a coverage threshold. |
 | **S6** | Release schedule adherence | Missing | **Unavailable.** `SDKReleasemonth` is not a committed calendar date and does not distinguish target changes. | Add committed target date, accountable owner, change history/reason, approval, and final release. Decide eligibility when target changes. | Do not approximate from release month. Defer until the Release Plan contract changes. |
@@ -237,7 +238,7 @@ The UI should call this **Spec-to-SDK PR gap**, not generation trigger latency o
 | **Q5** | Tool error rate | Selected tool-call success for some samples | **External.** Canonical data is in DevDiv Kusto/Power BI, not planned public JSON. | Reconcile 98.3% success versus 31.3% error, lock classifier/traffic exclusions, add `execution_surface` and `invocation_type`. | Link to Power BI or a validated exported aggregate. Do not reproduce from V1 CSV logic. |
 | **Q6** | Manual-fix rate | Displayed heuristically | **Unavailable canonically; provisional proxy possible.** | Same typed intervention contract as L3; distinguish corrective hand edit from normal customization, bot commit, regeneration, and AI-assisted edit. | Do not call heuristic counts Q6. Show explicit intervention evidence only; defer rate. |
 | **Q7** | Review-wait cycles | Displayed with duration/cycle count | **Validated candidate after classifier lock.** GitHub events are sufficient. | Define ready boundary, response event, author-response reset, changes-requested cycle, bot exclusions, and PR replacement treatment. | Native plan/service/aggregate diagnostic with p50/P90. |
-| **Q8** | Author-nag rate | Displayed through phrase detection | **Provisional.** Public comments can support an explainable classifier. | Lock phrase/mention/action classifier, sample precision/recall, publish classifier version, and define flow denominator. Correct the stated decision: nags measure reviewer/action follow-up, not automatic PR creation. | Native plan/service diagnostic with provisional badge; aggregate only with precision and minimum-sample disclosure. |
+| **Q8** | Author-nag rate | Displayed through phrase detection | **Provisional.** Public comments can support an explainable classifier. | Lock phrase/mention/action classifier, sample precision/recall, publish classifier version, and define flow denominator. Q8 measures how often authors must follow up for reviewer or workflow action; it does not measure whether automation created a PR. | Native plan/service diagnostic with provisional badge; aggregate only with precision and minimum-sample disclosure. |
 
 ### Adoption, scale, and business impact
 
@@ -245,7 +246,7 @@ The UI should call this **Spec-to-SDK PR gap**, not generation trigger latency o
 |---|---|---|---|---|---|
 | **C1** | MEU and MEU/MAU | Missing | **External.** Timeline data does not contain the eligible usage population. | Re-baseline Kusto definitions, remove test traffic, add explicit execution surface and invocation type. | Link to Power BI; do not publish identities or infer surfaces in V2. |
 | **C2** | SDK releases per month | Release counts exist for selected service data | **Provisional.** Package/version/language publication tuples can be aggregated. | Pick authoritative publication sources, dedupe ADO/release notes/registries, handle multi-package plans, and define preview/GA counting. | Portfolio context and future metrics page candidate. |
-| **C3** | Services completing tracked flow | Missing as a standalone fleet number | **Validated candidate after identity/completion lock.** Release Plans provide service/product IDs and completion evidence. | Select stable canonical service ID, define L2-like completion, handle renamed paths/products and multiple plans per service. | Portfolio context and future metrics page candidate with fleet/fixed-cohort label. |
+| **C3** | Services completing tracked flow | Missing as a standalone fleet number | **Provisional.** Release Plans provide candidate service/product IDs and completion evidence, but identity changes and incomplete path coverage can split or merge services incorrectly. | Complete the P2 stable-service-identity investment, define L2-like completion, and handle renamed paths/products and multiple plans per service. | Portfolio context and future metrics page candidate only after identity coverage is measured; retain fleet/fixed-cohort label. |
 | **C4** | Package downloads | Missing | **Deferred/external.** Requires ecosystem-specific integrations. | Add package identity mapping and per-ecosystem APIs; preserve separate scales and caveats. | Not appropriate for initial timeline scope. Never combine ecosystems into a single unqualified total. |
 | **B1** | Cycle-time reduction | Missing | **Deferred.** Derivable once L1 has a trustworthy historical baseline and automation change dates. | Define comparable pre/post cohorts, maturation window, confounders, and median/P90 difference. | Future aggregate analysis only; not a plan-level metric. |
 | **B2** | Engineering toil removed | Missing | **Unavailable.** Event count alone cannot establish hours saved. | Validate intervention taxonomy, time-per-intervention study, uncertainty ranges, and period/cohort. | Keep outside V2 until a reviewed effort model exists. |
@@ -281,6 +282,8 @@ The UI should call this **Spec-to-SDK PR gap**, not generation trigger latency o
 - Explicit execution surface for Q5/C1
 
 ### Canonical data model changes
+
+The authoritative implementation contract for these changes is now in [`v2-architecture-plan.md`](v2-architecture-plan.md#metric-definitions-and-results). The examples below summarize the requirements that led to that contract.
 
 Add a metric registry:
 
@@ -510,6 +513,8 @@ The page would be easy to render but hard to make trustworthy. It should not be 
 | B2 | Effort saved requires a validated workflow study and uncertainty model. |
 
 ## Investment priorities
+
+These metric-oriented priorities refine the source-oriented backlog in [`data-gap-backlog.md`](data-gap-backlog.md) and must remain aligned with it.
 
 ### P0: trusted lifecycle outcomes
 

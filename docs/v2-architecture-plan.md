@@ -176,7 +176,11 @@ ReleasePlan
   -> PipelineRun[]
   -> PackageRelease[]
   -> TimelineEvent[]
+  -> DerivedInterval[]
+  -> MetricResult[]
 ```
+
+`MetricDefinition[]` is a versioned registry shared by all builds. `PlanLanguageIntent` is also versioned so metric denominators use the intended package/language set that applied to the flow, not only the latest Release Plan fields.
 
 ### Timeline event contract
 
@@ -243,6 +247,129 @@ Compute phases from ordered authoritative events:
 
 An interval records start/end event IDs, duration, status, waiting-on classification, and confidence. Never fill a missing boundary with `now` for terminal metrics; open intervals are explicitly censored.
 
+### Metric definitions and results
+
+The metric feasibility and investment decisions remain canonical in [`e2e-metrics-coverage.md`](e2e-metrics-coverage.md). The build contract implements those decisions through a versioned registry rather than hard-coded UI calculations:
+
+```json
+{
+  "id": "S4",
+  "version": 1,
+  "name": "SDK PR cycle time",
+  "unit": "hours",
+  "scope": "plan-language-pr",
+  "startEvent": {
+    "type": "pr.created",
+    "role": "sdk-pr"
+  },
+  "endEvent": {
+    "type": "pr.merged",
+    "role": "sdk-pr"
+  },
+  "aggregations": ["p50", "p90"],
+  "readiness": "validated"
+}
+```
+
+Registry requirements:
+
+- A stable metric ID and immutable definition version
+- Unit and supported scopes
+- Boundary selectors or numerator/denominator rules
+- Eligibility, terminal-outcome, and exclusion policy references
+- Supported aggregations and minimum sample rule
+- Readiness: `validated`, `provisional`, `unavailable`, `external`, or `deferred`
+
+Every calculation emits a typed result, including calculations that cannot produce a value:
+
+```json
+{
+  "metricId": "S4",
+  "definitionVersion": 1,
+  "scope": {
+    "planId": "35326",
+    "language": ".NET",
+    "artifactId": "Azure.ResourceManager.NetApp",
+    "prId": "github:Azure/azure-sdk-for-net#61030"
+  },
+  "outcome": "complete",
+  "value": 167.6,
+  "unit": "hours",
+  "evidence": {
+    "startEventId": "github:Azure/azure-sdk-for-net:61030:created",
+    "endEventId": "github:Azure/azure-sdk-for-net:61030:merged",
+    "contributorEventIds": []
+  },
+  "confidence": "authoritative",
+  "sourceCoverage": {
+    "required": 2,
+    "authoritative": 2,
+    "observed": 0,
+    "inferred": 0,
+    "missing": 0
+  },
+  "missingBoundaryReason": null
+}
+```
+
+Result requirements:
+
+- `outcome`: `complete`, `censored`, `excluded`, `incomplete`, or `ineligible`
+- `value` and `unit` only for an eligible result with sufficient boundaries
+- `numerator` and `denominator` instead of `value` for a rate where appropriate
+- Evidence IDs for boundaries or contributing facts
+- Source confidence and coverage independent from metric readiness
+- A typed missing-boundary reason for every absent value
+- The applicable intended-language/package snapshot and approved exclusions for completion metrics
+
+Missing, censored, excluded, incomplete, and ineligible are distinct outcomes. They must never be collapsed to zero. Abandoned, duplicate, failed, and replaced flows remain explicit source outcomes; each metric definition decides whether they are eligible rather than allowing collectors or UI code to drop them implicitly.
+
+### Aggregate metric contract
+
+Aggregates are derived only from versioned `MetricResult` records and retain enough population accounting to reproduce the visible number:
+
+```json
+{
+  "metricId": "S4",
+  "definitionVersion": 1,
+  "scope": {
+    "kind": "fleet",
+    "period": "2026-07"
+  },
+  "statistics": {
+    "p50": 72.4,
+    "p90": 211.8
+  },
+  "population": {
+    "eligible": 412,
+    "included": 386,
+    "censored": 11,
+    "incomplete": 9,
+    "excluded": 6,
+    "ineligible": 38
+  },
+  "confidenceCounts": {
+    "authoritative": 386,
+    "observed": 0,
+    "inferred": 0
+  },
+  "cohort": {
+    "kind": "fleet-complete",
+    "filters": {}
+  },
+  "contributorRef": "indexes/metric-contributors/S4/2026-07.json"
+}
+```
+
+Aggregate requirements:
+
+- Definition version, reporting period, cohort kind, and deterministic filters
+- Eligible and included counts plus every non-included outcome count
+- Confidence/source-coverage distribution
+- Minimum-sample suppression where required
+- Contributor IDs or a deterministic filter descriptor for evidence drill-down
+- No browser-side recomputation across plan files
+
 ## Published static JSON
 
 Publish immutable, versioned data under a build ID and update one small pointer last:
@@ -252,10 +379,17 @@ data/
   manifest.json
   builds/<build-id>/
     portfolio.json
+    aggregates/metric-definitions.json
+    aggregates/scorecard.json
+    aggregates/lifecycle-monthly.json
+    aggregates/quality-monthly.json
+    aggregates/cohorts.json
+    aggregates/coverage.json
     aggregates/monthly.json
     aggregates/languages.json
     indexes/services.json
     indexes/plans-2026-08.json
+    indexes/metric-contributors/...
     services/<service-slug>.json
     plans/<release-plan-id>.json
 ```
@@ -272,9 +406,9 @@ data/
 
 - `portfolio.json`: small current cards and global facets.
 - Monthly plan index shards: compact rows for search and historical browsing.
-- Service files: release-plan summaries, cross-cycle metrics, and plan IDs.
-- Plan files: complete event tracks, intervals, links, metrics, and detail summaries.
-- Aggregates: precomputed percentiles and cohorts.
+- Service files: release-plan summaries, cross-cycle metric distributions/trends, metric coverage, and plan IDs.
+- Plan files: complete event tracks, intervals, links, typed metric results/evidence, intended-artifact snapshots, and detail summaries.
+- Aggregates: versioned metric definitions, precomputed statistics, population accounting, cohorts, coverage, and contributor references.
 
 The build graph remains normalized, but published plan/service payloads are deliberately denormalized so the browser performs no cross-file join for a selected view.
 
@@ -452,9 +586,14 @@ Each build should fail closed on:
 
 - Invalid schema or timestamp
 - Unknown language/status enum
+- Unknown metric ID or definition version
 - Duplicate event ID with different content
 - Dangling plan/artifact edge
+- Metric evidence that references a missing event
 - Negative interval
+- Metric value emitted for a censored, excluded, incomplete, or ineligible result
+- Aggregate population counts that do not reconcile with contributor results
+- Aggregate result below its minimum sample rule without suppression
 - Release preceding PR merge without an explicit override
 - Accidental identity/email/secret publication
 - Material count drop beyond a configured threshold
@@ -473,6 +612,9 @@ Golden fixtures should cover:
 - Multiple PRs/packages in one language
 - Failed/retried generation and release
 - Missing exact release timestamp
+- Complete, censored, excluded, incomplete, and ineligible metric results
+- Abandoned flow included and excluded under different versioned metric policies
+- Aggregate population accounting and minimum-sample suppression
 
 Browser verification should use the repository's Playwright CLI skill across these fixtures, desktop/mobile widths, dark/light themes, keyboard navigation, URL restoration, and malformed/missing shard handling.
 
@@ -486,6 +628,9 @@ Approve:
 - Event and interval vocabulary
 - Many-to-many correlation model
 - Source precedence and confidence semantics
+- Initial metric definitions and readiness
+- Metric eligibility, terminal-outcome, abandonment, and exclusion policies
+- Fleet-complete versus fixed-cohort semantics and minimum sample rules
 - Initial deployment target and update cadence
 
 ### Phase 1: Data proof
@@ -493,17 +638,17 @@ Approve:
 - Implement backfill/incremental Release Plan collector.
 - Normalize parent and child revision events.
 - Enrich 20 representative plans from GitHub and exact pipeline URLs.
-- Produce schemas, fixtures, quality report, and call-cost measurements.
+- Produce event, interval, metric-result, and intended-artifact schemas plus fixtures, quality report, source-coverage measurements, and call-cost measurements.
 
-**Gate:** At least 95% of selected plans have an explainable correlation graph; all unknowns are typed rather than guessed.
+**Gate:** At least 95% of selected plans have an explainable correlation graph; all unknowns are typed rather than guessed. Candidate metrics report authoritative/observed/inferred/missing boundary coverage before any aggregate is approved.
 
 ### Phase 2: Static contract
 
-- Implement deterministic metrics and validation.
-- Produce versioned portfolio, service, plan, and aggregate JSON.
+- Implement the versioned metric registry, deterministic result/evidence calculations, and validation.
+- Produce versioned portfolio, service, plan, metric-definition, contributor-index, and aggregate JSON.
 - Measure payload sizes and shard strategy on the full one-year corpus.
 
-**Gate:** A static consumer can render all required views without credentials or runtime joins.
+**Gate:** A static consumer can render all required views without credentials or runtime joins. Every displayed metric resolves to one definition version and evidence, absent values retain typed outcomes, and every aggregate reconciles its eligible/included/excluded populations.
 
 ### Phase 3: UI skeleton
 
@@ -536,3 +681,4 @@ Approve:
 3. Is daily refresh sufficient, with more frequent updates only for active plans?
 4. Should user-level behavior be visible by default, or only in plan/PR drill-down?
 5. Can the Release Plan tooling team accept the P0 schema/telemetry investments in the accompanying backlog?
+6. Which metric definitions, denominator policies, coverage thresholds, and minimum sample rules are approved for the initial scorecard?

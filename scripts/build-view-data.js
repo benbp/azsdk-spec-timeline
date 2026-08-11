@@ -94,19 +94,57 @@ function main() {
   }
   mkdirSync(buildRoot, { recursive: true });
 
+  const window = selectionWindow(source);
+  const candidatePlans = source.plans.map((plan) =>
+    buildPlan(plan, prMap, pipelineRuns, window.end.toISOString()),
+  );
+  const plans = candidatePlans.filter(
+    (plan) =>
+      new Date(plan.range.start) >= window.start &&
+      new Date(plan.range.end) <= window.end,
+  );
+  const includedPlanIds = new Set(plans.map((plan) => plan.id));
+  const outOfWindowPlans = candidatePlans
+    .filter((plan) => !includedPlanIds.has(plan.id))
+    .map((plan) => ({
+      id: plan.id,
+      title: plan.title,
+      stage: "flow-window",
+      reason:
+        new Date(plan.range.start) < window.start
+          ? `first touch ${plan.range.start} predates ${window.start.toISOString()}`
+          : `last touch ${plan.range.end} exceeds ${window.end.toISOString()}`,
+    }));
+  const includedSourcePlans = source.plans.filter((plan) =>
+    includedPlanIds.has(plan.id),
+  );
+  const publishedGithub = filterGithubSource(github, includedSourcePlans);
+  const publishedPipelines = filterPipelineSource(
+    pipelineSource,
+    includedPlanIds,
+  );
   const buildSource = {
     ...source,
+    plans: includedSourcePlans,
     selection: {
       ...source.selection,
-      publishedCount: source.plans.length,
+      startAt: window.start.toISOString(),
+      endAt: window.end.toISOString(),
+      criteria: `core-correlated management-plane flows first touched in the last ${source.selection.days} days`,
+      flowCandidateCount: source.plans.length,
+      outOfWindowCount: outOfWindowPlans.length,
+      publishedCount: plans.length,
     },
+    skippedPlans: [...(source.skippedPlans || []), ...outOfWindowPlans],
   };
-  const plans = source.plans.map((plan) =>
-    buildPlan(plan, prMap, pipelineRuns, source.generatedAt),
+  const portfolio = buildPortfolio(
+    plans,
+    buildSource,
+    publishedGithub,
+    publishedPipelines,
   );
-  const portfolio = buildPortfolio(plans, buildSource, github, pipelineSource);
   const services = buildServices(plans);
-  const scorecard = buildScorecard(plans, source.generatedAt);
+  const scorecard = buildScorecard(plans, window.end.toISOString());
 
   writeJson(join(buildRoot, "portfolio.json"), portfolio);
   writeJson(
@@ -141,13 +179,13 @@ function main() {
     cadence: "daily",
     counts: {
       plans: plans.length,
-      pullRequests: github.prCount,
-      pipelineRuns: pipelineSource.runCount,
+      pullRequests: publishedGithub.prCount,
+      pipelineRuns: publishedPipelines.runCount,
       events: plans.reduce((sum, plan) => sum + plan.events.length, 0),
       services: services.length,
       skippedPlans: buildSource.skippedPlans?.length || 0,
-      skippedPullRequests: github.skippedPrCount || 0,
-      skippedPipelineRuns: pipelineSource.skippedRunCount || 0,
+      skippedPullRequests: publishedGithub.skippedPrCount,
+      skippedPipelineRuns: publishedPipelines.skippedRunCount,
     },
     sourceCoverage: portfolio.dataQuality,
     paths: {
@@ -164,6 +202,66 @@ function main() {
   console.log(
     `Built ${plans.length} plans with ${manifest.counts.events} events at ${buildRoot}`,
   );
+}
+
+function selectionWindow(source) {
+  const end = new Date(source.selection?.endAt || source.generatedAt);
+  const start = source.selection?.startAt
+    ? new Date(source.selection.startAt)
+    : new Date(end.getTime() - Number(source.selection?.days || 0) * 86_400_000);
+  if (
+    Number.isNaN(start.getTime()) ||
+    Number.isNaN(end.getTime()) ||
+    start >= end
+  )
+    throw new Error("The source selection window is invalid");
+  return { start, end };
+}
+
+function filterGithubSource(github, plans) {
+  const ids = new Set(
+    plans.flatMap((plan) => [
+      ...plan.specPrs.map((pr) => pr.id),
+      ...plan.languages.flatMap((language) =>
+        (language.sdkPrHistory || []).map((pr) => pr.id),
+      ),
+    ]),
+  );
+  const prs = github.prs.filter((pr) => ids.has(pr.id));
+  const skippedPrs = (github.skippedPrs || []).filter((pr) => ids.has(pr.id));
+  return {
+    ...github,
+    prCount: prs.length,
+    skippedPrCount: skippedPrs.length,
+    skippedPrs,
+    prs,
+  };
+}
+
+function filterPipelineSource(source, includedPlanIds) {
+  const runs = source.runs
+    .filter((run) =>
+      run.references.some((reference) =>
+        includedPlanIds.has(reference.planId),
+      ),
+    )
+    .map((run) => ({
+      ...run,
+      references: run.references.filter((reference) =>
+        includedPlanIds.has(reference.planId),
+      ),
+    }));
+  const runIds = new Set(runs.map((run) => run.id));
+  const skippedRuns = (source.skippedRuns || []).filter((run) =>
+    runIds.has(run.id),
+  );
+  return {
+    ...source,
+    runCount: runs.length,
+    skippedRunCount: skippedRuns.length,
+    skippedRuns,
+    runs,
+  };
 }
 
 function buildPlan(source, prMap, pipelineRuns, generatedAt) {

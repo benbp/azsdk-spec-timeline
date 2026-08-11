@@ -41,7 +41,7 @@ Never print, persist, or pass either access token manually. The scripts acquire 
 
 For the dashboard's current production cohort, use:
 
-- `--mode all-management`: core-correlated management-plane Release Plans **created** in the lookback window, including active, finished, new, and abandoned plans with an explicit Release Plan ID and exact spec PR.
+- `--mode all-management`: core-correlated management-plane Release Plans **created** in the lookback window whose earliest collected event also remains inside the window.
 - `--days 180`: the current rolling lookback. The Release Plan collector fast-fails snapshots missing either correlation root before fetching revisions or downstream source history.
 - `--limit 0`: collect every eligible plan. A positive value is for small development samples only.
 - `--build-id`: a unique UTC identifier. Build directories are immutable and the builder refuses to overwrite one.
@@ -97,7 +97,7 @@ console.log({
 '
 ```
 
-Treat preflight skips as expected correlation filtering unless their count changes abruptly. Downstream PR and pipeline skips are data-quality findings that produce incomplete metrics rather than removing plans. Investigate changes in candidate plans, event count, per-source coverage, and skipped artifacts. Do not publish if validation fails or if a cohort change is unexplained.
+Treat preflight skips as expected correlation filtering and flow-window skips as expected temporal filtering unless either count changes abruptly. Downstream PR and pipeline skips are data-quality findings that produce incomplete metrics rather than removing in-window plans. Investigate changes in candidate plans, published plans, event count, per-source coverage, and skipped artifacts. Do not publish if validation fails or if a cohort change is unexplained.
 
 ## Smoke-test the dashboard
 

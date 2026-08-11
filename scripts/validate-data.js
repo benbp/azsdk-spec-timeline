@@ -16,15 +16,18 @@ const plans = existsSync(planDirectory)
       .filter((name) => name.endsWith(".json"))
       .map((name) => readJson(join(planDirectory, name)))
   : [];
+const portfolio = readJson(join(root, "portfolio.json"));
 const scorecard = readJson(join(root, "aggregates", "scorecard.json"));
+const selection = portfolio.selection;
 
 if (plans.length !== manifest.counts.plans)
   errors.push(
     `Manifest says ${manifest.counts.plans} plans but ${plans.length} exist`,
   );
 
-for (const plan of plans) validatePlan(plan);
-validateScorecard(scorecard, plans);
+validateSelection(selection);
+for (const plan of plans) validatePlan(plan, selection);
+validateScorecard(scorecard, plans, selection);
 scanPublishedFiles(args.data);
 
 if (errors.length) {
@@ -36,7 +39,21 @@ if (errors.length) {
   );
 }
 
-function validateScorecard(value, sourcePlans) {
+function validateSelection(selection) {
+  const start = new Date(selection?.startAt);
+  const end = new Date(selection?.endAt);
+  if (
+    Number.isNaN(start.getTime()) ||
+    Number.isNaN(end.getTime()) ||
+    start >= end
+  )
+    errors.push("Portfolio selection window is invalid");
+}
+
+function validateScorecard(value, sourcePlans, selection) {
+  const cohortMonth = new Date(selection.startAt);
+  cohortMonth.setUTCDate(1);
+  cohortMonth.setUTCHours(0, 0, 0, 0);
   const statisticsPeriod = value.cohort?.statisticsPeriod;
   if (
     statisticsPeriod?.kind !== "rolling-30-days" ||
@@ -99,6 +116,11 @@ function validateScorecard(value, sourcePlans) {
         errors.push(`${metric.metricId}: invalid ${cadence} trend length`);
         continue;
       }
+      if (
+        cadence === "monthly" &&
+        new Date(trend.series[0].start) < cohortMonth
+      )
+        errors.push(`${metric.metricId}: monthly trend predates cohort`);
       if (
         cadence === "monthly" &&
         trend.series.length > 1 &&
@@ -179,7 +201,14 @@ function validateTrendChange(metricId, cadence, trend, field, currentOffset) {
     errors.push(`${metricId}: ${cadence} ${field} sample count drifted`);
 }
 
-function validatePlan(plan) {
+function validatePlan(plan, selection) {
+  const cohortStart = new Date(selection.startAt);
+  const cohortEnd = new Date(selection.endAt);
+  if (
+    new Date(plan.range.start) < cohortStart ||
+    new Date(plan.range.end) > cohortEnd
+  )
+    errors.push(`${plan.id}: plan range falls outside cohort`);
   if (
     plan.correlation?.policyVersion !== 1 ||
     plan.correlation?.preflight !== "passed"
@@ -207,6 +236,15 @@ function validatePlan(plan) {
       errors.push(`${plan.id}: non-complete metric ${metric.metricId} has value`);
     if (metric.outcome === "complete" && metric.value < 0)
       errors.push(`${plan.id}: negative metric ${metric.metricId}`);
+    for (const boundary of [
+      metric.evidence?.startAt,
+      metric.evidence?.endAt,
+    ].filter(Boolean)) {
+      if (new Date(boundary) < cohortStart || new Date(boundary) > cohortEnd)
+        errors.push(
+          `${plan.id}: metric ${metric.metricId} falls outside cohort`,
+        );
+    }
   }
 }
 

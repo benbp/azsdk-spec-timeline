@@ -122,6 +122,32 @@ Alpine.data("timelineApp", () => ({
       }));
   },
 
+  get portfolioCohortLabel() {
+    const plans = this.portfolio?.plans || [];
+    const createdAt = plans.map((plan) => plan.createdAt).filter(Boolean);
+    const startAt =
+      this.portfolio?.selection?.startAt ||
+      (createdAt.length
+        ? new Date(
+            Math.min(...createdAt.map((value) => new Date(value).getTime())),
+          ).toISOString()
+        : null);
+    const endAt =
+      this.portfolio?.selection?.endAt ||
+      this.portfolio?.generatedAt ||
+      this.manifest?.generatedAt;
+    if (!startAt || !endAt) return "Management-plane cohort";
+    const start = new Date(startAt);
+    const end = new Date(endAt);
+    const formatter = new Intl.DateTimeFormat("en", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    });
+    return `${formatter.format(start)}–${formatter.format(end)} · management plane`;
+  },
+
   get scorecardStatisticsPeriodLabel() {
     const period = this.scorecard?.cohort?.statisticsPeriod;
     if (!period?.startAt || !period?.endAt) return "";

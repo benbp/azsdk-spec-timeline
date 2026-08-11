@@ -64,14 +64,15 @@ async function adoRequest(path, options = {}, retried = false) {
   return response.json();
 }
 
-async function queryReleasePlanIds(days, dateField = "changed") {
+async function queryReleasePlanIds(
+  days,
+  dateField = "changed",
+  window = releasePlanQueryWindow(days),
+) {
   const field =
     dateField === "created" ? "System.CreatedDate" : "System.ChangedDate";
-  const end = new Date();
-  end.setUTCDate(end.getUTCDate() + 1);
-  end.setUTCHours(0, 0, 0, 0);
-  const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - days);
+  const start = new Date(window.startAt);
+  const end = new Date(window.endAt);
   const ids = new Set();
   let cursor = start;
   while (cursor < end) {
@@ -95,6 +96,15 @@ async function queryReleasePlanIds(days, dateField = "changed") {
     cursor = next;
   }
   return [...ids];
+}
+
+function releasePlanQueryWindow(days, now = new Date()) {
+  const end = new Date(now);
+  end.setUTCDate(end.getUTCDate() + 1);
+  end.setUTCHours(0, 0, 0, 0);
+  const start = new Date(end);
+  start.setUTCDate(start.getUTCDate() - days);
+  return { startAt: start.toISOString(), endAt: end.toISOString() };
 }
 
 async function fetchWorkItems(ids) {
@@ -267,5 +277,6 @@ module.exports = {
   plainText,
   queryReleasePlanIds,
   readJson,
+  releasePlanQueryWindow,
   writeJson,
 };

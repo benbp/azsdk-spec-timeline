@@ -12,6 +12,7 @@ const {
   parsePrUrl,
   plainText,
   queryReleasePlanIds,
+  releasePlanQueryWindow,
   writeJson,
 } = require("./lib/v2-common");
 const {
@@ -35,9 +36,11 @@ main().catch((error) => {
 async function main() {
   if (!["complete", "all-management"].includes(args.mode))
     throw new Error("--mode must be complete or all-management");
+  const queryWindow = releasePlanQueryWindow(args.days);
   const ids = await queryReleasePlanIds(
     args.days,
     args.mode === "all-management" ? "created" : "changed",
+    queryWindow,
   );
   const inventory = await fetchWorkItems(ids);
   const preliminaryCandidates = inventory
@@ -123,11 +126,14 @@ async function main() {
     ...collected.map((result) => result.skipped).filter(Boolean),
   ];
 
+  const generatedAt = new Date().toISOString();
   const output = {
     schemaVersion: 1,
-    generatedAt: new Date().toISOString(),
+    generatedAt,
     selection: {
       days: args.days,
+      startAt: queryWindow.startAt,
+      endAt: generatedAt,
       mode: args.mode,
       requested: args.limit || "all",
       criteria:

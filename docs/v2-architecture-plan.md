@@ -385,6 +385,8 @@ Precompute event stacks and summary marks to avoid collision work in the browser
 
 ## Metrics
 
+The canonical metric-by-metric display feasibility, source coverage, required changes, and investment assessment is in [`e2e-metrics-coverage.md`](e2e-metrics-coverage.md). The lists below describe the architectural metric families; they do not imply that every metric is currently measurable or approved for fleet aggregation.
+
 ### Core duration metrics
 
 - Plan-created to first spec PR

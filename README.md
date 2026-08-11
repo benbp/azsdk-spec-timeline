@@ -7,6 +7,7 @@ The v2 site is intentionally **not implemented yet**. The proposed architecture,
 - [Research findings](docs/research-findings.md)
 - [V2 architecture plan](docs/v2-architecture-plan.md)
 - [Data gap investment backlog](docs/data-gap-backlog.md)
+- [E2E metric display and investment assessment](docs/e2e-metrics-coverage.md)
 
 ## Release Plan profiler
 

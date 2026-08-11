@@ -2,6 +2,8 @@
 
 This backlog distinguishes missing source data from data that V2 can recover through exact joins. Priorities assume the goal is reliable fleet-wide timelines, not merely a current-status dashboard.
 
+See [`e2e-metrics-coverage.md`](e2e-metrics-coverage.md) for the canonical mapping from these investments to the L1-L3, S1-S6, Q1-Q8, C1-C4, and B1-B2 display metrics.
+
 ## P0: foundational correlation and timestamps
 
 | Gap | Evidence/impact | Recommended investment | V2 fallback |

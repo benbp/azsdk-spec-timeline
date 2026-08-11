@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "slug": "providerhub-management",
+  "name": "ProviderHub.Management",
+  "plans": [
+    {
+      "id": "35909",
+      "title": "GA release plan for ProviderHub.Management",
+      "completedAt": null,
+      "releaseType": "GA",
+      "durationHours": 172.4,
+      "metrics": []
+    }
+  ]
+}

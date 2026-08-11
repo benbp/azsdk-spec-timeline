@@ -1,0 +1,478 @@
+{
+  "schemaVersion": 1,
+  "slug": "chaos",
+  "name": "Chaos",
+  "plans": [
+    {
+      "id": "34355",
+      "title": "Release Plan - 2236 - Public Preview - Azure Chaos Studio",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 2167.5,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "prId": "github:Azure/azure-rest-api-specs#43085",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 34.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-11T15:08:13Z",
+            "endAt": "2026-05-13T01:34:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.Chaos",
+            "prId": "github:Azure/azure-sdk-for-net#59212"
+          },
+          "outcome": "complete",
+          "value": 444.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T15:33:26Z",
+            "endAt": "2026-06-01T03:39:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 13.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T01:34:20.000Z",
+            "endAt": "2026-05-13T15:27:09.8673066Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T15:27:09.8673066Z",
+            "endAt": "2026-05-13T15:33:26Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "JavaScript",
+            "package": "@azure/arm-chaos",
+            "prId": "github:Azure/azure-sdk-for-js#38530"
+          },
+          "outcome": "complete",
+          "value": 24,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T15:34:39Z",
+            "endAt": "2026-05-14T15:33:21Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 13.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T01:34:20.000Z",
+            "endAt": "2026-05-13T15:27:09.6997841Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T15:27:09.6997841Z",
+            "endAt": "2026-05-13T15:34:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 1515.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-14T15:33:21Z",
+            "endAt": "2026-07-16T18:38:32.28Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 1749.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T01:34:20.000Z",
+            "endAt": "2026-07-24T22:45:56.3975864Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T22:45:56.3975864Z",
+            "endAt": "2026-07-24T22:52:23Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "Java",
+            "package": "azure-resourcemanager-chaos",
+            "prId": "github:Azure/azure-sdk-for-java#49171"
+          },
+          "outcome": "complete",
+          "value": 336.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T15:35:24Z",
+            "endAt": "2026-05-27T16:30:10Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 13.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T01:34:20.000Z",
+            "endAt": "2026-05-13T15:25:39.0867236Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T15:25:39.0867236Z",
+            "endAt": "2026-05-13T15:35:24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 1749.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-13T01:34:20.000Z",
+            "endAt": "2026-07-24T22:45:59.9163165Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34355",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T22:45:59.9163165Z",
+            "endAt": "2026-07-24T22:51:19Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "33618",
+      "title": "Release Plan - 2141 - Public Preview - Azure Chaos Studio",
+      "completedAt": "2026-06-17T10:15:49.41Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1981.1,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "prId": "github:Azure/azure-rest-api-specs#41486",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1195,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-17T18:48:08Z",
+            "endAt": "2026-05-06T13:46:12Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T13:46:12.000Z",
+            "endAt": "2026-05-06T14:27:40.207759Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T13:46:12.000Z",
+            "endAt": "2026-05-06T14:27:47.4569716Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "language": "Python",
+            "package": "azure-mgmt-chaos",
+            "prId": "github:Azure/azure-sdk-for-python#46753"
+          },
+          "outcome": "complete",
+          "value": 120.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T14:09:48Z",
+            "endAt": "2026-05-11T14:13:21Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T13:46:12.000Z",
+            "endAt": "2026-05-06T14:27:38.4982222Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 739.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-11T14:13:21Z",
+            "endAt": "2026-06-11T09:57:43.08Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T13:46:12.000Z",
+            "endAt": "2026-05-06T14:27:44.4770835Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "language": "Go",
+            "package": "sdk/resourcemanager/chaos/armchaos",
+            "prId": "github:Azure/azure-sdk-for-go#26729"
+          },
+          "outcome": "complete",
+          "value": 120.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T14:09:15Z",
+            "endAt": "2026-05-11T14:13:53Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T13:46:12.000Z",
+            "endAt": "2026-05-06T14:27:42.5658578Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 325.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-11T14:13:53Z",
+            "endAt": "2026-05-25T03:22:29.113Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33618"
+          },
+          "outcome": "complete",
+          "value": 2199.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-03-17T18:48:08.000Z",
+            "endAt": "2026-06-17T10:15:49.220Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

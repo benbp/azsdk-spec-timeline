@@ -1,0 +1,502 @@
+{
+  "schemaVersion": 1,
+  "slug": "accounts",
+  "name": "Accounts",
+  "plans": [
+    {
+      "id": "34968",
+      "title": "GA release plan for Accounts",
+      "completedAt": "2026-07-15T03:12:58.527Z",
+      "releaseType": "GA",
+      "durationHours": 778.1,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968",
+            "prId": "github:Azure/azure-rest-api-specs#42326",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 357.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-13T18:06:00Z",
+            "endAt": "2026-04-28T15:19:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968",
+            "language": "JavaScript",
+            "package": "@azure/arm-monitorworkspaces",
+            "prId": "github:Azure/azure-sdk-for-js#38918"
+          },
+          "outcome": "complete",
+          "value": 96.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-11T05:06:12Z",
+            "endAt": "2026-06-15T05:47:26Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 717.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-15T05:47:26Z",
+            "endAt": "2026-07-15T03:12:58.303Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968",
+            "language": "Python",
+            "package": "azure-mgmt-monitorworkspaces",
+            "prId": "github:Azure/azure-sdk-for-python#47453"
+          },
+          "outcome": "complete",
+          "value": 291.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-11T05:10:22Z",
+            "endAt": "2026-06-23T08:51:24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 66.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-23T08:51:24Z",
+            "endAt": "2026-06-26T02:57:27.18Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968",
+            "language": "Java",
+            "package": "azure-resourcemanager-monitor-workspaces",
+            "prId": "github:Azure/azure-sdk-for-java#49459"
+          },
+          "outcome": "complete",
+          "value": 345.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-11T05:12:00Z",
+            "endAt": "2026-06-25T14:23:11Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 13,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-25T14:23:11Z",
+            "endAt": "2026-06-26T03:21:53.18Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968",
+            "language": "Go",
+            "package": "sdk/resourcemanager/monitor/armmonitorworkspaces",
+            "prId": "github:Azure/azure-sdk-for-go#26999"
+          },
+          "outcome": "complete",
+          "value": 244.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-12T17:59:01Z",
+            "endAt": "2026-06-22T22:15:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 381,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-22T22:15:39Z",
+            "endAt": "2026-07-08T19:14:42.41Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34968"
+          },
+          "outcome": "complete",
+          "value": 2217.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-04-13T18:06:00.000Z",
+            "endAt": "2026-07-15T03:12:58.303Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "34134",
+      "title": "Release plan - 2207 - Public Preview - Azure Monitor",
+      "completedAt": "2026-06-15T22:12:35.527Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1133.5,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "prId": "github:Azure/azure-rest-api-specs#42326",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 357.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-13T18:06:00Z",
+            "endAt": "2026-04-28T15:19:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.Monitor.Workspaces",
+            "prId": "github:Azure/azure-sdk-for-net#59356"
+          },
+          "outcome": "complete",
+          "value": 456.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T04:57:06Z",
+            "endAt": "2026-06-08T05:43:07Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 517.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T15:19:37.000Z",
+            "endAt": "2026-05-20T04:51:10.168011Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T04:51:10.168011Z",
+            "endAt": "2026-05-20T04:57:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 184.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-08T05:43:07Z",
+            "endAt": "2026-06-15T22:09:43.067Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "JavaScript",
+            "package": "@azure/arm-monitorworkspaces",
+            "prId": "github:Azure/azure-sdk-for-js#38517"
+          },
+          "outcome": "complete",
+          "value": 398.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-12T18:23:05Z",
+            "endAt": "2026-05-29T09:17:42Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 517.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T15:19:37.000Z",
+            "endAt": "2026-05-20T04:51:08.2550442Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 420.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-29T09:17:42Z",
+            "endAt": "2026-06-15T22:12:13.31Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "Python",
+            "package": "azure-mgmt-monitorworkspaces",
+            "prId": "github:Azure/azure-sdk-for-python#46604"
+          },
+          "outcome": "complete",
+          "value": 889.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T15:44:20Z",
+            "endAt": "2026-06-05T17:13:51Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 517.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T15:19:37.000Z",
+            "endAt": "2026-05-20T04:51:05.1565164Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 245,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-05T17:13:51Z",
+            "endAt": "2026-06-15T22:12:13.31Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "Java",
+            "package": "azure-resourcemanager-monitor-workspaces",
+            "prId": "github:Azure/azure-sdk-for-java#48977"
+          },
+          "outcome": "complete",
+          "value": 802.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T15:49:05Z",
+            "endAt": "2026-06-02T02:38:02Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 517.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T15:19:37.000Z",
+            "endAt": "2026-05-20T04:51:09.5707831Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 331.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-02T02:38:02Z",
+            "endAt": "2026-06-15T22:12:13.31Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "Go",
+            "package": "sdk/resourcemanager/monitor/armmonitorworkspaces",
+            "prId": "github:Azure/azure-sdk-for-go#26697"
+          },
+          "outcome": "complete",
+          "value": 781.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T15:46:04Z",
+            "endAt": "2026-06-01T05:42:49Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 517.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T15:19:37.000Z",
+            "endAt": "2026-05-20T04:51:06.2370365Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34134"
+          },
+          "outcome": "complete",
+          "value": 1516.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-04-13T18:06:00.000Z",
+            "endAt": "2026-06-15T22:12:13.310Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "slug": "batch",
+  "name": "Batch",
+  "plans": [
+    {
+      "id": "35236",
+      "title": "GA release plan for Batch",
+      "completedAt": null,
+      "releaseType": "GA",
+      "durationHours": 831.7,
+      "metrics": []
+    }
+  ]
+}

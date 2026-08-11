@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "slug": "commvault-content-store-management",
+  "name": "Commvault.Content Store.Management",
+  "plans": [
+    {
+      "id": "32864",
+      "title": "Release Plan - 2101 - Public Preview - Liftr - Commvault",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 4042.4,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "prId": "github:Azure/azure-rest-api-specs#43838",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 44.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-09T09:05:37Z",
+            "endAt": "2026-06-11T05:58:43Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "prId": "github:Azure/azure-rest-api-specs-pr#27115",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 2.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-02T05:05:58Z",
+            "endAt": "2026-03-02T07:16:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 317.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-11T05:58:43.000Z",
+            "endAt": "2026-06-24T11:46:19.2137477Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T11:46:19.2137477Z",
+            "endAt": "2026-06-24T11:52:38Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "JavaScript",
+            "package": "@azure/arm-commvault",
+            "prId": "github:Azure/azure-sdk-for-js#39063"
+          },
+          "outcome": "complete",
+          "value": 172.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T11:52:48Z",
+            "endAt": "2026-07-01T16:19:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 317.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-11T05:58:43.000Z",
+            "endAt": "2026-06-24T11:46:32.9116234Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T11:46:32.9116234Z",
+            "endAt": "2026-06-24T11:52:48Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "Python",
+            "package": "azure-mgmt-commvault",
+            "prId": "github:Azure/azure-sdk-for-python#47641"
+          },
+          "outcome": "complete",
+          "value": 137.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T11:52:37Z",
+            "endAt": "2026-06-30T05:08:48Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 317.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-11T05:58:43.000Z",
+            "endAt": "2026-06-24T11:46:32.533355Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T11:46:32.533355Z",
+            "endAt": "2026-06-24T11:52:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "Java",
+            "package": "azure-resourcemanager-commvault",
+            "prId": "github:Azure/azure-sdk-for-java#49622"
+          },
+          "outcome": "complete",
+          "value": 137.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T11:54:39Z",
+            "endAt": "2026-06-30T05:42:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 317.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-11T05:58:43.000Z",
+            "endAt": "2026-06-24T11:46:25.0828858Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T11:46:25.0828858Z",
+            "endAt": "2026-06-24T11:54:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "Go",
+            "package": "sdk/resourcemanager/liftrcommvault/armcommvault",
+            "prId": "github:Azure/azure-sdk-for-go#27096"
+          },
+          "outcome": "complete",
+          "value": 206.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T11:51:16Z",
+            "endAt": "2026-07-03T02:22:48Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 317.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-11T05:58:43.000Z",
+            "endAt": "2026-06-24T11:46:26.1150084Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "32864",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T11:46:26.1150084Z",
+            "endAt": "2026-06-24T11:51:16Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

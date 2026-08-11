@@ -1,0 +1,418 @@
+{
+  "schemaVersion": 1,
+  "slug": "mission-management",
+  "name": "Mission.Management",
+  "plans": [
+    {
+      "id": "35181",
+      "title": "Public Preview release plan for Mission.Management",
+      "completedAt": "2026-07-24T05:40:38.767Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 518.7,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "prId": "github:Azure/azure-rest-api-specs#44659",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 46.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T19:34:51Z",
+            "endAt": "2026-07-16T18:26:55Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "prId": "github:Azure/azure-rest-api-specs#44142",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 50.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-22T20:25:00Z",
+            "endAt": "2026-06-24T23:09:46Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.Enclave",
+            "prId": "github:Azure/azure-sdk-for-net#61088"
+          },
+          "outcome": "complete",
+          "value": 140.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:42:09Z",
+            "endAt": "2026-07-23T02:10:50Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 11.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-16T18:26:55.000Z",
+            "endAt": "2026-07-17T05:34:20.3080992Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:34:20.3080992Z",
+            "endAt": "2026-07-17T05:42:09Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 27.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-23T02:10:50Z",
+            "endAt": "2026-07-24T05:40:38.547Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "JavaScript",
+            "package": "@azure/arm-enclave",
+            "prId": "github:Azure/azure-sdk-for-js#39320"
+          },
+          "outcome": "complete",
+          "value": 13.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:41:46Z",
+            "endAt": "2026-07-17T19:10:26Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 11.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-16T18:26:55.000Z",
+            "endAt": "2026-07-17T05:33:45.0330585Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:33:45.0330585Z",
+            "endAt": "2026-07-17T05:41:46Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 55.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-17T19:10:26Z",
+            "endAt": "2026-07-20T02:57:48.5Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Python",
+            "package": "azure-mgmt-enclave",
+            "prId": "github:Azure/azure-sdk-for-python#48108"
+          },
+          "outcome": "complete",
+          "value": 13.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:39:36Z",
+            "endAt": "2026-07-17T19:10:34Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 11.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-16T18:26:55.000Z",
+            "endAt": "2026-07-17T05:33:45.909702Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:33:45.909702Z",
+            "endAt": "2026-07-17T05:39:36Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 56.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-17T19:10:34Z",
+            "endAt": "2026-07-20T04:00:24.473Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Java",
+            "package": "azure-resourcemanager-enclave",
+            "prId": "github:Azure/azure-sdk-for-java#49853"
+          },
+          "outcome": "complete",
+          "value": 46.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:43:14Z",
+            "endAt": "2026-07-19T03:53:58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 11.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-16T18:26:55.000Z",
+            "endAt": "2026-07-17T05:34:24.6823801Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:34:24.6823801Z",
+            "endAt": "2026-07-17T05:43:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 71.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-19T03:53:58Z",
+            "endAt": "2026-07-22T03:25:35.747Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Go",
+            "package": "sdk/resourcemanager/enclave/armenclave",
+            "prId": "github:Azure/azure-sdk-for-go#27209"
+          },
+          "outcome": "complete",
+          "value": 13.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:26:50Z",
+            "endAt": "2026-07-17T19:10:56Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 10.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-16T18:26:55.000Z",
+            "endAt": "2026-07-17T05:21:30.2150567Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T05:21:30.2150567Z",
+            "endAt": "2026-07-17T05:26:50Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 55.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-17T19:10:56Z",
+            "endAt": "2026-07-20T02:31:15.357Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35181"
+          },
+          "outcome": "complete",
+          "value": 753.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-22T20:25:00.000Z",
+            "endAt": "2026-07-24T05:40:38.547Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

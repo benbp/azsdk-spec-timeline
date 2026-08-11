@@ -1,0 +1,603 @@
+{
+  "schemaVersion": 1,
+  "slug": "compute-bulk-actions",
+  "name": "Compute Bulk Actions",
+  "plans": [
+    {
+      "id": "35206",
+      "title": "Public Preview release plan for Compute Bulk Actions",
+      "completedAt": "2026-07-29T13:16:16.553Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 545.8,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "prId": "github:Azure/azure-rest-api-specs#44101",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 411.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-19T15:52:14Z",
+            "endAt": "2026-07-06T19:18:26Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "JavaScript",
+            "package": "@azure/arm-compute-bulkactions",
+            "prId": "github:Azure/azure-sdk-for-js#39351"
+          },
+          "outcome": "complete",
+          "value": 151.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T19:27:22Z",
+            "endAt": "2026-07-28T02:58:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 355.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-06T19:18:26.000Z",
+            "endAt": "2026-07-21T14:50:05.1568979Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 4.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T14:50:05.1568979Z",
+            "endAt": "2026-07-21T19:27:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "Python",
+            "package": "azure-mgmt-compute-bulkaction",
+            "prId": "github:Azure/azure-sdk-for-python#48179"
+          },
+          "outcome": "complete",
+          "value": 151.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T19:25:34Z",
+            "endAt": "2026-07-28T02:58:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 355.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-06T19:18:26.000Z",
+            "endAt": "2026-07-21T14:50:05.2592843Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 4.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T14:50:05.2592843Z",
+            "endAt": "2026-07-21T19:25:34Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 223.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-06T19:18:26.000Z",
+            "endAt": "2026-07-16T03:10:51.5655631Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-16T03:10:51.5655631Z",
+            "endAt": "2026-07-16T03:19:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "Go",
+            "package": "sdk/resourcemanager/compute/armbulkactions",
+            "prId": "github:Azure/azure-sdk-for-go#27227"
+          },
+          "outcome": "complete",
+          "value": 151.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T19:24:32Z",
+            "endAt": "2026-07-28T02:58:31Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 223.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-06T19:18:26.000Z",
+            "endAt": "2026-07-16T03:11:20.8095297Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 136.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-16T03:11:20.8095297Z",
+            "endAt": "2026-07-21T19:24:32Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35206"
+          },
+          "outcome": "complete",
+          "value": 797.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-19T15:52:14.000Z",
+            "endAt": "2026-07-22T20:58:47.733Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "34893",
+      "title": "Release Plan - 2271 - GA - Compute Bulk Actions",
+      "completedAt": "2026-07-23T15:06:38.693Z",
+      "releaseType": "APEX GA",
+      "durationHours": 1076.8,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "prId": "github:Azure/azure-rest-api-specs#43977",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 2.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T19:37:31Z",
+            "endAt": "2026-06-15T22:09:33Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "prId": "github:Azure/azure-rest-api-specs#43771",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 186.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-04T23:16:59Z",
+            "endAt": "2026-06-12T17:52:40Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.Compute.BulkActions",
+            "prId": "github:Azure/azure-sdk-for-net#60592"
+          },
+          "outcome": "complete",
+          "value": 139,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:35:58Z",
+            "endAt": "2026-07-07T16:37:24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "JavaScript",
+            "package": "@azure/arm-compute-bulkactions",
+            "prId": "github:Azure/azure-sdk-for-js#39118"
+          },
+          "outcome": "complete",
+          "value": 559.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-29T10:41:43Z",
+            "endAt": "2026-07-22T18:22:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 324.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T22:09:33.000Z",
+            "endAt": "2026-06-29T10:35:39.5661489Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-29T10:35:39.5661489Z",
+            "endAt": "2026-06-29T10:41:43Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 20.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-22T18:22:20Z",
+            "endAt": "2026-07-23T15:04:12.317Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Python",
+            "package": "azure-mgmt-computebulkactions",
+            "prId": "github:Azure/azure-sdk-for-python#48083"
+          },
+          "outcome": "complete",
+          "value": 132.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-16T03:11:39Z",
+            "endAt": "2026-07-21T15:42:28Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 324.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T22:09:33.000Z",
+            "endAt": "2026-06-29T10:35:39.6080052Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 400.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-29T10:35:39.6080052Z",
+            "endAt": "2026-07-16T03:11:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 47.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-21T15:42:28Z",
+            "endAt": "2026-07-23T15:05:13.383Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Java",
+            "package": "azure-resourcemanager-compute-bulkactions",
+            "prId": "github:Azure/azure-sdk-for-java#49664"
+          },
+          "outcome": "complete",
+          "value": 402.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-29T10:43:49Z",
+            "endAt": "2026-07-16T05:22:05Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 324.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T22:09:33.000Z",
+            "endAt": "2026-06-29T10:35:41.5248882Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-29T10:35:41.5248882Z",
+            "endAt": "2026-06-29T10:43:49Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 177.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-16T05:22:05Z",
+            "endAt": "2026-07-23T15:06:10.36Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Go",
+            "package": "sdk/resourcemanager/compute/armbulkactions",
+            "prId": "github:Azure/azure-sdk-for-go#27114"
+          },
+          "outcome": "complete",
+          "value": 421.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-29T10:40:16Z",
+            "endAt": "2026-07-16T23:45:16Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 324.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T22:09:33.000Z",
+            "endAt": "2026-06-29T10:35:36.6090758Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-29T10:35:36.6090758Z",
+            "endAt": "2026-06-29T10:40:16Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 137.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-16T23:45:16Z",
+            "endAt": "2026-07-22T17:00:45.427Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34893"
+          },
+          "outcome": "complete",
+          "value": 1167.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-04T23:16:59.000Z",
+            "endAt": "2026-07-23T15:06:10.360Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

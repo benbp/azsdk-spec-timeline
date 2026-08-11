@@ -1,0 +1,315 @@
+{
+  "schemaVersion": 1,
+  "slug": "cognitive-services-management",
+  "name": "Cognitive Services.Management",
+  "plans": [
+    {
+      "id": "34456",
+      "title": "Release Plan - 2244 - Public Preview - Microsoft Foundry",
+      "completedAt": "2026-06-18T04:27:20.59Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 636,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "prId": "github:Azure/azure-rest-api-specs#41922",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1252.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-30T23:21:54Z",
+            "endAt": "2026-05-22T04:05:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.CognitiveServices",
+            "prId": "github:Azure/azure-sdk-for-net#59412"
+          },
+          "outcome": "complete",
+          "value": 634.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T16:58:30Z",
+            "endAt": "2026-06-18T03:13:57Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 106.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T04:05:14.000Z",
+            "endAt": "2026-05-26T14:34:00.1788277Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 1.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-18T03:13:57Z",
+            "endAt": "2026-06-18T04:27:20.36Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "JavaScript",
+            "package": "@azure/arm-cognitiveservices",
+            "prId": "github:Azure/azure-sdk-for-js#38641"
+          },
+          "outcome": "complete",
+          "value": 159.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T16:59:55Z",
+            "endAt": "2026-05-29T08:41:49Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 106.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T04:05:14.000Z",
+            "endAt": "2026-05-26T14:32:25.7918062Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 83.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-29T08:41:49Z",
+            "endAt": "2026-06-01T20:17:07.94Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "Python",
+            "package": "azure-mgmt-cognitiveservices",
+            "prId": "github:Azure/azure-sdk-for-python#47078"
+          },
+          "outcome": "complete",
+          "value": 92.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T16:59:40Z",
+            "endAt": "2026-05-26T13:49:55Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 106.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T04:05:14.000Z",
+            "endAt": "2026-05-26T14:32:24.3227379Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 78.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-26T13:49:55Z",
+            "endAt": "2026-05-29T20:38:58.26Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "Java",
+            "package": "azure-resourcemanager-cognitiveservices",
+            "prId": "github:Azure/azure-sdk-for-java#49248"
+          },
+          "outcome": "complete",
+          "value": 170.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T17:01:00Z",
+            "endAt": "2026-05-29T19:05:28Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 106.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T04:05:14.000Z",
+            "endAt": "2026-05-26T14:32:32.2934835Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 5.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-29T19:05:28Z",
+            "endAt": "2026-05-30T00:29:00.85Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "Go",
+            "package": "sdk/resourcemanager/cognitiveservices/armcognitiveservices",
+            "prId": "github:Azure/azure-sdk-for-go#26867"
+          },
+          "outcome": "complete",
+          "value": 142.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T16:55:53Z",
+            "endAt": "2026-05-28T15:31:19Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 106.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-22T04:05:14.000Z",
+            "endAt": "2026-05-26T14:33:37.7711448Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 32.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-28T15:31:19Z",
+            "endAt": "2026-05-30T00:08:39.833Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34456"
+          },
+          "outcome": "complete",
+          "value": 1901.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-03-30T23:21:54.000Z",
+            "endAt": "2026-06-18T04:27:20.360Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

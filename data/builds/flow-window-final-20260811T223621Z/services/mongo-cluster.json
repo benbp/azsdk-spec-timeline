@@ -1,0 +1,793 @@
+{
+  "schemaVersion": 1,
+  "slug": "mongo-cluster",
+  "name": "Mongo Cluster",
+  "plans": [
+    {
+      "id": "34020",
+      "title": "Release plan - 2198 - Public Preview - Azure DocumentDB (with MongoDB compatibility)",
+      "completedAt": "2026-07-09T14:35:18.85Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1887.9,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "prId": "github:Azure/azure-rest-api-specs#42564",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 214.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-21T22:26:25Z",
+            "endAt": "2026-04-30T20:39:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.MongoCluster",
+            "prId": "github:Azure/azure-sdk-for-net#59312"
+          },
+          "outcome": "complete",
+          "value": 369.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-18T17:39:44Z",
+            "endAt": "2026-06-03T02:51:04Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 428.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-30T20:39:27.000Z",
+            "endAt": "2026-05-18T17:32:52.8011659Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-18T17:32:52.8011659Z",
+            "endAt": "2026-05-18T17:39:44Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 325,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-03T02:51:04Z",
+            "endAt": "2026-06-16T15:53:22.247Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "JavaScript",
+            "package": "@azure/arm-mongocluster",
+            "prId": "github:Azure/azure-sdk-for-js#38593"
+          },
+          "outcome": "complete",
+          "value": 36.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-19T16:07:18Z",
+            "endAt": "2026-05-21T04:51:29Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 451.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-30T20:39:27.000Z",
+            "endAt": "2026-05-19T16:00:23.7266778Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-19T16:00:23.7266778Z",
+            "endAt": "2026-05-19T16:07:18Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 533.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-21T04:51:29Z",
+            "endAt": "2026-06-12T09:59:07.577Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Python",
+            "package": "azure-mgmt-mongocluster",
+            "prId": "github:Azure/azure-sdk-for-python#46669"
+          },
+          "outcome": "complete",
+          "value": 118.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-01T19:07:30Z",
+            "endAt": "2026-05-06T17:16:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 22.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-30T20:39:27.000Z",
+            "endAt": "2026-05-01T19:01:06.3802605Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-01T19:01:06.3802605Z",
+            "endAt": "2026-05-01T19:07:30Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 856.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-06T17:16:20Z",
+            "endAt": "2026-06-11T09:57:32.13Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Java",
+            "package": "azure-resourcemanager-mongocluster",
+            "prId": "github:Azure/azure-sdk-for-java#49020"
+          },
+          "outcome": "complete",
+          "value": 118.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-01T19:10:42Z",
+            "endAt": "2026-05-06T17:19:57Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 22.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-30T20:39:27.000Z",
+            "endAt": "2026-05-01T19:01:16.4372838Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-01T19:01:16.4372838Z",
+            "endAt": "2026-05-01T19:10:42Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 1484.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-06T17:19:57Z",
+            "endAt": "2026-07-07T14:13:02.607Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Go",
+            "package": "sdk/resourcemanager/mongocluster/armmongocluster",
+            "prId": "github:Azure/azure-sdk-for-go#26705"
+          },
+          "outcome": "complete",
+          "value": 118.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-01T19:06:15Z",
+            "endAt": "2026-05-06T17:19:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 22.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-30T20:39:27.000Z",
+            "endAt": "2026-05-01T19:01:15.3387347Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-01T19:01:15.3387347Z",
+            "endAt": "2026-05-01T19:06:15Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 445.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-06T17:19:20Z",
+            "endAt": "2026-05-25T06:23:48.067Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34020"
+          },
+          "outcome": "complete",
+          "value": 1839.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-04-21T22:26:25.000Z",
+            "endAt": "2026-07-07T14:13:02.607Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "34205",
+      "title": "Release plan - 2214 - Public Preview - Azure DocumentDB (with MongoDB compatibility)",
+      "completedAt": "2026-06-30T03:42:05.987Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1326.1,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "prId": "github:Azure/azure-rest-api-specs#42899",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 910.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-05T20:39:02Z",
+            "endAt": "2026-06-12T19:34:52Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.MongoCluster",
+            "prId": "github:Azure/azure-sdk-for-net#60194"
+          },
+          "outcome": "complete",
+          "value": 35.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:27:43Z",
+            "endAt": "2026-06-26T02:39:58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 283.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-12T19:34:52.000Z",
+            "endAt": "2026-06-24T15:20:29.3189219Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:20:29.3189219Z",
+            "endAt": "2026-06-24T15:27:43Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 12.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-26T02:39:58Z",
+            "endAt": "2026-06-26T14:57:41.23Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "JavaScript",
+            "package": "@azure/arm-mongocluster",
+            "prId": "github:Azure/azure-sdk-for-js#39064"
+          },
+          "outcome": "complete",
+          "value": 47.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:27:08Z",
+            "endAt": "2026-06-26T14:51:40Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 283.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-12T19:34:52.000Z",
+            "endAt": "2026-06-24T15:20:31.7141094Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:20:31.7141094Z",
+            "endAt": "2026-06-24T15:27:08Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 48.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-26T14:51:40Z",
+            "endAt": "2026-06-28T15:41:59.987Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Python",
+            "package": "azure-mgmt-mongocluster",
+            "prId": "github:Azure/azure-sdk-for-python#47645"
+          },
+          "outcome": "complete",
+          "value": 29.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:27:10Z",
+            "endAt": "2026-06-25T21:09:46Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 283.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-12T19:34:52.000Z",
+            "endAt": "2026-06-24T15:20:27.2799199Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:20:27.2799199Z",
+            "endAt": "2026-06-24T15:27:10Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 102.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-25T21:09:46Z",
+            "endAt": "2026-06-30T03:42:05.713Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Java",
+            "package": "azure-resourcemanager-mongocluster",
+            "prId": "github:Azure/azure-sdk-for-java#49624"
+          },
+          "outcome": "complete",
+          "value": 29.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:30:08Z",
+            "endAt": "2026-06-25T21:10:21Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 283.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-12T19:34:52.000Z",
+            "endAt": "2026-06-24T15:20:26.2683696Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:20:26.2683696Z",
+            "endAt": "2026-06-24T15:30:08Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 66.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-25T21:10:21Z",
+            "endAt": "2026-06-28T15:53:38.083Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Go",
+            "package": "sdk/resourcemanager/mongocluster/armmongocluster",
+            "prId": "github:Azure/azure-sdk-for-go#27097"
+          },
+          "outcome": "complete",
+          "value": 29.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:25:38Z",
+            "endAt": "2026-06-25T21:10:32Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 283.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-12T19:34:52.000Z",
+            "endAt": "2026-06-24T15:20:29.4555091Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T15:20:29.4555091Z",
+            "endAt": "2026-06-24T15:25:38Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 66.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-25T21:10:32Z",
+            "endAt": "2026-06-28T15:34:30.027Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34205"
+          },
+          "outcome": "complete",
+          "value": 1327.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-05T20:39:02.000Z",
+            "endAt": "2026-06-30T03:42:05.713Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

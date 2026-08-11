@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "slug": "azure-vm-image-builder",
+  "name": "Azure VM Image Builder",
+  "plans": [
+    {
+      "id": "34186",
+      "title": "Release Plan - 2212 - GA - Azure VM Image Builder",
+      "completedAt": null,
+      "releaseType": "APEX GA",
+      "durationHours": 2379.8,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "prId": "github:Azure/azure-rest-api-specs#42538",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 189.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-21T06:26:36Z",
+            "endAt": "2026-04-29T03:34:43Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 503.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T03:34:43.000Z",
+            "endAt": "2026-05-20T02:38:42.2457081Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T02:38:42.2457081Z",
+            "endAt": "2026-05-20T02:44:51Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "JavaScript",
+            "package": "@azure/arm-imagebuilder",
+            "prId": "github:Azure/azure-sdk-for-js#38603"
+          },
+          "outcome": "complete",
+          "value": 291.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T02:45:07Z",
+            "endAt": "2026-06-01T06:22:36Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 503.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T03:34:43.000Z",
+            "endAt": "2026-05-20T02:38:41.3655662Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T02:38:41.3655662Z",
+            "endAt": "2026-05-20T02:45:07Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 266.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-01T06:22:36Z",
+            "endAt": "2026-06-12T08:47:34.8Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Python",
+            "package": "azure-mgmt-imagebuilder",
+            "prId": "github:Azure/azure-sdk-for-python#47012"
+          },
+          "outcome": "complete",
+          "value": 198.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T02:43:21Z",
+            "endAt": "2026-05-28T09:26:33Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 503,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T03:34:43.000Z",
+            "endAt": "2026-05-20T02:36:30.851848Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T02:36:30.851848Z",
+            "endAt": "2026-05-20T02:43:21Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 118.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-28T09:26:33Z",
+            "endAt": "2026-06-02T08:14:16.45Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Java",
+            "package": "azure-resourcemanager-imagebuilder",
+            "prId": "github:Azure/azure-sdk-for-java#49224"
+          },
+          "outcome": "complete",
+          "value": 311.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T02:47:06Z",
+            "endAt": "2026-06-02T02:36:58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 503.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T03:34:43.000Z",
+            "endAt": "2026-05-20T02:38:40.6216941Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T02:38:40.6216941Z",
+            "endAt": "2026-05-20T02:47:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 365.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-02T02:36:58Z",
+            "endAt": "2026-06-17T08:00:22.263Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Go",
+            "package": "sdk/resourcemanager/virtualmachineimagebuilder/armvirtualmachineimagebuilder",
+            "prId": "github:Azure/azure-sdk-for-go#26819"
+          },
+          "outcome": "complete",
+          "value": 168.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T02:43:42Z",
+            "endAt": "2026-05-27T03:02:50Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 503.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T03:34:43.000Z",
+            "endAt": "2026-05-20T02:38:41.4231922Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-20T02:38:41.4231922Z",
+            "endAt": "2026-05-20T02:43:42Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34186",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-27T03:02:50Z",
+            "endAt": "2026-05-27T03:33:15.003Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "33130",
+      "title": "Release Plan - 2118 - GA - Azure VM Image Builder",
+      "completedAt": "2026-04-28T06:40:07.453Z",
+      "releaseType": "APEX GA",
+      "durationHours": 1259.7,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33130",
+            "prId": "github:Azure/azure-rest-api-specs#41665",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 411.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-23T20:20:07Z",
+            "endAt": "2026-04-09T23:56:01Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

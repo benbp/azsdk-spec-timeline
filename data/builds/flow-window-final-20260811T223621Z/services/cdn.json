@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "slug": "cdn",
+  "name": "Cdn",
+  "plans": [
+    {
+      "id": "35046",
+      "title": "GA release plan for Cdn",
+      "completedAt": "2026-08-05T08:13:56.813Z",
+      "releaseType": "GA",
+      "durationHours": 1060.1,
+      "metrics": []
+    },
+    {
+      "id": "35285",
+      "title": "Public Preview release plan for Cdn",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 770.8,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35285",
+            "prId": "github:Azure/azure-rest-api-specs#42890",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1586.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-05T17:17:19Z",
+            "endAt": "2026-07-10T19:37:59Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

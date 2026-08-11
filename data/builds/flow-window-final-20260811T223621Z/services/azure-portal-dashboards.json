@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "slug": "azure-portal-dashboards",
+  "name": "Azure Portal Dashboards",
+  "plans": [
+    {
+      "id": "34324",
+      "title": "Release Plan - 2230 - GA - Azure Portal Dashboards",
+      "completedAt": "2026-08-05T12:21:38.9Z",
+      "releaseType": "APEX GA",
+      "durationHours": 2053.6,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34324",
+            "prId": "github:Azure/azure-rest-api-specs#41480",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1685.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-17T17:23:15Z",
+            "endAt": "2026-05-26T22:31:51Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

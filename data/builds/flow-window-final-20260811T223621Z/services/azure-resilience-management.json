@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "slug": "azure-resilience-management",
+  "name": "Azure Resilience Management",
+  "plans": [
+    {
+      "id": "34484",
+      "title": "Release plan - 2247 - Public Preview - Resiliency in Azure",
+      "completedAt": "2026-06-24T08:56:13.887Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 718.1,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "prId": "github:Azure/azure-rest-api-specs#44071",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 100.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-18T07:51:29Z",
+            "endAt": "2026-06-22T12:31:54Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "prId": "github:Azure/azure-rest-api-specs#43285",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 142.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-16T07:53:00Z",
+            "endAt": "2026-05-22T06:27:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "prId": "github:Azure/azure-rest-api-specs#43960",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 0.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T07:46:31Z",
+            "endAt": "2026-06-15T08:21:51Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "prId": "github:Azure/azure-rest-api-specs#44031",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T04:47:06Z",
+            "endAt": "2026-06-17T06:42:47Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.ResilienceManagement",
+            "prId": "github:Azure/azure-sdk-for-net#59743"
+          },
+          "outcome": "complete",
+          "value": 65.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-08T13:32:44Z",
+            "endAt": "2026-06-11T07:17:58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 26.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-11T07:17:58Z",
+            "endAt": "2026-06-12T09:22:07.057Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "JavaScript",
+            "package": "@azure/arm-resiliencemanagement",
+            "prId": "github:Azure/azure-sdk-for-js#39024"
+          },
+          "outcome": "complete",
+          "value": 42,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-22T12:50:48Z",
+            "endAt": "2026-06-24T06:51:29Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-22T12:31:54.000Z",
+            "endAt": "2026-06-22T12:44:17.0634329Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-22T12:44:17.0634329Z",
+            "endAt": "2026-06-22T12:50:48Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 2.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-24T06:51:29Z",
+            "endAt": "2026-06-24T08:56:13.58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "Python",
+            "package": "azure-mgmt-resiliencemanagement",
+            "prId": "github:Azure/azure-sdk-for-python#47498"
+          },
+          "outcome": "complete",
+          "value": 22.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T09:25:39Z",
+            "endAt": "2026-06-16T07:35:52Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T09:19:42.9384543Z",
+            "endAt": "2026-06-15T09:25:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 18.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-16T07:35:52Z",
+            "endAt": "2026-06-17T02:17:43.72Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "Java",
+            "package": "azure-resourcemanager-resiliencemanagement",
+            "prId": "github:Azure/azure-sdk-for-java#49505"
+          },
+          "outcome": "complete",
+          "value": 2.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T09:43:13Z",
+            "endAt": "2026-06-15T12:02:38Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-15T09:34:28.3180213Z",
+            "endAt": "2026-06-15T09:43:13Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-15T12:02:38Z",
+            "endAt": "2026-06-15T14:05:31.067Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "Go",
+            "package": "sdk/resourcemanager/resiliencemanagement/armresiliencemanagement",
+            "prId": "github:Azure/azure-sdk-for-go#27018"
+          },
+          "outcome": "complete",
+          "value": 1.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T07:10:14Z",
+            "endAt": "2026-06-17T08:58:57Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T07:04:56.9931998Z",
+            "endAt": "2026-06-17T07:10:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-17T08:58:57Z",
+            "endAt": "2026-06-17T10:57:10.663Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34484"
+          },
+          "outcome": "complete",
+          "value": 937.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-16T07:53:00.000Z",
+            "endAt": "2026-06-24T08:56:13.580Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

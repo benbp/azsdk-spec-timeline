@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 1,
+  "slug": "bulkactions",
+  "name": "Bulkactions",
+  "plans": [
+    {
+      "id": "35410",
+      "title": "Public Preview release plan for Bulkactions",
+      "completedAt": "2026-08-06T20:25:48.783Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 385.2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "prId": "github:Azure/azure-rest-api-specs#44524",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 321.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-08T04:48:12Z",
+            "endAt": "2026-07-21T14:37:57Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.Compute.BulkActions",
+            "prId": "github:Azure/azure-sdk-for-net#61492"
+          },
+          "outcome": "complete",
+          "value": 130.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-28T22:46:20Z",
+            "endAt": "2026-08-03T09:09:33Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 199.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T14:37:57.000Z",
+            "endAt": "2026-07-29T22:15:14.7576156Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 83.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-03T09:09:33Z",
+            "endAt": "2026-08-06T20:25:48.543Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "JavaScript",
+            "package": "@azure/arm-compute-bulkactions",
+            "prId": "github:Azure/azure-sdk-for-js#39351"
+          },
+          "outcome": "complete",
+          "value": 151.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T19:27:22Z",
+            "endAt": "2026-07-28T02:58:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 23.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T14:37:57.000Z",
+            "endAt": "2026-07-22T14:26:04.5661519Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 34.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-28T02:58:22Z",
+            "endAt": "2026-07-29T13:12:19.62Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "Python",
+            "package": "azure-mgmt-compute-bulkaction",
+            "prId": "github:Azure/azure-sdk-for-python#48179"
+          },
+          "outcome": "complete",
+          "value": 151.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T19:25:34Z",
+            "endAt": "2026-07-28T02:58:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 23.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T14:37:57.000Z",
+            "endAt": "2026-07-22T14:26:14.5920231Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 34.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-28T02:58:27Z",
+            "endAt": "2026-07-29T13:12:19.62Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "Java",
+            "package": "azure-resourcemanager-compute-bulkactions",
+            "prId": "github:Azure/azure-sdk-for-java#49880"
+          },
+          "outcome": "complete",
+          "value": 151.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T19:30:05Z",
+            "endAt": "2026-07-28T02:58:40Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 23.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T14:37:57.000Z",
+            "endAt": "2026-07-22T14:25:52.9240979Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 34.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-28T02:58:40Z",
+            "endAt": "2026-07-29T13:06:53.337Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "Go",
+            "package": "sdk/resourcemanager/compute/armbulkactions",
+            "prId": "github:Azure/azure-sdk-for-go#27227"
+          },
+          "outcome": "complete",
+          "value": 151.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T19:24:32Z",
+            "endAt": "2026-07-28T02:58:31Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 23.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T14:37:57.000Z",
+            "endAt": "2026-07-22T14:26:18.2010555Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 34.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-28T02:58:31Z",
+            "endAt": "2026-07-29T13:12:19.62Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35410"
+          },
+          "outcome": "complete",
+          "value": 711.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-08T04:48:12.000Z",
+            "endAt": "2026-08-06T20:25:48.543Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "35907",
+      "title": "Public Preview release plan for Bulkactions",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 174.8,
+      "metrics": []
+    },
+    {
+      "id": "35404",
+      "title": "Public Preview release plan for Bulkactions",
+      "completedAt": "2026-07-21T19:13:16.293Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35404",
+            "prId": "github:Azure/azure-rest-api-specs#44524",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 321.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-08T04:48:12Z",
+            "endAt": "2026-07-21T14:37:57Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "35408",
+      "title": "Public Preview release plan for Bulkactions",
+      "completedAt": "2026-07-21T19:12:21.527Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 0,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35408",
+            "prId": "github:Azure/azure-rest-api-specs#44524",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 321.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-08T04:48:12Z",
+            "endAt": "2026-07-21T14:37:57Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "34463",
+      "title": "Release plan - 2245 - Public Preview - Compute Schedule",
+      "completedAt": "2026-05-29T15:57:24.257Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 165.4,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34463",
+            "prId": "github:Azure/azure-rest-api-specs#43268",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 171.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-15T17:01:37Z",
+            "endAt": "2026-05-22T20:57:07Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "34604",
+      "title": "Release plan - 2256 - Public Preview - Compute Bulk Actions",
+      "completedAt": "2026-05-29T15:57:06.68Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 16.2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34604",
+            "prId": "github:Azure/azure-rest-api-specs#43589",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 18.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-28T18:03:05Z",
+            "endAt": "2026-05-29T12:46:29Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "slug": "mongodb-atlas-management",
+  "name": "MongoDB.Atlas.Management",
+  "plans": [
+    {
+      "id": "35044",
+      "title": "Public Preview release plan for MongoDB.Atlas.Management",
+      "completedAt": "2026-07-12T07:09:53.15Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 521,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "prId": "github:Azure/azure-rest-api-specs#44132",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 52.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-22T09:38:32Z",
+            "endAt": "2026-06-24T14:17:47Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "prId": "github:Azure/azure-rest-api-specs#43780",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 69.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-05T11:56:50Z",
+            "endAt": "2026-06-08T09:20:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.MongoDBAtlas",
+            "prId": "github:Azure/azure-sdk-for-net#60084"
+          },
+          "outcome": "complete",
+          "value": 424.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-20T14:24:17Z",
+            "endAt": "2026-07-08T06:36:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-24T14:17:47.000Z",
+            "endAt": "2026-06-24T15:05:10.7507265Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 96.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-08T06:36:27Z",
+            "endAt": "2026-07-12T07:09:52.79Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "JavaScript",
+            "package": "@azure/arm-mongodbatlas",
+            "prId": "github:Azure/azure-sdk-for-js#39021"
+          },
+          "outcome": "complete",
+          "value": 95.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-20T14:23:54Z",
+            "endAt": "2026-06-24T14:19:42Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-20T14:18:03.225108Z",
+            "endAt": "2026-06-20T14:23:54Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 378.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-24T14:19:42Z",
+            "endAt": "2026-07-10T09:07:16.923Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "Python",
+            "package": "azure-mgmt-mongodbatlas",
+            "prId": "github:Azure/azure-sdk-for-python#47585"
+          },
+          "outcome": "complete",
+          "value": 95.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-20T14:24:49Z",
+            "endAt": "2026-06-24T14:20:49Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-20T14:18:35.8151698Z",
+            "endAt": "2026-06-20T14:24:49Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 160.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-24T14:20:49Z",
+            "endAt": "2026-07-01T07:03:34.793Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "Java",
+            "package": "azure-resourcemanager-mongodbatlas",
+            "prId": "github:Azure/azure-sdk-for-java#49580"
+          },
+          "outcome": "complete",
+          "value": 95.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-20T14:26:29Z",
+            "endAt": "2026-06-24T14:21:01Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-20T14:18:34.4181858Z",
+            "endAt": "2026-06-20T14:26:29Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 358.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-24T14:21:01Z",
+            "endAt": "2026-07-09T12:44:01.827Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "Go",
+            "package": "sdk/resourcemanager/mongodbatlas/armmongodbatlas",
+            "prId": "github:Azure/azure-sdk-for-go#27037"
+          },
+          "outcome": "complete",
+          "value": 96,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-20T14:23:21Z",
+            "endAt": "2026-06-24T14:21:05Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-20T14:18:26.660998Z",
+            "endAt": "2026-06-20T14:23:21Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 347.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-24T14:21:05Z",
+            "endAt": "2026-07-09T02:17:13.653Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35044"
+          },
+          "outcome": "complete",
+          "value": 883.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-05T11:56:50.000Z",
+            "endAt": "2026-07-12T07:09:52.790Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

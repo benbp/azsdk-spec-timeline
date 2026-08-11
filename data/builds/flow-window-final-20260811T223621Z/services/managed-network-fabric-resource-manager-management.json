@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "slug": "managed-network-fabric-resource-manager-management",
+  "name": "Managed Network Fabric.Resource Manager.Management",
+  "plans": [
+    {
+      "id": "33729",
+      "title": "Release Plan - 2160 - Public Preview - Nexus Network Fabric",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 3171.3,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33729",
+            "prId": "github:Azure/azure-rest-api-specs#41138",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 587.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-07T05:31:56Z",
+            "endAt": "2026-03-31T17:01:45Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33729",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 213.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-31T17:01:45.000Z",
+            "endAt": "2026-04-09T14:40:03.0478588Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33729",
+            "language": "JavaScript",
+            "package": "@azure/arm-managednetworkfabric",
+            "prId": "github:Azure/azure-sdk-for-js#37930"
+          },
+          "outcome": "complete",
+          "value": 1380.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-01T19:42:56Z",
+            "endAt": "2026-05-29T08:10:33Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33729",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 213.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-31T17:01:45.000Z",
+            "endAt": "2026-04-09T14:40:08.1816292Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33729",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 336.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-29T08:10:33Z",
+            "endAt": "2026-06-12T08:46:22.153Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33729",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 213.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-31T17:01:45.000Z",
+            "endAt": "2026-04-09T14:40:11.286681Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33729",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 213.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-31T17:01:45.000Z",
+            "endAt": "2026-04-09T14:41:12.7643661Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33729",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 213.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-31T17:01:45.000Z",
+            "endAt": "2026-04-09T14:41:45.2027555Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "slug": "pure-storage-block-management",
+  "name": "Pure Storage.Block.Management",
+  "plans": [
+    {
+      "id": "34337",
+      "title": "Release plan - 2232 - Public Preview - Liftr Pure Storage Krypton Service",
+      "completedAt": "2026-06-09T06:58:47.85Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 669.2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "prId": "github:Azure/azure-rest-api-specs#42396",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 143,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-15T05:36:49Z",
+            "endAt": "2026-04-21T04:34:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 562,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-21T04:34:37.000Z",
+            "endAt": "2026-05-14T14:34:03.3686639Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-14T14:34:03.3686639Z",
+            "endAt": "2026-05-14T14:40:25Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 565.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-21T04:34:37.000Z",
+            "endAt": "2026-05-14T18:01:09.7660459Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 562,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-21T04:34:37.000Z",
+            "endAt": "2026-05-14T14:34:04.9745238Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-14T14:34:04.9745238Z",
+            "endAt": "2026-05-14T14:40:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 562,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-21T04:34:37.000Z",
+            "endAt": "2026-05-14T14:34:07.7049845Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-14T14:34:07.7049845Z",
+            "endAt": "2026-05-14T14:43:52Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": "Go",
+            "package": "sdk/resourcemanager/purestorageblock/armpurestorageblock",
+            "prId": "github:Azure/azure-sdk-for-go#26773"
+          },
+          "outcome": "complete",
+          "value": 424.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-14T14:40:57Z",
+            "endAt": "2026-06-01T06:52:16Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 562,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-21T04:34:37.000Z",
+            "endAt": "2026-05-14T14:36:06.6693439Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34337",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-14T14:36:06.6693439Z",
+            "endAt": "2026-05-14T14:40:57Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

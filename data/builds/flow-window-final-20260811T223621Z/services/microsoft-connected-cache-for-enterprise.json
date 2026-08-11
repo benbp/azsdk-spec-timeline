@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "slug": "microsoft-connected-cache-for-enterprise",
+  "name": "Microsoft Connected Cache for Enterprise",
+  "plans": [
+    {
+      "id": "35418",
+      "title": "Public Preview release plan for Microsoft Connected Cache for Enterprise",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 502.6,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "prId": "github:Azure/azure-rest-api-specs#44819",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 22.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T01:29:16Z",
+            "endAt": "2026-07-21T23:48:30Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:48:30.000Z",
+            "endAt": "2026-07-21T23:56:59.5376483Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:56:59.5376483Z",
+            "endAt": "2026-07-22T00:03:58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "JavaScript",
+            "package": "@azure/arm-connectedcache",
+            "prId": "github:Azure/azure-sdk-for-js#39357"
+          },
+          "outcome": "complete",
+          "value": 191.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T00:03:19Z",
+            "endAt": "2026-07-29T23:39:38Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:48:30.000Z",
+            "endAt": "2026-07-21T23:57:11.9960214Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:57:11.9960214Z",
+            "endAt": "2026-07-22T00:03:19Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 2.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-29T23:39:38Z",
+            "endAt": "2026-07-30T02:06:21Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Python",
+            "package": "azure-mgmt-connectedcache",
+            "prId": "github:Azure/azure-sdk-for-python#48229"
+          },
+          "outcome": "complete",
+          "value": 161.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-23T06:18:08Z",
+            "endAt": "2026-07-29T23:41:12Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:48:30.000Z",
+            "endAt": "2026-07-21T23:57:19.3570439Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 30.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:57:19.3570439Z",
+            "endAt": "2026-07-23T06:18:08Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 192.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-29T23:41:12Z",
+            "endAt": "2026-08-06T23:56:05.51Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Java",
+            "package": "azure-resourcemanager-connectedcache",
+            "prId": "github:Azure/azure-sdk-for-java#49884"
+          },
+          "outcome": "complete",
+          "value": 191.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T00:06:22Z",
+            "endAt": "2026-07-29T23:55:51Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:48:30.000Z",
+            "endAt": "2026-07-21T23:57:05.6665906Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:57:05.6665906Z",
+            "endAt": "2026-07-22T00:06:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 20.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-29T23:55:51Z",
+            "endAt": "2026-07-30T20:19:32.287Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Go",
+            "package": "sdk/resourcemanager/connectedcache/armconnectedcache",
+            "prId": "github:Azure/azure-sdk-for-go#27229"
+          },
+          "outcome": "complete",
+          "value": 191.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T00:02:14Z",
+            "endAt": "2026-07-29T23:40:45Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:48:30.000Z",
+            "endAt": "2026-07-21T23:57:23.1510058Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-21T23:57:23.1510058Z",
+            "endAt": "2026-07-22T00:02:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35418",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 2.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-29T23:40:45Z",
+            "endAt": "2026-07-30T02:13:13.68Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

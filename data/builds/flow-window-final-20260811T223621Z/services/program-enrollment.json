@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "slug": "program-enrollment",
+  "name": "Program Enrollment",
+  "plans": [
+    {
+      "id": "34802",
+      "title": "Release plan - 1570 - Public Preview - Release Planner Test Product",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1683.2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34802",
+            "prId": "github:Azure/azure-rest-api-specs-pr#28537",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 339.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-14T21:10:29Z",
+            "endAt": "2026-05-29T00:42:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34802",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 26.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T00:42:37.000Z",
+            "endAt": "2026-05-30T03:13:26.0044453Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34802",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 1.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-30T03:13:26.0044453Z",
+            "endAt": "2026-05-30T04:34:30Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34802",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 26.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T00:42:37.000Z",
+            "endAt": "2026-05-30T03:13:34.8554015Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34802",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 1.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-30T03:13:34.8554015Z",
+            "endAt": "2026-05-30T04:34:30Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34802",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 26.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T00:42:37.000Z",
+            "endAt": "2026-05-30T03:13:34.9033935Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34802",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 1.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-30T03:13:34.9033935Z",
+            "endAt": "2026-05-30T04:34:30Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34802",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 26.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T00:42:37.000Z",
+            "endAt": "2026-05-30T03:13:34.0060705Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34802",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 1.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-30T03:13:34.0060705Z",
+            "endAt": "2026-05-30T04:34:30Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

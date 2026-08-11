@@ -1,0 +1,515 @@
+{
+  "schemaVersion": 1,
+  "slug": "compute-schedule-management",
+  "name": "Compute Schedule.Management",
+  "plans": [
+    {
+      "id": "34222",
+      "title": "Release Plan - 2217 - Public Preview - Compute Schedule",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 2333.2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "prId": "github:Azure/azure-rest-api-specs#42886",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 25.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-05T16:03:30Z",
+            "endAt": "2026-05-06T17:13:24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.ComputeSchedule",
+            "prId": "github:Azure/azure-sdk-for-net#59030"
+          },
+          "outcome": "complete",
+          "value": 142.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:52:44Z",
+            "endAt": "2026-05-12T16:27:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 1.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:13:24.000Z",
+            "endAt": "2026-05-06T18:37:48.64115Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 2055.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-12T16:27:22Z",
+            "endAt": "2026-08-06T08:06:56.623Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "JavaScript",
+            "package": "@azure/arm-computeschedule",
+            "prId": "github:Azure/azure-sdk-for-js#38441"
+          },
+          "outcome": "complete",
+          "value": 517.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:53:13Z",
+            "endAt": "2026-05-28T07:09:09Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 1.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:13:24.000Z",
+            "endAt": "2026-05-06T18:37:31.4920176Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 361.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-28T07:09:09Z",
+            "endAt": "2026-06-12T08:29:37.3Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "Python",
+            "package": "azure-mgmt-computeschedule",
+            "prId": "github:Azure/azure-sdk-for-python#46757"
+          },
+          "outcome": "complete",
+          "value": 1787.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:53:51Z",
+            "endAt": "2026-07-20T05:20:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 1.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:13:24.000Z",
+            "endAt": "2026-05-06T18:37:31.0874522Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-20T05:20:20Z",
+            "endAt": "2026-07-20T06:15:37.24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 1.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:13:24.000Z",
+            "endAt": "2026-05-06T18:38:24.512271Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "Go",
+            "package": "sdk/resourcemanager/computeschedule/armcomputeschedule",
+            "prId": "github:Azure/azure-sdk-for-go#26730"
+          },
+          "outcome": "complete",
+          "value": 616,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:52:05Z",
+            "endAt": "2026-06-01T09:52:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 1.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:13:24.000Z",
+            "endAt": "2026-05-06T18:38:32.1212845Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34222",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 237.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-01T09:52:14Z",
+            "endAt": "2026-06-11T07:16:39.193Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "33733",
+      "title": "Release Plan - 2162 - Public Preview - Compute Schedule",
+      "completedAt": "2026-06-03T01:35:45.067Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1492.4,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33733",
+            "prId": "github:Azure/azure-rest-api-specs#42335",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 65.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-13T21:30:44Z",
+            "endAt": "2026-04-16T14:35:03Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33733",
+            "prId": "github:Azure/azure-rest-api-specs#42023",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 212.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-01T21:12:06Z",
+            "endAt": "2026-04-10T17:46:25Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33733",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.ComputeSchedule",
+            "prId": "github:Azure/azure-sdk-for-net#58666"
+          },
+          "outcome": "complete",
+          "value": 238.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-24T21:28:24Z",
+            "endAt": "2026-05-04T20:15:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33733",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 1.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-16T14:35:03.000Z",
+            "endAt": "2026-04-16T16:09:10.5144194Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33733",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 197.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-16T16:09:10.5144194Z",
+            "endAt": "2026-04-24T21:28:24Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "33290",
+      "title": "Release Plan - 2130 - Public Preview - Compute Schedule",
+      "completedAt": "2026-06-02T08:34:49.08Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1837.1,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33290",
+            "prId": "github:Azure/azure-rest-api-specs#42023",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 212.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-01T21:12:06Z",
+            "endAt": "2026-04-10T17:46:25Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33290",
+            "prId": "github:Azure/azure-rest-api-specs#42093",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 2.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-03T04:40:07Z",
+            "endAt": "2026-04-03T07:34:52Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33290",
+            "prId": "github:Azure/azure-rest-api-specs#41590",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-19T17:16:59Z",
+            "endAt": "2026-03-19T18:14:08Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33290",
+            "prId": "github:Azure/azure-rest-api-specs#41581",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-19T10:10:34Z",
+            "endAt": "2026-03-19T14:10:15Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33290",
+            "prId": "github:Azure/azure-rest-api-specs#41292",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 42.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-12T04:51:34Z",
+            "endAt": "2026-03-13T23:35:00Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33290",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.ComputeSchedule",
+            "prId": "github:Azure/azure-sdk-for-net#57188"
+          },
+          "outcome": "complete",
+          "value": 517.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-17T19:54:57Z",
+            "endAt": "2026-04-08T09:35:13Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33290",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 5.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-04-08T09:35:13Z",
+            "endAt": "2026-04-08T14:52:22.933Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33290",
+            "language": "JavaScript",
+            "package": "@azure/arm-computeschedule",
+            "prId": "github:Azure/azure-sdk-for-js#38441"
+          },
+          "outcome": "complete",
+          "value": 517.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T17:53:13Z",
+            "endAt": "2026-05-28T07:09:09Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "slug": "supercomputer-management",
+  "name": "Supercomputer Management",
+  "plans": [
+    {
+      "id": "35281",
+      "title": "Private Preview release plan for SupercomputerManagement",
+      "completedAt": null,
+      "releaseType": "APEX Private Preview",
+      "durationHours": 774.7,
+      "metrics": []
+    }
+  ]
+}

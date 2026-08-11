@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "slug": "recommender",
+  "name": "Recommender",
+  "plans": [
+    {
+      "id": "35782",
+      "title": "Public Preview release plan for Recommender",
+      "completedAt": "2026-08-06T19:47:26.65Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 72.2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "prId": "github:Azure/azure-rest-api-specs#45157",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 86.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-31T01:01:00Z",
+            "endAt": "2026-08-03T15:16:29Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.Compute.Recommender",
+            "prId": "github:Azure/azure-sdk-for-net#61669"
+          },
+          "outcome": "complete",
+          "value": 70.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T19:45:41Z",
+            "endAt": "2026-08-06T18:34:09Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 48.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T15:16:29.000Z",
+            "endAt": "2026-08-05T15:29:45.3171152Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 1.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-06T18:34:09Z",
+            "endAt": "2026-08-06T19:47:26.323Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "JavaScript",
+            "package": "@azure/arm-computerecommender",
+            "prId": "github:Azure/azure-sdk-for-js#39494"
+          },
+          "outcome": "complete",
+          "value": 26.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T19:45:20Z",
+            "endAt": "2026-08-04T22:32:16Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 4.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T15:16:29.000Z",
+            "endAt": "2026-08-03T19:38:45.4303663Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T19:38:45.4303663Z",
+            "endAt": "2026-08-03T19:45:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 2.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-04T22:32:16Z",
+            "endAt": "2026-08-05T00:51:17.687Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Python",
+            "package": "azure-mgmt-computerecommender",
+            "prId": "github:Azure/azure-sdk-for-python#48405"
+          },
+          "outcome": "complete",
+          "value": 26.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T19:45:12Z",
+            "endAt": "2026-08-04T22:03:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 4.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T15:16:29.000Z",
+            "endAt": "2026-08-03T19:38:48.4116706Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T19:38:48.4116706Z",
+            "endAt": "2026-08-03T19:45:12Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 27.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-04T22:03:37Z",
+            "endAt": "2026-08-06T01:47:13.273Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Java",
+            "package": "azure-resourcemanager-compute-recommender",
+            "prId": "github:Azure/azure-sdk-for-java#50020"
+          },
+          "outcome": "complete",
+          "value": 26.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T19:47:43Z",
+            "endAt": "2026-08-04T22:03:25Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 4.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T15:16:29.000Z",
+            "endAt": "2026-08-03T19:38:50.6294501Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T19:38:50.6294501Z",
+            "endAt": "2026-08-03T19:47:43Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 1.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-04T22:03:25Z",
+            "endAt": "2026-08-04T23:57:23.103Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Go",
+            "package": "sdk/resourcemanager/compute/armrecommender",
+            "prId": "github:Azure/azure-sdk-for-go#27301"
+          },
+          "outcome": "complete",
+          "value": 26.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T19:44:25Z",
+            "endAt": "2026-08-04T22:03:13Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 4.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T15:16:29.000Z",
+            "endAt": "2026-08-03T19:38:51.3767349Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-03T19:38:51.3767349Z",
+            "endAt": "2026-08-03T19:44:25Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-04T22:03:13Z",
+            "endAt": "2026-08-04T22:48:30.44Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35782"
+          },
+          "outcome": "complete",
+          "value": 162.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-31T01:01:00.000Z",
+            "endAt": "2026-08-06T19:47:26.323Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 1,
+  "slug": "azure-kubernetes-configuration-management",
+  "name": "Azure Kubernetes Configuration Management",
+  "plans": [
+    {
+      "id": "33770",
+      "title": "Release Plan - 2166 - GA - Azure Kubernetes Configuration Management",
+      "completedAt": "2026-04-22T15:19:27.12Z",
+      "releaseType": "APEX GA",
+      "durationHours": 463.9,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "prId": "github:Azure/azure-rest-api-specs#41144",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 401.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-08T05:23:54Z",
+            "endAt": "2026-03-24T23:05:31Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.KubernetesConfiguration.Extensions",
+            "prId": "github:Azure/azure-sdk-for-net#57849"
+          },
+          "outcome": "complete",
+          "value": 169.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-07T05:28:48Z",
+            "endAt": "2026-04-14T07:03:28Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 318.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-24T23:05:31.000Z",
+            "endAt": "2026-04-07T05:22:56.6304108Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-07T05:22:56.6304108Z",
+            "endAt": "2026-04-07T05:28:48Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "JavaScript",
+            "package": "@azure/arm-kubernetesconfiguration-extensions",
+            "prId": "github:Azure/azure-sdk-for-js#38018"
+          },
+          "outcome": "complete",
+          "value": 75.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-07T05:30:50Z",
+            "endAt": "2026-04-10T08:46:33Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 318.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-24T23:05:31.000Z",
+            "endAt": "2026-04-07T05:22:56.6786208Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-07T05:22:56.6786208Z",
+            "endAt": "2026-04-07T05:30:50Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "Python",
+            "package": "azure-mgmt-kubernetesconfiguration-extensions",
+            "prId": "github:Azure/azure-sdk-for-python#45934"
+          },
+          "outcome": "complete",
+          "value": 167.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-26T08:46:10Z",
+            "endAt": "2026-04-02T07:54:09Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 318.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-24T23:05:31.000Z",
+            "endAt": "2026-04-07T05:22:56.5944772Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "Java",
+            "package": "azure-resourcemanager-kubernetesconfiguration-extensions",
+            "prId": "github:Azure/azure-sdk-for-java#48704"
+          },
+          "outcome": "complete",
+          "value": 337.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-07T05:31:29Z",
+            "endAt": "2026-04-21T06:35:28Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 318.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-24T23:05:31.000Z",
+            "endAt": "2026-04-07T05:22:57.5117865Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-07T05:22:57.5117865Z",
+            "endAt": "2026-04-07T05:31:29Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "Go",
+            "package": "sdk/resourcemanager/kubernetesconfiguration/armextensions",
+            "prId": "github:Azure/azure-sdk-for-go#26511"
+          },
+          "outcome": "complete",
+          "value": 73.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-07T05:28:08Z",
+            "endAt": "2026-04-10T06:38:32Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 318.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-24T23:05:31.000Z",
+            "endAt": "2026-04-07T05:22:58.5784184Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33770",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-07T05:22:58.5784184Z",
+            "endAt": "2026-04-07T05:28:08Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "33785",
+      "title": "Release Plan - 2168 - GA - Azure Kubernetes Configuration Management",
+      "completedAt": "2026-04-08T20:19:15.19Z",
+      "releaseType": "APEX GA",
+      "durationHours": 122.2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33785",
+            "prId": "github:Azure/azure-rest-api-specs#41144",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 401.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-08T05:23:54Z",
+            "endAt": "2026-03-24T23:05:31Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "33772",
+      "title": "Release Plan - 2167 - GA - Azure Kubernetes Configuration Management",
+      "completedAt": "2026-04-08T20:18:49.417Z",
+      "releaseType": "APEX GA",
+      "durationHours": 131.9,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33772",
+            "prId": "github:Azure/azure-rest-api-specs#41144",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 401.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-08T05:23:54Z",
+            "endAt": "2026-03-24T23:05:31Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "33516",
+      "title": "Release plan - 2178 - GA - Azure Kubernetes Configuration Management",
+      "completedAt": "2026-04-08T16:58:23.07Z",
+      "releaseType": "APEX GA",
+      "durationHours": 358.5,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33516",
+            "prId": "github:Azure/azure-rest-api-specs#41144",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 401.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-08T05:23:54Z",
+            "endAt": "2026-03-24T23:05:31Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33516",
+            "language": "Python",
+            "package": "",
+            "prId": "github:Azure/azure-sdk-for-python#45934"
+          },
+          "outcome": "complete",
+          "value": 167.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-26T08:46:10Z",
+            "endAt": "2026-04-02T07:54:09Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

@@ -326,18 +326,50 @@ select:focus-visible {
   margin-top: 0.75rem;
 }
 
+.scorecard-period-note {
+  background: #f7f9fa;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0.65rem 1.5rem;
+  text-align: right;
+}
+
 .trend-toggle {
   align-items: center;
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  color: var(--navy);
+  background: var(--navy);
+  border: 1px solid var(--navy);
+  border-radius: 8px;
+  box-shadow: 0 5px 14px rgb(16 45 66 / 18%);
+  color: white;
   cursor: pointer;
   display: flex;
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  gap: 0.5rem;
-  padding: 0.55rem 0.7rem;
+  gap: 0.65rem;
+  padding: 0.7rem 0.9rem;
+  transition:
+    background 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+.scorecard-toggle:hover .trend-toggle {
+  background: #17445f;
+  border-color: #17445f;
+  transform: translateY(-1px);
+}
+
+.trend-toggle.expanded {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.scorecard-toggle:hover .trend-toggle.expanded {
+  background: #086f69;
+  border-color: #086f69;
 }
 
 .trend-toggle i {

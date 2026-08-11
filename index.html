@@ -86,9 +86,10 @@
               </div>
               <span
                 class="trend-toggle"
+                :class="{ expanded: trendsExpanded }"
                 aria-hidden="true"
               >
-                <span x-text="trendsExpanded ? 'Collapse trends' : 'Expand trends'"></span>
+                <span x-text="trendsExpanded ? 'Collapse trend charts' : 'Expand trend charts'"></span>
                 <i :class="{ open: trendsExpanded }">⌄</i>
               </span>
             </div>
@@ -175,6 +176,11 @@
                 </article>
               </template>
             </div>
+            <p
+              class="scorecard-period-note"
+              x-show="scorecardPeriodLabel"
+              x-text="scorecardPeriodLabel"
+            ></p>
             <div
               id="scorecard-trends"
               class="trend-expansion"

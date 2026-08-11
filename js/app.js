@@ -122,6 +122,23 @@ Alpine.data("timelineApp", () => ({
       }));
   },
 
+  get scorecardPeriodLabel() {
+    const generatedAt =
+      this.scorecard?.cohort?.generatedAt || this.manifest?.generatedAt;
+    const days = this.portfolio?.selection?.days;
+    if (!generatedAt || !days) return "";
+    const end = new Date(generatedAt);
+    const start = new Date(end);
+    start.setUTCDate(start.getUTCDate() - days);
+    const formatter = new Intl.DateTimeFormat("en", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    });
+    return `Reporting period · ${formatter.format(start)}–${formatter.format(end)} · P50/P90 for completed flows from plans created in this window`;
+  },
+
   completeTrendSeries(trend) {
     return trend.series.filter((bucket) => !bucket.partial);
   },

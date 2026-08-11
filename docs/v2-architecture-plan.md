@@ -616,7 +616,7 @@ Golden fixtures should cover:
 - Abandoned flow included and excluded under different versioned metric policies
 - Aggregate population accounting and minimum-sample suppression
 
-Browser verification should use the repository's Playwright CLI skill across these fixtures, desktop/mobile widths, dark/light themes, keyboard navigation, URL restoration, and malformed/missing shard handling.
+Browser verification should use the repository's Playwright CLI skill across these fixtures, desktop widths, dark/light themes, keyboard navigation, URL restoration, and malformed/missing shard handling.
 
 ## Delivery phases and approval gates
 

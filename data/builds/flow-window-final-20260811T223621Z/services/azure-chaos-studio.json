@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "slug": "azure-chaos-studio",
+  "name": "Azure Chaos Studio",
+  "plans": [
+    {
+      "id": "35589",
+      "title": "Public Preview release plan for Azure Chaos Studio",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 364.4,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "prId": "github:Azure/azure-rest-api-specs#42939",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1898.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T19:37:51Z",
+            "endAt": "2026-07-24T22:26:53Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 70,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T22:26:53.000Z",
+            "endAt": "2026-07-27T20:28:48.5496601Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-27T20:28:48.5496601Z",
+            "endAt": "2026-07-27T20:37:04Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 88.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T22:26:53.000Z",
+            "endAt": "2026-07-28T15:22:55.6245098Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-28T15:22:55.6245098Z",
+            "endAt": "2026-07-28T15:31:34Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 88.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T22:26:53.000Z",
+            "endAt": "2026-07-28T15:23:21.8348399Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-28T15:23:21.8348399Z",
+            "endAt": "2026-07-28T15:30:11Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 88.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T22:26:53.000Z",
+            "endAt": "2026-07-28T15:23:42.4464631Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-28T15:23:42.4464631Z",
+            "endAt": "2026-07-28T15:34:56Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 89.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T22:26:53.000Z",
+            "endAt": "2026-07-28T15:41:46.1838107Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35589",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-28T15:41:46.1838107Z",
+            "endAt": "2026-07-28T15:47:44Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

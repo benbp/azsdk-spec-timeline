@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "slug": "fabric",
+  "name": "Fabric",
+  "plans": [
+    {
+      "id": "35264",
+      "title": "GA release plan for Fabric",
+      "completedAt": null,
+      "releaseType": "GA",
+      "durationHours": 791.4,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "prId": "github:Azure/azure-rest-api-specs#44586",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 653.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-10T18:33:02Z",
+            "endAt": "2026-08-07T00:09:11Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:09:11.000Z",
+            "endAt": "2026-08-07T00:17:27.6378197Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:17:27.6378197Z",
+            "endAt": "2026-08-07T00:24:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "JavaScript",
+            "package": "@azure/arm-fabric",
+            "prId": "github:Azure/azure-sdk-for-js#39528"
+          },
+          "outcome": "complete",
+          "value": 112.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:25:14Z",
+            "endAt": "2026-08-11T16:59:07Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:09:11.000Z",
+            "endAt": "2026-08-07T00:17:48.1425458Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:17:48.1425458Z",
+            "endAt": "2026-08-07T00:25:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "Python",
+            "package": "azure-mgmt-fabric",
+            "prId": "github:Azure/azure-sdk-for-python#48489"
+          },
+          "outcome": "complete",
+          "value": 112.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:24:55Z",
+            "endAt": "2026-08-11T17:01:38Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:09:11.000Z",
+            "endAt": "2026-08-07T00:18:00.4178943Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:18:00.4178943Z",
+            "endAt": "2026-08-07T00:24:55Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:09:11.000Z",
+            "endAt": "2026-08-07T00:17:35.4685514Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:17:35.4685514Z",
+            "endAt": "2026-08-07T00:26:00Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "Go",
+            "package": "sdk/resourcemanager/fabric/armfabric",
+            "prId": "github:Azure/azure-sdk-for-go#27360"
+          },
+          "outcome": "complete",
+          "value": 33.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-10T08:01:02Z",
+            "endAt": "2026-08-11T17:11:15Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:09:11.000Z",
+            "endAt": "2026-08-07T00:18:39.0444187Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35264",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 79.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-07T00:18:39.0444187Z",
+            "endAt": "2026-08-10T08:01:02Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

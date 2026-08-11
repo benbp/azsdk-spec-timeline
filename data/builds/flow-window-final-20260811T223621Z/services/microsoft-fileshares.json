@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "slug": "microsoft-fileshares",
+  "name": "Microsoft.FileShares",
+  "plans": [
+    {
+      "id": "33848",
+      "title": "Release Plan - 2180 - GA - Microsoft.FileShares",
+      "completedAt": "2026-05-13T21:15:21.383Z",
+      "releaseType": "APEX GA",
+      "durationHours": 797,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "prId": "github:Azure/azure-rest-api-specs#40449",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1848.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-02-13T16:53:24Z",
+            "endAt": "2026-05-01T17:27:07Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.FileShares",
+            "prId": "github:Azure/azure-sdk-for-net#58902"
+          },
+          "outcome": "complete",
+          "value": 161.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-30T14:27:22Z",
+            "endAt": "2026-05-07T08:13:38Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 152.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-07T08:13:38Z",
+            "endAt": "2026-05-13T16:22:14.173Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": "JavaScript",
+            "package": "@azure/arm-fileshares",
+            "prId": "github:Azure/azure-sdk-for-js#38343"
+          },
+          "outcome": "complete",
+          "value": 192.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T07:00:21Z",
+            "endAt": "2026-05-07T07:19:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 153,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-07T07:19:37Z",
+            "endAt": "2026-05-13T16:21:08.09Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": "Python",
+            "package": "azure-mgmt-fileshares",
+            "prId": "github:Azure/azure-sdk-for-python#46749"
+          },
+          "outcome": "complete",
+          "value": 19,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T08:28:20Z",
+            "endAt": "2026-05-07T03:25:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 161.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-07T03:25:27Z",
+            "endAt": "2026-05-13T21:14:24.253Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": "Java",
+            "package": "azure-resourcemanager-fileshares",
+            "prId": "github:Azure/azure-sdk-for-java#48976"
+          },
+          "outcome": "complete",
+          "value": 179.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T13:44:04Z",
+            "endAt": "2026-05-07T01:38:17Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 163.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-07T01:38:17Z",
+            "endAt": "2026-05-13T21:11:13.907Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": "Go",
+            "package": "sdk/resourcemanager/fileshares/armfileshares",
+            "prId": "github:Azure/azure-sdk-for-go#26695"
+          },
+          "outcome": "complete",
+          "value": 189.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T05:31:16Z",
+            "endAt": "2026-05-07T03:22:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 160.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-07T03:22:20Z",
+            "endAt": "2026-05-13T20:00:59.51Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33848"
+          },
+          "outcome": "complete",
+          "value": 2140.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-02-13T16:53:24.000Z",
+            "endAt": "2026-05-13T21:14:24.253Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

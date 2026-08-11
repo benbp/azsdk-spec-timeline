@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "slug": "microsoft-relationships",
+  "name": "Microsoft.Relationships",
+  "plans": [
+    {
+      "id": "35597",
+      "title": "GA release plan for Microsoft.Relationships",
+      "completedAt": null,
+      "releaseType": "GA",
+      "durationHours": 358.6,
+      "metrics": []
+    }
+  ]
+}

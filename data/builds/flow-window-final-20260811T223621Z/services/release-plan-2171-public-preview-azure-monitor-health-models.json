@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "slug": "release-plan-2171-public-preview-azure-monitor-health-models",
+  "name": "Release Plan - 2171 - Public Preview - Azure Monitor Health Models",
+  "plans": [
+    {
+      "id": "33810",
+      "title": "Release Plan - 2171 - Public Preview - Azure Monitor Health Models",
+      "completedAt": "2026-06-15T14:52:38.023Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1640.6,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "prId": "github:Azure/azure-rest-api-specs#41004",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 53.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-04T10:15:28Z",
+            "endAt": "2026-03-06T16:06:54Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.CloudHealth",
+            "prId": "github:Azure/azure-sdk-for-net#57933"
+          },
+          "outcome": "complete",
+          "value": 1457,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-08T12:49:17Z",
+            "endAt": "2026-06-08T05:46:35Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 788.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-06T16:06:54.000Z",
+            "endAt": "2026-04-08T12:43:09.7754714Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-08T12:43:09.7754714Z",
+            "endAt": "2026-04-08T12:49:17Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "JavaScript",
+            "package": "@azure/arm-cloudhealth",
+            "prId": "github:Azure/azure-sdk-for-js#38818"
+          },
+          "outcome": "complete",
+          "value": 189.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-04T09:46:09Z",
+            "endAt": "2026-06-12T07:34:36Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 2153.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-06T16:06:54.000Z",
+            "endAt": "2026-06-04T09:39:23.9967504Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-04T09:39:23.9967504Z",
+            "endAt": "2026-06-04T09:46:09Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 76.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-12T07:34:36Z",
+            "endAt": "2026-06-15T12:23:59.917Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Python",
+            "package": "azure-mgmt-cloudhealth",
+            "prId": "github:Azure/azure-sdk-for-python#46196"
+          },
+          "outcome": "complete",
+          "value": 448.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-08T12:50:32Z",
+            "endAt": "2026-04-27T05:41:17Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 788.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-06T16:06:54.000Z",
+            "endAt": "2026-04-08T12:44:21.4978589Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-08T12:44:21.4978589Z",
+            "endAt": "2026-04-08T12:50:32Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 1081.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-04-27T05:41:17Z",
+            "endAt": "2026-06-11T07:08:23.353Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Java",
+            "package": "azure-resourcemanager-cloudhealth",
+            "prId": "github:Azure/azure-sdk-for-java#48727"
+          },
+          "outcome": "complete",
+          "value": 1309.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-08T12:52:28Z",
+            "endAt": "2026-06-02T02:37:56Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 788.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-06T16:06:54.000Z",
+            "endAt": "2026-04-08T12:44:21.4507602Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-08T12:44:21.4507602Z",
+            "endAt": "2026-04-08T12:52:28Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 220.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-02T02:37:56Z",
+            "endAt": "2026-06-11T07:14:02.2Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Go",
+            "package": "sdk/resourcemanager/cloudhealth/armcloudhealth",
+            "prId": "github:Azure/azure-sdk-for-go#26529"
+          },
+          "outcome": "complete",
+          "value": 1293.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-08T12:48:27Z",
+            "endAt": "2026-06-01T10:03:11Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 788.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-06T16:06:54.000Z",
+            "endAt": "2026-04-08T12:43:05.8488858Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-08T12:43:05.8488858Z",
+            "endAt": "2026-04-08T12:48:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 236.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-01T10:03:11Z",
+            "endAt": "2026-06-11T06:47:50.09Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33810"
+          },
+          "outcome": "complete",
+          "value": 2474.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-03-04T10:15:28.000Z",
+            "endAt": "2026-06-15T12:23:59.917Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

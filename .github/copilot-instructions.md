@@ -41,6 +41,7 @@ This repo is a waterfall timeline visualization for the Azure SDK generation pro
 |---|---|
 | `generate-timeline-data` | Orchestrates full data generation: spec PR discovery → SDK PR fetch → event classification → JSON output. Invoke when asked to generate timeline data for a spec PR. |
 | `playwright-cli` | Browser automation for testing. Always use this skill instead of raw Playwright APIs. |
+| `refresh-spec-flow-data` | Gathering, refreshing, validating, or publishing spec-flow timeline data. |
 
 ## Data Pipeline
 

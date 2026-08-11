@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "slug": "hardware-security-modules",
+  "name": "Hardware Security Modules",
+  "plans": [
+    {
+      "id": "34725",
+      "title": "Release Plan - 2258 - Public Preview - Azure Payment HSM v2",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1691.1,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "prId": "github:Azure/azure-rest-api-specs#43689",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1409.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-02T14:46:19Z",
+            "endAt": "2026-07-31T08:30:01Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 169.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-31T08:30:01.000Z",
+            "endAt": "2026-08-07T10:02:36.5251711Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "JavaScript",
+            "package": "@azure/arm-hardwaresecuritymodules",
+            "prId": "github:Azure/azure-sdk-for-js#39507"
+          },
+          "outcome": "complete",
+          "value": 42.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-04T13:57:39Z",
+            "endAt": "2026-08-06T08:26:54Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 101.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-31T08:30:01.000Z",
+            "endAt": "2026-08-04T13:50:13.3639189Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-04T13:50:13.3639189Z",
+            "endAt": "2026-08-04T13:57:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 6.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-06T08:26:54Z",
+            "endAt": "2026-08-06T14:56:24.04Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Python",
+            "package": "azure-mgmt-hardwaresecuritymodules",
+            "prId": "github:Azure/azure-sdk-for-python#48421"
+          },
+          "outcome": "complete",
+          "value": 24,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-04T13:55:37Z",
+            "endAt": "2026-08-05T13:52:56Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 101.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-31T08:30:01.000Z",
+            "endAt": "2026-08-04T13:49:23.2242996Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-04T13:49:23.2242996Z",
+            "endAt": "2026-08-04T13:55:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 16.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-05T13:52:56Z",
+            "endAt": "2026-08-06T06:48:01.24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Java",
+            "package": "azure-resourcemanager-hardwaresecuritymodules",
+            "prId": "github:Azure/azure-sdk-for-java#50028"
+          },
+          "outcome": "complete",
+          "value": 23.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-04T14:00:18Z",
+            "endAt": "2026-08-05T13:51:07Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 101.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-31T08:30:01.000Z",
+            "endAt": "2026-08-04T13:50:21.092988Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-04T13:50:21.092988Z",
+            "endAt": "2026-08-04T14:00:18Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 2.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-05T13:51:07Z",
+            "endAt": "2026-08-05T15:59:57.217Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Go",
+            "package": "sdk/resourcemanager/hardwaresecuritymodules/armhardwaresecuritymodules",
+            "prId": "github:Azure/azure-sdk-for-go#27326"
+          },
+          "outcome": "complete",
+          "value": 27.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-04T10:04:38Z",
+            "endAt": "2026-08-05T13:51:05Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 97.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-31T08:30:01.000Z",
+            "endAt": "2026-08-04T09:59:31.8594842Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-08-04T09:59:31.8594842Z",
+            "endAt": "2026-08-04T10:04:38Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34725",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-05T13:51:05Z",
+            "endAt": "2026-08-05T14:52:57.323Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

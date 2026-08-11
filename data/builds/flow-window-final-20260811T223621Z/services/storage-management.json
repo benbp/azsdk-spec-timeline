@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "slug": "storage-management",
+  "name": "Storage.Management",
+  "plans": [
+    {
+      "id": "34516",
+      "title": "Release plan - 2252 - Public Preview - Storage",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1840.2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "prId": "github:Azure/azure-rest-api-specs#43484",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 45.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-25T08:32:08Z",
+            "endAt": "2026-05-27T05:49:19Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 121.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-27T05:49:19.000Z",
+            "endAt": "2026-06-01T07:23:28.8465106Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-01T07:23:28.8465106Z",
+            "endAt": "2026-06-01T07:34:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "JavaScript",
+            "package": "@azure/arm-storage",
+            "prId": "github:Azure/azure-sdk-for-js#38755"
+          },
+          "outcome": "complete",
+          "value": 74.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-01T07:31:24Z",
+            "endAt": "2026-06-04T10:16:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 121.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-27T05:49:19.000Z",
+            "endAt": "2026-06-01T07:23:27.9813168Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-01T07:23:27.9813168Z",
+            "endAt": "2026-06-01T07:31:24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 593.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-04T10:16:39Z",
+            "endAt": "2026-06-29T03:25:58.487Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Python",
+            "package": "azure-mgmt-storage",
+            "prId": "github:Azure/azure-sdk-for-python#47258"
+          },
+          "outcome": "complete",
+          "value": 1173.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-01T07:32:53Z",
+            "endAt": "2026-07-20T05:20:32Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 121.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-27T05:49:19.000Z",
+            "endAt": "2026-06-01T07:23:29.8103855Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-01T07:23:29.8103855Z",
+            "endAt": "2026-06-01T07:32:53Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-20T05:20:32Z",
+            "endAt": "2026-07-20T06:16:52.65Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Java",
+            "package": "azure-resourcemanager-storage",
+            "prId": "github:Azure/azure-sdk-for-java#49331"
+          },
+          "outcome": "complete",
+          "value": 19.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-01T07:32:58Z",
+            "endAt": "2026-06-02T02:36:48Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 121.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-27T05:49:19.000Z",
+            "endAt": "2026-06-01T07:23:39.6222677Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-01T07:23:39.6222677Z",
+            "endAt": "2026-06-01T07:32:58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 822.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-02T02:36:48Z",
+            "endAt": "2026-07-06T09:05:55.433Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Go",
+            "package": "sdk/resourcemanager/storage/armstorage",
+            "prId": "github:Azure/azure-sdk-for-go#26905"
+          },
+          "outcome": "complete",
+          "value": 19.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-01T07:28:35Z",
+            "endAt": "2026-06-02T03:06:21Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 121.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-27T05:49:19.000Z",
+            "endAt": "2026-06-01T07:23:24.601663Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-01T07:23:24.601663Z",
+            "endAt": "2026-06-01T07:28:35Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34516",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 3.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-02T03:06:21Z",
+            "endAt": "2026-06-02T06:52:07.847Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

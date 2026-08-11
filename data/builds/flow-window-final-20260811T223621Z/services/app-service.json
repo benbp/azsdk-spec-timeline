@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "slug": "app-service",
+  "name": "App Service",
+  "plans": [
+    {
+      "id": "34341",
+      "title": "Release plan - 2234 - Public Preview - Flex Consumption",
+      "completedAt": "2026-08-05T12:13:21.113Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 2033.6,
+      "metrics": []
+    }
+  ]
+}

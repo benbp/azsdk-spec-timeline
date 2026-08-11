@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "slug": "container-registry",
+  "name": "Container Registry",
+  "plans": [
+    {
+      "id": "35163",
+      "title": "Public Preview release plan for Container Registry",
+      "completedAt": "2026-08-06T17:56:58.11Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 864.1,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "prId": "github:Azure/azure-rest-api-specs#44963",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 95.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T18:06:07Z",
+            "endAt": "2026-07-28T17:19:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "prId": "github:Azure/azure-rest-api-specs#43018",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 815.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-08T17:34:36Z",
+            "endAt": "2026-06-11T16:51:50Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.ContainerRegistry",
+            "prId": "github:Azure/azure-sdk-for-net#60581"
+          },
+          "outcome": "complete",
+          "value": 782.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T18:10:04Z",
+            "endAt": "2026-08-03T08:46:52Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 23.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-28T17:19:27.000Z",
+            "endAt": "2026-07-29T17:03:41.1480311Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 81.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-08-03T08:46:52Z",
+            "endAt": "2026-08-06T17:56:57.813Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "JavaScript",
+            "package": "@azure/arm-containerregistry",
+            "prId": "github:Azure/azure-sdk-for-js#39163"
+          },
+          "outcome": "complete",
+          "value": 118.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T18:08:19Z",
+            "endAt": "2026-07-06T16:50:23Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T18:00:58.558686Z",
+            "endAt": "2026-07-01T18:08:19Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 226.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-06T16:50:23Z",
+            "endAt": "2026-07-16T02:58:30.813Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "Python",
+            "package": "azure-mgmt-containerregistry",
+            "prId": "github:Azure/azure-sdk-for-python#47794"
+          },
+          "outcome": "complete",
+          "value": 118.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T18:08:27Z",
+            "endAt": "2026-07-06T16:45:40Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T18:00:57.865778Z",
+            "endAt": "2026-07-01T18:08:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 10.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-06T16:45:40Z",
+            "endAt": "2026-07-07T03:25:45.763Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "Java",
+            "package": "azure-resourcemanager-containerregistry",
+            "prId": "github:Azure/azure-sdk-for-java#49691"
+          },
+          "outcome": "complete",
+          "value": 118.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T18:10:28Z",
+            "endAt": "2026-07-06T16:50:47Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T18:00:58.1206301Z",
+            "endAt": "2026-07-01T18:10:28Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 373.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-06T16:50:47Z",
+            "endAt": "2026-07-22T06:25:15.677Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "Go",
+            "package": "sdk/resourcemanager/containerregistry/armcontainerregistry",
+            "prId": "github:Azure/azure-sdk-for-go#27123"
+          },
+          "outcome": "complete",
+          "value": 118.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T18:06:31Z",
+            "endAt": "2026-07-06T16:52:01Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T18:00:59.5625893Z",
+            "endAt": "2026-07-01T18:06:31Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 507.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-06T16:52:01Z",
+            "endAt": "2026-07-27T20:41:01.363Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35163"
+          },
+          "outcome": "complete",
+          "value": 2160.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-08T17:34:36.000Z",
+            "endAt": "2026-08-06T17:56:57.813Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

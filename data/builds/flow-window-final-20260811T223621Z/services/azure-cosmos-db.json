@@ -1,0 +1,615 @@
+{
+  "schemaVersion": 1,
+  "slug": "azure-cosmos-db",
+  "name": "Azure Cosmos DB",
+  "plans": [
+    {
+      "id": "33723",
+      "title": "Release Plan - 2158 - GA - Azure Cosmos DB",
+      "completedAt": null,
+      "releaseType": "APEX GA",
+      "durationHours": 3172.4,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "prId": "github:Azure/azure-rest-api-specs#43928",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 471.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-12T00:12:29Z",
+            "endAt": "2026-07-01T15:42:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "prId": "github:Azure/azure-rest-api-specs#41475",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1740.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-17T15:33:56Z",
+            "endAt": "2026-05-29T03:40:36Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.CosmosDB",
+            "prId": "github:Azure/azure-sdk-for-net#60594"
+          },
+          "outcome": "complete",
+          "value": 442.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:51:35Z",
+            "endAt": "2026-07-20T08:35:33Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T15:42:39.000Z",
+            "endAt": "2026-07-01T21:42:45.2143489Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:42:45.2143489Z",
+            "endAt": "2026-07-01T21:51:35Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 94.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-20T08:35:33Z",
+            "endAt": "2026-07-24T06:41:19.51Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "JavaScript",
+            "package": "@azure/arm-cosmosdb",
+            "prId": "github:Azure/azure-sdk-for-js#39167"
+          },
+          "outcome": "complete",
+          "value": 163.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:50:53Z",
+            "endAt": "2026-07-08T17:41:56Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T15:42:39.000Z",
+            "endAt": "2026-07-01T21:42:58.6810208Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:42:58.6810208Z",
+            "endAt": "2026-07-01T21:50:53Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 14.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-08T17:41:56Z",
+            "endAt": "2026-07-09T07:53:24.427Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Python",
+            "package": "azure-mgmt-cosmosdb",
+            "prId": "github:Azure/azure-sdk-for-python#47802"
+          },
+          "outcome": "complete",
+          "value": 29.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:55:02Z",
+            "endAt": "2026-07-03T03:01:12Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T15:42:39.000Z",
+            "endAt": "2026-07-01T21:43:14.7434952Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:43:14.7434952Z",
+            "endAt": "2026-07-01T21:55:02Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 3.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-03T03:01:12Z",
+            "endAt": "2026-07-03T06:09:36.127Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Java",
+            "package": "azure-resourcemanager-cosmos",
+            "prId": "github:Azure/azure-sdk-for-java#49695"
+          },
+          "outcome": "complete",
+          "value": 163.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:54:56Z",
+            "endAt": "2026-07-08T17:40:53Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T15:42:39.000Z",
+            "endAt": "2026-07-01T21:44:44.8467928Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:44:44.8467928Z",
+            "endAt": "2026-07-01T21:54:56Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 328.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-08T17:40:53Z",
+            "endAt": "2026-07-22T10:30:25.75Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Go",
+            "package": "sdk/resourcemanager/cosmos/armcosmos",
+            "prId": "github:Azure/azure-sdk-for-go#27124"
+          },
+          "outcome": "complete",
+          "value": 163.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:50:17Z",
+            "endAt": "2026-07-08T17:41:13Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T15:42:39.000Z",
+            "endAt": "2026-07-01T21:44:45.9078917Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:44:45.9078917Z",
+            "endAt": "2026-07-01T21:50:17Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 819.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-08T17:41:13Z",
+            "endAt": "2026-08-11T21:18:13.71Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33723"
+          },
+          "outcome": "complete",
+          "value": 3533.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-03-17T15:33:56.000Z",
+            "endAt": "2026-08-11T21:18:13.710Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "33725",
+      "title": "Release Plan - 2159 - GA - Azure Cosmos DB",
+      "completedAt": "2026-08-05T13:09:11.433Z",
+      "releaseType": "APEX GA",
+      "durationHours": 3019,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "prId": "github:Azure/azure-rest-api-specs#41475",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1740.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-17T15:33:56Z",
+            "endAt": "2026-05-29T03:40:36Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 262.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T03:40:36.000Z",
+            "endAt": "2026-06-09T01:55:09.7761429Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-09T01:55:09.7761429Z",
+            "endAt": "2026-06-09T02:09:02Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 262.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T03:40:36.000Z",
+            "endAt": "2026-06-09T02:08:18.7964633Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-09T02:08:18.7964633Z",
+            "endAt": "2026-06-09T02:16:58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 262.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T03:40:36.000Z",
+            "endAt": "2026-06-09T02:09:17.1811858Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-09T02:09:17.1811858Z",
+            "endAt": "2026-06-09T02:26:43Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 262.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T03:40:36.000Z",
+            "endAt": "2026-06-09T02:13:13.6262662Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-09T02:13:13.6262662Z",
+            "endAt": "2026-06-09T02:23:23Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 262.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T03:40:36.000Z",
+            "endAt": "2026-06-09T02:13:13.5702808Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33725",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-09T02:13:13.5702808Z",
+            "endAt": "2026-06-09T02:18:36Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

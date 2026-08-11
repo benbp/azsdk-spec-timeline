@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "slug": "saa-shub-management",
+  "name": "Saa SHub.Management",
+  "plans": [
+    {
+      "id": "35103",
+      "title": "Private Preview release plan for SaaSHub.Management",
+      "completedAt": "2026-06-25T23:54:07.797Z",
+      "releaseType": "APEX Private Preview",
+      "durationHours": 0.1,
+      "metrics": []
+    }
+  ]
+}

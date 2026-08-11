@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "slug": "network-cloud-management",
+  "name": "Network Cloud.Management",
+  "plans": [
+    {
+      "id": "34236",
+      "title": "Release Plan - 2218 - Public Preview - AFOI-Network Cloud",
+      "completedAt": "2026-06-24T18:08:03.87Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1175.5,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "prId": "github:Azure/azure-rest-api-specs#42234",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 481.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-09T16:20:52Z",
+            "endAt": "2026-04-29T18:00:55Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.NetworkCloud",
+            "prId": "github:Azure/azure-sdk-for-net#59033"
+          },
+          "outcome": "complete",
+          "value": 1171.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T19:07:05Z",
+            "endAt": "2026-06-24T14:24:15Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 169.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T18:00:55.000Z",
+            "endAt": "2026-05-06T19:21:13.7485634Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "JavaScript",
+            "package": "@azure/arm-networkcloud",
+            "prId": "github:Azure/azure-sdk-for-js#38443"
+          },
+          "outcome": "complete",
+          "value": 1015.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T19:09:04Z",
+            "endAt": "2026-06-18T02:55:56Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 169.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T18:00:55.000Z",
+            "endAt": "2026-05-06T19:21:21.9590387Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 158.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-18T02:55:56Z",
+            "endAt": "2026-06-24T17:06:11.447Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "Python",
+            "package": "azure-mgmt-networkcloud",
+            "prId": "github:Azure/azure-sdk-for-python#46761"
+          },
+          "outcome": "complete",
+          "value": 1171.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T19:08:17Z",
+            "endAt": "2026-06-24T14:15:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 169.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T18:00:55.000Z",
+            "endAt": "2026-05-06T19:21:03.432498Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 3.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-24T14:15:06Z",
+            "endAt": "2026-06-24T17:31:03.71Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "Java",
+            "package": "azure-resourcemanager-networkcloud",
+            "prId": "github:Azure/azure-sdk-for-java#49079"
+          },
+          "outcome": "complete",
+          "value": 1148.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T19:09:43Z",
+            "endAt": "2026-06-23T15:46:41Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 169.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T18:00:55.000Z",
+            "endAt": "2026-05-06T19:21:25.1141203Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 26.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-23T15:46:41Z",
+            "endAt": "2026-06-24T18:08:03.513Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "Go",
+            "package": "sdk/resourcemanager/networkcloud/armnetworkcloud",
+            "prId": "github:Azure/azure-sdk-for-go#26731"
+          },
+          "outcome": "complete",
+          "value": 611.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-06T19:04:59Z",
+            "endAt": "2026-06-01T06:51:25Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 169.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T18:00:55.000Z",
+            "endAt": "2026-05-06T19:21:23.2215901Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 239.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-01T06:51:25Z",
+            "endAt": "2026-06-11T06:41:34.01Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34236"
+          },
+          "outcome": "complete",
+          "value": 1825.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-04-09T16:20:52.000Z",
+            "endAt": "2026-06-24T18:08:03.513Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

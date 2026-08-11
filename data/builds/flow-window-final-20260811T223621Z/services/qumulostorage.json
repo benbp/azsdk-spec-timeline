@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "slug": "qumulostorage",
+  "name": "QumuloStorage",
+  "plans": [
+    {
+      "id": "35374",
+      "title": "Public Preview release plan for QumuloStorage",
+      "completedAt": "2026-07-17T14:13:15.35Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 7.2,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "prId": "github:Azure/azure-rest-api-specs#44491",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 237.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-07T08:57:27Z",
+            "endAt": "2026-07-17T06:52:28Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T06:52:28.000Z",
+            "endAt": "2026-07-17T07:10:35.147363Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T07:10:35.147363Z",
+            "endAt": "2026-07-17T07:17:52Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T06:52:28.000Z",
+            "endAt": "2026-07-17T07:10:37.0973067Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T07:10:37.0973067Z",
+            "endAt": "2026-07-17T07:17:00Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T06:52:28.000Z",
+            "endAt": "2026-07-17T07:10:39.1403917Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T07:10:39.1403917Z",
+            "endAt": "2026-07-17T07:17:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T06:52:28.000Z",
+            "endAt": "2026-07-17T07:10:37.0306772Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T07:10:37.0306772Z",
+            "endAt": "2026-07-17T07:19:07Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T06:52:28.000Z",
+            "endAt": "2026-07-17T07:10:40.1653927Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35374",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-17T07:10:40.1653927Z",
+            "endAt": "2026-07-17T07:15:52Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

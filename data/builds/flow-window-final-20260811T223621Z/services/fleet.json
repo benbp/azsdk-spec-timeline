@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "slug": "fleet",
+  "name": "fleet",
+  "plans": [
+    {
+      "id": "34833",
+      "title": "Release plan - 1574 - Public Preview - Release Planner Test Product",
+      "completedAt": "2026-06-03T23:26:31.55Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 1.9,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34833",
+            "prId": "github:Azure/azure-rest-api-specs#43727",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 1.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T22:06:19Z",
+            "endAt": "2026-06-03T23:13:01Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34833",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T21:36:41.1234838Z",
+            "endAt": "2026-06-03T21:44:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34833",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T21:36:39.9794261Z",
+            "endAt": "2026-06-03T21:43:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34833",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T21:36:44.4032312Z",
+            "endAt": "2026-06-03T21:43:12Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34833",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T21:36:42.1216111Z",
+            "endAt": "2026-06-03T21:45:39Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34833",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T21:36:41.1214695Z",
+            "endAt": "2026-06-03T21:41:55Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "34589",
+      "title": "Release plan - 1568 - Public Preview - Azure Kubernetes Fleet Manager",
+      "completedAt": "2026-05-28T05:43:52.723Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 2.7,
+      "metrics": []
+    }
+  ]
+}

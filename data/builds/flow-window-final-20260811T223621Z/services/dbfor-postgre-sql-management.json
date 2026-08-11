@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "slug": "dbfor-postgre-sql-management",
+  "name": "DBfor Postgre SQL.Management",
+  "plans": [
+    {
+      "id": "34819",
+      "title": "Release plan - 2264 - Public Preview - Azure Database for PostgreSQL",
+      "completedAt": "2026-06-17T05:57:22.517Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 324.3,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "prId": "github:Azure/azure-rest-api-specs#43065",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 450.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-11T02:00:55Z",
+            "endAt": "2026-05-29T20:55:58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.PostgreSql",
+            "prId": "github:Azure/azure-sdk-for-net#59636"
+          },
+          "outcome": "complete",
+          "value": 309.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:52:01Z",
+            "endAt": "2026-06-16T15:31:14Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 116.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T20:55:58.000Z",
+            "endAt": "2026-06-03T17:42:44.2807914Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:42:44.2807914Z",
+            "endAt": "2026-06-03T17:52:01Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 14.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-16T15:31:14Z",
+            "endAt": "2026-06-17T05:57:22.163Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "JavaScript",
+            "package": "@azure/arm-postgresql-flexible",
+            "prId": "github:Azure/azure-sdk-for-js#38808"
+          },
+          "outcome": "complete",
+          "value": 117.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:49:37Z",
+            "endAt": "2026-06-08T15:31:05Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 116.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T20:55:58.000Z",
+            "endAt": "2026-06-03T17:42:47.8498685Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:42:47.8498685Z",
+            "endAt": "2026-06-03T17:49:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 6.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-08T15:31:05Z",
+            "endAt": "2026-06-08T22:14:52.09Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Python",
+            "package": "azure-mgmt-postgresqlflexibleservers",
+            "prId": "github:Azure/azure-sdk-for-python#47321"
+          },
+          "outcome": "complete",
+          "value": 123,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:49:47Z",
+            "endAt": "2026-06-08T20:50:15Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 116.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T20:55:58.000Z",
+            "endAt": "2026-06-03T17:42:40.3512805Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:42:40.3512805Z",
+            "endAt": "2026-06-03T17:49:47Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 2.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-08T20:50:15Z",
+            "endAt": "2026-06-08T23:38:12.823Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Java",
+            "package": "azure-resourcemanager-postgresqlflexibleserver",
+            "prId": "github:Azure/azure-sdk-for-java#49366"
+          },
+          "outcome": "complete",
+          "value": 123,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:52:19Z",
+            "endAt": "2026-06-08T20:50:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 116.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T20:55:58.000Z",
+            "endAt": "2026-06-03T17:42:50.0034641Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:42:50.0034641Z",
+            "endAt": "2026-06-03T17:52:19Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 2.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-08T20:50:20Z",
+            "endAt": "2026-06-08T23:43:31.997Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Go",
+            "package": "sdk/resourcemanager/postgresql/armpostgresqlflexibleservers",
+            "prId": "github:Azure/azure-sdk-for-go#26936"
+          },
+          "outcome": "complete",
+          "value": 123,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:47:46Z",
+            "endAt": "2026-06-08T20:50:25Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 116.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-29T20:55:58.000Z",
+            "endAt": "2026-06-03T17:42:45.7119951Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T17:42:45.7119951Z",
+            "endAt": "2026-06-03T17:47:46Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 1.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-08T20:50:25Z",
+            "endAt": "2026-06-08T22:26:38.057Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34819"
+          },
+          "outcome": "complete",
+          "value": 891.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-11T02:00:55.000Z",
+            "endAt": "2026-06-17T05:57:22.163Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "slug": "computelimit",
+  "name": "ComputeLimit",
+  "plans": [
+    {
+      "id": "35008",
+      "title": "GA release plan for ComputeLimit",
+      "completedAt": "2026-06-23T10:22:52.27Z",
+      "releaseType": "GA",
+      "durationHours": 139.1,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "prId": "github:Azure/azure-rest-api-specs#43741",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 295.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-04T08:12:00Z",
+            "endAt": "2026-06-16T15:57:24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.ComputeLimit",
+            "prId": "github:Azure/azure-sdk-for-net#60004"
+          },
+          "outcome": "complete",
+          "value": 18.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T15:39:55Z",
+            "endAt": "2026-06-18T10:23:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 25.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-16T15:57:24.000Z",
+            "endAt": "2026-06-17T17:32:11.8733801Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 119.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-18T10:23:06Z",
+            "endAt": "2026-06-23T10:18:10.077Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "JavaScript",
+            "package": "@azure/arm-computelimit",
+            "prId": "github:Azure/azure-sdk-for-js#38987"
+          },
+          "outcome": "complete",
+          "value": 18.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T15:39:25Z",
+            "endAt": "2026-06-18T09:45:27Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 23.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-16T15:57:24.000Z",
+            "endAt": "2026-06-17T15:33:10.5143865Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T15:33:10.5143865Z",
+            "endAt": "2026-06-17T15:39:25Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 120.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-18T09:45:27Z",
+            "endAt": "2026-06-23T10:09:30.593Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Python",
+            "package": "azure-mgmt-computelimit",
+            "prId": "github:Azure/azure-sdk-for-python#47542"
+          },
+          "outcome": "complete",
+          "value": 114.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T15:40:12Z",
+            "endAt": "2026-06-22T10:13:46Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 23.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-16T15:57:24.000Z",
+            "endAt": "2026-06-17T15:33:08.8538897Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T15:33:08.8538897Z",
+            "endAt": "2026-06-17T15:40:12Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 24,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-22T10:13:46Z",
+            "endAt": "2026-06-23T10:14:20.42Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Java",
+            "package": "azure-resourcemanager-computelimit",
+            "prId": "github:Azure/azure-sdk-for-java#49539"
+          },
+          "outcome": "complete",
+          "value": 18.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T15:44:04Z",
+            "endAt": "2026-06-18T10:23:15Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 23.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-16T15:57:24.000Z",
+            "endAt": "2026-06-17T15:33:17.0288516Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T15:33:17.0288516Z",
+            "endAt": "2026-06-17T15:44:04Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 120,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-18T10:23:15Z",
+            "endAt": "2026-06-23T10:22:52.057Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Go",
+            "package": "sdk/resourcemanager/computelimit/armcomputelimit",
+            "prId": "github:Azure/azure-sdk-for-go#27020"
+          },
+          "outcome": "complete",
+          "value": 18.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T15:38:23Z",
+            "endAt": "2026-06-18T10:23:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 23.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-16T15:57:24.000Z",
+            "endAt": "2026-06-17T15:33:12.7997957Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-17T15:33:12.7997957Z",
+            "endAt": "2026-06-17T15:38:23Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 119.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-18T10:23:20Z",
+            "endAt": "2026-06-23T10:06:12.277Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35008"
+          },
+          "outcome": "complete",
+          "value": 458.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-04T08:12:00.000Z",
+            "endAt": "2026-06-23T10:22:52.057Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

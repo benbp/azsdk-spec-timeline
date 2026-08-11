@@ -1,0 +1,50 @@
+[
+  {
+    "id": "L1",
+    "version": 1,
+    "name": "Full time-to-SDK",
+    "description": "First linked spec PR creation to the final observed intended-language release.",
+    "unit": "hours",
+    "readiness": "provisional"
+  },
+  {
+    "id": "S1",
+    "version": 1,
+    "name": "Spec PR cycle time",
+    "description": "Spec PR creation to merge.",
+    "unit": "hours",
+    "readiness": "validated"
+  },
+  {
+    "id": "S2",
+    "version": 1,
+    "name": "Generation trigger latency",
+    "description": "Spec merge to the exact linked generation pipeline start.",
+    "unit": "hours",
+    "readiness": "provisional"
+  },
+  {
+    "id": "S3",
+    "version": 1,
+    "name": "Generation execution",
+    "description": "Exact linked generation pipeline start to SDK PR creation.",
+    "unit": "hours",
+    "readiness": "provisional"
+  },
+  {
+    "id": "S4",
+    "version": 1,
+    "name": "SDK PR cycle time",
+    "description": "SDK PR creation to merge.",
+    "unit": "hours",
+    "readiness": "validated"
+  },
+  {
+    "id": "S5",
+    "version": 1,
+    "name": "Release latency",
+    "description": "SDK PR merge to the Release Plan's observed released status.",
+    "unit": "hours",
+    "readiness": "provisional"
+  }
+]

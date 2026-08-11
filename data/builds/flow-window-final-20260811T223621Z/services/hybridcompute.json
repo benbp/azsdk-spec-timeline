@@ -1,0 +1,818 @@
+{
+  "schemaVersion": 1,
+  "slug": "hybridcompute",
+  "name": "HybridCompute",
+  "plans": [
+    {
+      "id": "35467",
+      "title": "GA release plan for HybridCompute",
+      "completedAt": null,
+      "releaseType": "GA",
+      "durationHours": 437.6,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "prId": "github:Azure/azure-rest-api-specs#44618",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 263.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T17:38:18Z",
+            "endAt": "2026-07-24T16:49:02Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T16:49:02.000Z",
+            "endAt": "2026-07-24T16:59:59.1459367Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T16:59:59.1459367Z",
+            "endAt": "2026-07-24T17:06:40Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T16:49:02.000Z",
+            "endAt": "2026-07-24T17:00:11.7847161Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T17:00:11.7847161Z",
+            "endAt": "2026-07-24T17:06:34Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T16:49:02.000Z",
+            "endAt": "2026-07-24T17:00:24.7058167Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T17:00:24.7058167Z",
+            "endAt": "2026-07-24T17:07:24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T16:49:02.000Z",
+            "endAt": "2026-07-24T17:00:05.6800481Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T17:00:05.6800481Z",
+            "endAt": "2026-07-24T17:09:25Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T16:49:02.000Z",
+            "endAt": "2026-07-24T17:00:46.7850983Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35467",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-24T17:00:46.7850983Z",
+            "endAt": "2026-07-24T17:05:59Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "35303",
+      "title": "Public Preview release plan for HybridCompute",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 702.1,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "prId": "github:Azure/azure-rest-api-specs#43723",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 841,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-03T20:30:35Z",
+            "endAt": "2026-07-08T21:29:47Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.HybridCompute",
+            "prId": "github:Azure/azure-sdk-for-net#60939"
+          },
+          "outcome": "complete",
+          "value": 558.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T16:54:30Z",
+            "endAt": "2026-08-05T23:28:26Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 437.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-08T21:29:47.000Z",
+            "endAt": "2026-07-27T03:00:38.0713227Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "JavaScript",
+            "package": "@azure/arm-hybridcompute",
+            "prId": "github:Azure/azure-sdk-for-js#39256"
+          },
+          "outcome": "complete",
+          "value": 219,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T16:56:20Z",
+            "endAt": "2026-07-22T19:54:18Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 115.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-08T21:29:47.000Z",
+            "endAt": "2026-07-13T16:49:37.6114731Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T16:49:37.6114731Z",
+            "endAt": "2026-07-13T16:56:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 10.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-22T19:54:18Z",
+            "endAt": "2026-07-23T06:48:29.863Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Python",
+            "package": "azure-mgmt-hybridcompute",
+            "prId": "github:Azure/azure-sdk-for-python#48026"
+          },
+          "outcome": "complete",
+          "value": 218.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T16:54:21Z",
+            "endAt": "2026-07-22T19:48:56Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 115.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-08T21:29:47.000Z",
+            "endAt": "2026-07-13T16:47:31.5769796Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T16:47:31.5769796Z",
+            "endAt": "2026-07-13T16:54:21Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 7.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-22T19:48:56Z",
+            "endAt": "2026-07-23T03:44:26.557Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Java",
+            "package": "azure-resourcemanager-hybridcompute",
+            "prId": "github:Azure/azure-sdk-for-java#49791"
+          },
+          "outcome": "complete",
+          "value": 241.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T16:57:31Z",
+            "endAt": "2026-07-23T18:21:30Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 115.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-08T21:29:47.000Z",
+            "endAt": "2026-07-13T16:47:50.3051201Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T16:47:50.3051201Z",
+            "endAt": "2026-07-13T16:57:31Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 45.6,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-23T18:21:30Z",
+            "endAt": "2026-07-25T15:55:10.347Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Go",
+            "package": "sdk/resourcemanager/hybridcompute/armhybridcompute",
+            "prId": "github:Azure/azure-sdk-for-go#27172"
+          },
+          "outcome": "complete",
+          "value": 218.9,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T16:55:06Z",
+            "endAt": "2026-07-22T19:48:44Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 115.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-08T21:29:47.000Z",
+            "endAt": "2026-07-13T16:49:57.0935408Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-13T16:49:57.0935408Z",
+            "endAt": "2026-07-13T16:55:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35303",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 10.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-22T19:48:44Z",
+            "endAt": "2026-07-23T06:45:30.683Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "35228",
+      "title": "Public Preview release plan for HybridCompute",
+      "completedAt": "2026-07-10T01:37:27.96Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 53.9,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "prId": "github:Azure/azure-rest-api-specs#42259",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 435.8,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-10T06:29:25Z",
+            "endAt": "2026-04-28T10:18:47Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 1690.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T10:18:47.000Z",
+            "endAt": "2026-07-07T20:57:53.8165627Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-07T20:57:53.8165627Z",
+            "endAt": "2026-07-07T21:06:11Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 1690.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T10:18:47.000Z",
+            "endAt": "2026-07-07T20:58:25.129337Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-07T20:58:25.129337Z",
+            "endAt": "2026-07-07T21:05:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Python",
+            "package": "azure-mgmt-hybridcompute",
+            "prId": "github:Azure/azure-sdk-for-python#47919"
+          },
+          "outcome": "complete",
+          "value": 18.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-07T21:05:44Z",
+            "endAt": "2026-07-08T15:43:53Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 1690.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T10:18:47.000Z",
+            "endAt": "2026-07-07T20:58:06.2191538Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-07T20:58:06.2191538Z",
+            "endAt": "2026-07-07T21:05:44Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 15.7,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-08T15:43:53Z",
+            "endAt": "2026-07-09T07:24:38.393Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Java",
+            "package": "azure-resourcemanager-hybridcompute",
+            "prId": "github:Azure/azure-sdk-for-java#49746"
+          },
+          "outcome": "complete",
+          "value": 18.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-07T21:07:12Z",
+            "endAt": "2026-07-08T15:44:24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 1690.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T10:18:47.000Z",
+            "endAt": "2026-07-07T20:58:11.9570755Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-07T20:58:11.9570755Z",
+            "endAt": "2026-07-07T21:07:12Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Go",
+            "package": "sdk/resourcemanager/hybridcompute/armhybridcompute",
+            "prId": "github:Azure/azure-sdk-for-go#27144"
+          },
+          "outcome": "complete",
+          "value": 18.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-07T21:04:16Z",
+            "endAt": "2026-07-08T15:44:33Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 1690.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T10:18:47.000Z",
+            "endAt": "2026-07-07T20:58:38.6249632Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35228",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-07T20:58:38.6249632Z",
+            "endAt": "2026-07-07T21:04:16Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

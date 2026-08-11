@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "slug": "azure-portal-declarative-framework",
+  "name": "Azure Portal Declarative Framework",
+  "plans": [
+    {
+      "id": "34322",
+      "title": "Release Plan - 2229 - GA - Azure Portal Declarative Framework",
+      "completedAt": "2026-08-05T12:26:38.05Z",
+      "releaseType": "APEX GA",
+      "durationHours": 2054.7,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34322",
+            "prId": "github:Azure/azure-rest-api-specs#42875",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 527.7,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-04T22:48:32Z",
+            "endAt": "2026-05-26T22:32:05Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "slug": "vaulted-backup-for-azure-blobs",
+  "name": "Vaulted backup for Azure blobs",
+  "plans": [
+    {
+      "id": "33710",
+      "title": "Release Plan - 2154 - GA - Vaulted backup for Azure blobs",
+      "completedAt": "2026-06-15T15:02:07.733Z",
+      "releaseType": "APEX GA",
+      "durationHours": 1808.9,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "prId": "github:Azure/azure-rest-api-specs#40422",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 840.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-02-13T03:11:27Z",
+            "endAt": "2026-03-20T03:38:09Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.DataProtectionBackup",
+            "prId": "github:Azure/azure-sdk-for-net#57681"
+          },
+          "outcome": "complete",
+          "value": 976.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-01T21:28:35Z",
+            "endAt": "2026-05-12T13:52:54Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 306.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-20T03:38:09.000Z",
+            "endAt": "2026-04-01T21:43:48.9394893Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 135.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-12T13:52:54Z",
+            "endAt": "2026-05-18T05:18:45.74Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": "JavaScript",
+            "package": "@azure/arm-dataprotection",
+            "prId": "github:Azure/azure-sdk-for-js#37934"
+          },
+          "outcome": "complete",
+          "value": 524,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-01T21:32:32Z",
+            "endAt": "2026-04-23T17:30:37Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 306.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-20T03:38:09.000Z",
+            "endAt": "2026-04-01T21:44:23.4987714Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": "Python",
+            "package": "azure-mgmt-dataprotection",
+            "prId": "github:Azure/azure-sdk-for-python#46064"
+          },
+          "outcome": "complete",
+          "value": 524,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-01T21:32:38Z",
+            "endAt": "2026-04-23T17:31:58Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 306.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-20T03:38:09.000Z",
+            "endAt": "2026-04-01T21:44:18.8563429Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": "Java",
+            "package": "azure-resourcemanager-dataprotection",
+            "prId": "github:Azure/azure-sdk-for-java#48666"
+          },
+          "outcome": "complete",
+          "value": 524,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-01T21:31:59Z",
+            "endAt": "2026-04-23T17:31:04Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 306.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-20T03:38:09.000Z",
+            "endAt": "2026-04-01T21:44:24.7351999Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 1269.5,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-04-23T17:31:04Z",
+            "endAt": "2026-06-15T15:02:07.423Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": "Go",
+            "package": "sdk/resourcemanager/dataprotection/armdataprotection",
+            "prId": "github:Azure/azure-sdk-for-go#26477"
+          },
+          "outcome": "complete",
+          "value": 524.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-01T21:28:11Z",
+            "endAt": "2026-04-23T17:31:32Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33710",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 306.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-03-20T03:38:09.000Z",
+            "endAt": "2026-04-01T21:44:26.5173446Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

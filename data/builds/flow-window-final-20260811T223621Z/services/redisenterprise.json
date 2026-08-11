@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "slug": "redisenterprise",
+  "name": "RedisEnterprise",
+  "plans": [
+    {
+      "id": "35323",
+      "title": "Public Preview release plan for RedisEnterprise",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 683.7,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "prId": "github:Azure/azure-rest-api-specs#44373",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 291.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-01T21:29:20Z",
+            "endAt": "2026-07-14T00:36:13Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 10.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T00:36:13.000Z",
+            "endAt": "2026-07-14T10:59:42.8793542Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T10:59:42.8793542Z",
+            "endAt": "2026-07-14T11:06:19Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 10.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T00:36:13.000Z",
+            "endAt": "2026-07-14T10:59:05.2809244Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T10:59:05.2809244Z",
+            "endAt": "2026-07-14T11:05:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "Java",
+            "package": "azure-resourcemanager-redisenterprise",
+            "prId": "github:Azure/azure-sdk-for-java#49805"
+          },
+          "outcome": "complete",
+          "value": 15.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T11:07:45Z",
+            "endAt": "2026-07-15T02:38:59Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 10.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T00:36:13.000Z",
+            "endAt": "2026-07-14T10:59:14.0260478Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T10:59:14.0260478Z",
+            "endAt": "2026-07-14T11:07:45Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 169.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-15T02:38:59Z",
+            "endAt": "2026-07-22T03:55:33.243Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 10.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T00:36:13.000Z",
+            "endAt": "2026-07-14T10:59:26.8917811Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35323",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T10:59:26.8917811Z",
+            "endAt": "2026-07-14T11:04:17Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

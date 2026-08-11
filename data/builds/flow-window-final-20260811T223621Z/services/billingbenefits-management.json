@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "slug": "billingbenefits-management",
+  "name": "BillingBenefits.Management",
+  "plans": [
+    {
+      "id": "35255",
+      "title": "GA release plan for BillingBenefits.Management",
+      "completedAt": null,
+      "releaseType": "GA",
+      "durationHours": 795,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35255",
+            "prId": "github:Azure/azure-rest-api-specs#44111",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 460,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-19T19:57:52Z",
+            "endAt": "2026-07-08T23:56:19Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

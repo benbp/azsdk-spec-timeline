@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "slug": "upgradeassessments",
+  "name": "upgradeAssessments",
+  "plans": [
+    {
+      "id": "35257",
+      "title": "Public Preview release plan for upgradeAssessments",
+      "completedAt": null,
+      "releaseType": "APEX Public Preview",
+      "durationHours": 794.9,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35257",
+            "prId": "github:Azure/azure-rest-api-specs#43934",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 615.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-06-12T06:24:00Z",
+            "endAt": "2026-07-07T21:50:33Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

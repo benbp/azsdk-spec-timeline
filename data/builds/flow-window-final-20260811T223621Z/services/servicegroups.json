@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "slug": "servicegroups",
+  "name": "ServiceGroups",
+  "plans": [
+    {
+      "id": "35595",
+      "title": "GA release plan for ServiceGroups",
+      "completedAt": null,
+      "releaseType": "GA",
+      "durationHours": 358.6,
+      "metrics": []
+    }
+  ]
+}

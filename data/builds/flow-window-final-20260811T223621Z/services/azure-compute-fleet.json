@@ -1,0 +1,725 @@
+{
+  "schemaVersion": 1,
+  "slug": "azure-compute-fleet",
+  "name": "Azure Compute Fleet",
+  "plans": [
+    {
+      "id": "35313",
+      "title": "Public Preview release plan for Azure Compute Fleet",
+      "completedAt": "2026-07-30T23:41:14.02Z",
+      "releaseType": "APEX Public Preview",
+      "durationHours": 407.4,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "prId": "github:Azure/azure-rest-api-specs#44549",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 122.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-08T21:52:25Z",
+            "endAt": "2026-07-14T00:08:48Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.ComputeFleet",
+            "prId": "github:Azure/azure-sdk-for-net#61218"
+          },
+          "outcome": "complete",
+          "value": 32.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:19:06Z",
+            "endAt": "2026-07-24T04:51:56Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 212.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T00:08:48.000Z",
+            "endAt": "2026-07-22T20:12:06.9064969Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:12:06.9064969Z",
+            "endAt": "2026-07-22T20:19:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 162.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-24T04:51:56Z",
+            "endAt": "2026-07-30T23:41:13.777Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "JavaScript",
+            "package": "@azure/arm-computefleet",
+            "prId": "github:Azure/azure-sdk-for-js#39368"
+          },
+          "outcome": "complete",
+          "value": 118.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:18:06Z",
+            "endAt": "2026-07-27T18:41:50Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 212.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T00:08:48.000Z",
+            "endAt": "2026-07-22T20:12:06.4514025Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:12:06.4514025Z",
+            "endAt": "2026-07-22T20:18:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 1.2,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-27T18:41:50Z",
+            "endAt": "2026-07-27T19:51:50.143Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Python",
+            "package": "azure-mgmt-computefleet",
+            "prId": "github:Azure/azure-sdk-for-python#48215"
+          },
+          "outcome": "complete",
+          "value": 118.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:18:19Z",
+            "endAt": "2026-07-27T18:39:48Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 212.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T00:08:48.000Z",
+            "endAt": "2026-07-22T20:12:22.1562155Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:12:22.1562155Z",
+            "endAt": "2026-07-22T20:18:19Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 1.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-27T18:39:48Z",
+            "endAt": "2026-07-27T20:02:39.24Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Java",
+            "package": "azure-resourcemanager-computefleet",
+            "prId": "github:Azure/azure-sdk-for-java#49904"
+          },
+          "outcome": "complete",
+          "value": 118.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:21:36Z",
+            "endAt": "2026-07-27T18:40:36Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 212.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T00:08:48.000Z",
+            "endAt": "2026-07-22T20:12:08.4696196Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 0.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:12:08.4696196Z",
+            "endAt": "2026-07-22T20:21:36Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 3.3,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-27T18:40:36Z",
+            "endAt": "2026-07-27T22:00:35.123Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Go",
+            "package": "sdk/resourcemanager/computefleet/armcomputefleet",
+            "prId": "github:Azure/azure-sdk-for-go#27236"
+          },
+          "outcome": "complete",
+          "value": 118.4,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:17:06Z",
+            "endAt": "2026-07-27T18:39:22Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 212.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-14T00:08:48.000Z",
+            "endAt": "2026-07-22T20:12:14.444217Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-07-22T20:12:14.444217Z",
+            "endAt": "2026-07-22T20:17:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 1.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-27T18:39:22Z",
+            "endAt": "2026-07-27T19:43:32.143Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "35313"
+          },
+          "outcome": "complete",
+          "value": 529.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-07-08T21:52:25.000Z",
+            "endAt": "2026-07-30T23:41:13.777Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    },
+    {
+      "id": "33883",
+      "title": "Release Plan - 2186 - GA - Azure Compute Fleet",
+      "completedAt": "2026-06-19T07:26:41.333Z",
+      "releaseType": "APEX GA",
+      "durationHours": 1514.9,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "prId": "github:Azure/azure-rest-api-specs#42457",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 281.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-17T04:27:32Z",
+            "endAt": "2026-04-28T21:36:15Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": ".NET",
+            "package": "Azure.ResourceManager.ComputeFleet",
+            "prId": "github:Azure/azure-sdk-for-net#58779"
+          },
+          "outcome": "complete",
+          "value": 1147.3,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T22:58:14Z",
+            "endAt": "2026-06-15T18:18:16Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 10.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T21:36:15.000Z",
+            "endAt": "2026-04-29T07:39:45.7562025Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": ".NET"
+          },
+          "outcome": "complete",
+          "value": 85.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-15T18:18:16Z",
+            "endAt": "2026-06-19T07:26:41.117Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "JavaScript",
+            "package": "@azure/arm-computefleet",
+            "prId": "github:Azure/azure-sdk-for-js#38336"
+          },
+          "outcome": "complete",
+          "value": 729.6,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T22:59:05Z",
+            "endAt": "2026-05-29T08:33:57Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 10.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T21:36:15.000Z",
+            "endAt": "2026-04-29T07:41:22.0174709Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "JavaScript"
+          },
+          "outcome": "complete",
+          "value": 335.9,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-29T08:33:57Z",
+            "endAt": "2026-06-12T08:29:45.383Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Python",
+            "package": "azure-mgmt-computefleet",
+            "prId": "github:Azure/azure-sdk-for-python#46594"
+          },
+          "outcome": "complete",
+          "value": 706.5,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T22:58:30Z",
+            "endAt": "2026-05-28T09:31:20Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 10,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T21:36:15.000Z",
+            "endAt": "2026-04-29T07:38:34.6577387Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Python"
+          },
+          "outcome": "complete",
+          "value": 454.8,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-05-28T09:31:20Z",
+            "endAt": "2026-06-16T08:17:53.447Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Java",
+            "package": "azure-resourcemanager-computefleet",
+            "prId": "github:Azure/azure-sdk-for-java#48967"
+          },
+          "outcome": "complete",
+          "value": 815.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T23:01:22Z",
+            "endAt": "2026-06-01T22:12:06Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 10.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T21:36:15.000Z",
+            "endAt": "2026-04-29T07:41:24.1930107Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Java"
+          },
+          "outcome": "complete",
+          "value": 368.1,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-01T22:12:06Z",
+            "endAt": "2026-06-17T06:17:02.823Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S4",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Go",
+            "package": "sdk/resourcemanager/computefleet/armcomputefleet",
+            "prId": "github:Azure/azure-sdk-for-go#26696"
+          },
+          "outcome": "complete",
+          "value": 794.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T07:46:49Z",
+            "endAt": "2026-06-01T09:52:29Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S2",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 10.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-28T21:36:15.000Z",
+            "endAt": "2026-04-29T07:41:21.605489Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S3",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 0.1,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-04-29T07:41:21.605489Z",
+            "endAt": "2026-04-29T07:46:49Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "S5",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883",
+            "language": "Go"
+          },
+          "outcome": "complete",
+          "value": 237.4,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-06-01T09:52:29Z",
+            "endAt": "2026-06-11T07:15:44.023Z"
+          },
+          "missingBoundaryReason": null
+        },
+        {
+          "metricId": "L1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "33883"
+          },
+          "outcome": "complete",
+          "value": 1515,
+          "unit": "hours",
+          "confidence": "observed",
+          "evidence": {
+            "startAt": "2026-04-17T04:27:32.000Z",
+            "endAt": "2026-06-19T07:26:41.117Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

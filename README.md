@@ -1,45 +1,58 @@
-## Azure SDK Development Visualizer
+# Azure SDK Generation Timeline v2
 
-This repo contains a website and data to represent azure sdk generation flows from typespec PR to language PR to merge and release.
+This repository contains a static, Alpine.js-based dashboard that reconstructs Azure SDK generation and release timelines from Azure DevOps Release Plan work items, exact linked GitHub pull requests, and exact linked Azure Pipeline runs.
 
-### Hosting
+The current V2 dataset inventories 180 days of management-plane Release Plans and publishes core-correlated flows whose first collected event also falls inside that window. An explicitly populated Release Plan ID and exact spec PR are required before enrichment; after enrichment, a plan is excluded when any retained history predates the cohort start. This keeps plan timelines, scorecards, trends, and historical benchmarks inside one consistent measurement period. Missing downstream SDK PRs, versions, pipeline links, or inaccessible sources remain visible as incomplete metric evidence instead of deleting an otherwise in-window plan. This is a tracked cohort, not a fleet-complete population.
 
-The main site is hosted at [https://benbp.net/azsdk-spec-timeline](https://benbp.net/azsdk-spec-timeline)
+Top-line scorecard percentiles use completed results from the rolling 30-day statistics period. Weekly trends retain 13 weeks, while monthly trends grow with available tracked history up to 12 months; both compare the current period with the available prior three-month rolling average. Each metric applies its own evidence contract: S1/S4 require exact GitHub boundaries, S2/S3 require an exact generation run, and observed S5/L1 release boundaries additionally require the Release Plan's released version. Release-pipeline URL coverage remains diagnostic and does not exclude an otherwise useful flow.
 
-The site is deployed automatically on pushes to main from the [azsdk-spec-timeline](https://github.com/benbp/azsdk-spec-timeline) repository.
+- [Research findings](docs/research-findings.md)
+- [V2 architecture plan](docs/v2-architecture-plan.md)
+- [Data gap investment backlog](docs/data-gap-backlog.md)
+- [E2E metric display and investment assessment](docs/e2e-metrics-coverage.md)
 
-The staging site is hosted at [https://benbp.net/azsdk-spec-timeline-staging](https://benbp.net/azsdk-spec-timeline-staging)
+## Run the site
 
-Staging is deployed automatically on pushes to main from the [azsdk-spec-timeline-staging](https://github.com/benbp/azsdk-spec-timeline-staging) repository.
-
-```
-# Deploy to main site
-git remote add origin https://github.com/benbp/azsdk-spec-timeline.git
-git push origin
-
-# Deploy to staging site
-git remote add staging https://github.com/benbp/azsdk-spec-timeline-staging.git
-git push staging
-```
-
-### Development
-
-This is almost an entirely vibe coded single page app. Beware.
-
-See `.github/copilot-instructions.md` and `.github/skills` for relevant docs that can guide coding agents to make contributions. The conventions are set up to be auto-loaded with the github copilot cli. More exhaustive development docs can be found in the `.github/copilot-instructions.md` file.
-
-Locally, the site can be tested via:
+Serve the repository over HTTP so the browser can load the versioned JSON:
 
 ```bash
-npx http-server . -p 8765
-# Open http://localhost:8765
+python3 -m http.server 4173
 ```
 
-Agents use `playwright-cli` for testing.
+Then open <http://localhost:4173/>.
 
-### Dependencies
+The dashboard intentionally targets desktop browsers and uses a fixed-width
+desktop canvas rather than mobile-specific layouts.
 
-- node/npm/npx
-- github cli
-- playwright-cli
-- azure cli with devops extension
+## Refresh the current cohort
+
+The zero-dependency collection pipeline requires authenticated `az` and `gh` CLIs. It selects management-plane plans, preserves mutable PR link history, enriches exact public PRs and exact pipeline runs, builds static view data, and validates redaction and data integrity. Terminal PRs and pipeline runs are reused from the private cache. Individual inaccessible or unusually large artifacts are marked as skipped instead of blocking the cohort.
+
+```bash
+node scripts/refresh-v2-data.js \
+  --days 180 \
+  --limit 0 \
+  --mode all-management \
+  --build-id "$(date -u +%Y%m%dT%H)"
+```
+
+Private normalized inputs are written under ignored `cache/`. Public output is written under `data/builds/<build-id>/`, and `data/manifest.json` is updated last.
+
+The preflight requires only an explicitly populated Release Plan ID and exact spec PR. Plans that fail either root check are not sent to the expensive revision, GitHub, or pipeline collectors. Exact downstream links are enriched when present, but missing evidence produces incomplete metrics and quality warnings. Pipeline names and timestamps are never used to guess missing relationships.
+
+Release Plan creation controls the initial inventory query. Publication uses the stricter flow window recorded as `selection.startAt` and `selection.endAt`: the earliest retained event must be on or after the start, and the entire flow must remain inside the window.
+
+The intended initial production cadence is daily. Scheduling is intentionally left out of this proof until the deployment environment has an Azure identity with Release project access.
+
+## Release Plan profiler
+
+The zero-dependency profiler used for the initial Azure DevOps analysis can be rerun with an authenticated Azure CLI session:
+
+```bash
+node scripts/profile-release-plans.js \
+  --days 365 \
+  --revision-sample 30 \
+  > /tmp/release-plan-profile.json
+```
+
+It emits aggregate coverage, correlation, quality, and revision-history statistics. It does not emit raw work item field values, identities, comments, or URLs.

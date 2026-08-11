@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "slug": "log-analytics",
+  "name": "Log Analytics",
+  "plans": [
+    {
+      "id": "34091",
+      "title": "Release Plan - 2201 - GA - Log Analytics",
+      "completedAt": null,
+      "releaseType": "APEX GA",
+      "durationHours": 2583,
+      "metrics": []
+    }
+  ]
+}

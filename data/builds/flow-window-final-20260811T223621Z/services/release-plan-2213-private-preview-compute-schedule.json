@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "slug": "release-plan-2213-private-preview-compute-schedule",
+  "name": "Release Plan - 2213 - Private Preview - Compute Schedule",
+  "plans": [
+    {
+      "id": "34200",
+      "title": "Release Plan - 2213 - Private Preview - Compute Schedule",
+      "completedAt": "2026-05-06T17:14:58.47Z",
+      "releaseType": "APEX Private Preview",
+      "durationHours": 37.8,
+      "metrics": [
+        {
+          "metricId": "S1",
+          "definitionVersion": 1,
+          "scope": {
+            "planId": "34200",
+            "prId": "github:Azure/azure-rest-api-specs#42886",
+            "role": "spec-pr"
+          },
+          "outcome": "complete",
+          "value": 25.2,
+          "unit": "hours",
+          "confidence": "authoritative",
+          "evidence": {
+            "startAt": "2026-05-05T16:03:30Z",
+            "endAt": "2026-05-06T17:13:24Z"
+          },
+          "missingBoundaryReason": null
+        }
+      ]
+    }
+  ]
+}

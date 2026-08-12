@@ -84,10 +84,6 @@
                 <p class="eyebrow">Tracked cohort scorecard</p>
                 <div class="scorecard-title">
                   <h2>Stage duration</h2>
-                  <span
-                    x-show="scorecardStatisticsPeriodLabel"
-                    x-text="scorecardStatisticsPeriodLabel"
-                  ></span>
                 </div>
               </div>
               <span
@@ -110,20 +106,44 @@
                       x-text="metric.readiness"
                     ></span>
                   </div>
-                  <p>
-                    <span>P50</span>
-                    <b x-text="formatDuration(metric.statistics.p50)"></b>
-                  </p>
-                  <p>
-                    <span>P90</span>
-                    <b x-text="formatDuration(metric.statistics.p90)"></b>
-                  </p>
+                  <div class="period-summary-list">
+                    <template
+                      x-for="period in scorecardPeriods(metric)"
+                      :key="`${metric.metricId}:${period.id}`"
+                    >
+                      <section class="period-summary-row">
+                        <div>
+                          <strong x-text="period.label"></strong>
+                          <small
+                            x-text="compactPeriodRangeLabel(period.statistics)"
+                          ></small>
+                        </div>
+                        <span>
+                          <small>P50</small>
+                          <b
+                            x-text="formatDuration(period.statistics.p50)"
+                          ></b>
+                        </span>
+                        <span>
+                          <small>P90</small>
+                          <b
+                            x-text="formatDuration(period.statistics.p90)"
+                          ></b>
+                        </span>
+                        <small
+                          class="period-count"
+                          :title="observationLabel(period.statistics.count)"
+                          x-text="`n=${period.statistics.count}`"
+                        ></small>
+                      </section>
+                    </template>
+                  </div>
                   <div class="compact-trends">
                     <div>
                       <span>WoW</span>
                       <div
                         class="mini-column-chart"
-                        role="img"
+                        role="group"
                         :aria-label="trendAriaLabel(metric, 'weekly')"
                       >
                         <template
@@ -138,6 +158,7 @@
                             :data-tooltip="columnTooltip(bucket, 'p50')"
                             :aria-label="columnTooltip(bucket, 'p50')"
                             :disabled="bucket.p50 === null"
+                            @click="selectTrendCohort(metric, 'weekly', bucket)"
                           ></button>
                         </template>
                       </div>
@@ -151,7 +172,7 @@
                       <span>MoM</span>
                       <div
                         class="mini-column-chart"
-                        role="img"
+                        role="group"
                         :aria-label="trendAriaLabel(metric, 'monthly')"
                       >
                         <template
@@ -166,6 +187,7 @@
                             :data-tooltip="columnTooltip(bucket, 'p50')"
                             :aria-label="columnTooltip(bucket, 'p50')"
                             :disabled="bucket.p50 === null"
+                            @click="selectTrendCohort(metric, 'monthly', bucket)"
                           ></button>
                         </template>
                       </div>
@@ -176,9 +198,6 @@
                       ></b>
                     </div>
                   </div>
-                  <small
-                    x-text="`${metric.statisticsPopulation?.included ?? metric.population.included} completed-flow results in period`"
-                  ></small>
                 </article>
               </template>
             </div>
@@ -221,7 +240,7 @@
                       </div>
                       <div
                         class="column-chart-scroll"
-                        role="img"
+                        role="group"
                         :aria-label="trendAriaLabel(metric, 'weekly', true)"
                       >
                         <div class="column-chart">
@@ -270,6 +289,7 @@
                                       :style="columnStyle(bucket.p50, metric, metric.trends.weekly)"
                                       :data-tooltip="columnTooltip(bucket, 'p50')"
                                       :aria-label="columnTooltip(bucket, 'p50')"
+                                      @click="selectTrendCohort(metric, 'weekly', bucket)"
                                     ></button>
                                     <button
                                       type="button"
@@ -278,6 +298,7 @@
                                       :style="columnStyle(bucket.p90, metric, metric.trends.weekly)"
                                       :data-tooltip="columnTooltip(bucket, 'p90')"
                                       :aria-label="columnTooltip(bucket, 'p90')"
+                                      @click="selectTrendCohort(metric, 'weekly', bucket)"
                                     ></button>
                                   </div>
                                   <span
@@ -289,7 +310,7 @@
                           </div>
                         </div>
                       </div>
-                      <small>Header compares the live partial week · hover or focus a column for values</small>
+                      <small>Header compares the live partial week · select a column to inspect its release plans</small>
                     </section>
                     <section>
                       <div>
@@ -302,7 +323,7 @@
                       </div>
                       <div
                         class="column-chart-scroll"
-                        role="img"
+                        role="group"
                         :aria-label="trendAriaLabel(metric, 'monthly', true)"
                       >
                         <div class="column-chart">
@@ -351,6 +372,7 @@
                                       :style="columnStyle(bucket.p50, metric, metric.trends.monthly)"
                                       :data-tooltip="columnTooltip(bucket, 'p50')"
                                       :aria-label="columnTooltip(bucket, 'p50')"
+                                      @click="selectTrendCohort(metric, 'monthly', bucket)"
                                     ></button>
                                     <button
                                       type="button"
@@ -359,6 +381,7 @@
                                       :style="columnStyle(bucket.p90, metric, metric.trends.monthly)"
                                       :data-tooltip="columnTooltip(bucket, 'p90')"
                                       :aria-label="columnTooltip(bucket, 'p90')"
+                                      @click="selectTrendCohort(metric, 'monthly', bucket)"
                                     ></button>
                                   </div>
                                   <span
@@ -370,7 +393,7 @@
                           </div>
                         </div>
                       </div>
-                      <small>Header compares the live partial month · partial buckets are hatched</small>
+                      <small>Header compares the live partial month · select a column to inspect its release plans</small>
                     </section>
                   </div>
                 </article>
@@ -746,9 +769,9 @@
 
     <div
       class="drawer-backdrop"
-      x-show="selectedEvent"
+      x-show="selectedEvent || selectedCohort"
       x-transition.opacity
-      @click="closeEvent()"
+      @click="closeDrawers()"
     ></div>
     <aside
       class="event-drawer"
@@ -807,6 +830,72 @@
             rel="noreferrer"
             >Open source evidence ↗</a
           >
+        </div>
+      </template>
+    </aside>
+    <aside
+      class="event-drawer cohort-drawer"
+      :class="{ open: selectedCohort }"
+      aria-label="Trend cohort release plans"
+      :aria-hidden="!selectedCohort"
+    >
+      <button class="drawer-close" type="button" @click="closeCohort()">
+        <span class="sr-only">Close trend cohort</span>×
+      </button>
+      <template x-if="selectedCohort">
+        <div>
+          <p
+            class="eyebrow"
+            x-text="cohortCadenceLabel(selectedCohort.cadence)"
+          ></p>
+          <h2 x-text="selectedCohort.metricName"></h2>
+          <time x-text="periodRangeLabel(selectedCohort.displayPeriod)"></time>
+          <div class="drawer-badges">
+            <span
+              class="tag"
+              x-show="selectedCohort.bucket.partial"
+            >Partial period</span>
+            <span
+              class="tag"
+              x-text="`${selectedCohort.bucket.count} completed stage observations`"
+            ></span>
+            <span
+              class="tag"
+              x-text="`P50 ${formatDuration(selectedCohort.bucket.p50)}`"
+            ></span>
+            <span
+              class="tag"
+              x-text="`P90 ${formatDuration(selectedCohort.bucket.p90)}`"
+            ></span>
+          </div>
+          <div class="cohort-plan-heading">
+            <strong>Release plans</strong>
+            <span
+              x-text="`${selectedCohort.bucket.plans.length} unique`"
+            ></span>
+          </div>
+          <div class="cohort-plan-list">
+            <template
+              x-for="releasePlan in selectedCohort.bucket.plans"
+              :key="releasePlan.id"
+            >
+              <a
+                :href="routeUrl({ view: 'plan', plan: releasePlan.id })"
+                @click="navigateLink($event, { view: 'plan', plan: releasePlan.id })"
+              >
+                <span>
+                  <strong x-text="releasePlan.service"></strong>
+                  <small
+                    x-text="`Plan ${releasePlan.releasePlanId} · ${formatState(releasePlan.state)}`"
+                  ></small>
+                </span>
+                <span>
+                  <b x-text="formatDuration(releasePlan.p50)"></b>
+                  <small x-text="cohortPlanSummary(releasePlan)"></small>
+                </span>
+              </a>
+            </template>
+          </div>
         </div>
       </template>
     </aside>

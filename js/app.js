@@ -15,6 +15,7 @@ Alpine.data("timelineApp", () => ({
   definitions: [],
   plan: null,
   selectedEvent: null,
+  selectedCohort: null,
   search: "",
   stateFilter: "all",
   eventFilter: "milestones",
@@ -23,7 +24,7 @@ Alpine.data("timelineApp", () => ({
   async init() {
     window.addEventListener("popstate", () => this.loadRoute());
     window.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") this.closeEvent();
+      if (event.key === "Escape") this.closeDrawers();
     });
     try {
       this.manifest = await store.initialize();
@@ -45,6 +46,7 @@ Alpine.data("timelineApp", () => ({
     const params = new URLSearchParams(location.search);
     this.view = params.get("view") || "portfolio";
     this.selectedEvent = null;
+    this.selectedCohort = null;
     if (this.view === "plan" && params.get("plan")) {
       this.loading = true;
       try {
@@ -148,16 +150,69 @@ Alpine.data("timelineApp", () => ({
     return `${formatter.format(start)}–${formatter.format(end)} · management plane`;
   },
 
-  get scorecardStatisticsPeriodLabel() {
-    const period = this.scorecard?.cohort?.statisticsPeriod;
-    if (!period?.startAt || !period?.endAt) return "";
+  periodRangeLabel(period) {
+    if (!period?.start || !period?.end) return "";
+    const displayEnd = new Date(period.end);
+    if (!period.rolling)
+      displayEnd.setUTCDate(displayEnd.getUTCDate() - 1);
     const formatter = new Intl.DateTimeFormat("en", {
       month: "short",
       day: "numeric",
       year: "numeric",
       timeZone: "UTC",
     });
-    return `P50/P90 · ${formatter.format(new Date(period.startAt))}–${formatter.format(new Date(period.endAt))}`;
+    return `${formatter.format(new Date(period.start))}–${formatter.format(displayEnd)}`;
+  },
+
+  compactPeriodRangeLabel(period) {
+    if (!period?.start || !period?.end) return "";
+    const start = new Date(period.start);
+    const end = new Date(period.end);
+    if (!period.rolling) end.setUTCDate(end.getUTCDate() - 1);
+    const month = new Intl.DateTimeFormat("en", {
+      month: "short",
+      timeZone: "UTC",
+    });
+    if (
+      start.getUTCFullYear() === end.getUTCFullYear() &&
+      start.getUTCMonth() === end.getUTCMonth()
+    )
+      return `${month.format(start)} ${start.getUTCDate()}–${end.getUTCDate()}`;
+    const date = new Intl.DateTimeFormat("en", {
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+    return `${date.format(start)}–${date.format(end)}`;
+  },
+
+  scorecardPeriods(metric) {
+    return [
+      {
+        id: "rolling-week",
+        label: "Rolling 7d",
+        statistics: metric.periodStatistics.rollingWeek,
+      },
+      {
+        id: "full-week",
+        label: "Full week",
+        statistics: metric.periodStatistics.weekly,
+      },
+      {
+        id: "rolling-month",
+        label: "Rolling 1mo",
+        statistics: metric.periodStatistics.rollingMonth,
+      },
+      {
+        id: "full-month",
+        label: "Full month",
+        statistics: metric.periodStatistics.monthly,
+      },
+    ];
+  },
+
+  observationLabel(count) {
+    return `${count} completed stage observation${count === 1 ? "" : "s"}`;
   },
 
   completeTrendSeries(trend) {
@@ -208,7 +263,7 @@ Alpine.data("timelineApp", () => ({
   },
 
   historicalStatistic(metric, field) {
-    return metric.historicalStatistics?.[field] ?? metric.statistics[field];
+    return metric.historicalStatistics?.[field] ?? null;
   },
 
   chartTicks(metric, trend) {
@@ -222,8 +277,8 @@ Alpine.data("timelineApp", () => ({
 
   columnTooltip(bucket, field) {
     if (bucket[field] === null)
-      return `${bucket.label}: no completed-flow data`;
-    return `${bucket.label}${bucket.partial ? " (partial)" : ""}: ${field.toUpperCase()} ${this.formatDuration(bucket[field])}, n=${bucket.count}`;
+      return `${bucket.label}: no completed stage data`;
+    return `${bucket.label}${bucket.partial ? " (partial)" : ""}: ${field.toUpperCase()} ${this.formatDuration(bucket[field])}, n=${bucket.count} completed stage observation${bucket.count === 1 ? "" : "s"}`;
   },
 
   bucketAxisLabel(bucket, index, length, cadence) {
@@ -304,15 +359,49 @@ Alpine.data("timelineApp", () => ({
 
   trendComparisonTitle(change) {
     if (!change.baselineSampleCount)
-      return "No completed-flow results are available in the prior 3 months";
-    return `Compared with the pooled P50 of ${change.baselineSampleCount} completed-flow results in the prior 3 months`;
+      return "No completed stage observations are available in the prior 3 months";
+    return `Compared with the pooled P50 of ${change.baselineSampleCount} completed stage observations in the prior 3 months`;
   },
 
   trendAriaLabel(metric, cadence, live = false) {
     const trend = metric.trends[cadence];
     const period = cadence === "weekly" ? "week over week" : "month over month";
     const change = this.rollingTrendChange(trend, live);
-    return `${metric.name} ${live ? "live " : "completed-period "}${period}: ${this.formatTrendChange(change)} in median duration against the prior three-month average`;
+    return `${metric.name} ${live ? "live " : "completed-period "}${period}: ${this.formatTrendChange(change)} in median duration against the pooled prior-three-month P50`;
+  },
+
+  selectTrendCohort(metric, cadence, bucket) {
+    this.selectedCohort = {
+      metricId: metric.metricId,
+      metricName: metric.name,
+      cadence,
+      bucket,
+      displayPeriod: bucket.partial
+        ? {
+            ...bucket,
+            end: this.scorecard.cohort.generatedAt,
+            rolling: true,
+          }
+        : bucket,
+    };
+  },
+
+  closeCohort() {
+    this.selectedCohort = null;
+  },
+
+  closeDrawers() {
+    if (this.selectedCohort) this.closeCohort();
+    if (this.selectedEvent) this.closeEvent();
+  },
+
+  cohortCadenceLabel(cadence) {
+    return cadence === "weekly" ? "Weekly cohort" : "Monthly cohort";
+  },
+
+  cohortPlanSummary(plan) {
+    const observations = `${plan.observationCount} observation${plan.observationCount === 1 ? "" : "s"}`;
+    return `${observations} · P50 ${this.formatDuration(plan.p50)} · P90 ${this.formatDuration(plan.p90)}`;
   },
 
   get workflowStages() {

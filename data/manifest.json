@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "buildId": "pooled-p50-20260812T165528Z",
+  "buildId": "investigable-scorecard-final-20260812T174100Z",
   "generatedAt": "2026-08-11T22:58:41.258Z",
   "redactionPolicyVersion": 1,
-  "minimumUiVersion": 1,
+  "minimumUiVersion": 3,
   "cadence": "daily",
   "counts": {
     "plans": 186,
@@ -28,16 +28,16 @@
     "collectionSkips": "115 plans, 0 PRs, and 8 pipeline runs were marked and skipped during collection."
   },
   "paths": {
-    "portfolio": "builds/pooled-p50-20260812T165528Z/portfolio.json",
-    "metricDefinitions": "builds/pooled-p50-20260812T165528Z/aggregates/metric-definitions.json",
-    "scorecard": "builds/pooled-p50-20260812T165528Z/aggregates/scorecard.json",
-    "services": "builds/pooled-p50-20260812T165528Z/indexes/services.json",
-    "plan": "builds/pooled-p50-20260812T165528Z/plans/{id}.json",
-    "service": "builds/pooled-p50-20260812T165528Z/services/{slug}.json"
+    "portfolio": "builds/investigable-scorecard-final-20260812T174100Z/portfolio.json",
+    "metricDefinitions": "builds/investigable-scorecard-final-20260812T174100Z/aggregates/metric-definitions.json",
+    "scorecard": "builds/investigable-scorecard-final-20260812T174100Z/aggregates/scorecard.json",
+    "services": "builds/investigable-scorecard-final-20260812T174100Z/indexes/services.json",
+    "plan": "builds/investigable-scorecard-final-20260812T174100Z/plans/{id}.json",
+    "service": "builds/investigable-scorecard-final-20260812T174100Z/services/{slug}.json"
   },
   "hashes": {
     "aggregates/metric-definitions.json": "dab214bcd96b0a02e3597865e1f0effcc8d020aff5ef4bc2a2795af317518446",
-    "aggregates/scorecard.json": "70c1a3eb49485709ee7500200a80fcd108d82fa2113ba88607034bd51ec9051e",
+    "aggregates/scorecard.json": "0dcbd6ab2b7ec1c2a15e94ff3d9cc8438be385fc6689df2410c1065385694049",
     "indexes/services.json": "f6e73bef0e73d9bfcbb94be96f08f9e658477ebce101a81a3c78abd2c988e8a3",
     "plans/32864.json": "0a1bad49f43eb940c68e4afc19198be8c39f1d10931e5a203cbbe477fb937e04",
     "plans/32964.json": "a610c70fd6fe11ac9419c67492a61a0085d24cf9c8e00371304bba2a990e1f5e",

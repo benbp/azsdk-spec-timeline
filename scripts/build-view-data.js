@@ -178,7 +178,7 @@ function main() {
     buildId: args.buildId,
     generatedAt: source.generatedAt,
     redactionPolicyVersion: 1,
-    minimumUiVersion: 1,
+    minimumUiVersion: 3,
     cadence: "daily",
     counts: {
       plans: plans.length,
@@ -1026,50 +1026,75 @@ function buildServices(plans) {
 }
 
 function buildScorecard(plans, generatedAt) {
-  const completedPlans = plans.filter((plan) => plan.state === "finished");
-  const periodEnd = new Date(generatedAt);
-  const periodStart = new Date(periodEnd);
-  periodStart.setUTCDate(periodStart.getUTCDate() - 30);
+  const eligiblePlans = plans.filter(
+    (plan) => ["new", "in-progress", "finished"].includes(plan.state),
+  );
+  const rollingEnd = new Date(generatedAt);
+  const rollingWeekStart = new Date(rollingEnd.getTime() - 7 * 86_400_000);
+  const rollingMonthStart = shiftUtcMonthClamped(rollingEnd, -1);
   return {
-    schemaVersion: 1,
+    schemaVersion: 3,
     cohort: {
-      kind: "core-correlated-finished-management-plane",
-      planCount: completedPlans.length,
+      kind: "core-correlated-active-or-finished-management-plane",
+      eligiblePlanCount: eligiblePlans.length,
       totalPlanCount: plans.length,
       generatedAt,
-      statisticsPeriod: {
-        kind: "rolling-30-days",
-        startAt: periodStart.toISOString(),
-        endAt: periodEnd.toISOString(),
+      excludedStateCounts: {
+        abandoned: plans.filter((plan) => plan.state === "abandoned").length,
+        duplicate: plans.filter((plan) => plan.state === "duplicate").length,
       },
     },
     metrics: METRIC_DEFINITIONS.map((definition) => {
-      const results = completedPlans.flatMap((plan) =>
-        plan.metrics.filter((metric) => metric.metricId === definition.id),
+      const results = eligiblePlans.flatMap((plan) =>
+        plan.metrics
+          .filter((metric) => metric.metricId === definition.id)
+          .map((metric) => ({
+            ...metric,
+            cohortPlan: {
+              id: plan.id,
+              releasePlanId: plan.releasePlanId,
+              title: plan.title,
+              service: plan.service,
+              state: plan.state,
+            },
+          })),
       );
       const completeResults = results.filter(
         (metric) => metric.outcome === "complete",
       );
-      const periodCompleteResults = completeResults.filter((metric) => {
-        const endAt = metric.evidence?.endAt;
-        if (!endAt) return false;
-        const date = new Date(endAt);
-        return date >= periodStart && date <= periodEnd;
-      });
       const eligibleResults = results.filter(
         (metric) => metric.outcome !== "ineligible",
       );
       const values = completeResults.map((metric) => metric.value);
-      const periodValues = periodCompleteResults.map((metric) => metric.value);
+      const trends = {
+        weekly: buildTrend(completeResults, "week", generatedAt, 13),
+        monthly: buildTrend(
+          completeResults,
+          "month",
+          generatedAt,
+          monthlyBucketCount(completeResults, generatedAt),
+        ),
+      };
       return {
         metricId: definition.id,
         definitionVersion: definition.version,
-        statistics: {
-          p50: percentile(periodValues, 0.5),
-          p90: percentile(periodValues, 0.9),
-        },
-        statisticsPopulation: {
-          included: periodValues.length,
+        periodStatistics: {
+          rollingWeek: aggregatePeriod(
+            completeResults,
+            "rolling-week",
+            rollingWeekStart,
+            rollingEnd,
+            true,
+          ),
+          weekly: completedPeriodStatistics(trends.weekly),
+          rollingMonth: aggregatePeriod(
+            completeResults,
+            "rolling-month",
+            rollingMonthStart,
+            rollingEnd,
+            true,
+          ),
+          monthly: completedPeriodStatistics(trends.monthly),
         },
         historicalStatistics: {
           p50: percentile(values, 0.5),
@@ -1101,17 +1126,46 @@ function buildScorecard(plans, generatedAt) {
           ).length,
           inferred: 0,
         },
-        trends: {
-          weekly: buildTrend(completeResults, "week", generatedAt, 13),
-          monthly: buildTrend(
-            completeResults,
-            "month",
-            generatedAt,
-            monthlyBucketCount(completeResults, generatedAt),
-          ),
-        },
+        trends,
       };
     }),
+  };
+}
+
+function completedPeriodStatistics(trend) {
+  const bucket = trend.series.at(-2);
+  if (!bucket) throw new Error(`${trend.cadence} trend lacks a completed period`);
+  return {
+    key: bucket.key,
+    start: bucket.start,
+    end: bucket.end,
+    count: bucket.count,
+    p50: bucket.p50,
+    p90: bucket.p90,
+    plans: bucket.plans,
+    rolling: false,
+  };
+}
+
+function aggregatePeriod(results, key, start, end, rolling) {
+  const periodResults = results.filter((result) => {
+    const occurredAt = result.evidence?.endAt;
+    return (
+      occurredAt &&
+      new Date(occurredAt) >= start &&
+      new Date(occurredAt) < end
+    );
+  });
+  const values = periodResults.map((result) => result.value);
+  return {
+    key,
+    start: start.toISOString(),
+    end: end.toISOString(),
+    count: values.length,
+    p50: percentile(values, 0.5),
+    p90: percentile(values, 0.9),
+    plans: cohortPlans(periodResults),
+    rolling,
   };
 }
 
@@ -1125,12 +1179,15 @@ function buildTrend(results, cadence, generatedAt, bucketCount) {
   );
   const series = starts.map((start, index) => {
     const end = shiftBucket(start, cadence, 1);
-    const values = results
-      .filter((result) => {
-        const occurredAt = result.evidence?.endAt;
-        return occurredAt && new Date(occurredAt) >= start && new Date(occurredAt) < end;
-      })
-      .map((result) => result.value);
+    const bucketResults = results.filter((result) => {
+      const occurredAt = result.evidence?.endAt;
+      return (
+        occurredAt &&
+        new Date(occurredAt) >= start &&
+        new Date(occurredAt) < end
+      );
+    });
+    const values = bucketResults.map((result) => result.value);
     return {
       key: bucketKey(start, cadence),
       label: bucketLabel(start, cadence),
@@ -1140,6 +1197,7 @@ function buildTrend(results, cadence, generatedAt, bucketCount) {
       count: values.length,
       p50: percentile(values, 0.5),
       p90: percentile(values, 0.9),
+      plans: cohortPlans(bucketResults),
     };
   });
   return {
@@ -1149,6 +1207,28 @@ function buildTrend(results, cadence, generatedAt, bucketCount) {
     change: rollingPeriodChange(series, results, -2),
     liveChange: rollingPeriodChange(series, results, -1),
   };
+}
+
+function cohortPlans(results) {
+  const grouped = new Map();
+  for (const result of results) {
+    const plan = result.cohortPlan;
+    if (!grouped.has(plan.id)) grouped.set(plan.id, { ...plan, values: [] });
+    grouped.get(plan.id).values.push(result.value);
+  }
+  return [...grouped.values()]
+    .map(({ values, ...plan }) => ({
+      ...plan,
+      observationCount: values.length,
+      p50: percentile(values, 0.5),
+      p90: percentile(values, 0.9),
+    }))
+    .sort(
+      (left, right) =>
+        right.p50 - left.p50 ||
+        left.service.localeCompare(right.service) ||
+        String(left.id).localeCompare(String(right.id)),
+    );
 }
 
 function monthlyBucketCount(results, generatedAt) {
@@ -1164,13 +1244,13 @@ function monthlyBucketCount(results, generatedAt) {
         value >= earliestAllowed &&
         value <= currentStart,
     );
-  if (!dates.length) return 1;
+  if (!dates.length) return 2;
   const earliest = new Date(Math.min(...dates));
   const difference =
     (currentStart.getUTCFullYear() - earliest.getUTCFullYear()) * 12 +
     currentStart.getUTCMonth() -
     earliest.getUTCMonth();
-  return Math.min(12, Math.max(1, difference + 1));
+  return Math.min(12, Math.max(2, difference + 1));
 }
 
 function rollingPeriodChange(series, results, currentOffset) {
@@ -1262,6 +1342,18 @@ function shiftBucket(value, cadence, amount) {
   const date = new Date(value);
   if (cadence === "week") date.setUTCDate(date.getUTCDate() + amount * 7);
   else date.setUTCMonth(date.getUTCMonth() + amount);
+  return date;
+}
+
+function shiftUtcMonthClamped(value, amount) {
+  const date = new Date(value);
+  const day = date.getUTCDate();
+  date.setUTCDate(1);
+  date.setUTCMonth(date.getUTCMonth() + amount);
+  const lastDay = new Date(
+    Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0),
+  ).getUTCDate();
+  date.setUTCDate(Math.min(day, lastDay));
   return date;
 }
 

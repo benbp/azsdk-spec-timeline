@@ -314,28 +314,53 @@ select:focus-visible {
   line-height: 1.35;
 }
 
-.metric-strip p {
-  align-items: baseline;
+.period-summary-list {
   border-top: 1px solid #edf0f2;
-  display: flex;
-  justify-content: space-between;
-  margin: 0.75rem 0 0;
-  padding-top: 0.65rem;
-}
-
-.metric-strip p span,
-.metric-strip small {
-  color: var(--muted);
-  font-size: 0.75rem;
-}
-
-.metric-strip p b {
-  font-size: 1rem;
-}
-
-.metric-strip small {
-  display: block;
   margin-top: 0.75rem;
+}
+
+.period-summary-row {
+  align-items: center;
+  border-bottom: 1px solid #edf0f2;
+  display: grid;
+  gap: 0.25rem;
+  grid-template-columns: minmax(124px, 1fr) 48px 48px 30px;
+  min-height: 27px;
+  padding: 0.22rem 0;
+}
+
+.period-summary-row > div,
+.period-summary-row > span {
+  align-items: baseline;
+  display: flex;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.period-summary-row > div {
+  justify-content: space-between;
+}
+
+.period-summary-row > div strong {
+  color: var(--navy);
+  font-size: 0.65rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.period-summary-row small {
+  color: var(--muted);
+  font-size: 0.59rem;
+  white-space: nowrap;
+}
+
+.period-summary-row > span b {
+  font-size: 0.72rem;
+}
+
+.period-summary-row .period-count {
+  font-size: 0.62rem;
+  text-align: right;
 }
 
 .trend-toggle {
@@ -421,6 +446,7 @@ select:focus-visible {
   background: var(--teal);
   border: 0;
   border-radius: 1px 1px 0 0;
+  cursor: pointer;
   justify-self: stretch;
   min-width: 2px;
   padding: 0;
@@ -669,7 +695,7 @@ select:focus-visible {
 .chart-column {
   border: 0;
   border-radius: 2px 2px 0 0;
-  cursor: help;
+  cursor: pointer;
   max-width: 18px;
   min-height: 2px;
   padding: 0;
@@ -1668,6 +1694,70 @@ select:focus-visible {
   line-height: 1.55;
   margin: 1.4rem 0;
   padding: 1rem;
+}
+
+.cohort-drawer {
+  max-width: 520px;
+}
+
+.cohort-drawer .drawer-badges {
+  flex-wrap: wrap;
+}
+
+.cohort-plan-heading {
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+  padding-bottom: 0.65rem;
+}
+
+.cohort-plan-heading span {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.cohort-plan-list a {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  color: inherit;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 0.8rem 0;
+  text-decoration: none;
+}
+
+.cohort-plan-list a:hover,
+.cohort-plan-list a:focus-visible {
+  background: #f7f9fa;
+}
+
+.cohort-plan-list a > span {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cohort-plan-list a > span:last-child {
+  text-align: right;
+}
+
+.cohort-plan-list strong {
+  color: var(--navy);
+  font-size: 0.78rem;
+}
+
+.cohort-plan-list b {
+  color: var(--navy);
+  font-size: 0.82rem;
+}
+
+.cohort-plan-list small {
+  color: var(--muted);
+  font-size: 0.67rem;
+  line-height: 1.4;
 }
 
 .sr-only {

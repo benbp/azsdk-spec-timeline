@@ -24,6 +24,8 @@ if (plans.length !== manifest.counts.plans)
   errors.push(
     `Manifest says ${manifest.counts.plans} plans but ${plans.length} exist`,
   );
+if (manifest.minimumUiVersion !== 3)
+  errors.push("Manifest minimum UI version is outdated");
 
 validateSelection(selection);
 for (const plan of plans) validatePlan(plan, selection);
@@ -54,54 +56,61 @@ function validateScorecard(value, sourcePlans, selection) {
   const cohortMonth = new Date(selection.startAt);
   cohortMonth.setUTCDate(1);
   cohortMonth.setUTCHours(0, 0, 0, 0);
-  const statisticsPeriod = value.cohort?.statisticsPeriod;
+  const eligiblePlans = sourcePlans.filter(
+    (plan) => ["new", "in-progress", "finished"].includes(plan.state),
+  );
+  if (value.schemaVersion !== 3)
+    errors.push("Scorecard schema version is outdated");
   if (
-    statisticsPeriod?.kind !== "rolling-30-days" ||
-    !statisticsPeriod.startAt ||
-    !statisticsPeriod.endAt
+    value.cohort?.kind !==
+      "core-correlated-active-or-finished-management-plane" ||
+    value.cohort?.eligiblePlanCount !== eligiblePlans.length ||
+    value.cohort?.totalPlanCount !== sourcePlans.length
   )
-    errors.push("Scorecard statistics period is missing");
+    errors.push("Scorecard eligible-flow cohort does not reconcile");
+  for (const state of ["abandoned", "duplicate"]) {
+    const expected = sourcePlans.filter((plan) => plan.state === state).length;
+    if (value.cohort?.excludedStateCounts?.[state] !== expected)
+      errors.push(`Scorecard excluded ${state} count does not reconcile`);
+  }
+  if (value.cohort?.statisticsPeriod)
+    errors.push("Scorecard still publishes a rolling statistics period");
+
   for (const metric of value.metrics || []) {
-    const completeResults = sourcePlans
-      .filter((plan) => plan.state === "finished")
-      .flatMap((plan) =>
-        plan.metrics.filter(
-          (result) =>
-            result.metricId === metric.metricId &&
-            result.outcome === "complete",
-        ),
-      );
-    const periodValues = completeResults
-      .filter(
-        (result) =>
-            result.evidence?.endAt &&
-            new Date(result.evidence.endAt) >=
-              new Date(statisticsPeriod.startAt) &&
-            new Date(result.evidence.endAt) <=
-              new Date(statisticsPeriod.endAt),
-      )
-      .map((result) => result.value);
-    if (metric.statisticsPopulation?.included !== periodValues.length)
-      errors.push(
-        `${metric.metricId}: statistics-period population does not reconcile`,
-      );
-    for (const [field, quantile] of [
-      ["p50", 0.5],
-      ["p90", 0.9],
-    ]) {
-      if (metric.statistics[field] !== percentile(periodValues, quantile))
-        errors.push(
-          `${metric.metricId}: statistics-period ${field} does not reconcile`,
-        );
-    }
+    const results = eligiblePlans.flatMap((plan) =>
+      plan.metrics
+        .filter((result) => result.metricId === metric.metricId)
+        .map((result) => ({
+          ...result,
+          cohortPlan: {
+            id: plan.id,
+            releasePlanId: plan.releasePlanId,
+            title: plan.title,
+            service: plan.service,
+            state: plan.state,
+          },
+        })),
+    );
+    const completeResults = results.filter(
+      (result) => result.outcome === "complete",
+    );
+    const eligibleResults = results.filter(
+      (result) => result.outcome !== "ineligible",
+    );
+    if ("statistics" in metric || "statisticsPopulation" in metric)
+      errors.push(`${metric.metricId}: obsolete rolling statistics remain`);
     const population = metric.population;
-    const eligibleNotIncluded =
-      population.incomplete +
-      population.censored +
-      population.excluded;
     if (
-      population.included + eligibleNotIncluded !==
-      population.eligible
+      population.eligible !== eligibleResults.length ||
+      population.included !== completeResults.length ||
+      population.incomplete !==
+        results.filter((result) => result.outcome === "incomplete").length ||
+      population.censored !==
+        results.filter((result) => result.outcome === "censored").length ||
+      population.excluded !==
+        results.filter((result) => result.outcome === "excluded").length ||
+      population.ineligible !==
+        results.filter((result) => result.outcome === "ineligible").length
     )
       errors.push(`${metric.metricId}: aggregate population does not reconcile`);
     const confidenceTotal = Object.values(metric.confidenceCounts).reduce(
@@ -115,22 +124,17 @@ function validateScorecard(value, sourcePlans, selection) {
       const validLength =
         cadence === "weekly"
           ? trend?.series.length === 13
-          : trend?.series.length >= 1 && trend.series.length <= 12;
+          : trend?.series.length >= 2 && trend.series.length <= 12;
       if (!trend || !validLength) {
         errors.push(`${metric.metricId}: invalid ${cadence} trend length`);
         continue;
       }
       if (
         cadence === "monthly" &&
-        new Date(trend.series[0].start) < cohortMonth
+        new Date(trend.series[0].start) < cohortMonth &&
+        trend.series[0].count > 0
       )
         errors.push(`${metric.metricId}: monthly trend predates cohort`);
-      if (
-        cadence === "monthly" &&
-        trend.series.length > 1 &&
-        trend.series[0].count === 0
-      )
-        errors.push(`${metric.metricId}: monthly trend has a leading empty bucket`);
 
       for (const bucket of trend.series) {
         if (bucket.count === 0 && (bucket.p50 !== null || bucket.p90 !== null))
@@ -141,12 +145,30 @@ function validateScorecard(value, sourcePlans, selection) {
           errors.push(
             `${metric.metricId}: populated ${cadence} bucket ${bucket.key} lacks statistics`,
           );
+        const bucketResults = resultsForPeriod(
+          completeResults,
+          bucket.start,
+          bucket.end,
+        );
+        if (
+          !cohortsEqual(bucket.plans, expectedCohortPlans(bucketResults))
+        )
+          errors.push(
+            `${metric.metricId}: ${cadence} bucket ${bucket.key} plan cohort drifted`,
+          );
       }
       if (
         trend.comparison !==
         "current-period-p50-vs-prior-three-month-p50"
       )
         errors.push(`${metric.metricId}: ${cadence} comparison is outdated`);
+      validatePeriodStatistics(
+        metric.metricId,
+        cadence,
+        metric.periodStatistics?.[cadence],
+        trend,
+        completeResults,
+      );
       validateTrendChange(
         metric.metricId,
         cadence,
@@ -164,6 +186,139 @@ function validateScorecard(value, sourcePlans, selection) {
         completeResults,
       );
     }
+    const rollingEnd = new Date(value.cohort.generatedAt);
+    const rollingWeekStart = new Date(
+      rollingEnd.getTime() - 7 * 86_400_000,
+    );
+    const rollingMonthStart = shiftUtcMonthClamped(rollingEnd, -1);
+    validateRollingPeriod(
+      metric.metricId,
+      metric.periodStatistics?.rollingWeek,
+      "rolling-week",
+      rollingWeekStart,
+      rollingEnd,
+      completeResults,
+    );
+    validateRollingPeriod(
+      metric.metricId,
+      metric.periodStatistics?.rollingMonth,
+      "rolling-month",
+      rollingMonthStart,
+      rollingEnd,
+      completeResults,
+    );
+  }
+
+  function validatePeriodStatistics(metricId, cadence, summary, trend, results) {
+    const bucket = trend.series.at(-2);
+    if (!bucket || !summary) {
+      errors.push(`${metricId}: ${cadence} completed-period summary is missing`);
+      return;
+    }
+    for (const field of ["key", "start", "end", "count", "p50", "p90"]) {
+      if (summary[field] !== bucket[field])
+        errors.push(
+          `${metricId}: ${cadence} completed-period ${field} does not match trend`,
+        );
+    }
+    if (summary.rolling !== false)
+      errors.push(`${metricId}: ${cadence} completed period is marked rolling`);
+    const periodResults = resultsForPeriod(
+      results,
+      summary.start,
+      summary.end,
+    );
+    const values = periodResults.map((result) => result.value);
+    if (
+      summary.count !== values.length ||
+      summary.p50 !== percentile(values, 0.5) ||
+      summary.p90 !== percentile(values, 0.9) ||
+      !cohortsEqual(summary.plans, expectedCohortPlans(periodResults))
+    )
+      errors.push(
+        `${metricId}: ${cadence} completed-period population does not reconcile`,
+      );
+  }
+
+  function validateRollingPeriod(
+    metricId,
+    summary,
+    key,
+    start,
+    end,
+    results,
+  ) {
+    if (
+      !summary ||
+      summary.key !== key ||
+      summary.start !== start.toISOString() ||
+      summary.end !== end.toISOString() ||
+      summary.rolling !== true
+    ) {
+      errors.push(`${metricId}: ${key} boundary drifted`);
+      return;
+    }
+    const periodResults = resultsForPeriod(results, start, end);
+    const values = periodResults.map((result) => result.value);
+    if (
+      summary.count !== values.length ||
+      summary.p50 !== percentile(values, 0.5) ||
+      summary.p90 !== percentile(values, 0.9) ||
+      !cohortsEqual(summary.plans, expectedCohortPlans(periodResults))
+    )
+      errors.push(`${metricId}: ${key} population does not reconcile`);
+  }
+
+  function resultsForPeriod(results, start, end) {
+    return results.filter(
+      (result) =>
+        result.evidence?.endAt &&
+        new Date(result.evidence.endAt) >= new Date(start) &&
+        new Date(result.evidence.endAt) < new Date(end),
+    );
+  }
+
+  function expectedCohortPlans(results) {
+    const grouped = new Map();
+    for (const result of results) {
+      const plan = result.cohortPlan;
+      if (!grouped.has(plan.id)) grouped.set(plan.id, { ...plan, values: [] });
+      grouped.get(plan.id).values.push(result.value);
+    }
+    return [...grouped.values()]
+      .map(({ values, ...plan }) => ({
+        ...plan,
+        observationCount: values.length,
+        p50: percentile(values, 0.5),
+        p90: percentile(values, 0.9),
+      }))
+      .sort(
+        (left, right) =>
+          right.p50 - left.p50 ||
+          left.service.localeCompare(right.service) ||
+          String(left.id).localeCompare(String(right.id)),
+      );
+  }
+
+  function cohortsEqual(actual, expected) {
+    const normalize = (plans) =>
+      [...(plans || [])]
+        .map((plan) => ({
+          id: plan.id,
+          releasePlanId: plan.releasePlanId,
+          title: plan.title,
+          service: plan.service,
+          state: plan.state,
+          observationCount: plan.observationCount,
+          p50: plan.p50,
+          p90: plan.p90,
+        }))
+        .sort((left, right) =>
+          String(left.id).localeCompare(String(right.id)),
+        );
+    return (
+      JSON.stringify(normalize(actual)) === JSON.stringify(normalize(expected))
+    );
   }
 }
 
@@ -173,13 +328,21 @@ function percentile(values, quantile) {
   const index = (sorted.length - 1) * quantile;
   const lower = Math.floor(index);
   const upper = Math.ceil(index);
-  if (lower === upper) return Math.round(sorted[lower] * 10) / 10;
-  const weight = index - lower;
-  return (
-    Math.round(
-      (sorted[lower] * (1 - weight) + sorted[upper] * weight) * 10,
-    ) / 10
-  );
+  const interpolated =
+    sorted[lower] + (sorted[upper] - sorted[lower]) * (index - lower);
+  return Math.round(interpolated * 10) / 10;
+}
+
+function shiftUtcMonthClamped(value, amount) {
+  const date = new Date(value);
+  const day = date.getUTCDate();
+  date.setUTCDate(1);
+  date.setUTCMonth(date.getUTCMonth() + amount);
+  const lastDay = new Date(
+    Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0),
+  ).getUTCDate();
+  date.setUTCDate(Math.min(day, lastDay));
+  return date;
 }
 
 function validateTrendChange(

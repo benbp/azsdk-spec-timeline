@@ -129,34 +129,23 @@ Verify:
 - Date range covers the expected lookback period
 - No obvious gaps in the timeline (missing languages, unexpected zero counts)
 
-### Step 6: Add to UI Samples (Optional)
+### Step 6: Preserve the Generated Artifact
 
-If the user wants this as a permanent sample, add it to the `SERVICE_SAMPLES` array in `js/ui.js`:
-
-```javascript
-// In the SERVICE_SAMPLES array at the top of js/ui.js
-{
-    file: 'data/service-<name>.json',
-    name: '<ServiceName>',
-    description: '<N> spec PRs · <M> SDK PRs · <L> languages · <W> release windows · 1yr lookback'
-}
-```
+The current portfolio SPA does not maintain a hardcoded sample registry.
+Keep the generated service timeline as a standalone data artifact unless the
+user explicitly requests migration into the normalized snapshot pipeline.
 
 ### Step 7: Verify in Browser
 
-Start the local server and verify the timeline renders:
+Start the local server:
 
 ```bash
-npx http-server . -p 8765
-# Open http://localhost:8765
+python3 -m http.server 4173
+# Open http://localhost:4173
 ```
 
-Or use the `playwright-cli` skill to automate browser verification:
-```
-Click the service timeline sample button on the homepage
-Verify the service header, window selector, summary cards, and swim lanes render
-Click a release window pill and verify metrics update
-```
+Use the `playwright-cli` skill to automate browser verification after an
+artifact has been integrated into the active SPA.
 
 ## Data Model Reference
 

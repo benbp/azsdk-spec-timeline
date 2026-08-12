@@ -10,23 +10,25 @@ This repo is a waterfall timeline visualization for the Azure SDK generation pro
 
 **Tech stack**: Vanilla HTML, CSS, JavaScript. No frameworks, no bundler, no build step.
 
-**Entry point**: `index.html` — single-page app with a homepage (sample list) and timeline view.
+**Entry point**: `index.html` — single-page portfolio and plan timeline app.
 
-### JavaScript modules (IIFE pattern)
+### JavaScript modules
 
-| File | Module | Role |
+| File | Role |
 |---|---|---|
-| `js/timeline.js` | `Timeline` | Core renderer: swim lanes, time axis, event markers, idle gaps, gap compaction, zoom, collision resolution |
-| `js/ui.js` | `UI` | Tooltips, detail panel, file loading, theme toggle, actor/event type filters, homepage sample list |
-| `js/data-loader.js` | `DataLoader` | JSON validation and loading |
+| `js/app.js` | Alpine application, routing, formatting, and UI interaction |
+| `js/data-store.js` | Snapshot bootstrap and lazy plan loading |
+| `js/calculation-engine.mjs` | Shared browser/Node analytics and scorecard calculations |
+| `js/timeline-scale.js` | Plan timeline scale and positioning |
 
 ### Styles
 
-`css/styles.css` — all CSS in one file. Dark/light theme via `html[data-theme]`.
+`css/site.css` — all active application styles.
 
 ### Data
 
-`data/sample-*.json` — pre-generated timeline datasets. Each file is a self-contained timeline.
+`data/snapshot.json` is the normalized startup contract. Immutable detailed
+plan documents are lazy-loaded from the path template in the snapshot.
 
 ### Scripts (Node.js, run via CLI)
 
@@ -55,15 +57,13 @@ node scripts/fetch-timeline.js <spec-pr-url> --sdk-prs <url1> <url2> ... [--skip
 node scripts/process-timeline.js raw.json data/sample-<name>.json "<Title>"
 ```
 
-After generating, add an entry to the `SAMPLES` array in `js/ui.js`.
-
 To run the full pipeline with AI-assisted analysis, invoke the `generate-timeline-data` skill.
 
 ## Running Locally
 
 ```bash
-npx http-server . -p 8765
-# Open http://localhost:8765
+python3 -m http.server 4173
+# Open http://localhost:4173
 ```
 
 No build step needed — edit files and reload.
@@ -78,8 +78,8 @@ No build step needed — edit files and reload.
 ## Approach to Making Changes
 
 - Edit files directly and reload — no compilation or transpilation.
-- CSS is in one file (`css/styles.css`). JS uses the IIFE module pattern (`Timeline`, `UI`, `DataLoader`).
-- When adding new timeline datasets: generate data via the pipeline, add to SAMPLES in `js/ui.js`, test with `playwright-cli`.
+- CSS is in one file (`css/site.css`). Active JavaScript uses ES modules and Alpine.
+- Refresh portfolio data through the normalized snapshot pipeline and test with `playwright-cli`.
 - When changing rendering: test across multiple datasets (different sizes, in-flight vs complete, with/without releases).
 - File naming for data: `data/sample-<lowercase-name>.json`.
 

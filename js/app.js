@@ -281,7 +281,7 @@ Alpine.data("timelineApp", () => ({
   columnTooltip(bucket, field) {
     if (bucket[field] === null)
       return `${bucket.label}: no completed stage data`;
-    return `${bucket.label}${bucket.partial ? " (partial)" : ""}: ${field.toUpperCase()} ${this.formatDuration(bucket[field])}, n=${bucket.count} completed stage observation${bucket.count === 1 ? "" : "s"}`;
+    return `${bucket.label}${bucket.partial ? " (partial)" : ""}: ${field.toUpperCase()} ${this.formatDuration(bucket[field])}, n=${bucket.count} completed stage observation${bucket.count === 1 ? "" : "s"} · Click to see release plans`;
   },
 
   bucketAxisLabel(bucket, index, length, cadence) {

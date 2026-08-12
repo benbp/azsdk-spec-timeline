@@ -30,6 +30,9 @@ python3 -m http.server 4173
 
 Then open <http://localhost:4173/>.
 
+Opening `index.html` directly with a `file://` URL is not supported because
+the browser blocks ES module imports and JSON requests from local files.
+
 The dashboard intentionally targets desktop browsers and uses a fixed-width
 desktop canvas rather than mobile-specific layouts.
 

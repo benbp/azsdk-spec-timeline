@@ -144,8 +144,8 @@ const DataLoader = (() => {
         };
         xhr.onerror = () => reject(new Error(
           'Cannot load data files from file:// protocol.\n\n' +
-          'Run a local server:\n  python3 -m http.server 8080\n\n' +
-          'Then open http://localhost:8080'
+          'Run a local server:\n  python3 -m http.server 4173\n\n' +
+          'Then open http://localhost:4173'
         ));
         xhr.send();
       });

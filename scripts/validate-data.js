@@ -1,408 +1,180 @@
 #!/usr/bin/env node
 
-const { existsSync, readdirSync, readFileSync } = require("node:fs");
+const { createHash } = require("node:crypto");
+const {
+  existsSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+} = require("node:fs");
 const { join } = require("node:path");
 const { parseArgs, readJson } = require("./lib/v2-common");
 
-const args = parseArgs(process.argv.slice(2), { data: "data" });
-const manifest = readJson(join(args.data, "manifest.json"));
-const root = join(args.data, "builds", manifest.buildId);
+const args = parseArgs(process.argv.slice(2), {
+  data: "data",
+  snapshot: "",
+  parityPortfolio: "",
+  parityScorecard: "",
+});
 const errors = [];
-const planDirectory = join(root, "plans");
 
-if (!existsSync(planDirectory)) errors.push("Plan directory is missing");
-const plans = existsSync(planDirectory)
-  ? readdirSync(planDirectory)
-      .filter((name) => name.endsWith(".json"))
-      .map((name) => readJson(join(planDirectory, name)))
-  : [];
-const portfolio = readJson(join(root, "portfolio.json"));
-const scorecard = readJson(join(root, "aggregates", "scorecard.json"));
-const selection = portfolio.selection;
-
-if (plans.length !== manifest.counts.plans)
-  errors.push(
-    `Manifest says ${manifest.counts.plans} plans but ${plans.length} exist`,
-  );
-if (manifest.minimumUiVersion !== 3)
-  errors.push("Manifest minimum UI version is outdated");
-
-validateSelection(selection);
-for (const plan of plans) validatePlan(plan, selection);
-validateScorecard(scorecard, plans, selection);
-scanPublishedFiles(args.data);
-
-if (errors.length) {
-  console.error(errors.map((error) => `- ${error}`).join("\n"));
+main().catch((error) => {
+  console.error(error.stack || error.message);
   process.exitCode = 1;
-} else {
-  console.log(
-    `Validated ${plans.length} plans and ${plans.reduce((sum, plan) => sum + plan.events.length, 0)} events`,
+});
+
+async function main() {
+  const {
+    CALCULATION_ENGINE_VERSION,
+    buildScorecard,
+    calculateSnapshot,
+    derivePlanAnalytics,
+    hydratePlan,
+    percentile,
+    shiftUtcMonthClamped,
+  } = await import("../js/calculation-engine.mjs");
+  const snapshot = readJson(
+    args.snapshot || join(args.data, "snapshot.json"),
   );
+  const root = join(args.data, "builds", snapshot.snapshotId);
+  const planDirectory = join(root, "plans");
+  const plans = existsSync(planDirectory)
+    ? readdirSync(planDirectory)
+        .filter((name) => name.endsWith(".json"))
+        .map((name) => readJson(join(planDirectory, name)))
+    : [];
+
+  validateSnapshot(snapshot, plans, root);
+  for (const plan of plans) validatePlan(plan, snapshot.selection, hydratePlan);
+
+  let first;
+  let second;
+  try {
+    first = calculateSnapshot(snapshot);
+    second = calculateSnapshot(snapshot);
+  } catch (error) {
+    errors.push(`Calculation failed: ${error.message}`);
+  }
+  if (first && JSON.stringify(first) !== JSON.stringify(second))
+    errors.push("Calculation engine output is not deterministic");
+  if (first) validateCalculated(first, snapshot);
+
+  validateFixtures({
+    buildScorecard,
+    derivePlanAnalytics,
+    percentile,
+    shiftUtcMonthClamped,
+  });
+
+  if (args.parityScorecard && first) {
+    const legacy = readJson(args.parityScorecard);
+    const current = structuredClone(first.scorecard);
+    delete current.calculationEngineVersion;
+    if (JSON.stringify(current) !== JSON.stringify(legacy))
+      errors.push("Shared-engine scorecard does not match migration baseline");
+  }
+  if (args.parityPortfolio && first) {
+    const legacy = readJson(args.parityPortfolio);
+    const planSummary = (plans) =>
+      plans.map(({ id, quality, warnings }) => ({ id, quality, warnings }));
+    if (
+      JSON.stringify(first.portfolio.kpis) !== JSON.stringify(legacy.kpis) ||
+      JSON.stringify(planSummary(first.portfolio.plans)) !==
+        JSON.stringify(planSummary(legacy.plans))
+    )
+      errors.push("Dynamic portfolio calculations do not match migration baseline");
+  }
+
+  scanPublishedFile(args.snapshot || join(args.data, "snapshot.json"));
+  scanPublishedFiles(root);
+  if (errors.length) {
+    console.error(errors.map((error) => `- ${error}`).join("\n"));
+    process.exitCode = 1;
+  } else {
+    console.log(
+      `Validated snapshot ${snapshot.snapshotId}: ${plans.length} plans, ${snapshot.counts.events} events, deterministic engine v${CALCULATION_ENGINE_VERSION}`,
+    );
+  }
+}
+
+function validateSnapshot(snapshot, plans, root) {
+  if (snapshot.schemaVersion !== 2 || snapshot.dataSchemaVersion !== 2)
+    errors.push("Snapshot schema version is unsupported");
+  for (const field of [
+    "calculationEngineVersion",
+    "scorecard",
+    "definitions",
+  ]) {
+    if (field in snapshot)
+      errors.push(`Snapshot publishes derived field ${field}`);
+  }
+  if (snapshot.portfolio?.kpis)
+    errors.push("Snapshot publishes derived portfolio KPIs");
+  if (!snapshot.snapshotId || !validDate(snapshot.generatedAt))
+    errors.push("Snapshot identity or generatedAt is invalid");
+  if (plans.length !== snapshot.counts?.plans)
+    errors.push(`Snapshot says ${snapshot.counts?.plans} plans but ${plans.length} exist`);
+  if (snapshot.portfolio?.plans?.length !== plans.length)
+    errors.push("Portfolio index does not reconcile with detailed plans");
+  if (snapshot.facts?.plans?.length !== plans.length)
+    errors.push("Boundary facts do not reconcile with detailed plans");
+  if (!snapshot.paths?.plan?.includes("{id}"))
+    errors.push("Immutable plan path template is missing");
+  if (Object.keys(snapshot.paths || {}).some((path) => path !== "plan"))
+    errors.push("Snapshot publishes unused immutable view paths");
+  validateSelection(snapshot.selection);
+
+  const ids = new Set(snapshot.facts?.plans?.map((plan) => String(plan.id)));
+  if (ids.size !== plans.length)
+    errors.push("Boundary fact plan identities are missing or duplicated");
+  const portfolioIds = new Set(
+    snapshot.portfolio?.plans?.map((plan) => String(plan.id)),
+  );
+  if (
+    ids.size !== portfolioIds.size ||
+    [...ids].some((id) => !portfolioIds.has(id))
+  )
+    errors.push("Portfolio index and boundary-fact identities do not reconcile");
+  for (const [relative, expected] of Object.entries(snapshot.hashes || {})) {
+    if (!/^plans\/[^/]+\.json$/.test(relative))
+      errors.push(`Unexpected immutable view file: ${relative}`);
+    const path = join(root, relative);
+    if (!existsSync(path)) {
+      errors.push(`Hashed file is missing: ${relative}`);
+      continue;
+    }
+    const actual = createHash("sha256").update(readFileSync(path)).digest("hex");
+    if (actual !== expected) errors.push(`Hash mismatch: ${relative}`);
+  }
+  const actualFiles = listFiles(root);
+  if (actualFiles.length !== Object.keys(snapshot.hashes || {}).length)
+    errors.push("Snapshot hash inventory does not cover every immutable file");
+  const planById = new Map(plans.map((plan) => [String(plan.id), plan]));
+  for (const fact of snapshot.facts?.plans || []) {
+    const detail = planById.get(String(fact.id));
+    if (detail && JSON.stringify(fact) !== JSON.stringify(detail.boundaryFacts))
+      errors.push(`${fact.id}: bootstrap and detailed facts drifted`);
+    if (fact.metrics || fact.intervals)
+      errors.push(`${fact.id}: bootstrap publishes derived analytics`);
+  }
 }
 
 function validateSelection(selection) {
   const start = new Date(selection?.startAt);
   const end = new Date(selection?.endAt);
-  if (
-    Number.isNaN(start.getTime()) ||
-    Number.isNaN(end.getTime()) ||
-    start >= end
-  )
+  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || start >= end)
     errors.push("Portfolio selection window is invalid");
 }
 
-function validateScorecard(value, sourcePlans, selection) {
-  const cohortMonth = new Date(selection.startAt);
-  cohortMonth.setUTCDate(1);
-  cohortMonth.setUTCHours(0, 0, 0, 0);
-  const eligiblePlans = sourcePlans.filter(
-    (plan) => ["new", "in-progress", "finished"].includes(plan.state),
-  );
-  if (value.schemaVersion !== 3)
-    errors.push("Scorecard schema version is outdated");
-  if (
-    value.cohort?.kind !==
-      "core-correlated-active-or-finished-management-plane" ||
-    value.cohort?.eligiblePlanCount !== eligiblePlans.length ||
-    value.cohort?.totalPlanCount !== sourcePlans.length
-  )
-    errors.push("Scorecard eligible-flow cohort does not reconcile");
-  for (const state of ["abandoned", "duplicate"]) {
-    const expected = sourcePlans.filter((plan) => plan.state === state).length;
-    if (value.cohort?.excludedStateCounts?.[state] !== expected)
-      errors.push(`Scorecard excluded ${state} count does not reconcile`);
-  }
-  if (value.cohort?.statisticsPeriod)
-    errors.push("Scorecard still publishes a rolling statistics period");
-
-  for (const metric of value.metrics || []) {
-    const results = eligiblePlans.flatMap((plan) =>
-      plan.metrics
-        .filter((result) => result.metricId === metric.metricId)
-        .map((result) => ({
-          ...result,
-          cohortPlan: {
-            id: plan.id,
-            releasePlanId: plan.releasePlanId,
-            title: plan.title,
-            service: plan.service,
-            state: plan.state,
-          },
-        })),
-    );
-    const completeResults = results.filter(
-      (result) => result.outcome === "complete",
-    );
-    const eligibleResults = results.filter(
-      (result) => result.outcome !== "ineligible",
-    );
-    if ("statistics" in metric || "statisticsPopulation" in metric)
-      errors.push(`${metric.metricId}: obsolete rolling statistics remain`);
-    const population = metric.population;
-    if (
-      population.eligible !== eligibleResults.length ||
-      population.included !== completeResults.length ||
-      population.incomplete !==
-        results.filter((result) => result.outcome === "incomplete").length ||
-      population.censored !==
-        results.filter((result) => result.outcome === "censored").length ||
-      population.excluded !==
-        results.filter((result) => result.outcome === "excluded").length ||
-      population.ineligible !==
-        results.filter((result) => result.outcome === "ineligible").length
-    )
-      errors.push(`${metric.metricId}: aggregate population does not reconcile`);
-    const confidenceTotal = Object.values(metric.confidenceCounts).reduce(
-      (sum, count) => sum + count,
-      0,
-    );
-    if (confidenceTotal !== population.included)
-      errors.push(`${metric.metricId}: confidence counts do not reconcile`);
-    for (const cadence of ["weekly", "monthly"]) {
-      const trend = metric.trends?.[cadence];
-      const validLength =
-        cadence === "weekly"
-          ? trend?.series.length === 13
-          : trend?.series.length >= 2 && trend.series.length <= 12;
-      if (!trend || !validLength) {
-        errors.push(`${metric.metricId}: invalid ${cadence} trend length`);
-        continue;
-      }
-      if (
-        cadence === "monthly" &&
-        new Date(trend.series[0].start) < cohortMonth &&
-        trend.series[0].count > 0
-      )
-        errors.push(`${metric.metricId}: monthly trend predates cohort`);
-
-      for (const bucket of trend.series) {
-        if (bucket.count === 0 && (bucket.p50 !== null || bucket.p90 !== null))
-          errors.push(
-            `${metric.metricId}: empty ${cadence} bucket ${bucket.key} has statistics`,
-          );
-        if (bucket.count > 0 && (bucket.p50 === null || bucket.p90 === null))
-          errors.push(
-            `${metric.metricId}: populated ${cadence} bucket ${bucket.key} lacks statistics`,
-          );
-        const bucketResults = resultsForPeriod(
-          completeResults,
-          bucket.start,
-          bucket.end,
-        );
-        if (
-          !cohortsEqual(bucket.plans, expectedCohortPlans(bucketResults))
-        )
-          errors.push(
-            `${metric.metricId}: ${cadence} bucket ${bucket.key} plan cohort drifted`,
-          );
-      }
-      if (
-        trend.comparison !==
-        "current-period-p50-vs-prior-three-month-p50"
-      )
-        errors.push(`${metric.metricId}: ${cadence} comparison is outdated`);
-      validatePeriodStatistics(
-        metric.metricId,
-        cadence,
-        metric.periodStatistics?.[cadence],
-        trend,
-        completeResults,
-      );
-      validateTrendChange(
-        metric.metricId,
-        cadence,
-        trend,
-        "change",
-        -2,
-        completeResults,
-      );
-      validateTrendChange(
-        metric.metricId,
-        cadence,
-        trend,
-        "liveChange",
-        -1,
-        completeResults,
-      );
-    }
-    const rollingEnd = new Date(value.cohort.generatedAt);
-    const rollingWeekStart = new Date(
-      rollingEnd.getTime() - 7 * 86_400_000,
-    );
-    const rollingMonthStart = shiftUtcMonthClamped(rollingEnd, -1);
-    validateRollingPeriod(
-      metric.metricId,
-      metric.periodStatistics?.rollingWeek,
-      "rolling-week",
-      rollingWeekStart,
-      rollingEnd,
-      completeResults,
-    );
-    validateRollingPeriod(
-      metric.metricId,
-      metric.periodStatistics?.rollingMonth,
-      "rolling-month",
-      rollingMonthStart,
-      rollingEnd,
-      completeResults,
-    );
-  }
-
-  function validatePeriodStatistics(metricId, cadence, summary, trend, results) {
-    const bucket = trend.series.at(-2);
-    if (!bucket || !summary) {
-      errors.push(`${metricId}: ${cadence} completed-period summary is missing`);
-      return;
-    }
-    for (const field of ["key", "start", "end", "count", "p50", "p90"]) {
-      if (summary[field] !== bucket[field])
-        errors.push(
-          `${metricId}: ${cadence} completed-period ${field} does not match trend`,
-        );
-    }
-    if (summary.rolling !== false)
-      errors.push(`${metricId}: ${cadence} completed period is marked rolling`);
-    const periodResults = resultsForPeriod(
-      results,
-      summary.start,
-      summary.end,
-    );
-    const values = periodResults.map((result) => result.value);
-    if (
-      summary.count !== values.length ||
-      summary.p50 !== percentile(values, 0.5) ||
-      summary.p90 !== percentile(values, 0.9) ||
-      !cohortsEqual(summary.plans, expectedCohortPlans(periodResults))
-    )
-      errors.push(
-        `${metricId}: ${cadence} completed-period population does not reconcile`,
-      );
-  }
-
-  function validateRollingPeriod(
-    metricId,
-    summary,
-    key,
-    start,
-    end,
-    results,
-  ) {
-    if (
-      !summary ||
-      summary.key !== key ||
-      summary.start !== start.toISOString() ||
-      summary.end !== end.toISOString() ||
-      summary.rolling !== true
-    ) {
-      errors.push(`${metricId}: ${key} boundary drifted`);
-      return;
-    }
-    const periodResults = resultsForPeriod(results, start, end);
-    const values = periodResults.map((result) => result.value);
-    if (
-      summary.count !== values.length ||
-      summary.p50 !== percentile(values, 0.5) ||
-      summary.p90 !== percentile(values, 0.9) ||
-      !cohortsEqual(summary.plans, expectedCohortPlans(periodResults))
-    )
-      errors.push(`${metricId}: ${key} population does not reconcile`);
-  }
-
-  function resultsForPeriod(results, start, end) {
-    return results.filter(
-      (result) =>
-        result.evidence?.endAt &&
-        new Date(result.evidence.endAt) >= new Date(start) &&
-        new Date(result.evidence.endAt) < new Date(end),
-    );
-  }
-
-  function expectedCohortPlans(results) {
-    const grouped = new Map();
-    for (const result of results) {
-      const plan = result.cohortPlan;
-      if (!grouped.has(plan.id)) grouped.set(plan.id, { ...plan, values: [] });
-      grouped.get(plan.id).values.push(result.value);
-    }
-    return [...grouped.values()]
-      .map(({ values, ...plan }) => ({
-        ...plan,
-        observationCount: values.length,
-        p50: percentile(values, 0.5),
-        p90: percentile(values, 0.9),
-      }))
-      .sort(
-        (left, right) =>
-          right.p50 - left.p50 ||
-          left.service.localeCompare(right.service) ||
-          String(left.id).localeCompare(String(right.id)),
-      );
-  }
-
-  function cohortsEqual(actual, expected) {
-    const normalize = (plans) =>
-      [...(plans || [])]
-        .map((plan) => ({
-          id: plan.id,
-          releasePlanId: plan.releasePlanId,
-          title: plan.title,
-          service: plan.service,
-          state: plan.state,
-          observationCount: plan.observationCount,
-          p50: plan.p50,
-          p90: plan.p90,
-        }))
-        .sort((left, right) =>
-          String(left.id).localeCompare(String(right.id)),
-        );
-    return (
-      JSON.stringify(normalize(actual)) === JSON.stringify(normalize(expected))
-    );
-  }
-}
-
-function percentile(values, quantile) {
-  if (!values.length) return null;
-  const sorted = [...values].sort((left, right) => left - right);
-  const index = (sorted.length - 1) * quantile;
-  const lower = Math.floor(index);
-  const upper = Math.ceil(index);
-  const interpolated =
-    sorted[lower] + (sorted[upper] - sorted[lower]) * (index - lower);
-  return Math.round(interpolated * 10) / 10;
-}
-
-function shiftUtcMonthClamped(value, amount) {
-  const date = new Date(value);
-  const day = date.getUTCDate();
-  date.setUTCDate(1);
-  date.setUTCMonth(date.getUTCMonth() + amount);
-  const lastDay = new Date(
-    Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0),
-  ).getUTCDate();
-  date.setUTCDate(Math.min(day, lastDay));
-  return date;
-}
-
-function validateTrendChange(
-  metricId,
-  cadence,
-  trend,
-  field,
-  currentOffset,
-  results,
-) {
-  const currentIndex = trend.series.length + currentOffset;
-  const current = trend.series[currentIndex];
-  const change = trend[field];
-  if (!current) {
-    if (
-      change.currentKey !== null ||
-      change.outcome !== "insufficient-data" ||
-      change.baselinePeriodCount !== 0 ||
-      change.baselineSampleCount !== 0
-    )
-      errors.push(`${metricId}: ${cadence} ${field} empty baseline drifted`);
-    return;
-  }
-  const baselineStart = new Date(current.start);
-  baselineStart.setUTCMonth(baselineStart.getUTCMonth() - 3);
-  const baseline = trend.series
-    .slice(0, currentIndex)
-    .filter(
-      (bucket) =>
-        new Date(bucket.start) >= baselineStart && bucket.p50 !== null,
-    );
-  const expectedKeys = baseline.map((bucket) => bucket.key);
-  if (
-    change.currentKey !== current.key ||
-    change.baselinePeriodCount !== expectedKeys.length ||
-    JSON.stringify(change.baselineKeys) !== JSON.stringify(expectedKeys)
-  )
-    errors.push(`${metricId}: ${cadence} ${field} baseline drifted`);
-  const baselineValues = results
-    .filter(
-      (result) =>
-        result.evidence?.endAt &&
-        new Date(result.evidence.endAt) >= baselineStart &&
-        new Date(result.evidence.endAt) < new Date(current.start),
-    )
-    .map((result) => result.value);
-  const expectedSamples = baselineValues.length;
-  if (change.baselineSampleCount !== expectedSamples)
-    errors.push(`${metricId}: ${cadence} ${field} sample count drifted`);
-  if (change.baselineValue !== percentile(baselineValues, 0.5))
-    errors.push(`${metricId}: ${cadence} ${field} baseline P50 drifted`);
-}
-
-function validatePlan(plan, selection) {
-  const cohortStart = new Date(selection.startAt);
-  const cohortEnd = new Date(selection.endAt);
-  if (
-    new Date(plan.range.start) < cohortStart ||
-    new Date(plan.range.end) > cohortEnd
-  )
+function validatePlan(plan, selection, hydratePlan) {
+  if (plan.schemaVersion !== 2) errors.push(`${plan.id}: outdated plan schema`);
+  if (plan.metrics || plan.intervals)
+    errors.push(`${plan.id}: detailed plan publishes derived analytics`);
+  if (String(plan.id) !== String(plan.boundaryFacts?.id))
+    errors.push(`${plan.id}: boundary fact identity drifted`);
+  const start = new Date(selection.startAt);
+  const end = new Date(selection.endAt);
+  if (new Date(plan.range.start) < start || new Date(plan.range.end) > end)
     errors.push(`${plan.id}: plan range falls outside cohort`);
   if (
     plan.correlation?.policyVersion !== 1 ||
@@ -410,59 +182,198 @@ function validatePlan(plan, selection) {
   )
     errors.push(`${plan.id}: core correlation is missing`);
   const eventIds = new Set();
-  for (const event of plan.events) {
-    if (eventIds.has(event.id))
-      errors.push(`${plan.id}: duplicate event ${event.id}`);
+  for (const event of plan.events || []) {
+    if (eventIds.has(event.id)) errors.push(`${plan.id}: duplicate event ${event.id}`);
     eventIds.add(event.id);
-    if (Number.isNaN(new Date(event.occurredAt).getTime()))
+    if (!validDate(event.occurredAt))
       errors.push(`${plan.id}: invalid event timestamp ${event.id}`);
     if (!["authoritative", "observed", "inferred"].includes(event.confidence))
       errors.push(`${plan.id}: invalid confidence on ${event.id}`);
   }
   const planIds = new Set([String(plan.id), String(plan.releasePlanId)]);
-  for (const link of plan.links) {
+  for (const link of plan.links || []) {
     if (link.role === "spec-pr" || link.role === "spec-pr-history") continue;
-    const releasePlanIds = link.releasePlanIds;
     if (
-      releasePlanIds?.length &&
-      !releasePlanIds.some((id) => planIds.has(String(id)))
+      link.releasePlanIds?.length &&
+      !link.releasePlanIds.some((id) => planIds.has(String(id)))
     )
       errors.push(`${plan.id}: PR ${link.artifactId} names another release plan`);
   }
-  for (const interval of plan.intervals) {
-    if (
-      interval.endAt &&
-      new Date(interval.endAt).getTime() < new Date(interval.startAt).getTime()
-    )
-      errors.push(`${plan.id}: negative interval ${interval.id}`);
+  for (const boundary of [
+    ...(plan.boundaryFacts?.specPrs || []).flatMap((pr) => [
+      pr.createdAt,
+      pr.mergedAt,
+      pr.closedAt,
+    ]),
+    ...(plan.boundaryFacts?.artifacts || []).flatMap((artifact) => [
+      artifact.prCreatedAt,
+      artifact.prMergedAt,
+      artifact.prClosedAt,
+      artifact.generationStartAt,
+      ...(artifact.releaseEvents || []).map((event) => event.occurredAt),
+    ]),
+  ].filter(Boolean)) {
+    if (!validDate(boundary))
+      errors.push(`${plan.id}: invalid analytical boundary ${boundary}`);
   }
-  for (const metric of plan.metrics) {
+  for (const artifact of plan.boundaryFacts?.artifacts || []) {
+    if (!Array.isArray(artifact.releaseEvents))
+      errors.push(`${plan.id}: release-event facts are missing`);
+  }
+  const hydrated = hydratePlan(plan);
+  for (const metric of hydrated.metrics) {
     if (metric.outcome !== "complete" && metric.value !== null)
       errors.push(`${plan.id}: non-complete metric ${metric.metricId} has value`);
     if (metric.outcome === "complete" && metric.value < 0)
       errors.push(`${plan.id}: negative metric ${metric.metricId}`);
-    for (const boundary of [
-      metric.evidence?.startAt,
-      metric.evidence?.endAt,
-    ].filter(Boolean)) {
-      if (new Date(boundary) < cohortStart || new Date(boundary) > cohortEnd)
-        errors.push(
-          `${plan.id}: metric ${metric.metricId} falls outside cohort`,
-        );
+  }
+  for (const interval of hydrated.intervals) {
+    if (
+      interval.startAt &&
+      interval.endAt &&
+      new Date(interval.endAt) < new Date(interval.startAt)
+    )
+      errors.push(`${plan.id}: negative interval ${interval.id}`);
+  }
+}
+
+function validateCalculated(calculated, snapshot) {
+  const scorecard = calculated.scorecard;
+  const eligible = snapshot.facts.plans.filter((plan) =>
+    ["new", "in-progress", "finished"].includes(plan.state),
+  ).length;
+  if (
+    scorecard.cohort.generatedAt !== new Date(snapshot.generatedAt).toISOString() ||
+    scorecard.cohort.eligiblePlanCount !== eligible
+  )
+    errors.push("Scorecard cohort is not anchored to the snapshot");
+  for (const metric of scorecard.metrics) {
+    const population = metric.population;
+    if (
+      population.included +
+        population.incomplete +
+        population.censored +
+        population.excluded +
+        population.ineligible <
+      population.eligible
+    )
+      errors.push(`${metric.metricId}: population does not reconcile`);
+    for (const cadence of ["weekly", "monthly"]) {
+      const series = metric.trends[cadence].series;
+      for (let index = 0; index < series.length; index += 1) {
+        const bucket = series[index];
+        if (new Date(bucket.start) >= new Date(bucket.end))
+          errors.push(`${metric.metricId}: invalid half-open ${cadence} bucket`);
+        if (index && series[index - 1].end !== bucket.start)
+          errors.push(`${metric.metricId}: non-contiguous ${cadence} buckets`);
+        if (!bucket.count && (bucket.p50 !== null || bucket.p90 !== null))
+          errors.push(`${metric.metricId}: empty bucket has statistics`);
+      }
     }
   }
+}
+
+function validateFixtures(engine) {
+  if (engine.percentile([0, 10], 0.9) !== 9)
+    errors.push("Percentile interpolation fixture failed");
+  if (
+    engine.shiftUtcMonthClamped("2024-03-31T12:00:00.000Z", -1).toISOString() !==
+    "2024-02-29T12:00:00.000Z"
+  )
+    errors.push("Clamped month subtraction fixture failed");
+  const fact = {
+    id: "fixture",
+    state: "finished",
+    cohortPlan: {
+      id: "fixture",
+      releasePlanId: "fixture",
+      title: "Fixture",
+      service: "Fixture",
+      state: "finished",
+    },
+    quality: { warnings: [] },
+    specPrs: [
+      {
+        id: "spec",
+        trackId: "spec:spec",
+        createdAt: "2024-01-01T00:00:00.000Z",
+        mergedAt: "2024-01-02T00:00:00.000Z",
+        closedAt: null,
+      },
+    ],
+    artifacts: [],
+  };
+  const scorecard = engine.buildScorecard(
+    [fact],
+    "2024-03-31T12:00:00.000Z",
+  );
+  const l1 = scorecard.metrics.find((metric) => metric.metricId === "L1");
+  if (l1.population.ineligible !== 1 || l1.population.included !== 0)
+    errors.push("Ineligible-outcome fixture failed");
+  if (l1.trends.weekly.series.length !== 13)
+    errors.push("Empty-bucket trend fixture failed");
+  const releaseFact = {
+    ...fact,
+    artifacts: [
+      {
+        language: "Java",
+        package: "fixture",
+        trackId: "sdk:Java:fixture",
+        prId: "sdk",
+        prCreatedAt: "2024-01-02T00:00:00.000Z",
+        prMergedAt: "2024-01-03T00:00:00.000Z",
+        prClosedAt: null,
+        generationStartAt: "2024-01-01T12:00:00.000Z",
+        releasedVersion: null,
+        releaseEvents: [
+          {
+            occurredAt: "2024-01-05T00:00:00.000Z",
+            value: "Released",
+          },
+        ],
+      },
+    ],
+  };
+  const unreleased = engine.derivePlanAnalytics(releaseFact);
+  if (
+    unreleased.metrics.find((metric) => metric.metricId === "S5").outcome !==
+    "incomplete"
+  )
+    errors.push("Release-version evidence fixture failed");
+  releaseFact.artifacts[0].releasedVersion = "1.0.0";
+  const released = engine.derivePlanAnalytics(releaseFact);
+  if (
+    released.metrics.find((metric) => metric.metricId === "S5").value !== 48
+  )
+    errors.push("Dynamic release-boundary fixture failed");
+}
+
+function listFiles(directory, root = directory) {
+  if (!existsSync(directory)) return [];
+  return readdirSync(directory).flatMap((entry) => {
+    const path = join(directory, entry);
+    return statSync(path).isDirectory()
+      ? listFiles(path, root)
+      : [path.slice(root.length + 1)];
+  });
+}
+
+function validDate(value) {
+  return Boolean(value) && !Number.isNaN(new Date(value).getTime());
 }
 
 function scanPublishedFiles(directory) {
   for (const name of readdirSync(directory, { withFileTypes: true })) {
     const path = join(directory, name.name);
     if (name.isDirectory()) scanPublishedFiles(path);
-    else if (name.name.endsWith(".json")) {
-      const text = readFileSync(path, "utf8");
-      if (/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i.test(text))
-        errors.push(`${path}: contains an email address`);
-      if (/gh[pousr]_[A-Za-z0-9]{20,}|Bearer\s+[A-Za-z0-9._-]{20,}/.test(text))
-        errors.push(`${path}: contains a credential-like value`);
-    }
+    else if (name.name.endsWith(".json")) scanPublishedFile(path);
   }
+}
+
+function scanPublishedFile(path) {
+  const text = readFileSync(path, "utf8");
+  if (/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i.test(text))
+    errors.push(`${path}: contains an email address`);
+  if (/gh[pousr]_[A-Za-z0-9]{20,}|Bearer\s+[A-Za-z0-9._-]{20,}/.test(text))
+    errors.push(`${path}: contains a credential-like value`);
 }

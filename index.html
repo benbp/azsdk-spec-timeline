@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/site.css" />
     <script type="module" src="js/app.js"></script>
   </head>
-  <body x-data="timelineApp" x-init="init()" x-cloak>
+  <body x-data="timelineApp" x-cloak>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a
@@ -26,10 +26,10 @@
           <small>Generation and release intelligence</small>
         </span>
       </a>
-      <div class="freshness" x-show="manifest">
+      <div class="freshness" x-show="snapshot">
         <span class="status-dot"></span>
         Daily snapshot
-        <time x-text="formatDate(manifest?.generatedAt)"></time>
+        <time x-text="formatDate(snapshot?.generatedAt)"></time>
       </div>
     </header>
 

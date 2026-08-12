@@ -2,6 +2,15 @@
 
 This repository contains a static, Alpine.js-based dashboard that reconstructs Azure SDK generation and release timelines from Azure DevOps Release Plan work items, exact linked GitHub pull requests, and exact linked Azure Pipeline runs.
 
+The public data boundary is `data/snapshot.json`. This single revalidated
+bootstrap contains snapshot/schema metadata, selection and coverage counts, the
+portfolio index, and normalized correlated boundary facts. Immutable detailed
+plan documents remain lazy-loaded from the snapshot's path template. The
+browser and Node validator share `js/calculation-engine.mjs`, which
+deterministically derives metric outcomes, intervals, scorecards, percentiles,
+periods, trends, and cohort membership using `snapshot.generatedAt` as the
+clock. Calculation-only changes therefore do not require recollection.
+
 The current V2 dataset inventories 180 days of management-plane Release Plans and publishes core-correlated flows whose first collected event also falls inside that window. An explicitly populated Release Plan ID and exact spec PR are required before enrichment; after enrichment, a plan is excluded when any retained history predates the cohort start. This keeps plan timelines, scorecards, trends, and historical benchmarks inside one consistent measurement period. Missing downstream SDK PRs, versions, pipeline links, or inaccessible sources remain visible as incomplete metric evidence instead of deleting an otherwise in-window plan. This is a tracked cohort, not a fleet-complete population.
 
 Top-line scorecard percentiles show rolling 7-day, latest full UTC week, rolling one-calendar-month, and latest full UTC month summaries, each with its exact range and completed-stage observation count. Weekly trends retain 13 weeks, while monthly trends grow with available tracked history up to 12 months. Each sparkline column is the P50 for its own calendar period; the adjacent change compares the latest completed period's P50 with the pooled P50 of all completed results in the preceding three months. Selecting any compact or expanded trend column opens its release-plan cohort for investigation. Scorecard observations come from new, in-progress, and finished plans as soon as the individual metric is complete; abandoned and duplicate plans are excluded. Each metric applies its own evidence contract: S1/S4 require exact GitHub boundaries, S2/S3 require an exact generation run, and observed S5/L1 release boundaries additionally require the Release Plan's released version. Release-pipeline URL coverage remains diagnostic and does not exclude an otherwise useful flow.
@@ -36,7 +45,10 @@ node scripts/refresh-v2-data.js \
   --build-id "$(date -u +%Y%m%dT%H)"
 ```
 
-Private normalized inputs are written under ignored `cache/`. Public output is written under `data/builds/<build-id>/`, and `data/manifest.json` is updated last.
+Private normalized inputs are written under ignored `cache/`. Immutable public
+details are written under `data/builds/<snapshot-id>/` first, and
+`data/snapshot.json` is updated last for atomic publication. The snapshot does
+not publish a precomputed scorecard or metric-result aggregate.
 
 The preflight requires only an explicitly populated Release Plan ID and exact spec PR. Plans that fail either root check are not sent to the expensive revision, GitHub, or pipeline collectors. Exact downstream links are enriched when present, but missing evidence produces incomplete metrics and quality warnings. Pipeline names and timestamps are never used to guess missing relationships.
 

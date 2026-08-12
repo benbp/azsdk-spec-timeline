@@ -1,5 +1,9 @@
 import Alpine from "./vendor/alpine.esm.js";
 import { DataStore } from "./data-store.js";
+import {
+  calculateSnapshot,
+  hydratePlan,
+} from "./calculation-engine.mjs";
 import { createTimelineScale, median } from "./timeline-scale.js";
 
 const store = new DataStore();
@@ -9,7 +13,7 @@ Alpine.data("timelineApp", () => ({
   loading: true,
   error: "",
   view: "portfolio",
-  manifest: null,
+  snapshot: null,
   portfolio: null,
   scorecard: null,
   definitions: [],
@@ -27,12 +31,11 @@ Alpine.data("timelineApp", () => ({
       if (event.key === "Escape") this.closeDrawers();
     });
     try {
-      this.manifest = await store.initialize();
-      [this.portfolio, this.scorecard, this.definitions] = await Promise.all([
-        store.portfolio(),
-        store.scorecard(),
-        store.metricDefinitions(),
-      ]);
+      this.snapshot = await store.initialize();
+      const calculated = calculateSnapshot(this.snapshot);
+      this.portfolio = calculated.portfolio;
+      this.scorecard = calculated.scorecard;
+      this.definitions = calculated.definitions;
       await this.loadRoute();
     } catch (error) {
       this.error = error.message;
@@ -50,7 +53,7 @@ Alpine.data("timelineApp", () => ({
     if (this.view === "plan" && params.get("plan")) {
       this.loading = true;
       try {
-        this.plan = await store.plan(params.get("plan"));
+        this.plan = hydratePlan(await store.plan(params.get("plan")));
         const eventId = params.get("event");
         if (eventId)
           this.selectedEvent =
@@ -137,7 +140,7 @@ Alpine.data("timelineApp", () => ({
     const endAt =
       this.portfolio?.selection?.endAt ||
       this.portfolio?.generatedAt ||
-      this.manifest?.generatedAt;
+      this.snapshot?.generatedAt;
     if (!startAt || !endAt) return "Management-plane cohort";
     const start = new Date(startAt);
     const end = new Date(endAt);

@@ -334,7 +334,7 @@ select:focus-visible {
 }
 
 .period-summary-row.primary {
-  background: var(--blue-soft);
+  background: #eff7fb;
   margin-left: -0.2rem;
   margin-right: -0.2rem;
   padding-left: 0.2rem;
@@ -430,19 +430,19 @@ select:focus-visible {
 }
 
 .period-summary-row .period-change.improving {
-  background: rgb(8 127 120 / 20%);
+  background: rgb(8 127 120 / 32%);
   box-shadow:
-    -0.2rem 0 0 rgb(8 127 120 / 20%),
-    0.15rem 0 0 rgb(8 127 120 / 20%);
-  color: #045a55;
+    -0.2rem 0 0 rgb(8 127 120 / 32%),
+    0.15rem 0 0 rgb(8 127 120 / 32%);
+  color: #034d49;
 }
 
 .period-summary-row .period-change.slowing {
-  background: rgb(181 72 72 / 20%);
+  background: rgb(181 72 72 / 12%);
   box-shadow:
-    -0.2rem 0 0 rgb(181 72 72 / 20%),
-    0.15rem 0 0 rgb(181 72 72 / 20%);
-  color: #a23434;
+    -0.2rem 0 0 rgb(181 72 72 / 12%),
+    0.15rem 0 0 rgb(181 72 72 / 12%);
+  color: var(--danger);
 }
 
 .period-summary-row .period-change.flat,

@@ -242,8 +242,10 @@ Alpine.data("timelineApp", () => ({
 
   rollingTrendChange(trend, live = false) {
     if (
-      trend.comparison ===
-      "current-period-vs-prior-three-month-average"
+      [
+        "current-period-p50-vs-prior-three-month-p50",
+        "current-period-vs-prior-three-month-average",
+      ].includes(trend.comparison)
     )
       return live ? trend.liveChange : trend.change;
     const currentIndex = trend.series.length + (live ? -1 : -2);
@@ -301,10 +303,9 @@ Alpine.data("timelineApp", () => ({
   },
 
   trendComparisonTitle(change) {
-    const periods = change.baselinePeriodCount;
-    if (!periods)
-      return "No populated comparison periods are available in the prior 3 months";
-    return `Compared with the average of ${periods} available period${periods === 1 ? "" : "s"} from the prior 3 months`;
+    if (!change.baselineSampleCount)
+      return "No completed-flow results are available in the prior 3 months";
+    return `Compared with the pooled P50 of ${change.baselineSampleCount} completed-flow results in the prior 3 months`;
   },
 
   trendAriaLabel(metric, cadence, live = false) {

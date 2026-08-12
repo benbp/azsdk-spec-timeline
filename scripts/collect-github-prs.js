@@ -46,8 +46,18 @@ async function main() {
     async (pr) => {
       const cached = cachedPrs.get(pr.id);
       if (cached && ["merged", "closed"].includes(cached.state)) {
-        cacheHits++;
-        return { pr: cached, skipped: null };
+        try {
+          const value = Array.isArray(cached.releasePlanIds)
+            ? cached
+            : {
+                ...cached,
+                releasePlanIds: await collectReleasePlanIds(pr, token),
+              };
+          cacheHits++;
+          return { pr: value, skipped: null };
+        } catch (error) {
+          if ([401, 403, 429].includes(error.status)) throw error;
+        }
       }
       try {
         return { pr: await collectPr(pr, token), skipped: null };
@@ -80,6 +90,14 @@ async function main() {
   );
 }
 
+async function collectReleasePlanIds(pr, token) {
+  const metadata = await github(
+    `https://api.github.com/repos/${pr.owner}/${pr.repo}/pulls/${pr.number}`,
+    token,
+  );
+  return releasePlanIds(metadata.body);
+}
+
 async function collectPr(pr, token) {
   const base = `https://api.github.com/repos/${pr.owner}/${pr.repo}`;
   const [metadata, reviews, issueComments, reviewComments, commits] =
@@ -97,6 +115,7 @@ async function collectPr(pr, token) {
     draft: metadata.draft,
     author: actor(metadata.user),
     labels: metadata.labels.map((label) => label.name),
+    releasePlanIds: releasePlanIds(metadata.body),
     createdAt: metadata.created_at,
     updatedAt: metadata.updated_at,
     mergedAt: metadata.merged_at,
@@ -133,6 +152,18 @@ async function collectPr(pr, token) {
       url: commit.html_url,
     })),
   };
+}
+
+function releasePlanIds(value) {
+  const text = String(value || "");
+  const ids = new Set();
+  for (const pattern of [
+    /[?&]releasePlan=(\d+)/gi,
+    /\/_workitems\/edit\/(\d+)/gi,
+  ]) {
+    for (const match of text.matchAll(pattern)) ids.add(match[1]);
+  }
+  return [...ids];
 }
 
 async function github(url, token) {
@@ -175,6 +206,7 @@ function unavailablePr(pr, reason) {
     draft: false,
     author: { kind: "unknown", publicId: null },
     labels: [],
+    releasePlanIds: [],
     createdAt: null,
     updatedAt: null,
     mergedAt: null,

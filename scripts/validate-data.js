@@ -62,19 +62,23 @@ function validateScorecard(value, sourcePlans, selection) {
   )
     errors.push("Scorecard statistics period is missing");
   for (const metric of value.metrics || []) {
-    const periodValues = sourcePlans
+    const completeResults = sourcePlans
       .filter((plan) => plan.state === "finished")
       .flatMap((plan) =>
         plan.metrics.filter(
           (result) =>
             result.metricId === metric.metricId &&
-            result.outcome === "complete" &&
+            result.outcome === "complete",
+        ),
+      );
+    const periodValues = completeResults
+      .filter(
+        (result) =>
             result.evidence?.endAt &&
             new Date(result.evidence.endAt) >=
               new Date(statisticsPeriod.startAt) &&
             new Date(result.evidence.endAt) <=
               new Date(statisticsPeriod.endAt),
-        ),
       )
       .map((result) => result.value);
     if (metric.statisticsPopulation?.included !== periodValues.length)
@@ -140,11 +144,25 @@ function validateScorecard(value, sourcePlans, selection) {
       }
       if (
         trend.comparison !==
-        "current-period-vs-prior-three-month-average"
+        "current-period-p50-vs-prior-three-month-p50"
       )
         errors.push(`${metric.metricId}: ${cadence} comparison is outdated`);
-      validateTrendChange(metric.metricId, cadence, trend, "change", -2);
-      validateTrendChange(metric.metricId, cadence, trend, "liveChange", -1);
+      validateTrendChange(
+        metric.metricId,
+        cadence,
+        trend,
+        "change",
+        -2,
+        completeResults,
+      );
+      validateTrendChange(
+        metric.metricId,
+        cadence,
+        trend,
+        "liveChange",
+        -1,
+        completeResults,
+      );
     }
   }
 }
@@ -164,7 +182,14 @@ function percentile(values, quantile) {
   );
 }
 
-function validateTrendChange(metricId, cadence, trend, field, currentOffset) {
+function validateTrendChange(
+  metricId,
+  cadence,
+  trend,
+  field,
+  currentOffset,
+  results,
+) {
   const currentIndex = trend.series.length + currentOffset;
   const current = trend.series[currentIndex];
   const change = trend[field];
@@ -193,12 +218,19 @@ function validateTrendChange(metricId, cadence, trend, field, currentOffset) {
     JSON.stringify(change.baselineKeys) !== JSON.stringify(expectedKeys)
   )
     errors.push(`${metricId}: ${cadence} ${field} baseline drifted`);
-  const expectedSamples = baseline.reduce(
-    (sum, bucket) => sum + bucket.count,
-    0,
-  );
+  const baselineValues = results
+    .filter(
+      (result) =>
+        result.evidence?.endAt &&
+        new Date(result.evidence.endAt) >= baselineStart &&
+        new Date(result.evidence.endAt) < new Date(current.start),
+    )
+    .map((result) => result.value);
+  const expectedSamples = baselineValues.length;
   if (change.baselineSampleCount !== expectedSamples)
     errors.push(`${metricId}: ${cadence} ${field} sample count drifted`);
+  if (change.baselineValue !== percentile(baselineValues, 0.5))
+    errors.push(`${metricId}: ${cadence} ${field} baseline P50 drifted`);
 }
 
 function validatePlan(plan, selection) {
@@ -223,6 +255,16 @@ function validatePlan(plan, selection) {
       errors.push(`${plan.id}: invalid event timestamp ${event.id}`);
     if (!["authoritative", "observed", "inferred"].includes(event.confidence))
       errors.push(`${plan.id}: invalid confidence on ${event.id}`);
+  }
+  const planIds = new Set([String(plan.id), String(plan.releasePlanId)]);
+  for (const link of plan.links) {
+    if (link.role === "spec-pr" || link.role === "spec-pr-history") continue;
+    const releasePlanIds = link.releasePlanIds;
+    if (
+      releasePlanIds?.length &&
+      !releasePlanIds.some((id) => planIds.has(String(id)))
+    )
+      errors.push(`${plan.id}: PR ${link.artifactId} names another release plan`);
   }
   for (const interval of plan.intervals) {
     if (

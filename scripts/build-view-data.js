@@ -95,7 +95,10 @@ function main() {
   mkdirSync(buildRoot, { recursive: true });
 
   const window = selectionWindow(source);
-  const candidatePlans = source.plans.map((plan) =>
+  const attributedSourcePlans = source.plans.map((plan) =>
+    filterPlanPrAttribution(plan, prMap),
+  );
+  const candidatePlans = attributedSourcePlans.map((plan) =>
     buildPlan(plan, prMap, pipelineRuns, window.end.toISOString()),
   );
   const plans = candidatePlans.filter(
@@ -115,7 +118,7 @@ function main() {
           ? `first touch ${plan.range.start} predates ${window.start.toISOString()}`
           : `last touch ${plan.range.end} exceeds ${window.end.toISOString()}`,
     }));
-  const includedSourcePlans = source.plans.filter((plan) =>
+  const includedSourcePlans = attributedSourcePlans.filter((plan) =>
     includedPlanIds.has(plan.id),
   );
   const publishedGithub = filterGithubSource(github, includedSourcePlans);
@@ -202,6 +205,60 @@ function main() {
   console.log(
     `Built ${plans.length} plans with ${manifest.counts.events} events at ${buildRoot}`,
   );
+}
+
+function filterPlanPrAttribution(plan, prMap) {
+  const planIds = new Set([String(plan.id), String(plan.releasePlanId)]);
+  const planCreatedAt = new Date(plan.createdAt);
+  const hasMatchingIdentity = (linked) => {
+    const ids = prMap.get(linked.id)?.releasePlanIds || [];
+    return ids.length === 0 || ids.some((id) => planIds.has(String(id)));
+  };
+  const isAttributedHistory = (linked, index, history) => {
+    if (!hasMatchingIdentity(linked)) return false;
+    const pr = prMap.get(linked.id);
+    if ((pr?.releasePlanIds || []).length > 0) return true;
+    if (!pr?.mergedAt || new Date(pr.mergedAt) >= planCreatedAt) return true;
+    return !history.slice(index + 1).some((replacement) => {
+      const replacementPr = prMap.get(replacement.id);
+      return (
+        replacementPr?.createdAt &&
+        new Date(replacementPr.createdAt) >= planCreatedAt
+      );
+    });
+  };
+  const retainedSpecPrs = plan.specPrs;
+  const retainedLanguages = plan.languages.map((language) => {
+    const history = language.sdkPrHistory || [];
+    const sdkPrHistory = history.filter(isAttributedHistory);
+    return {
+      ...language,
+      sdkPr:
+        language.sdkPr && hasMatchingIdentity(language.sdkPr)
+          ? language.sdkPr
+          : null,
+      sdkPrHistory,
+    };
+  });
+  const retainedPrUrls = new Set([
+    ...retainedSpecPrs.map((pr) => pr.url),
+    ...retainedLanguages.flatMap((language) =>
+      [
+        language.sdkPr?.url,
+        ...language.sdkPrHistory.map((pr) => pr.url),
+      ].filter(Boolean),
+    ),
+  ]);
+  return {
+    ...plan,
+    specPrs: retainedSpecPrs,
+    languages: retainedLanguages,
+    revisionEvents: plan.revisionEvents.filter(
+      (event) =>
+        event.type !== "sdk.pr_linked" || retainedPrUrls.has(event.value),
+    ),
+    specRevisionEvents: plan.specRevisionEvents,
+  };
 }
 
 function selectionWindow(source) {
@@ -404,6 +461,7 @@ function buildPlan(source, prMap, pipelineRuns, generatedAt) {
         artifactId: pr.id,
         role: index === source.specPrs.length - 1 ? "spec-pr" : "spec-pr-history",
         url: pr.url,
+        releasePlanIds: prMap.get(pr.id)?.releasePlanIds || [],
       })),
       ...source.languages.flatMap((language) => {
         const primary = selectSdkPr(language, prMap, source.state);
@@ -412,6 +470,7 @@ function buildPlan(source, prMap, pipelineRuns, generatedAt) {
           role: pr.id === primary?.id ? "sdk-pr" : "sdk-pr-history",
           language: language.id,
           url: pr.url,
+          releasePlanIds: prMap.get(pr.id)?.releasePlanIds || [],
         }));
       }),
     ].filter((link) => link.artifactId),
@@ -1086,9 +1145,9 @@ function buildTrend(results, cadence, generatedAt, bucketCount) {
   return {
     cadence,
     series,
-    comparison: "current-period-vs-prior-three-month-average",
-    change: rollingPeriodChange(series, -2),
-    liveChange: rollingPeriodChange(series, -1),
+    comparison: "current-period-p50-vs-prior-three-month-p50",
+    change: rollingPeriodChange(series, results, -2),
+    liveChange: rollingPeriodChange(series, results, -1),
   };
 }
 
@@ -1114,7 +1173,7 @@ function monthlyBucketCount(results, generatedAt) {
   return Math.min(12, Math.max(1, difference + 1));
 }
 
-function rollingPeriodChange(series, currentOffset) {
+function rollingPeriodChange(series, results, currentOffset) {
   const currentIndex =
     currentOffset < 0 ? series.length + currentOffset : currentOffset;
   const current = series[currentIndex];
@@ -1141,20 +1200,21 @@ function rollingPeriodChange(series, currentOffset) {
         bucket.p50 !== null &&
         bucket.p50 !== undefined,
     );
-  const baselineValue = baselineBuckets.length
-    ? Math.round(
-        (baselineBuckets.reduce((sum, bucket) => sum + bucket.p50, 0) /
-          baselineBuckets.length) *
-          10,
-      ) / 10
-    : null;
+  const baselineValues = results
+    .filter((result) => {
+      const occurredAt = result.evidence?.endAt;
+      return (
+        occurredAt &&
+        new Date(occurredAt) >= baselineStart &&
+        new Date(occurredAt) < new Date(current.start)
+      );
+    })
+    .map((result) => result.value);
+  const baselineValue = percentile(baselineValues, 0.5);
   const comparison = {
     baselineValue,
     baselinePeriodCount: baselineBuckets.length,
-    baselineSampleCount: baselineBuckets.reduce(
-      (sum, bucket) => sum + bucket.count,
-      0,
-    ),
+    baselineSampleCount: baselineValues.length,
     baselineKeys: baselineBuckets.map((bucket) => bucket.key),
     currentKey: current?.key || null,
     currentSampleCount: current?.count || 0,

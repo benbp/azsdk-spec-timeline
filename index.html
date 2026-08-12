@@ -144,7 +144,7 @@
                       <b
                         :class="rollingTrendChange(metric.trends.weekly).direction"
                         :title="trendComparisonTitle(rollingTrendChange(metric.trends.weekly))"
-                        x-text="`${formatTrendChange(rollingTrendChange(metric.trends.weekly))} avg`"
+                        x-text="`${formatTrendChange(rollingTrendChange(metric.trends.weekly))} vs 3mo`"
                       ></b>
                     </div>
                     <div>
@@ -172,7 +172,7 @@
                       <b
                         :class="rollingTrendChange(metric.trends.monthly).direction"
                         :title="trendComparisonTitle(rollingTrendChange(metric.trends.monthly))"
-                        x-text="`${formatTrendChange(rollingTrendChange(metric.trends.monthly))} avg`"
+                        x-text="`${formatTrendChange(rollingTrendChange(metric.trends.monthly))} vs 3mo`"
                       ></b>
                     </div>
                   </div>
@@ -216,7 +216,7 @@
                         <span
                           :class="rollingTrendChange(metric.trends.weekly, true).direction"
                           :title="trendComparisonTitle(rollingTrendChange(metric.trends.weekly, true))"
-                          x-text="`Live ${formatTrendChange(rollingTrendChange(metric.trends.weekly, true))} vs 3mo avg · ${trendSampleLabel(rollingTrendChange(metric.trends.weekly, true))}`"
+                          x-text="`Live ${formatTrendChange(rollingTrendChange(metric.trends.weekly, true))} vs 3mo P50 · ${trendSampleLabel(rollingTrendChange(metric.trends.weekly, true))}`"
                         ></span>
                       </div>
                       <div
@@ -297,7 +297,7 @@
                         <span
                           :class="rollingTrendChange(metric.trends.monthly, true).direction"
                           :title="trendComparisonTitle(rollingTrendChange(metric.trends.monthly, true))"
-                          x-text="`Live ${formatTrendChange(rollingTrendChange(metric.trends.monthly, true))} vs 3mo avg · ${trendSampleLabel(rollingTrendChange(metric.trends.monthly, true))}`"
+                          x-text="`Live ${formatTrendChange(rollingTrendChange(metric.trends.monthly, true))} vs 3mo P50 · ${trendSampleLabel(rollingTrendChange(metric.trends.monthly, true))}`"
                         ></span>
                       </div>
                       <div

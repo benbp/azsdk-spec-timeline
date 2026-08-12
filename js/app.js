@@ -245,14 +245,9 @@ Alpine.data("timelineApp", () => ({
   scorecardPeriods(metric) {
     return [
       {
-        id: "rolling-week",
-        label: "Rolling 7d",
-        statistics: metric.periodStatistics.rollingWeek,
-      },
-      {
-        id: "full-week",
-        label: "Full week",
-        statistics: metric.periodStatistics.weekly,
+        id: "full-month",
+        label: "Full month",
+        statistics: metric.periodStatistics.monthly,
       },
       {
         id: "rolling-month",
@@ -260,9 +255,14 @@ Alpine.data("timelineApp", () => ({
         statistics: metric.periodStatistics.rollingMonth,
       },
       {
-        id: "full-month",
-        label: "Full month",
-        statistics: metric.periodStatistics.monthly,
+        id: "full-week",
+        label: "Full week",
+        statistics: metric.periodStatistics.weekly,
+      },
+      {
+        id: "rolling-week",
+        label: "Rolling 7d",
+        statistics: metric.periodStatistics.rollingWeek,
       },
     ];
   },

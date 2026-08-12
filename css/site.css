@@ -323,10 +323,21 @@ select:focus-visible {
   align-items: center;
   border-bottom: 1px solid #edf0f2;
   display: grid;
-  gap: 0.25rem;
-  grid-template-columns: minmax(82px, 1fr) 36px 36px 26px 52px;
+  gap: 0.2rem;
+  grid-template-columns: minmax(64px, 1fr) 49px 49px 22px 46px;
   min-height: 34px;
   padding: 0.25rem 0;
+}
+
+.period-summary-row.primary {
+  background: var(--blue-soft);
+  box-shadow: inset 3px 0 0 var(--blue);
+  padding-left: 0.4rem;
+  padding-right: 0.25rem;
+}
+
+.period-summary-row.primary > div strong {
+  color: #175c80;
 }
 
 .period-summary-row > div,
@@ -339,6 +350,11 @@ select:focus-visible {
 
 .period-summary-row > div {
   display: block;
+}
+
+.period-summary-row > span {
+  gap: 0.3rem;
+  justify-content: space-between;
 }
 
 .period-summary-row > div strong {

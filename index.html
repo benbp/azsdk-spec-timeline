@@ -112,7 +112,10 @@
                       x-for="period in scorecardPeriods(metric)"
                       :key="`${metric.metricId}:${period.id}`"
                     >
-                      <section class="period-summary-row">
+                      <section
+                        class="period-summary-row"
+                        :class="{ primary: period.id === 'full-month' }"
+                      >
                         <div>
                           <strong x-text="period.label"></strong>
                           <small

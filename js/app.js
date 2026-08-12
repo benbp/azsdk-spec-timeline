@@ -2,6 +2,7 @@ import Alpine from "./vendor/alpine.esm.js";
 import { DataStore } from "./data-store.js";
 import {
   calculateSnapshot,
+  derivePlanAnalytics,
   hydratePlan,
 } from "./calculation-engine.mjs";
 import { createTimelineScale, median } from "./timeline-scale.js";
@@ -22,7 +23,9 @@ Alpine.data("timelineApp", () => ({
   selectedCohort: null,
   search: "",
   stateFilter: "all",
-  eventFilter: "milestones",
+  delayedMetricFilters: [],
+  planMetricResultsById: {},
+  eventFilter: "all",
   trendsExpanded: false,
 
   async init() {
@@ -36,6 +39,12 @@ Alpine.data("timelineApp", () => ({
       this.portfolio = calculated.portfolio;
       this.scorecard = calculated.scorecard;
       this.definitions = calculated.definitions;
+      this.planMetricResultsById = Object.fromEntries(
+        this.snapshot.facts.plans.map((fact) => [
+          String(fact.id),
+          derivePlanAnalytics(fact).metrics,
+        ]),
+      );
       await this.loadRoute();
     } catch (error) {
       this.error = error.message;
@@ -114,8 +123,52 @@ Alpine.data("timelineApp", () => ({
           ["new", "in-progress"].includes(plan.state)) ||
         (this.stateFilter === "abandoned" &&
           ["abandoned", "duplicate"].includes(plan.state));
-      return matchesQuery && matchesState;
+      const matchesDelay =
+        this.delayedMetricFilters.length === 0 ||
+        (["new", "in-progress"].includes(plan.state) &&
+          this.delayedMetricFilters.some((metricId) =>
+            this.isP90Delayed(plan, metricId),
+          ));
+      return matchesQuery && matchesState && matchesDelay;
     });
+  },
+
+  selectStateFilter(state) {
+    this.stateFilter = state;
+    if (state !== "active") this.delayedMetricFilters = [];
+  },
+
+  toggleDelayedMetric(metricId) {
+    this.stateFilter = "active";
+    this.delayedMetricFilters = this.delayedMetricFilters.includes(metricId)
+      ? this.delayedMetricFilters.filter((id) => id !== metricId)
+      : [...this.delayedMetricFilters, metricId];
+  },
+
+  p90Threshold(metricId) {
+    return (
+      this.scorecard?.metrics.find((metric) => metric.metricId === metricId)
+        ?.historicalStatistics?.p90 ?? null
+    );
+  },
+
+  isP90Delayed(plan, metricId) {
+    const threshold = this.p90Threshold(metricId);
+    if (threshold === null) return false;
+    return (this.planMetricResultsById[String(plan.id)] || []).some(
+      (metric) =>
+        metric.metricId === metricId &&
+        metric.outcome === "complete" &&
+        metric.value >= threshold,
+    );
+  },
+
+  delayedFilterTitle(metricId) {
+    const threshold = this.p90Threshold(metricId);
+    const name = this.definition(metricId).name || metricId;
+    return threshold === null
+      ? `${name} has no finished-release P90 threshold`
+      : `${name} completed observation at or above the finished-release P90 of ${this.formatDuration(threshold)}`;
   },
 
   get scorecardMetrics() {
@@ -281,7 +334,13 @@ Alpine.data("timelineApp", () => ({
   columnTooltip(bucket, field) {
     if (bucket[field] === null)
       return `${bucket.label}: no completed stage data`;
-    return `${bucket.label}${bucket.partial ? " (partial)" : ""}: ${field.toUpperCase()} ${this.formatDuration(bucket[field])}, n=${bucket.count} completed stage observation${bucket.count === 1 ? "" : "s"} · Click to see release plans`;
+    return `${bucket.label}${bucket.partial ? " (partial)" : ""}: ${field.toUpperCase()} ${this.formatDuration(bucket[field])}, n=${bucket.count} completed stage observation${bucket.count === 1 ? "" : "s"}\nClick to see release plans`;
+  },
+
+  tooltipEdgeClass(index, length) {
+    if (index < length / 3) return "tooltip-left";
+    if (index >= (length * 2) / 3) return "tooltip-right";
+    return "";
   },
 
   bucketAxisLabel(bucket, index, length, cadence) {
@@ -560,6 +619,12 @@ Alpine.data("timelineApp", () => ({
     );
   },
 
+  intervalTitle(interval) {
+    return interval.status === "complete"
+      ? `${interval.label}: ${this.formatDuration(interval.durationHours)}`
+      : `${interval.label}: In progress`;
+  },
+
   selectEvent(event) {
     this.selectedEvent = event;
     const params = new URLSearchParams(location.search);
@@ -618,6 +683,12 @@ Alpine.data("timelineApp", () => ({
     if (hours < 48) return `${Math.round(hours)}h`;
     const days = hours / 24;
     return `${days >= 10 ? Math.round(days) : days.toFixed(1)}d`;
+  },
+
+  formatCompactDuration(hours) {
+    return hours === null || hours === undefined
+      ? "NA"
+      : this.formatDuration(hours);
   },
 
   formatDate(value) {

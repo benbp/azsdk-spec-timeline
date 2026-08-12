@@ -301,7 +301,7 @@ select:focus-visible {
   border: 0;
 }
 
-.metric-strip article > div:first-child {
+.metric-heading {
   align-items: start;
   display: flex;
   gap: 0.5rem;
@@ -309,7 +309,7 @@ select:focus-visible {
   min-height: 42px;
 }
 
-.metric-strip article > div:first-child strong {
+.metric-heading > strong {
   font-size: 0.8rem;
   line-height: 1.35;
 }
@@ -324,9 +324,9 @@ select:focus-visible {
   border-bottom: 1px solid #edf0f2;
   display: grid;
   gap: 0.25rem;
-  grid-template-columns: minmax(124px, 1fr) 48px 48px 30px;
-  min-height: 27px;
-  padding: 0.22rem 0;
+  grid-template-columns: minmax(82px, 1fr) 36px 36px 26px 52px;
+  min-height: 34px;
+  padding: 0.25rem 0;
 }
 
 .period-summary-row > div,
@@ -338,7 +338,7 @@ select:focus-visible {
 }
 
 .period-summary-row > div {
-  justify-content: space-between;
+  display: block;
 }
 
 .period-summary-row > div strong {
@@ -361,6 +361,12 @@ select:focus-visible {
 .period-summary-row .period-count {
   font-size: 0.62rem;
   text-align: right;
+}
+
+.period-summary-row .period-change {
+  font-size: 0.7rem;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .trend-toggle {
@@ -419,7 +425,7 @@ select:focus-visible {
   align-items: center;
   display: grid;
   gap: 0.45rem;
-  grid-template-columns: 28px minmax(0, 1fr) 84px;
+  grid-template-columns: 28px minmax(0, 1fr);
   min-height: 29px;
 }
 
@@ -459,17 +465,9 @@ select:focus-visible {
   padding: 0;
 }
 
-.compact-trends b,
 .trend-graphs section > div:first-child span {
   font-size: 0.75rem;
   text-align: right;
-}
-
-.compact-trends b {
-  background: white;
-  position: relative;
-  white-space: nowrap;
-  z-index: 2;
 }
 
 .improving {
@@ -749,7 +747,7 @@ select:focus-visible {
   transition:
     opacity 100ms ease,
     transform 100ms ease;
-  white-space: nowrap;
+  white-space: pre;
   z-index: 20;
 }
 
@@ -757,6 +755,27 @@ select:focus-visible {
 [data-tooltip]:focus-visible::after {
   opacity: 1;
   transform: translate(-50%, 0);
+}
+
+[data-tooltip].tooltip-left::after {
+  left: 0;
+  transform: translate(0, 4px);
+}
+
+[data-tooltip].tooltip-left:hover::after,
+[data-tooltip].tooltip-left:focus-visible::after {
+  transform: translate(0, 0);
+}
+
+[data-tooltip].tooltip-right::after {
+  left: auto;
+  right: 0;
+  transform: translate(0, 4px);
+}
+
+[data-tooltip].tooltip-right:hover::after,
+[data-tooltip].tooltip-right:focus-visible::after {
+  transform: translate(0, 0);
 }
 
 .trend-graphs small {
@@ -787,6 +806,23 @@ select:focus-visible {
 
 .plans-heading {
   gap: 2rem;
+}
+
+.releases-title {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.releases-title span {
+  background: var(--navy);
+  border-radius: 999px;
+  color: white;
+  font-size: 0.65rem;
+  line-height: 1;
+  min-width: 1.6rem;
+  padding: 0.3rem 0.45rem;
+  text-align: center;
 }
 
 .search {
@@ -823,8 +859,10 @@ select:focus-visible {
 }
 
 .filter-row {
+  align-items: center;
   border-top: 1px solid var(--line);
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0.85rem 1.8rem;
 }
@@ -843,6 +881,25 @@ select:focus-visible {
 .filter-row button.active {
   background: var(--teal-soft);
   color: #086861;
+}
+
+.filter-row button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.filter-divider {
+  background: var(--line);
+  height: 24px;
+  margin: 0 0.35rem;
+  width: 1px;
+}
+
+.filter-label {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .plan-list {
@@ -1201,17 +1258,24 @@ select:focus-visible {
 }
 
 .timeline-controls label {
-  color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 700;
+  align-items: center;
+  background: var(--blue-soft);
+  border: 1px solid rgb(39 125 168 / 25%);
+  border-radius: 8px;
+  color: var(--navy);
+  display: flex;
+  font-size: 0.76rem;
+  font-weight: 800;
+  gap: 0.65rem;
+  padding: 0.35rem 0.4rem 0.35rem 0.7rem;
 }
 
 .timeline-controls select {
   background: white;
-  border: 1px solid var(--line);
+  border: 1px solid rgb(39 125 168 / 35%);
   border-radius: 6px;
   color: var(--ink);
-  margin-left: 0.45rem;
+  font-weight: 700;
   padding: 0.45rem 1.9rem 0.45rem 0.6rem;
 }
 

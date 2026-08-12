@@ -1,4 +1,4 @@
-export const CALCULATION_ENGINE_VERSION = 1;
+export const CALCULATION_ENGINE_VERSION = 3;
 
 export const METRIC_DEFINITIONS = [
   {
@@ -264,20 +264,21 @@ export function derivePlanAnalytics(fact) {
 
 export function buildScorecard(planFacts, generatedAt) {
   const anchor = validDate(generatedAt, "generatedAt");
-  const eligibleFacts = planFacts.filter((plan) =>
-    ["new", "in-progress", "finished"].includes(plan.state),
-  );
+  const eligibleFacts = planFacts.filter((plan) => plan.state === "finished");
   const rollingWeekStart = new Date(anchor.getTime() - 7 * 86_400_000);
   const rollingMonthStart = shiftUtcMonthClamped(anchor, -1);
   return {
     schemaVersion: 3,
     calculationEngineVersion: CALCULATION_ENGINE_VERSION,
     cohort: {
-      kind: "core-correlated-active-or-finished-management-plane",
+      kind: "core-correlated-finished-management-plane",
       eligiblePlanCount: eligibleFacts.length,
       totalPlanCount: planFacts.length,
       generatedAt: anchor.toISOString(),
       excludedStateCounts: {
+        new: planFacts.filter((plan) => plan.state === "new").length,
+        inProgress: planFacts.filter((plan) => plan.state === "in-progress")
+          .length,
         abandoned: planFacts.filter((plan) => plan.state === "abandoned").length,
         duplicate: planFacts.filter((plan) => plan.state === "duplicate").length,
       },
@@ -412,13 +413,14 @@ function completedPeriodStatistics(trend) {
     p90: bucket.p90,
     plans: bucket.plans,
     rolling: false,
+    change: trend.change,
   };
 }
 
 function aggregatePeriod(results, key, start, end, rolling) {
   const periodResults = resultsForPeriod(results, start, end);
   const values = periodResults.map((result) => result.value);
-  return {
+  const period = {
     key,
     start: start.toISOString(),
     end: end.toISOString(),
@@ -427,6 +429,17 @@ function aggregatePeriod(results, key, start, end, rolling) {
     p90: percentile(values, 0.9),
     plans: cohortPlans(periodResults),
     rolling,
+  };
+  const baselineStart = shiftUtcMonthClamped(start, -3);
+  const baselineValues = resultsForPeriod(results, baselineStart, start).map(
+    (result) => result.value,
+  );
+  return {
+    ...period,
+    change: changeAgainstBaseline(period, baselineValues, {
+      baselinePeriodCount: 3,
+      baselineKeys: [],
+    }),
   };
 }
 
@@ -480,12 +493,18 @@ function rollingPeriodChange(series, results, currentOffset) {
     baselineStart,
     new Date(current.start),
   ).map((result) => result.value);
+  return changeAgainstBaseline(current, baselineValues, {
+    baselinePeriodCount: baselineBuckets.length,
+    baselineKeys: baselineBuckets.map((bucket) => bucket.key),
+  });
+}
+
+function changeAgainstBaseline(current, baselineValues, context) {
   const baselineValue = percentile(baselineValues, 0.5);
   const comparison = {
     baselineValue,
-    baselinePeriodCount: baselineBuckets.length,
     baselineSampleCount: baselineValues.length,
-    baselineKeys: baselineBuckets.map((bucket) => bucket.key),
+    ...context,
     currentKey: current.key,
     currentSampleCount: current.count,
   };

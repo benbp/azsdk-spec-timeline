@@ -239,8 +239,8 @@ function validatePlan(plan, selection, hydratePlan) {
 
 function validateCalculated(calculated, snapshot) {
   const scorecard = calculated.scorecard;
-  const eligible = snapshot.facts.plans.filter((plan) =>
-    ["new", "in-progress", "finished"].includes(plan.state),
+  const eligible = snapshot.facts.plans.filter(
+    (plan) => plan.state === "finished",
   ).length;
   if (
     scorecard.cohort.generatedAt !== new Date(snapshot.generatedAt).toISOString() ||
@@ -258,6 +258,10 @@ function validateCalculated(calculated, snapshot) {
       population.eligible
     )
       errors.push(`${metric.metricId}: population does not reconcile`);
+    for (const period of Object.values(metric.periodStatistics)) {
+      if (!period.change || !("percent" in period.change))
+        errors.push(`${metric.metricId}: period comparison is missing`);
+    }
     for (const cadence of ["weekly", "monthly"]) {
       const series = metric.trends[cadence].series;
       for (let index = 0; index < series.length; index += 1) {
@@ -312,6 +316,38 @@ function validateFixtures(engine) {
     errors.push("Ineligible-outcome fixture failed");
   if (l1.trends.weekly.series.length !== 13)
     errors.push("Empty-bucket trend fixture failed");
+  const activeFact = {
+    ...fact,
+    id: "active-fixture",
+    state: "in-progress",
+    cohortPlan: {
+      ...fact.cohortPlan,
+      id: "active-fixture",
+      releasePlanId: "active-fixture",
+      state: "in-progress",
+    },
+    specPrs: [
+      {
+        ...fact.specPrs[0],
+        id: "active-spec",
+        trackId: "spec:active-spec",
+        mergedAt: "2024-02-01T00:00:00.000Z",
+      },
+    ],
+  };
+  const finishedOnlyScorecard = engine.buildScorecard(
+    [fact, activeFact],
+    "2024-03-31T12:00:00.000Z",
+  );
+  const finishedOnlyS1 = finishedOnlyScorecard.metrics.find(
+    (metric) => metric.metricId === "S1",
+  );
+  if (
+    finishedOnlyScorecard.cohort.eligiblePlanCount !== 1 ||
+    finishedOnlyScorecard.cohort.totalPlanCount !== 2 ||
+    finishedOnlyS1.population.included !== 1
+  )
+    errors.push("Finished-only scorecard cohort fixture failed");
   const releaseFact = {
     ...fact,
     artifacts: [

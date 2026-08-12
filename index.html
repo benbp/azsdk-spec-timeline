@@ -81,9 +81,10 @@
               @keydown.space.prevent="trendsExpanded = !trendsExpanded"
             >
               <div>
-                <p class="eyebrow">Tracked cohort scorecard</p>
+                <p class="eyebrow">Finished release scorecard</p>
                 <div class="scorecard-title">
                   <h2>Stage duration</h2>
+                  <span>Each period vs prior 3mo P50</span>
                 </div>
               </div>
               <span
@@ -98,7 +99,7 @@
             <div class="metric-strip">
               <template x-for="metric in scorecardMetrics" :key="metric.metricId">
                 <article>
-                  <div>
+                  <div class="metric-heading">
                     <strong x-text="metric.name"></strong>
                     <span
                       class="readiness"
@@ -121,13 +122,13 @@
                         <span>
                           <small>P50</small>
                           <b
-                            x-text="formatDuration(period.statistics.p50)"
+                            x-text="formatCompactDuration(period.statistics.p50)"
                           ></b>
                         </span>
                         <span>
                           <small>P90</small>
                           <b
-                            x-text="formatDuration(period.statistics.p90)"
+                            x-text="formatCompactDuration(period.statistics.p90)"
                           ></b>
                         </span>
                         <small
@@ -135,6 +136,12 @@
                           :title="observationLabel(period.statistics.count)"
                           x-text="`n=${period.statistics.count}`"
                         ></small>
+                        <b
+                          class="period-change"
+                          :class="period.statistics.change.direction"
+                          :title="trendComparisonTitle(period.statistics.change)"
+                          x-text="formatTrendChange(period.statistics.change)"
+                        ></b>
                       </section>
                     </template>
                   </div>
@@ -147,13 +154,13 @@
                         :aria-label="trendAriaLabel(metric, 'weekly')"
                       >
                         <template
-                          x-for="bucket in completeTrendSeries(metric.trends.weekly)"
+                          x-for="(bucket, index) in completeTrendSeries(metric.trends.weekly)"
                           :key="`mini-week:${metric.metricId}:${bucket.key}`"
                         >
                           <button
                             type="button"
                             class="mini-column"
-                            :class="{ empty: bucket.p50 === null }"
+                            :class="`${bucket.p50 === null ? 'empty' : ''} ${tooltipEdgeClass(index, completeTrendSeries(metric.trends.weekly).length)}`"
                             :style="miniColumnStyle(bucket.p50, completeTrendSeries(metric.trends.weekly))"
                             :data-tooltip="columnTooltip(bucket, 'p50')"
                             :aria-label="columnTooltip(bucket, 'p50')"
@@ -162,11 +169,6 @@
                           ></button>
                         </template>
                       </div>
-                      <b
-                        :class="rollingTrendChange(metric.trends.weekly).direction"
-                        :title="trendComparisonTitle(rollingTrendChange(metric.trends.weekly))"
-                        x-text="`${formatTrendChange(rollingTrendChange(metric.trends.weekly))} vs 3mo`"
-                      ></b>
                     </div>
                     <div>
                       <span>MoM</span>
@@ -176,13 +178,13 @@
                         :aria-label="trendAriaLabel(metric, 'monthly')"
                       >
                         <template
-                          x-for="bucket in completeTrendSeries(metric.trends.monthly)"
+                          x-for="(bucket, index) in completeTrendSeries(metric.trends.monthly)"
                           :key="`mini-month:${metric.metricId}:${bucket.key}`"
                         >
                           <button
                             type="button"
                             class="mini-column"
-                            :class="{ empty: bucket.p50 === null }"
+                            :class="`${bucket.p50 === null ? 'empty' : ''} ${tooltipEdgeClass(index, completeTrendSeries(metric.trends.monthly).length)}`"
                             :style="miniColumnStyle(bucket.p50, completeTrendSeries(metric.trends.monthly))"
                             :data-tooltip="columnTooltip(bucket, 'p50')"
                             :aria-label="columnTooltip(bucket, 'p50')"
@@ -191,11 +193,6 @@
                           ></button>
                         </template>
                       </div>
-                      <b
-                        :class="rollingTrendChange(metric.trends.monthly).direction"
-                        :title="trendComparisonTitle(rollingTrendChange(metric.trends.monthly))"
-                        x-text="`${formatTrendChange(rollingTrendChange(metric.trends.monthly))} vs 3mo`"
-                      ></b>
                     </div>
                   </div>
                 </article>
@@ -287,6 +284,7 @@
                                       class="chart-column p50"
                                       x-show="bucket.p50 !== null"
                                       :style="columnStyle(bucket.p50, metric, metric.trends.weekly)"
+                                      :class="tooltipEdgeClass(index, metric.trends.weekly.series.length)"
                                       :data-tooltip="columnTooltip(bucket, 'p50')"
                                       :aria-label="columnTooltip(bucket, 'p50')"
                                       @click="selectTrendCohort(metric, 'weekly', bucket)"
@@ -296,6 +294,7 @@
                                       class="chart-column p90"
                                       x-show="bucket.p90 !== null"
                                       :style="columnStyle(bucket.p90, metric, metric.trends.weekly)"
+                                      :class="tooltipEdgeClass(index, metric.trends.weekly.series.length)"
                                       :data-tooltip="columnTooltip(bucket, 'p90')"
                                       :aria-label="columnTooltip(bucket, 'p90')"
                                       @click="selectTrendCohort(metric, 'weekly', bucket)"
@@ -370,6 +369,7 @@
                                       class="chart-column p50"
                                       x-show="bucket.p50 !== null"
                                       :style="columnStyle(bucket.p50, metric, metric.trends.monthly)"
+                                      :class="tooltipEdgeClass(index, metric.trends.monthly.series.length)"
                                       :data-tooltip="columnTooltip(bucket, 'p50')"
                                       :aria-label="columnTooltip(bucket, 'p50')"
                                       @click="selectTrendCohort(metric, 'monthly', bucket)"
@@ -379,6 +379,7 @@
                                       class="chart-column p90"
                                       x-show="bucket.p90 !== null"
                                       :style="columnStyle(bucket.p90, metric, metric.trends.monthly)"
+                                      :class="tooltipEdgeClass(index, metric.trends.monthly.series.length)"
                                       :data-tooltip="columnTooltip(bucket, 'p90')"
                                       :aria-label="columnTooltip(bucket, 'p90')"
                                       @click="selectTrendCohort(metric, 'monthly', bucket)"
@@ -404,8 +405,10 @@
           <section class="panel">
             <div class="section-heading plans-heading">
               <div>
-                <p class="eyebrow">Release Plans</p>
-                <h2>Recent completed flows</h2>
+                <p class="eyebrow releases-title">
+                  Releases
+                  <span x-text="filteredPlans.length"></span>
+                </p>
               </div>
               <label class="search">
                 <span class="sr-only">Search plans</span>
@@ -423,31 +426,44 @@
               <button
                 type="button"
                 :class="{ active: stateFilter === 'all' }"
-                @click="stateFilter = 'all'"
+                @click="selectStateFilter('all')"
               >
                 All
               </button>
               <button
                 type="button"
                 :class="{ active: stateFilter === 'active' }"
-                @click="stateFilter = 'active'"
+                @click="selectStateFilter('active')"
               >
                 Active
               </button>
               <button
                 type="button"
                 :class="{ active: stateFilter === 'finished' }"
-                @click="stateFilter = 'finished'"
+                @click="selectStateFilter('finished')"
               >
                 Finished
               </button>
               <button
                 type="button"
                 :class="{ active: stateFilter === 'abandoned' }"
-                @click="stateFilter = 'abandoned'"
+                @click="selectStateFilter('abandoned')"
               >
                 Abandoned
               </button>
+              <span class="filter-divider" aria-hidden="true"></span>
+              <span class="filter-label">Active delays</span>
+              <template x-for="metricId in ['S1', 'S4', 'S5']" :key="metricId">
+                <button
+                  type="button"
+                  :class="{ active: delayedMetricFilters.includes(metricId) }"
+                  :disabled="p90Threshold(metricId) === null"
+                  :title="delayedFilterTitle(metricId)"
+                  :aria-pressed="delayedMetricFilters.includes(metricId)"
+                  @click="toggleDelayedMetric(metricId)"
+                  x-text="`${definition(metricId).name} P90+`"
+                ></button>
+              </template>
             </div>
             <div class="plan-list">
               <template
@@ -501,7 +517,7 @@
                 </article>
               </template>
               <p class="empty" x-show="filteredPlans.length === 0">
-                No release plans match these filters.
+                No releases match these filters.
               </p>
             </div>
           </section>
@@ -600,7 +616,7 @@
               </div>
               <div class="timeline-controls">
                 <label>
-                  Event detail
+                  <span>Event detail</span>
                   <select x-model="eventFilter">
                     <option value="milestones">Milestones</option>
                     <option value="human">Human activity</option>
@@ -645,10 +661,10 @@
                           class="interval"
                           :class="interval.phase"
                           :style="intervalStyle(interval)"
-                          :title="`${interval.label}: ${formatDuration(interval.durationHours)}`"
+                          :title="intervalTitle(interval)"
                         >
                           <span
-                            x-show="intervalWidth(interval) > 12"
+                            x-show="interval.status === 'complete' && intervalWidth(interval) > 12"
                             x-text="formatDuration(interval.durationHours)"
                           ></span>
                         </button>

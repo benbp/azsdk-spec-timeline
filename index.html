@@ -230,30 +230,25 @@
                       <strong x-text="metric.name"></strong>
                     </div>
                     <p>
-                      Historical benchmark
+                      Full-cohort benchmark
                       <b x-text="`P50 ${formatDuration(historicalStatistic(metric, 'p50'))}`"></b>
                     </p>
                   </header>
                   <div class="chart-legend" aria-label="Chart legend">
                     <span><i class="legend-column p50"></i>P50 duration</span>
                     <span><i class="legend-column p90"></i>P90 duration</span>
-                    <span><i class="legend-line"></i>Historical P50 benchmark</span>
+                    <span><i class="legend-line"></i>Full-cohort P50 benchmark</span>
                     <span class="scale-note">Square-root Y scale</span>
                   </div>
                   <div class="trend-graphs">
                     <section>
                       <div>
                         <strong>Week over week</strong>
-                        <span
-                          :class="rollingTrendChange(metric.trends.weekly, true).direction"
-                          :title="trendComparisonTitle(rollingTrendChange(metric.trends.weekly, true))"
-                          x-text="`Live ${formatTrendChange(rollingTrendChange(metric.trends.weekly, true))} vs 3mo P50 · ${trendSampleLabel(rollingTrendChange(metric.trends.weekly, true))}`"
-                        ></span>
                       </div>
                       <div
                         class="column-chart-scroll"
                         role="group"
-                        :aria-label="trendAriaLabel(metric, 'weekly', true)"
+                        :aria-label="`${metric.name} week-over-week P50 and P90 duration trend; final column is the live partial week`"
                       >
                         <div class="column-chart">
                           <div class="y-axis">
@@ -324,21 +319,16 @@
                           </div>
                         </div>
                       </div>
-                      <small>Header compares the live partial week · select a column to inspect its release plans</small>
+                      <small>Final column is the live partial week · select a column to inspect its release plans</small>
                     </section>
                     <section>
                       <div>
                         <strong>Month over month</strong>
-                        <span
-                          :class="rollingTrendChange(metric.trends.monthly, true).direction"
-                          :title="trendComparisonTitle(rollingTrendChange(metric.trends.monthly, true))"
-                          x-text="`Live ${formatTrendChange(rollingTrendChange(metric.trends.monthly, true))} vs 3mo P50 · ${trendSampleLabel(rollingTrendChange(metric.trends.monthly, true))}`"
-                        ></span>
                       </div>
                       <div
                         class="column-chart-scroll"
                         role="group"
-                        :aria-label="trendAriaLabel(metric, 'monthly', true)"
+                        :aria-label="`${metric.name} month-over-month P50 and P90 duration trend; final column is the live partial month`"
                       >
                         <div class="column-chart">
                           <div class="y-axis">
@@ -409,7 +399,7 @@
                           </div>
                         </div>
                       </div>
-                      <small>Header compares the live partial month · select a column to inspect its release plans</small>
+                      <small>Final column is the live partial month · select a column to inspect its release plans</small>
                     </section>
                   </div>
                 </article>

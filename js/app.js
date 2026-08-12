@@ -425,10 +425,6 @@ Alpine.data("timelineApp", () => ({
     };
   },
 
-  trendSampleLabel(change) {
-    return `n=${change.currentSampleCount} vs baseline n=${change.baselineSampleCount}`;
-  },
-
   trendComparisonTitle(change) {
     if (!change.baselineSampleCount)
       return "No completed stage observations are available in the prior 3 months";

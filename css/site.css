@@ -307,7 +307,7 @@ select:focus-visible {
   align-items: start;
   display: flex;
   gap: 0.5rem;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-height: 42px;
   padding-left: 0.45rem;
   padding-right: 0.45rem;
@@ -341,9 +341,7 @@ select:focus-visible {
   padding-right: 0.2rem;
 }
 
-.period-summary-row.primary > div strong {
-  color: #175c80;
-}
+
 
 .period-summary-row > div,
 .period-summary-row > span {
@@ -430,11 +428,11 @@ select:focus-visible {
 }
 
 .period-summary-row .period-change.improving {
-  background: rgb(8 127 120 / 32%);
+  background: #a7f3c5;
   box-shadow:
-    -0.2rem 0 0 rgb(8 127 120 / 32%),
-    0.15rem 0 0 rgb(8 127 120 / 32%);
-  color: #034d49;
+    -0.2rem 0 0 #a7f3c5,
+    0.15rem 0 0 #a7f3c5;
+  color: #064e2b;
 }
 
 .period-summary-row .period-change.slowing {

@@ -171,6 +171,16 @@ Alpine.data("timelineApp", () => ({
       : `${name} completed observation at or above the finished-release P90 of ${this.formatDuration(threshold)}`;
   },
 
+  readinessTooltip(readiness) {
+    const descriptions = {
+      validated:
+        "Validated metrics use authoritative boundaries and are suitable for headline comparison.",
+      provisional:
+        "Provisional metrics depend on incomplete or observed release evidence and should be interpreted with caution.",
+    };
+    return descriptions[readiness] || "Metric readiness has not been classified.";
+  },
+
   get scorecardMetrics() {
     return (this.scorecard?.metrics || [])
       .filter((metric) => REPORTED_METRIC_IDS.has(metric.metricId))
@@ -518,6 +528,7 @@ Alpine.data("timelineApp", () => ({
         return {
           metricId: definition.id,
           name: definition.name,
+          readiness: definition.readiness,
           median: median(complete.map((metric) => metric.value)),
           complete: complete.length,
           total: results.length,

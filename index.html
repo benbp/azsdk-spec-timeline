@@ -97,13 +97,19 @@
               </span>
             </div>
             <div class="metric-strip">
-              <template x-for="metric in scorecardMetrics" :key="metric.metricId">
+              <template
+                x-for="(metric, metricIndex) in scorecardMetrics"
+                :key="metric.metricId"
+              >
                 <article>
                   <div class="metric-heading">
                     <strong x-text="metric.name"></strong>
                     <span
                       class="readiness"
-                      :class="metric.readiness"
+                      :class="[metric.readiness, tooltipEdgeClass(metricIndex, scorecardMetrics.length)]"
+                      :data-tooltip="readinessTooltip(metric.readiness)"
+                      :aria-label="`${metric.readiness}: ${readinessTooltip(metric.readiness)}`"
+                      tabindex="0"
                       x-text="metric.readiness"
                     ></span>
                   </div>
@@ -121,30 +127,36 @@
                           <small
                             x-text="compactPeriodRangeLabel(period.statistics)"
                           ></small>
+                          <small
+                            class="period-count"
+                            :title="observationLabel(period.statistics.count)"
+                            x-text="`n=${period.statistics.count}`"
+                          ></small>
                         </div>
-                        <span>
+                        <span class="period-stat p50">
                           <small>P50</small>
                           <b
                             x-text="formatCompactDuration(period.statistics.p50)"
                           ></b>
+                          <b
+                            class="period-change"
+                            :class="period.statistics.change.direction"
+                            :title="trendComparisonTitle(period.statistics.change)"
+                            x-text="formatTrendChange(period.statistics.change)"
+                          ></b>
                         </span>
-                        <span>
+                        <span class="period-stat p90">
                           <small>P90</small>
                           <b
                             x-text="formatCompactDuration(period.statistics.p90)"
                           ></b>
+                          <b
+                            class="period-change"
+                            :class="period.statistics.p90Change.direction"
+                            :title="trendComparisonTitle(period.statistics.p90Change)"
+                            x-text="formatTrendChange(period.statistics.p90Change)"
+                          ></b>
                         </span>
-                        <small
-                          class="period-count"
-                          :title="observationLabel(period.statistics.count)"
-                          x-text="`n=${period.statistics.count}`"
-                        ></small>
-                        <b
-                          class="period-change"
-                          :class="period.statistics.change.direction"
-                          :title="trendComparisonTitle(period.statistics.change)"
-                          x-text="formatTrendChange(period.statistics.change)"
-                        ></b>
                       </section>
                     </template>
                   </div>
@@ -728,6 +740,14 @@
                   <article>
                     <div>
                       <strong x-text="metric.name"></strong>
+                      <span
+                        class="readiness tooltip-left"
+                        :class="metric.readiness"
+                        :data-tooltip="readinessTooltip(metric.readiness)"
+                        :aria-label="`${metric.readiness}: ${readinessTooltip(metric.readiness)}`"
+                        tabindex="0"
+                        x-text="metric.readiness"
+                      ></span>
                       <span
                         class="confidence-badge"
                         :class="metric.confidence"

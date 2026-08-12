@@ -294,7 +294,7 @@ select:focus-visible {
 
 .metric-strip article {
   border-right: 1px solid var(--line);
-  padding: 1.4rem 1.5rem;
+  padding: 1.4rem 0.5rem;
 }
 
 .metric-strip article:last-child {
@@ -324,16 +324,17 @@ select:focus-visible {
   border-bottom: 1px solid #edf0f2;
   display: grid;
   gap: 0.2rem;
-  grid-template-columns: minmax(64px, 1fr) 49px 49px 22px 46px;
-  min-height: 34px;
+  grid-template-columns: 70px repeat(2, minmax(0, 1fr));
+  min-height: 44px;
   padding: 0.25rem 0;
 }
 
 .period-summary-row.primary {
   background: var(--blue-soft);
-  box-shadow: inset 3px 0 0 var(--blue);
-  padding-left: 0.4rem;
-  padding-right: 0.25rem;
+  margin-left: -0.2rem;
+  margin-right: -0.2rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
 }
 
 .period-summary-row.primary > div strong {
@@ -354,7 +355,7 @@ select:focus-visible {
 
 .period-summary-row > span {
   gap: 0.3rem;
-  justify-content: space-between;
+  justify-content: start;
 }
 
 .period-summary-row > div strong {
@@ -364,23 +365,38 @@ select:focus-visible {
   white-space: nowrap;
 }
 
+.period-summary-row > div small {
+  display: block;
+  margin-top: 0.1rem;
+}
+
 .period-summary-row small {
   color: var(--muted);
   font-size: 0.59rem;
   white-space: nowrap;
 }
 
-.period-summary-row > span b {
+.period-summary-row .period-stat {
+  border-radius: 4px;
+  gap: 0.2rem;
+  justify-content: center;
+  padding: 0.3rem 0.15rem;
+}
+
+.period-summary-row .period-stat.p50 {
+  background: rgb(39 125 168 / 6%);
+}
+
+.period-summary-row .period-stat > b {
   font-size: 0.72rem;
 }
 
 .period-summary-row .period-count {
-  font-size: 0.62rem;
-  text-align: right;
+  font-size: 0.58rem;
 }
 
-.period-summary-row .period-change {
-  font-size: 0.7rem;
+.period-summary-row .period-stat > .period-change {
+  font-size: 0.6rem;
   text-align: right;
   white-space: nowrap;
 }
@@ -803,11 +819,20 @@ select:focus-visible {
 
 .readiness {
   border-radius: 999px;
+  cursor: help;
   font-size: 0.62rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   padding: 0.28rem 0.42rem;
+  position: relative;
   text-transform: uppercase;
+}
+
+.readiness::after {
+  line-height: 1.35;
+  text-align: left;
+  white-space: normal;
+  width: 230px;
 }
 
 .readiness.validated {

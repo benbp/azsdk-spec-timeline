@@ -1,4 +1,4 @@
-export const CALCULATION_ENGINE_VERSION = 3;
+export const CALCULATION_ENGINE_VERSION = 4;
 
 export const METRIC_DEFINITIONS = [
   {
@@ -414,6 +414,7 @@ function completedPeriodStatistics(trend) {
     plans: bucket.plans,
     rolling: false,
     change: trend.change,
+    p90Change: trend.p90Change,
   };
 }
 
@@ -440,6 +441,16 @@ function aggregatePeriod(results, key, start, end, rolling) {
       baselinePeriodCount: 3,
       baselineKeys: [],
     }),
+    p90Change: changeAgainstBaseline(
+      period,
+      baselineValues,
+      {
+        baselinePeriodCount: 3,
+        baselineKeys: [],
+      },
+      "p90",
+      0.9,
+    ),
   };
 }
 
@@ -472,11 +483,18 @@ function buildTrend(results, cadence, generatedAt, bucketCount) {
     series,
     comparison: "current-period-p50-vs-prior-three-month-p50",
     change: rollingPeriodChange(series, results, -2),
+    p90Change: rollingPeriodChange(series, results, -2, "p90", 0.9),
     liveChange: rollingPeriodChange(series, results, -1),
   };
 }
 
-function rollingPeriodChange(series, results, currentOffset) {
+function rollingPeriodChange(
+  series,
+  results,
+  currentOffset,
+  field = "p50",
+  fraction = 0.5,
+) {
   const currentIndex =
     currentOffset < 0 ? series.length + currentOffset : currentOffset;
   const current = series[currentIndex];
@@ -486,7 +504,7 @@ function rollingPeriodChange(series, results, currentOffset) {
     .slice(0, currentIndex)
     .filter(
       (bucket) =>
-        new Date(bucket.start) >= baselineStart && bucket.p50 !== null,
+        new Date(bucket.start) >= baselineStart && bucket[field] !== null,
     );
   const baselineValues = resultsForPeriod(
     results,
@@ -496,11 +514,18 @@ function rollingPeriodChange(series, results, currentOffset) {
   return changeAgainstBaseline(current, baselineValues, {
     baselinePeriodCount: baselineBuckets.length,
     baselineKeys: baselineBuckets.map((bucket) => bucket.key),
-  });
+  }, field, fraction);
 }
 
-function changeAgainstBaseline(current, baselineValues, context) {
-  const baselineValue = percentile(baselineValues, 0.5);
+function changeAgainstBaseline(
+  current,
+  baselineValues,
+  context,
+  field = "p50",
+  fraction = 0.5,
+) {
+  const baselineValue = percentile(baselineValues, fraction);
+  const currentValue = current[field];
   const comparison = {
     baselineValue,
     baselineSampleCount: baselineValues.length,
@@ -508,9 +533,9 @@ function changeAgainstBaseline(current, baselineValues, context) {
     currentKey: current.key,
     currentSampleCount: current.count,
   };
-  if (baselineValue === null || current.p50 === null)
+  if (baselineValue === null || currentValue === null)
     return { ...insufficientChange(), ...comparison };
-  const absolute = Math.round((current.p50 - baselineValue) * 10) / 10;
+  const absolute = Math.round((currentValue - baselineValue) * 10) / 10;
   return {
     ...comparison,
     outcome: "complete",

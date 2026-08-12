@@ -259,7 +259,12 @@ function validateCalculated(calculated, snapshot) {
     )
       errors.push(`${metric.metricId}: population does not reconcile`);
     for (const period of Object.values(metric.periodStatistics)) {
-      if (!period.change || !("percent" in period.change))
+      if (
+        !period.change ||
+        !("percent" in period.change) ||
+        !period.p90Change ||
+        !("percent" in period.p90Change)
+      )
         errors.push(`${metric.metricId}: period comparison is missing`);
     }
     for (const cadence of ["weekly", "monthly"]) {

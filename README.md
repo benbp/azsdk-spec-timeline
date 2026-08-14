@@ -11,9 +11,9 @@ deterministically derives metric outcomes, intervals, scorecards, percentiles,
 periods, trends, and cohort membership using `snapshot.generatedAt` as the
 clock. Calculation-only changes therefore do not require recollection.
 
-The current V2 dataset inventories 180 days of management-plane Release Plans and publishes core-correlated flows whose first collected event also falls inside that window. An explicitly populated Release Plan ID and exact spec PR are required before enrichment; after enrichment, a plan is excluded when any retained history predates the cohort start. This keeps plan timelines, scorecards, trends, and historical benchmarks inside one consistent measurement period. Missing downstream SDK PRs, versions, pipeline links, or inaccessible sources remain visible as incomplete metric evidence instead of deleting an otherwise in-window plan. This is a tracked cohort, not a fleet-complete population.
+The current V2 dataset inventories management-plane Release Plans changed since March 1, 2026, the earliest scorecard completion period. Flow starts may predate that reporting boundary, so March completions retain their full history without making inventory discovery unbounded. An explicitly populated Release Plan ID and exact spec PR are required before enrichment. Metric observations completed before March are excluded from scorecards, while missing downstream evidence remains visible instead of deleting an otherwise eligible plan. This is a tracked cohort, not a fleet-complete population.
 
-Top-line scorecard percentiles show rolling 7-day, latest full UTC week, rolling one-calendar-month, and latest full UTC month summaries, each with its exact range and completed-stage observation count. Weekly trends retain 13 weeks, while monthly trends grow with available tracked history up to 12 months. Each sparkline column is the P50 for its own calendar period; the adjacent change compares the latest completed period's P50 with the pooled P50 of all completed results in the preceding three months. Selecting any compact or expanded trend column opens its release-plan cohort for investigation. Scorecard observations come from new, in-progress, and finished plans as soon as the individual metric is complete; abandoned and duplicate plans are excluded. Each metric applies its own evidence contract: S1/S4 require exact GitHub boundaries, S2/S3 require an exact generation run, and observed S5/L1 release boundaries additionally require the Release Plan's released version. Release-pipeline URL coverage remains diagnostic and does not exclude an otherwise useful flow.
+L1 headlines show previous-full-month and rolling-one-month P50 comparisons against the pooled preceding three months, plus a rolling 90-day P90 without a diff. Other stage metrics retain weekly and monthly summaries. Weekly trends retain 13 weeks, while monthly trends grow with available tracked history up to 12 months. S4 measures earliest attributed SDK PR creation through final successful merge per language; individual replacement attempts remain timeline evidence. Release boundaries use a recorded version plus Release Plan Released transition, with a conservative GitHub Release `publishedAt` fallback when historical version evidence is missing. When tag identity is incomplete, monthly metadata from `Azure/azure-sdk/_data/releases` supplies package/version/tag candidates and linked SDK PR evidence disambiguates versions before the GitHub Release timestamp is accepted. The cohort coverage drawer exposes incomplete and excluded populations with source links.
 
 - [Research findings](docs/research-findings.md)
 - [V2 architecture plan](docs/v2-architecture-plan.md)
@@ -42,6 +42,7 @@ The zero-dependency collection pipeline requires authenticated `az` and `gh` CLI
 
 ```bash
 node scripts/refresh-v2-data.js \
+  --start-at 2026-03-01T00:00:00.000Z \
   --days 180 \
   --limit 0 \
   --mode all-management \
@@ -55,7 +56,7 @@ not publish a precomputed scorecard or metric-result aggregate.
 
 The preflight requires only an explicitly populated Release Plan ID and exact spec PR. Plans that fail either root check are not sent to the expensive revision, GitHub, or pipeline collectors. Exact downstream links are enriched when present, but missing evidence produces incomplete metrics and quality warnings. Pipeline names and timestamps are never used to guess missing relationships.
 
-Release Plan creation controls the initial inventory query. Publication uses the stricter flow window recorded as `selection.startAt` and `selection.endAt`: the earliest retained event must be on or after the start, and the entire flow must remain inside the window.
+Release Plan creation or change controls the bounded initial inventory query. Plans created before the fixed start are retained as overflow accounting but are not enriched. Publication uses the stricter flow window recorded as `selection.startAt` and `selection.endAt`: the earliest retained event must be on or after the start, and the entire flow must remain inside the window.
 
 SDK PR bodies that explicitly identify a different Release Plan are not attributed as historical attempts. An identity-less historical PR is also excluded when it was already merged before the plan existed and its field was later replaced by a PR created after plan creation. These rules prevent copied bootstrap fields from pulling an earlier release's activity into a later plan while retaining links that lack contradictory identity or lifecycle evidence.
 

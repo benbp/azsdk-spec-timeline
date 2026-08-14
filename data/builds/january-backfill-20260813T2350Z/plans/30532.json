@@ -1,0 +1,1733 @@
+{
+  "schemaVersion": 2,
+  "id": "30532",
+  "correlation": {
+    "policyVersion": 1,
+    "preflight": "passed"
+  },
+  "releasePlanId": "2056",
+  "title": "Release Plan - 2056 - Public Preview - Azure Database for PostgreSQL",
+  "service": "Release Plan - 2056 - Public Preview - Azure Database for PostgreSQL",
+  "product": "Release",
+  "path": null,
+  "state": "abandoned",
+  "plane": "management",
+  "releaseType": "APEX Public Preview",
+  "intendedMonth": "January 2026",
+  "createdAt": "2026-01-20T17:58:26.117Z",
+  "completedAt": "2026-03-23T22:18:45.89Z",
+  "sourceUrl": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532",
+  "range": {
+    "start": "2026-01-05T20:19:07.000Z",
+    "end": "2026-04-03T08:49:35.000Z"
+  },
+  "intendedArtifacts": [
+    {
+      "prId": "github:Azure/azure-sdk-for-js#37077",
+      "language": "JavaScript",
+      "package": "@azure/arm-postgresql-flexible",
+      "version": null,
+      "outcome": "not-released",
+      "generationPipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775033",
+      "releasePipelineUrl": null
+    },
+    {
+      "prId": "github:Azure/azure-sdk-for-python#44766",
+      "language": "Python",
+      "package": "azure-mgmt-postgresql",
+      "version": null,
+      "outcome": "not-released",
+      "generationPipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775030",
+      "releasePipelineUrl": null
+    },
+    {
+      "prId": "github:Azure/azure-sdk-for-java#47752",
+      "language": "Java",
+      "package": "azure-resourcemanager-postgresqlflexibleserver",
+      "version": null,
+      "outcome": "not-released",
+      "generationPipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775031",
+      "releasePipelineUrl": null
+    },
+    {
+      "prId": "github:Azure/azure-sdk-for-go#25897",
+      "language": "Go",
+      "package": "sdk/resourcemanager/postgresql/armpostgresql",
+      "version": null,
+      "outcome": "not-released",
+      "generationPipelineUrl": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775032",
+      "releasePipelineUrl": null
+    }
+  ],
+  "links": [
+    {
+      "artifactId": "github:Azure/azure-rest-api-specs#39451",
+      "role": "spec-pr",
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451",
+      "releasePlanIds": []
+    },
+    {
+      "artifactId": "github:Azure/azure-sdk-for-js#37077",
+      "role": "sdk-pr",
+      "language": "JavaScript",
+      "url": "https://github.com/Azure/azure-sdk-for-js/pull/37077",
+      "releasePlanIds": []
+    },
+    {
+      "artifactId": "github:Azure/azure-sdk-for-python#44766",
+      "role": "sdk-pr",
+      "language": "Python",
+      "url": "https://github.com/Azure/azure-sdk-for-python/pull/44766",
+      "releasePlanIds": []
+    },
+    {
+      "artifactId": "github:Azure/azure-sdk-for-java#47752",
+      "role": "sdk-pr",
+      "language": "Java",
+      "url": "https://github.com/Azure/azure-sdk-for-java/pull/47752",
+      "releasePlanIds": []
+    },
+    {
+      "artifactId": "github:Azure/azure-sdk-for-go#25897",
+      "role": "sdk-pr",
+      "language": "Go",
+      "url": "https://github.com/Azure/azure-sdk-for-go/pull/25897",
+      "releasePlanIds": []
+    }
+  ],
+  "tracks": [
+    {
+      "id": "plan",
+      "kind": "plan",
+      "label": "Release Plan",
+      "detail": "APEX Public Preview"
+    },
+    {
+      "id": "spec:github:Azure/azure-rest-api-specs#39451",
+      "kind": "spec",
+      "label": "Spec PR",
+      "detail": "azure-rest-api-specs #39451",
+      "artifactId": "github:Azure/azure-rest-api-specs#39451",
+      "state": "merged"
+    },
+    {
+      "id": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "kind": "sdk",
+      "label": "JavaScript",
+      "detail": "@azure/arm-postgresql-flexible",
+      "artifactId": "github:Azure/azure-sdk-for-js#37077",
+      "state": "closed"
+    },
+    {
+      "id": "sdk:Python:azure-mgmt-postgresql",
+      "kind": "sdk",
+      "label": "Python",
+      "detail": "azure-mgmt-postgresql",
+      "artifactId": "github:Azure/azure-sdk-for-python#44766",
+      "state": "closed"
+    },
+    {
+      "id": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "kind": "sdk",
+      "label": "Java",
+      "detail": "azure-resourcemanager-postgresqlflexibleserver",
+      "artifactId": "github:Azure/azure-sdk-for-java#47752",
+      "state": "closed"
+    },
+    {
+      "id": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "kind": "sdk",
+      "label": "Go",
+      "detail": "sdk/resourcemanager/postgresql/armpostgresql",
+      "artifactId": "github:Azure/azure-sdk-for-go#25897",
+      "state": "closed"
+    }
+  ],
+  "events": [
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:commit:a5e08dbf517b:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "commit.pushed",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-05T20:19:07Z",
+      "observedAt": "2026-01-05T20:19:07Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/commit/a5e08dbf517bec74b64ed6d04c483bc905d616b8"
+      },
+      "confidence": "authoritative",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:commit:1b43ad468cbf:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "commit.pushed",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-05T20:27:33Z",
+      "observedAt": "2026-01-05T20:27:33Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/commit/1b43ad468cbf59b7e7b3499e17ec336bc485abbc"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:commit:db8f979b52ca:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "commit.pushed",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-05T20:34:31Z",
+      "observedAt": "2026-01-05T20:34:31Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/commit/db8f979b52cab29689f1da3361ee229459717e1a"
+      },
+      "confidence": "authoritative",
+      "stack": 2
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:commit:a8bb3ab90c0f:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "commit.pushed",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-05T21:48:29Z",
+      "observedAt": "2026-01-05T21:48:29Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/commit/a8bb3ab90c0f45b45f3b5bf7b9662eaa5587f82a"
+      },
+      "confidence": "authoritative",
+      "stack": 3
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:pr.created:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "pr.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-05T21:58:30Z",
+      "observedAt": "2026-01-05T21:58:30Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "PR opened",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451"
+      },
+      "confidence": "authoritative",
+      "stack": 4
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:comment:3712228540:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-05T21:58:50Z",
+      "observedAt": "2026-01-05T21:58:50Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#issuecomment-3712228540"
+      },
+      "confidence": "authoritative",
+      "excerpt": "<h2>Next Steps to Merge</h2>✅ All automated merging requirements have been met! To get your PR merged, see <a href=\"https://aka.ms/azsdk/specreview/merge\">aka.ms/azsdk/specreview/merge</a>.<br /><br />Comment generated by <a href=\"https://g",
+      "stack": 5
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:comment:3712243177:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-05T22:04:03Z",
+      "observedAt": "2026-01-05T22:04:03Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#issuecomment-3712243177"
+      },
+      "confidence": "authoritative",
+      "excerpt": "## API Change Check APIView identified API level changes in this PR and created the following API reviews | Language | API Review for Package | |----------|---------| | Swagger | [Microsoft.DBforPostgreSQL](https://apiview.dev/Assemblies/Re",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:comment:3715090344:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-06T15:16:28Z",
+      "observedAt": "2026-01-06T15:16:28Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Comment",
+      "actor": {
+        "kind": "human",
+        "publicId": "gary-x-li"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#issuecomment-3715090344"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Please fill out the **Purpose of this PR** and **Due diligence checklist** sections. Please fix the required checks: [Swagger Avocado](https://github.com/Azure/azure-rest-api-specs/actions/runs/20730415800) [Swagger ModelValidation](https:/",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:commit:76b7e4aa3975:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "commit.pushed",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-06T18:41:17Z",
+      "observedAt": "2026-01-06T18:41:17Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/commit/76b7e4aa39759f36ae6708db965bfb7e8658bb79"
+      },
+      "confidence": "authoritative",
+      "stack": 2
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:comment:3715865068:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-06T18:41:52Z",
+      "observedAt": "2026-01-06T18:41:52Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Comment",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#issuecomment-3715865068"
+      },
+      "confidence": "authoritative",
+      "excerpt": "> * Swagger Avocado @gary-x-li [Swagger Avocado](https://github.com/Azure/azure-rest-api-specs/actions/runs/20730415800) : we are using this bug to track pre-existing issue: https://github.com/Azure/azure-rest-api-specs/issues/39199 But hav",
+      "stack": 3
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:comment:3719887018:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-07T17:13:54Z",
+      "observedAt": "2026-01-07T17:13:54Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Comment",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#issuecomment-3719887018"
+      },
+      "confidence": "authoritative",
+      "excerpt": "/azp run",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:comment:3719887455:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-07T17:14:01Z",
+      "observedAt": "2026-01-07T17:14:01Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "azure-pipelines[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#issuecomment-3719887455"
+      },
+      "confidence": "authoritative",
+      "excerpt": "<samp> You have several pipelines (over 10) configured to build pull requests in this repository. Specify which pipelines you would like to run by using /azp run [pipelines] command. You can specify multiple pipelines using a comma separate",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:review:3644599861:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "review.submitted",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-09T16:09:27Z",
+      "observedAt": "2026-01-09T16:09:27Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Review submitted",
+      "actor": {
+        "kind": "human",
+        "publicId": "gary-x-li"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#pullrequestreview-3644599861"
+      },
+      "confidence": "authoritative",
+      "excerpt": "",
+      "reviewState": "commented",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:comment:2676763311:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-09T16:09:27Z",
+      "observedAt": "2026-01-09T16:09:27Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Comment",
+      "actor": {
+        "kind": "human",
+        "publicId": "gary-x-li"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#discussion_r2676763311"
+      },
+      "confidence": "authoritative",
+      "excerpt": ">\"Location\": \"canadacentral\" [](http://example.com/codeflow?start=8&length=27) Wrong value for Location. It should be a URL. See [here](https://github.com/cloud-and-ai-microsoft/resource-provider-contract/blob/master/v1.0/async-api-referenc",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:commit:6b4d20e2f026:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "commit.pushed",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-09T20:32:17Z",
+      "observedAt": "2026-01-09T20:32:17Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/commit/6b4d20e2f02637ad66a586cd6ba1851767e427b1"
+      },
+      "confidence": "authoritative",
+      "stack": 2
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:comment:3730483546:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-09T20:33:17Z",
+      "observedAt": "2026-01-09T20:33:17Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Comment",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#issuecomment-3730483546"
+      },
+      "confidence": "authoritative",
+      "excerpt": "@gary-x-li change implemented",
+      "stack": 3
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:review:3645510960:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "review.submitted",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-09T20:41:03Z",
+      "observedAt": "2026-01-09T20:41:03Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Review approved",
+      "actor": {
+        "kind": "human",
+        "publicId": "mattboentoro"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#pullrequestreview-3645510960"
+      },
+      "confidence": "authoritative",
+      "excerpt": "",
+      "reviewState": "approved",
+      "stack": 4
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:comment:3730697277:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-09T21:55:07Z",
+      "observedAt": "2026-01-09T21:55:07Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Comment",
+      "actor": {
+        "kind": "human",
+        "publicId": "nasc17"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451#issuecomment-3730697277"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Please can we bypass .Net validation @live1206 We are currently in progress with updates there for stable API: https://github.com/Azure/azure-sdk-for-net/pull/54263",
+      "stack": 5
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:commit:3a1b65f2a7e6:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "commit.pushed",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-16T07:20:50Z",
+      "observedAt": "2026-01-16T07:20:50Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "haiyuazhang"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/commit/3a1b65f2a7e631e5be7b9ecd13263fd763846b43"
+      },
+      "confidence": "authoritative",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39451:pr.merged:spec:github:Azure/azure-rest-api-specs#39451",
+      "type": "pr.merged",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-20T16:59:00Z",
+      "observedAt": "2026-01-20T16:59:00Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "title": "PR merged",
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39451",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39451"
+      },
+      "confidence": "authoritative",
+      "stack": 0
+    },
+    {
+      "id": "ado:30532:created",
+      "type": "plan.created",
+      "phase": "plan",
+      "occurredAt": "2026-01-20T17:58:26.117Z",
+      "observedAt": "2026-01-20T17:58:26.117Z",
+      "trackId": "plan",
+      "title": "Release Plan created",
+      "confidence": "authoritative",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "stack": 0
+    },
+    {
+      "id": "ado:30532:1:System.State",
+      "type": "plan.state_changed",
+      "phase": "plan",
+      "occurredAt": "2026-01-20T17:58:26.117Z",
+      "observedAt": "2026-01-20T17:58:26.117Z",
+      "trackId": "plan",
+      "value": "New",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Plan state changed",
+      "stack": 1
+    },
+    {
+      "id": "ado:30532:1:Custom.APISpecApprovalStatus",
+      "type": "spec.approval_changed",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-20T17:58:26.117Z",
+      "observedAt": "2026-01-20T17:58:26.117Z",
+      "trackId": "plan",
+      "value": "Not Available",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Spec approval changed",
+      "stack": 2
+    },
+    {
+      "id": "ado:30532:1:Custom.GenerationStatusForJavaScript",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T17:58:26.117Z",
+      "observedAt": "2026-01-20T17:58:26.117Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "value": "Not applicable",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Generation status changed",
+      "stack": 0
+    },
+    {
+      "id": "ado:30532:1:Custom.GenerationStatusForPython",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T17:58:26.117Z",
+      "observedAt": "2026-01-20T17:58:26.117Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "value": "Not applicable",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Generation status changed",
+      "stack": 0
+    },
+    {
+      "id": "ado:30532:1:Custom.GenerationStatusForJava",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T17:58:26.117Z",
+      "observedAt": "2026-01-20T17:58:26.117Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "value": "Not applicable",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Generation status changed",
+      "stack": 0
+    },
+    {
+      "id": "ado:30532:1:Custom.GenerationStatusForGo",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T17:58:26.117Z",
+      "observedAt": "2026-01-20T17:58:26.117Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "value": "Not applicable",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Generation status changed",
+      "stack": 0
+    },
+    {
+      "id": "ado:30532:6:System.State",
+      "type": "plan.state_changed",
+      "phase": "plan",
+      "occurredAt": "2026-01-20T17:59:18.203Z",
+      "observedAt": "2026-01-20T17:59:18.203Z",
+      "trackId": "plan",
+      "value": "In Progress",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Plan state changed",
+      "stack": 3
+    },
+    {
+      "id": "ado:30533:2:Custom.ActiveSpecPullRequestUrl",
+      "type": "spec.pr_linked",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-20T18:07:24.42Z",
+      "observedAt": "2026-01-20T18:07:24.42Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+      "value": "https://github.com/Azure/azure-rest-api-specs/pull/39451",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30533",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30533"
+      },
+      "title": "Spec PR linked",
+      "stack": 1
+    },
+    {
+      "id": "ado-build:internal:5775030:generation.queued:sdk:Python:azure-mgmt-postgresql",
+      "type": "generation.queued",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:27:01.4764335Z",
+      "observedAt": "2026-01-20T18:34:20.7275222Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "title": "Pipeline queued",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775030",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775030"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "ado-build:internal:5775032:generation.queued:sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "type": "generation.queued",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:27:17.7782806Z",
+      "observedAt": "2026-01-20T18:33:34.5434962Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "title": "Pipeline queued",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775032",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775032"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "ado-build:internal:5775031:generation.queued:sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "type": "generation.queued",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:27:17.8190388Z",
+      "observedAt": "2026-01-20T18:39:31.7906906Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "title": "Pipeline queued",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775031",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775031"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "ado-build:internal:5775033:generation.queued:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "generation.queued",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:27:18.0575394Z",
+      "observedAt": "2026-01-20T18:36:20.0294846Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "Pipeline queued",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775033",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775033"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "ado-build:internal:5775030:generation.started:sdk:Python:azure-mgmt-postgresql",
+      "type": "generation.started",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:27:23.7320346Z",
+      "observedAt": "2026-01-20T18:34:20.7275222Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "title": "Pipeline started",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775030",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775030"
+      },
+      "confidence": "authoritative",
+      "stack": 2
+    },
+    {
+      "id": "ado-build:internal:5775031:generation.started:sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "type": "generation.started",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:27:32.5258384Z",
+      "observedAt": "2026-01-20T18:39:31.7906906Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "title": "Pipeline started",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775031",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775031"
+      },
+      "confidence": "authoritative",
+      "stack": 2
+    },
+    {
+      "id": "ado-build:internal:5775032:generation.started:sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "type": "generation.started",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:27:40.2710402Z",
+      "observedAt": "2026-01-20T18:33:34.5434962Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "title": "Pipeline started",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775032",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775032"
+      },
+      "confidence": "authoritative",
+      "stack": 2
+    },
+    {
+      "id": "ado-build:internal:5775033:generation.started:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "generation.started",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:27:41.804373Z",
+      "observedAt": "2026-01-20T18:36:20.0294846Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "Pipeline started",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775033",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775033"
+      },
+      "confidence": "authoritative",
+      "stack": 2
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-go#25897:commit:58814fdd1630:sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "type": "commit.pushed",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:32:21Z",
+      "observedAt": "2026-01-20T18:32:21Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "azure-sdk"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-go#25897",
+        "url": "https://github.com/Azure/azure-sdk-for-go/commit/58814fdd1630556df14bf82700d35b0c2371ca19"
+      },
+      "confidence": "authoritative",
+      "stack": 3
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-go#25897:pr.created:sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "type": "pr.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:32:24Z",
+      "observedAt": "2026-01-20T18:32:24Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "title": "PR opened",
+      "actor": {
+        "kind": "human",
+        "publicId": "azure-sdk"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-go#25897",
+        "url": "https://github.com/Azure/azure-sdk-for-go/pull/25897"
+      },
+      "confidence": "authoritative",
+      "stack": 4
+    },
+    {
+      "id": "ado:30532:27:Custom.GenerationStatusForGo",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:32:31.837Z",
+      "observedAt": "2026-01-20T18:32:31.837Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "value": "Completed",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Generation status changed",
+      "stack": 5
+    },
+    {
+      "id": "ado:30532:27:Custom.SDKPullRequestForGo",
+      "type": "sdk.pr_linked",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:32:31.837Z",
+      "observedAt": "2026-01-20T18:32:31.837Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "value": "https://github.com/Azure/azure-sdk-for-go/pull/25897",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "SDK PR linked",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-python#44766:commit:4d3066d3587b:sdk:Python:azure-mgmt-postgresql",
+      "type": "commit.pushed",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:33:11Z",
+      "observedAt": "2026-01-20T18:33:11Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "azure-sdk"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-python#44766",
+        "url": "https://github.com/Azure/azure-sdk-for-python/commit/4d3066d3587b0f44076784685809b8be3274b1af"
+      },
+      "confidence": "authoritative",
+      "stack": 3
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-python#44766:pr.created:sdk:Python:azure-mgmt-postgresql",
+      "type": "pr.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:33:14Z",
+      "observedAt": "2026-01-20T18:33:14Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "title": "PR opened",
+      "actor": {
+        "kind": "human",
+        "publicId": "azure-sdk"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-python#44766",
+        "url": "https://github.com/Azure/azure-sdk-for-python/pull/44766"
+      },
+      "confidence": "authoritative",
+      "stack": 4
+    },
+    {
+      "id": "ado:30532:28:Custom.GenerationStatusForPython",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:33:21.347Z",
+      "observedAt": "2026-01-20T18:33:21.347Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "value": "Completed",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Generation status changed",
+      "stack": 5
+    },
+    {
+      "id": "ado:30532:28:Custom.SDKPullRequestForPython",
+      "type": "sdk.pr_linked",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:33:21.347Z",
+      "observedAt": "2026-01-20T18:33:21.347Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "value": "https://github.com/Azure/azure-sdk-for-python/pull/44766",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "SDK PR linked",
+      "stack": 0
+    },
+    {
+      "id": "ado-build:internal:5775032:generation.completed:sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "type": "generation.completed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:33:34.5434962Z",
+      "observedAt": "2026-01-20T18:33:34.5434962Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "title": "Pipeline completed",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775032",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775032"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "ado-build:internal:5775030:generation.completed:sdk:Python:azure-mgmt-postgresql",
+      "type": "generation.completed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:34:20.7275222Z",
+      "observedAt": "2026-01-20T18:34:20.7275222Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "title": "Pipeline completed",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775030",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775030"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-js#37077:commit:531081fe36aa:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "commit.pushed",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:35:06Z",
+      "observedAt": "2026-01-20T18:35:06Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "azure-sdk"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-js#37077",
+        "url": "https://github.com/Azure/azure-sdk-for-js/commit/531081fe36aac54cb341593a3342079ef0e9670c"
+      },
+      "confidence": "authoritative",
+      "stack": 3
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-js#37077:pr.created:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "pr.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:35:09Z",
+      "observedAt": "2026-01-20T18:35:09Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "PR opened",
+      "actor": {
+        "kind": "human",
+        "publicId": "azure-sdk"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-js#37077",
+        "url": "https://github.com/Azure/azure-sdk-for-js/pull/37077"
+      },
+      "confidence": "authoritative",
+      "stack": 4
+    },
+    {
+      "id": "ado:30532:29:Custom.GenerationStatusForJavaScript",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:35:15.593Z",
+      "observedAt": "2026-01-20T18:35:15.593Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "value": "Completed",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Generation status changed",
+      "stack": 5
+    },
+    {
+      "id": "ado:30532:29:Custom.SDKPullRequestForJavaScript",
+      "type": "sdk.pr_linked",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:35:15.593Z",
+      "observedAt": "2026-01-20T18:35:15.593Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "value": "https://github.com/Azure/azure-sdk-for-js/pull/37077",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "SDK PR linked",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-java#47752:commit:853fd2bbe805:sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "type": "commit.pushed",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:35:42Z",
+      "observedAt": "2026-01-20T18:35:42Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "azure-sdk"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-java#47752",
+        "url": "https://github.com/Azure/azure-sdk-for-java/commit/853fd2bbe805c4005461be8c8b4c21df7b537e1b"
+      },
+      "confidence": "authoritative",
+      "stack": 3
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-java#47752:pr.created:sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "type": "pr.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:35:45Z",
+      "observedAt": "2026-01-20T18:35:45Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "title": "PR opened",
+      "actor": {
+        "kind": "human",
+        "publicId": "azure-sdk"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-java#47752",
+        "url": "https://github.com/Azure/azure-sdk-for-java/pull/47752"
+      },
+      "confidence": "authoritative",
+      "stack": 4
+    },
+    {
+      "id": "ado:30532:30:Custom.GenerationStatusForJava",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:35:51.387Z",
+      "observedAt": "2026-01-20T18:35:51.387Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "value": "Completed",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Generation status changed",
+      "stack": 5
+    },
+    {
+      "id": "ado:30532:30:Custom.SDKPullRequestForJava",
+      "type": "sdk.pr_linked",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:35:51.387Z",
+      "observedAt": "2026-01-20T18:35:51.387Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "value": "https://github.com/Azure/azure-sdk-for-java/pull/47752",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "SDK PR linked",
+      "stack": 0
+    },
+    {
+      "id": "ado-build:internal:5775033:generation.completed:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "generation.completed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:36:20.0294846Z",
+      "observedAt": "2026-01-20T18:36:20.0294846Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "Pipeline completed",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775033",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775033"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "ado-build:internal:5775031:generation.completed:sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "type": "generation.completed",
+      "phase": "generation",
+      "occurredAt": "2026-01-20T18:39:31.7906906Z",
+      "observedAt": "2026-01-20T18:39:31.7906906Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "title": "Pipeline completed",
+      "actor": {
+        "kind": "service",
+        "publicId": null
+      },
+      "source": {
+        "system": "azure-pipelines",
+        "entity": "internal build 5775031",
+        "url": "https://dev.azure.com/azure-sdk/internal/_build/results?buildId=5775031"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-go#25897:comment:3774391470:sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:40:19Z",
+      "observedAt": "2026-01-20T18:40:19Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-go#25897",
+        "url": "https://github.com/Azure/azure-sdk-for-go/pull/25897#issuecomment-3774391470"
+      },
+      "confidence": "authoritative",
+      "excerpt": "## API Change Check APIView identified API level changes in this PR and created the following API reviews [sdk/resourcemanager/postgresql/armpostgresql](https://spa.apiview.dev/review/1d361fa3ae3b4249bd468e911d82aa97?activeApiRevisionId=529",
+      "stack": 2
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-js#37077:comment:3774398569:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-20T18:42:21Z",
+      "observedAt": "2026-01-20T18:42:21Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-js#37077",
+        "url": "https://github.com/Azure/azure-sdk-for-js/pull/37077#issuecomment-3774398569"
+      },
+      "confidence": "authoritative",
+      "excerpt": "## API Change Check APIView identified API level changes in this PR and created the following API reviews [@azure/arm-postgresql-flexible](https://spa.apiview.dev/review/d66a60c5a019413aa869b0d7c6af3223?activeApiRevisionId=245a3070dabc486cb",
+      "stack": 2
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-js#37077:commit:715b8da5c6f7:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "commit.pushed",
+      "phase": "sdk-review",
+      "occurredAt": "2026-01-22T08:44:06Z",
+      "observedAt": "2026-01-22T08:44:06Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "azure-sdk"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-js#37077",
+        "url": "https://github.com/Azure/azure-sdk-for-js/commit/715b8da5c6f7e8b3a0ba52b7ac3ba3b617ae5bab"
+      },
+      "confidence": "authoritative",
+      "stack": 0
+    },
+    {
+      "id": "ado:30532:33:System.State",
+      "type": "plan.state_changed",
+      "phase": "plan",
+      "occurredAt": "2026-03-23T22:18:45.89Z",
+      "observedAt": "2026-03-23T22:18:45.89Z",
+      "trackId": "plan",
+      "value": "Abandoned",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:30532",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/30532"
+      },
+      "title": "Plan state changed",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-python#44766:comment:4140303592:sdk:Python:azure-mgmt-postgresql",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-03-27T05:30:01Z",
+      "observedAt": "2026-03-27T05:30:01Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-python#44766",
+        "url": "https://github.com/Azure/azure-sdk-for-python/pull/44766#issuecomment-4140303592"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Hi @azure-sdk. Thank you for your interest in helping to improve the Azure SDK experience and for your contribution. We've noticed that there hasn't been recent engagement on this pull request. If this is still an active work stream, please",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-go#25897:comment:4140316047:sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-03-27T05:33:57Z",
+      "observedAt": "2026-03-27T05:33:57Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-go#25897",
+        "url": "https://github.com/Azure/azure-sdk-for-go/pull/25897#issuecomment-4140316047"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Hi @azure-sdk. Thank you for your interest in helping to improve the Azure SDK experience and for your contribution. We've noticed that there hasn't been recent engagement on this pull request. If this is still an active work stream, please",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-js#37077:comment:4140316087:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-03-27T05:33:58Z",
+      "observedAt": "2026-03-27T05:33:58Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-js#37077",
+        "url": "https://github.com/Azure/azure-sdk-for-js/pull/37077#issuecomment-4140316087"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Hi @azure-sdk. Thank you for your interest in helping to improve the Azure SDK experience and for your contribution. We've noticed that there hasn't been recent engagement on this pull request. If this is still an active work stream, please",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-java#47752:comment:4140319649:sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-03-27T05:35:08Z",
+      "observedAt": "2026-03-27T05:35:08Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-java#47752",
+        "url": "https://github.com/Azure/azure-sdk-for-java/pull/47752#issuecomment-4140319649"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Hi @azure-sdk. Thank you for your interest in helping to improve the Azure SDK experience and for your contribution. We've noticed that there hasn't been recent engagement on this pull request. If this is still an active work stream, please",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-python#44766:comment:4182581639:sdk:Python:azure-mgmt-postgresql",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-04-03T08:45:45Z",
+      "observedAt": "2026-04-03T08:45:45Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-python#44766",
+        "url": "https://github.com/Azure/azure-sdk-for-python/pull/44766#issuecomment-4182581639"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Hi @azure-sdk. Thank you for your contribution. Since there hasn't been recent engagement, we're going to close this out. Feel free to respond with a comment containing `/reopen` if you'd like to continue working on these changes. Please be",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-python#44766:pr.closed:sdk:Python:azure-mgmt-postgresql",
+      "type": "pr.closed",
+      "phase": "sdk-review",
+      "occurredAt": "2026-04-03T08:45:55Z",
+      "observedAt": "2026-04-03T08:45:55Z",
+      "trackId": "sdk:Python:azure-mgmt-postgresql",
+      "title": "PR closed",
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-python#44766",
+        "url": "https://github.com/Azure/azure-sdk-for-python/pull/44766"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-go#25897:pr.closed:sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "type": "pr.closed",
+      "phase": "sdk-review",
+      "occurredAt": "2026-04-03T08:48:06Z",
+      "observedAt": "2026-04-03T08:48:06Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "title": "PR closed",
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-go#25897",
+        "url": "https://github.com/Azure/azure-sdk-for-go/pull/25897"
+      },
+      "confidence": "authoritative",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-go#25897:comment:4182589288:sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-04-03T08:48:06Z",
+      "observedAt": "2026-04-03T08:48:06Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-go#25897",
+        "url": "https://github.com/Azure/azure-sdk-for-go/pull/25897#issuecomment-4182589288"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Hi @azure-sdk. Thank you for your contribution. Since there hasn't been recent engagement, we're going to close this out. Feel free to respond with a comment containing `/reopen` if you'd like to continue working on these changes. Please be",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-js#37077:comment:4182593599:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-04-03T08:49:30Z",
+      "observedAt": "2026-04-03T08:49:30Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-js#37077",
+        "url": "https://github.com/Azure/azure-sdk-for-js/pull/37077#issuecomment-4182593599"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Hi @azure-sdk. Thank you for your contribution. Since there hasn't been recent engagement, we're going to close this out. Feel free to respond with a comment containing `/reopen` if you'd like to continue working on these changes. Please be",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-js#37077:pr.closed:sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "type": "pr.closed",
+      "phase": "sdk-review",
+      "occurredAt": "2026-04-03T08:49:31Z",
+      "observedAt": "2026-04-03T08:49:31Z",
+      "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+      "title": "PR closed",
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-js#37077",
+        "url": "https://github.com/Azure/azure-sdk-for-js/pull/37077"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-java#47752:comment:4182593714:sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "type": "comment.created",
+      "phase": "sdk-review",
+      "occurredAt": "2026-04-03T08:49:33Z",
+      "observedAt": "2026-04-03T08:49:33Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-java#47752",
+        "url": "https://github.com/Azure/azure-sdk-for-java/pull/47752#issuecomment-4182593714"
+      },
+      "confidence": "authoritative",
+      "excerpt": "Hi @azure-sdk. Thank you for your contribution. Since there hasn't been recent engagement, we're going to close this out. Feel free to respond with a comment containing `/reopen` if you'd like to continue working on these changes. Please be",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-sdk-for-java#47752:pr.closed:sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "type": "pr.closed",
+      "phase": "sdk-review",
+      "occurredAt": "2026-04-03T08:49:35Z",
+      "observedAt": "2026-04-03T08:49:35Z",
+      "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+      "title": "PR closed",
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-sdk-for-java#47752",
+        "url": "https://github.com/Azure/azure-sdk-for-java/pull/47752"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "API specification path is missing",
+      "4 historical linked PR(s) closed without merge"
+    ],
+    "unavailablePullRequests": 0,
+    "unavailablePipelineRuns": 0
+  },
+  "boundaryFacts": {
+    "id": "30532",
+    "state": "abandoned",
+    "specPrs": [
+      {
+        "id": "github:Azure/azure-rest-api-specs#39451",
+        "trackId": "spec:github:Azure/azure-rest-api-specs#39451",
+        "createdAt": "2026-01-05T21:58:30Z",
+        "mergedAt": "2026-01-20T16:59:00Z",
+        "closedAt": "2026-01-20T16:59:00Z",
+        "available": true
+      }
+    ],
+    "artifacts": [
+      {
+        "language": "JavaScript",
+        "package": "@azure/arm-postgresql-flexible",
+        "trackId": "sdk:JavaScript:@azure/arm-postgresql-flexible",
+        "prId": "github:Azure/azure-sdk-for-js#37077",
+        "prCreatedAt": "2026-01-20T18:35:09Z",
+        "prMergedAt": null,
+        "prClosedAt": "2026-04-03T08:49:31Z",
+        "prAttempts": [
+          {
+            "id": "github:Azure/azure-sdk-for-js#37077",
+            "createdAt": "2026-01-20T18:35:09Z",
+            "mergedAt": null,
+            "closedAt": "2026-04-03T08:49:31Z",
+            "state": "closed"
+          }
+        ],
+        "generationRunId": "ado-build:internal:5775033",
+        "generationStartAt": "2026-01-20T18:27:41.804373Z",
+        "releaseEvents": [],
+        "releasedVersion": null,
+        "releaseBoundaryAt": null,
+        "releaseBoundarySource": "missing",
+        "releaseBoundaryConfidence": "missing",
+        "releaseBoundaryUrl": null,
+        "releaseTag": null,
+        "releaseMatchMethod": null,
+        "provenance": {
+          "pr": "exact",
+          "generation": "exact",
+          "release": "missing"
+        }
+      },
+      {
+        "language": "Python",
+        "package": "azure-mgmt-postgresql",
+        "trackId": "sdk:Python:azure-mgmt-postgresql",
+        "prId": "github:Azure/azure-sdk-for-python#44766",
+        "prCreatedAt": "2026-01-20T18:33:14Z",
+        "prMergedAt": null,
+        "prClosedAt": "2026-04-03T08:45:55Z",
+        "prAttempts": [
+          {
+            "id": "github:Azure/azure-sdk-for-python#44766",
+            "createdAt": "2026-01-20T18:33:14Z",
+            "mergedAt": null,
+            "closedAt": "2026-04-03T08:45:55Z",
+            "state": "closed"
+          }
+        ],
+        "generationRunId": "ado-build:internal:5775030",
+        "generationStartAt": "2026-01-20T18:27:23.7320346Z",
+        "releaseEvents": [],
+        "releasedVersion": null,
+        "releaseBoundaryAt": null,
+        "releaseBoundarySource": "missing",
+        "releaseBoundaryConfidence": "missing",
+        "releaseBoundaryUrl": null,
+        "releaseTag": null,
+        "releaseMatchMethod": null,
+        "provenance": {
+          "pr": "exact",
+          "generation": "exact",
+          "release": "missing"
+        }
+      },
+      {
+        "language": "Java",
+        "package": "azure-resourcemanager-postgresqlflexibleserver",
+        "trackId": "sdk:Java:azure-resourcemanager-postgresqlflexibleserver",
+        "prId": "github:Azure/azure-sdk-for-java#47752",
+        "prCreatedAt": "2026-01-20T18:35:45Z",
+        "prMergedAt": null,
+        "prClosedAt": "2026-04-03T08:49:35Z",
+        "prAttempts": [
+          {
+            "id": "github:Azure/azure-sdk-for-java#47752",
+            "createdAt": "2026-01-20T18:35:45Z",
+            "mergedAt": null,
+            "closedAt": "2026-04-03T08:49:35Z",
+            "state": "closed"
+          }
+        ],
+        "generationRunId": "ado-build:internal:5775031",
+        "generationStartAt": "2026-01-20T18:27:32.5258384Z",
+        "releaseEvents": [],
+        "releasedVersion": null,
+        "releaseBoundaryAt": null,
+        "releaseBoundarySource": "missing",
+        "releaseBoundaryConfidence": "missing",
+        "releaseBoundaryUrl": null,
+        "releaseTag": null,
+        "releaseMatchMethod": null,
+        "provenance": {
+          "pr": "exact",
+          "generation": "exact",
+          "release": "missing"
+        }
+      },
+      {
+        "language": "Go",
+        "package": "sdk/resourcemanager/postgresql/armpostgresql",
+        "trackId": "sdk:Go:sdk/resourcemanager/postgresql/armpostgresql",
+        "prId": "github:Azure/azure-sdk-for-go#25897",
+        "prCreatedAt": "2026-01-20T18:32:24Z",
+        "prMergedAt": null,
+        "prClosedAt": "2026-04-03T08:48:06Z",
+        "prAttempts": [
+          {
+            "id": "github:Azure/azure-sdk-for-go#25897",
+            "createdAt": "2026-01-20T18:32:24Z",
+            "mergedAt": null,
+            "closedAt": "2026-04-03T08:48:06Z",
+            "state": "closed"
+          }
+        ],
+        "generationRunId": "ado-build:internal:5775032",
+        "generationStartAt": "2026-01-20T18:27:40.2710402Z",
+        "releaseEvents": [],
+        "releasedVersion": null,
+        "releaseBoundaryAt": null,
+        "releaseBoundarySource": "missing",
+        "releaseBoundaryConfidence": "missing",
+        "releaseBoundaryUrl": null,
+        "releaseTag": null,
+        "releaseMatchMethod": null,
+        "provenance": {
+          "pr": "exact",
+          "generation": "exact",
+          "release": "missing"
+        }
+      }
+    ],
+    "cohortPlan": {
+      "id": "30532",
+      "releasePlanId": "2056",
+      "title": "Release Plan - 2056 - Public Preview - Azure Database for PostgreSQL",
+      "service": "Release Plan - 2056 - Public Preview - Azure Database for PostgreSQL",
+      "state": "abandoned"
+    },
+    "quality": {
+      "warnings": [
+        "API specification path is missing",
+        "4 historical linked PR(s) closed without merge"
+      ],
+      "unavailablePullRequests": 0,
+      "unavailablePipelineRuns": 0
+    }
+  },
+  "summary": {
+    "durationHours": 1492.3,
+    "pullRequestCount": 5,
+    "humanReviewCount": 2,
+    "humanCommentCount": 6
+  }
+}

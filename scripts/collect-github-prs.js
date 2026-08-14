@@ -12,7 +12,7 @@ const {
 const args = parseArgs(process.argv.slice(2), {
   input: "cache/v2/release-plans.json",
   output: "cache/v2/github-prs.json",
-  concurrency: 6,
+  concurrency: 2,
   maxPages: 10,
 });
 

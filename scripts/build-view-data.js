@@ -22,6 +22,7 @@ const { POLICY_VERSION } = require("./lib/instrumentation-compliance");
 const args = parseArgs(process.argv.slice(2), {
   plans: "cache/v2/release-plans.json",
   github: "cache/v2/github-prs.json",
+  releases: "cache/v2/github-releases.json",
   pipelines: "cache/v2/pipeline-runs.json",
   output: "data",
   buildId: new Date().toISOString().replace(/[-:]/g, "").slice(0, 13),
@@ -32,8 +33,12 @@ main();
 function main() {
   const source = readJson(args.plans);
   const github = readJson(args.github);
+  const githubReleases = readJson(args.releases);
   const pipelineSource = readJson(args.pipelines);
   const prMap = new Map(github.prs.map((pr) => [pr.id, pr]));
+  const releaseMap = new Map(
+    githubReleases.matches.map((match) => [match.id, match]),
+  );
   const pipelineRuns = pipelineSource.runs;
   const buildRoot = join(args.output, "builds", args.buildId);
   if (existsSync(buildRoot)) {
@@ -48,12 +53,10 @@ function main() {
     filterPlanPrAttribution(plan, prMap),
   );
   const candidatePlans = attributedSourcePlans.map((plan) =>
-    buildPlan(plan, prMap, pipelineRuns, window.end.toISOString()),
+    buildPlan(plan, prMap, pipelineRuns, releaseMap, window.end.toISOString()),
   );
   const plans = candidatePlans.filter(
-    (plan) =>
-      new Date(plan.range.start) >= window.start &&
-      new Date(plan.range.end) <= window.end,
+    (plan) => new Date(plan.range.end) <= window.end,
   );
   const includedPlanIds = new Set(plans.map((plan) => plan.id));
   const outOfWindowPlans = candidatePlans
@@ -61,11 +64,9 @@ function main() {
     .map((plan) => ({
       id: plan.id,
       title: plan.title,
+      sourceUrl: plan.sourceUrl,
       stage: "flow-window",
-      reason:
-        new Date(plan.range.start) < window.start
-          ? `first touch ${plan.range.start} predates ${window.start.toISOString()}`
-          : `last touch ${plan.range.end} exceeds ${window.end.toISOString()}`,
+      reason: `last touch ${plan.range.end} exceeds ${window.end.toISOString()}`,
     }));
   const includedSourcePlans = attributedSourcePlans.filter((plan) =>
     includedPlanIds.has(plan.id),
@@ -80,9 +81,12 @@ function main() {
     plans: includedSourcePlans,
     selection: {
       ...source.selection,
-      startAt: window.start.toISOString(),
+      startAt: new Date(
+        Math.min(window.start, ...plans.map((plan) => new Date(plan.range.start))),
+      ).toISOString(),
+      metricStartAt: window.start.toISOString(),
       endAt: window.end.toISOString(),
-      criteria: `core-correlated management-plane flows first touched in the last ${source.selection.days} days`,
+      criteria: `core-correlated management-plane plans changed since ${window.start.toISOString()}; metrics include completions on or after that boundary`,
       flowCandidateCount: source.plans.length,
       outOfWindowCount: outOfWindowPlans.length,
       publishedCount: plans.length,
@@ -119,6 +123,11 @@ function main() {
     },
     selection: buildSource.selection,
     sourceCoverage: portfolio.dataQuality,
+    cohortAccounting: buildCohortAccounting(
+      plans,
+      buildSource,
+      candidatePlans,
+    ),
     portfolio,
     facts: {
       plans: plans.map((plan) => plan.boundaryFacts),
@@ -269,7 +278,113 @@ function filterPipelineSource(source, includedPlanIds) {
   };
 }
 
-function buildPlan(source, prMap, pipelineRuns, generatedAt) {
+function buildCohortAccounting(plans, source, candidatePlans) {
+  const finished = plans.filter((plan) => plan.state === "finished");
+  const metricStart = new Date(
+    source.selection.metricStartAt || source.selection.startAt,
+  );
+  const finalReleaseAt = (plan) => {
+    const boundaries = plan.boundaryFacts.artifacts
+      .map((artifact) => artifact.releaseBoundaryAt)
+      .filter(Boolean)
+      .sort();
+    return boundaries.length === plan.boundaryFacts.artifacts.length
+      ? boundaries.at(-1)
+      : null;
+  };
+  const prePeriodL1 = finished.filter((plan) => {
+    const completedAt = finalReleaseAt(plan);
+    return completedAt && new Date(completedAt) < metricStart;
+  });
+  const prePeriodIds = new Set(prePeriodL1.map((plan) => plan.id));
+  const completeL1 = finished.filter(
+    (plan) =>
+      !prePeriodIds.has(plan.id) &&
+      plan.boundaryFacts.specPrs.some((pr) => pr.createdAt) &&
+      plan.boundaryFacts.artifacts.length > 0 &&
+      plan.boundaryFacts.artifacts.every((artifact) => artifact.releaseBoundaryAt),
+  );
+  const ineligibleL1 = finished.filter(
+    (plan) => plan.boundaryFacts.artifacts.length === 0,
+  );
+  const completeIds = new Set(completeL1.map((plan) => plan.id));
+  const ineligibleIds = new Set(ineligibleL1.map((plan) => plan.id));
+  const incompleteL1 = finished.filter(
+    (plan) =>
+      !completeIds.has(plan.id) &&
+      !ineligibleIds.has(plan.id) &&
+      !prePeriodIds.has(plan.id),
+  );
+  const boundarySources = {};
+  for (const plan of plans) {
+    for (const artifact of plan.boundaryFacts.artifacts) {
+      const sourceName = artifact.releaseBoundarySource || "missing";
+      boundarySources[sourceName] = (boundarySources[sourceName] || 0) + 1;
+    }
+  }
+  const planLink = (plan, reason = null) => ({
+    id: plan.id,
+    releasePlanId: plan.releasePlanId || null,
+    title: plan.title,
+    service: plan.service || plan.title,
+    sourceUrl:
+      plan.sourceUrl ||
+      `https://dev.azure.com/azure-sdk/Release/_workitems/edit/${plan.id}`,
+    reason,
+  });
+  return {
+    inventory: {
+      releasePlans: source.selection.inventoryCount,
+      managementPlane: source.selection.managementCount,
+      coreCorrelated: source.selection.candidateCount,
+      flowCandidates: candidatePlans.length,
+      published: plans.length,
+      excluded: (source.skippedPlans || []).length,
+      overflow:
+        (source.selection.lookbackOverflowCount || 0) +
+        (source.selection.outOfWindowCount || 0),
+      preflightExcluded: source.selection.preflightSkippedCount || 0,
+    },
+    states: {
+      finished: finished.length,
+      active: plans.filter((plan) => ["new", "in-progress"].includes(plan.state))
+        .length,
+      abandoned: plans.filter((plan) =>
+        ["abandoned", "duplicate"].includes(plan.state),
+      ).length,
+    },
+    metricCoverage: {
+      L1: {
+        eligible: finished.length - ineligibleL1.length,
+        complete: completeL1.length,
+        incomplete: incompleteL1.length,
+        ineligible: ineligibleL1.length,
+        excluded: prePeriodL1.length,
+        incompletePlans: incompleteL1.map((plan) =>
+          planLink(plan, "missing full release boundary"),
+        ),
+        ineligiblePlans: ineligibleL1.map((plan) =>
+          planLink(plan, "no intended SDK artifacts"),
+        ),
+        excludedPlans: prePeriodL1.map((plan) =>
+          planLink(plan, "completed before metric reporting period"),
+        ),
+      },
+    },
+    boundarySources,
+    exclusions: (source.skippedPlans || []).map((plan) => ({
+      id: plan.id,
+      title: plan.title,
+      stage: plan.stage,
+      reason: plan.reason,
+      sourceUrl:
+        plan.sourceUrl ||
+        `https://dev.azure.com/azure-sdk/Release/_workitems/edit/${plan.id}`,
+    })),
+  };
+}
+
+function buildPlan(source, prMap, pipelineRuns, releaseMap, generatedAt) {
   const runs = pipelineRuns.filter((run) =>
     run.references.some((reference) => reference.planId === source.id),
   );
@@ -344,15 +459,43 @@ function buildPlan(source, prMap, pipelineRuns, generatedAt) {
     }
   }
   for (const run of runs) events.push(...pipelineEvents(run, source));
+  for (const language of source.languages) {
+    const release = releaseMap.get(`${source.id}:${language.id}`);
+    if (release?.status === "matched")
+      events.push(githubReleaseEvent(release, trackId(language)));
+  }
 
-  const uniqueEvents = assignEventStacks(
-    dedupeEvents(events)
+  const uniqueEvents = dedupeEvents(events)
     .filter((event) => validDate(event.occurredAt))
-    .sort((left, right) => new Date(left.occurredAt) - new Date(right.occurredAt)),
+    .sort((left, right) => new Date(left.occurredAt) - new Date(right.occurredAt));
+  const boundaryFacts = buildBoundaryFacts(
+    source,
+    prMap,
+    uniqueEvents,
+    runs,
+    releaseMap,
   );
-  const boundaryFacts = buildBoundaryFacts(source, prMap, uniqueEvents, runs);
   const quality = qualitySummary(source, prMap, runs);
-  const eventTimes = uniqueEvents.map((event) => new Date(event.occurredAt));
+  const flowStart = new Date(
+    Math.min(
+      new Date(source.createdAt),
+      ...boundaryFacts.specPrs
+        .map((pr) => pr.createdAt)
+        .filter(Boolean)
+        .map((value) => new Date(value)),
+      ...boundaryFacts.artifacts
+        .flatMap((artifact) => [
+          artifact.generationStartAt,
+          ...(artifact.prAttempts || []).map((attempt) => attempt.createdAt),
+        ])
+        .filter(Boolean)
+        .map((value) => new Date(value)),
+    ),
+  );
+  const publishedEvents = assignEventStacks(
+    uniqueEvents.filter((event) => new Date(event.occurredAt) >= flowStart),
+  );
+  const eventTimes = publishedEvents.map((event) => new Date(event.occurredAt));
   const state = normalizeState(source.state);
   const terminal = ["finished", "abandoned", "duplicate"].includes(state);
   const terminalStateEvent = [...source.revisionEvents]
@@ -422,7 +565,7 @@ function buildPlan(source, prMap, pipelineRuns, generatedAt) {
       }),
     ].filter((link) => link.artifactId),
     tracks,
-    events: uniqueEvents,
+    events: publishedEvents,
     quality,
     boundaryFacts: {
       ...boundaryFacts,
@@ -443,11 +586,11 @@ function buildPlan(source, prMap, pipelineRuns, generatedAt) {
           (language.sdkPrHistory || []).map((pr) => pr.id),
         ),
       ]).size,
-      humanReviewCount: uniqueEvents.filter(
+      humanReviewCount: publishedEvents.filter(
         (event) =>
           event.type === "review.submitted" && event.actor?.kind === "human",
       ).length,
-      humanCommentCount: uniqueEvents.filter(
+      humanCommentCount: publishedEvents.filter(
         (event) =>
           event.type === "comment.created" && event.actor?.kind === "human",
       ).length,
@@ -639,6 +782,26 @@ function pipelineEvent(
   };
 }
 
+function githubReleaseEvent(release, trackIdValue) {
+  return {
+    id: `github-release:${release.planId}:${release.language}:${release.tagName}`,
+    type: "package.github_release_published",
+    phase: "release",
+    occurredAt: release.publishedAt,
+    observedAt: release.publishedAt,
+    trackId: trackIdValue,
+    title: "GitHub Release published",
+    value: release.tagName,
+    actor: { kind: "service", publicId: null },
+    source: {
+      system: "github",
+      entity: `${release.repository} release ${release.tagName}`,
+      url: release.url,
+    },
+    confidence: release.confidence === "inferred" ? "inferred" : "observed",
+  };
+}
+
 function githubEvent(
   pr,
   trackIdValue,
@@ -663,7 +826,7 @@ function githubEvent(
   };
 }
 
-function buildBoundaryFacts(source, prMap, events, runs) {
+function buildBoundaryFacts(source, prMap, events, runs, releaseMap) {
   return {
     id: source.id,
     state: normalizeState(source.state),
@@ -680,6 +843,16 @@ function buildBoundaryFacts(source, prMap, events, runs) {
     }),
     artifacts: source.languages.map((language) => {
       const pr = selectSdkPr(language, prMap, source.state);
+      const prAttempts = (language.sdkPrHistory || [])
+        .map((linked) => prMap.get(linked.id))
+        .filter(Boolean)
+        .map((attempt) => ({
+          id: attempt.id,
+          createdAt: attempt.createdAt || null,
+          mergedAt: attempt.mergedAt || null,
+          closedAt: attempt.closedAt || null,
+          state: attempt.state,
+        }));
       const generationRun = findRun(
         runs,
         source.id,
@@ -696,6 +869,28 @@ function buildBoundaryFacts(source, prMap, events, runs) {
           occurredAt: event.occurredAt,
           value: event.value,
         }));
+      const observedReleaseAt =
+        releaseEvents
+          .filter((event) => /released/i.test(event.value))
+          .map((event) => event.occurredAt)
+          .sort()[0] || null;
+      const githubRelease = releaseMap.get(`${source.id}:${language.id}`);
+      const fallbackRelease =
+        githubRelease?.status === "matched" ? githubRelease : null;
+      const releaseBoundaryAt =
+        fallbackRelease?.publishedAt ||
+        (language.releasedVersion ? observedReleaseAt : null);
+      const releaseBoundarySource = fallbackRelease
+        ? "github-release"
+        : releaseBoundaryAt
+          ? "release-plan"
+          : "missing";
+      const releaseBoundaryConfidence =
+        fallbackRelease?.confidence === "inferred"
+          ? "inferred"
+          : releaseBoundaryAt
+            ? "observed"
+            : "missing";
       return {
         language: language.id,
         package: language.package || null,
@@ -704,14 +899,21 @@ function buildBoundaryFacts(source, prMap, events, runs) {
         prCreatedAt: pr?.createdAt || null,
         prMergedAt: pr?.mergedAt || null,
         prClosedAt: pr?.closedAt || null,
+        prAttempts,
         generationRunId: generationRun?.id || null,
         generationStartAt: generationRun?.startAt || null,
         releaseEvents,
         releasedVersion: language.releasedVersion || null,
+        releaseBoundaryAt,
+        releaseBoundarySource,
+        releaseBoundaryConfidence,
+        releaseBoundaryUrl: fallbackRelease?.url || null,
+        releaseTag: fallbackRelease?.tagName || null,
+        releaseMatchMethod: fallbackRelease?.method || null,
         provenance: {
           pr: pr?.state === "unavailable" ? "unavailable" : pr ? "exact" : "missing",
           generation: generationRun ? "exact" : "missing",
-          release: releaseEvents.length ? "observed" : "missing",
+          release: releaseBoundarySource,
         },
       };
     }),

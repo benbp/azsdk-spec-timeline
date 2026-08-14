@@ -22,6 +22,7 @@ const {
 
 const args = parseArgs(process.argv.slice(2), {
   days: 180,
+  startAt: "",
   limit: 10,
   concurrency: 6,
   mode: "complete",
@@ -37,11 +38,13 @@ async function main() {
   if (!["complete", "all-management"].includes(args.mode))
     throw new Error("--mode must be complete or all-management");
   const queryWindow = releasePlanQueryWindow(args.days);
-  const ids = await queryReleasePlanIds(
-    args.days,
-    args.mode === "all-management" ? "created" : "changed",
-    queryWindow,
-  );
+  if (args.startAt) {
+    const start = new Date(args.startAt);
+    if (Number.isNaN(start.getTime()) || start >= new Date(queryWindow.endAt))
+      throw new Error("--start-at must be a valid date before today");
+    queryWindow.startAt = start.toISOString();
+  }
+  const ids = await queryReleasePlanIds(args.days, "changed", queryWindow);
   const inventory = await fetchWorkItems(ids);
   const preliminaryCandidates = inventory
     .filter((item) =>
@@ -71,6 +74,7 @@ async function main() {
     .map(({ item, preflight }) => ({
       id: String(item.id),
       title: plainText(item.fields?.["System.Title"], 180),
+      sourceUrl: `https://dev.azure.com/azure-sdk/Release/_workitems/edit/${item.id}`,
       stage: "preflight",
       reason: preflight.reasons.join(", ").slice(0, 300),
     }));
@@ -113,6 +117,7 @@ async function main() {
           skipped: {
             id: String(item.id),
             title: plainText(item.fields?.["System.Title"], 180),
+            sourceUrl: `https://dev.azure.com/azure-sdk/Release/_workitems/edit/${item.id}`,
             stage: "revision-collection",
             reason: error.message.slice(0, 300),
           },
@@ -120,9 +125,26 @@ async function main() {
       }
     },
   );
-  const plans = collected.map((result) => result.plan).filter(Boolean);
+  const enrichedPlans = collected.map((result) => result.plan).filter(Boolean);
+  const periodEligiblePlans = enrichedPlans.filter((plan) =>
+    isPeriodEligible(plan, queryWindow.startAt),
+  );
+  const periodSkippedPlans = enrichedPlans
+    .filter((plan) => !isPeriodEligible(plan, queryWindow.startAt))
+    .map((plan) => ({
+      id: plan.id,
+      title: plan.title,
+      sourceUrl: plan.adoUrl,
+      stage: "reporting-period",
+      reason: `terminal flow has no completion transition on or after ${queryWindow.startAt}`,
+    }));
+  const plans =
+    args.limit > 0
+      ? periodEligiblePlans.slice(0, Number(args.limit))
+      : periodEligiblePlans;
   const skippedPlans = [
     ...preflightSkippedPlans,
+    ...periodSkippedPlans,
     ...collected.map((result) => result.skipped).filter(Boolean),
   ];
 
@@ -138,12 +160,14 @@ async function main() {
       requested: args.limit || "all",
       criteria:
         args.mode === "all-management"
-          ? `core-correlated management-plane Release Plans created in the last ${args.days} days`
+          ? `core-correlated management-plane Release Plans changed since ${queryWindow.startAt}; flows may start earlier`
           : "recent core-correlated Finished management-plane plans with complete released artifacts",
       inventoryCount: inventory.length,
       managementCount: preliminaryCandidates.length,
       candidateCount: eligibleCandidates.length,
       preflightSkippedCount: preflightSkippedPlans.length,
+      periodSkippedCount: periodSkippedPlans.length,
+      lookbackOverflowCount: 0,
       collectedCount: plans.length,
       skippedCount: skippedPlans.length,
     },
@@ -153,6 +177,16 @@ async function main() {
   writeJson(args.output, output);
   console.log(
     `Collected ${plans.length} release plans (${skippedPlans.length} skipped) into ${args.output}`,
+  );
+}
+
+function isPeriodEligible(plan, startAt) {
+  if (new Date(plan.createdAt) >= new Date(startAt)) return true;
+  return plan.revisionEvents.some(
+    (event) =>
+      new Date(event.occurredAt) >= new Date(startAt) &&
+      event.type === "release.status_changed" &&
+      /released/i.test(event.value),
   );
 }
 

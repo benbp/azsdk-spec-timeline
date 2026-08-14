@@ -112,6 +112,41 @@ function validateSnapshot(snapshot, plans, root) {
     errors.push("Snapshot publishes derived portfolio KPIs");
   if (!snapshot.snapshotId || !validDate(snapshot.generatedAt))
     errors.push("Snapshot identity or generatedAt is invalid");
+  if (!snapshot.cohortAccounting)
+    errors.push("Snapshot cohort accounting is missing");
+  else {
+    const accounting = snapshot.cohortAccounting;
+    const inventory = accounting.inventory;
+    const l1Coverage = accounting.metricCoverage?.L1;
+    const finished = snapshot.portfolio?.plans?.filter(
+      (plan) => plan.state === "finished",
+    ).length;
+    if (inventory?.published !== plans.length)
+      errors.push("Published cohort count does not reconcile with detailed plans");
+    if (
+      accounting.exclusions?.length !==
+      inventory?.managementPlane - inventory?.published
+    )
+      errors.push("Cohort exclusions do not reconcile with the inventory");
+    if (
+      !l1Coverage ||
+      l1Coverage.complete +
+          l1Coverage.incomplete +
+          l1Coverage.ineligible +
+          (l1Coverage.excluded || 0) !==
+        finished
+    )
+      errors.push("L1 coverage does not reconcile with finished plans");
+    if (l1Coverage?.incompletePlans?.length !== l1Coverage?.incomplete)
+      errors.push("Incomplete L1 evidence links do not reconcile");
+    if (
+      Object.keys(accounting.boundarySources || {}).some(
+        (source) =>
+          !["release-plan", "github-release", "missing"].includes(source),
+      )
+    )
+      errors.push("Cohort accounting contains an invalid release-boundary source");
+  }
   if (plans.length !== snapshot.counts?.plans)
     errors.push(`Snapshot says ${snapshot.counts?.plans} plans but ${plans.length} exist`);
   if (snapshot.portfolio?.plans?.length !== plans.length)
@@ -161,8 +196,15 @@ function validateSnapshot(snapshot, plans, root) {
 
 function validateSelection(selection) {
   const start = new Date(selection?.startAt);
+  const metricStart = new Date(selection?.metricStartAt || selection?.startAt);
   const end = new Date(selection?.endAt);
-  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || start >= end)
+  if (
+    Number.isNaN(start.getTime()) ||
+    Number.isNaN(metricStart.getTime()) ||
+    Number.isNaN(end.getTime()) ||
+    start > metricStart ||
+    metricStart >= end
+  )
     errors.push("Portfolio selection window is invalid");
 }
 
@@ -219,6 +261,33 @@ function validatePlan(plan, selection, hydratePlan) {
   for (const artifact of plan.boundaryFacts?.artifacts || []) {
     if (!Array.isArray(artifact.releaseEvents))
       errors.push(`${plan.id}: release-event facts are missing`);
+    if (!Array.isArray(artifact.prAttempts))
+      errors.push(`${plan.id}: SDK PR attempt history is missing`);
+    for (const attempt of artifact.prAttempts || []) {
+      for (const boundary of [
+        attempt.createdAt,
+        attempt.mergedAt,
+        attempt.closedAt,
+      ].filter(Boolean)) {
+        if (!validDate(boundary))
+          errors.push(`${plan.id}: invalid SDK PR attempt boundary ${boundary}`);
+      }
+    }
+    if (
+      artifact.releaseBoundarySource &&
+      !["release-plan", "github-release", "missing"].includes(
+        artifact.releaseBoundarySource,
+      )
+    )
+      errors.push(`${plan.id}: invalid release-boundary source`);
+    if (
+      artifact.releaseBoundarySource === "github-release" &&
+      (!validDate(artifact.releaseBoundaryAt) ||
+        !/^https:\/\/github\.com\/[^/]+\/[^/]+\/releases\/tag\//.test(
+          artifact.releaseBoundaryUrl || "",
+        ))
+    )
+      errors.push(`${plan.id}: invalid GitHub Release boundary`);
   }
   const hydrated = hydratePlan(plan);
   for (const metric of hydrated.metrics) {
@@ -247,6 +316,19 @@ function validateCalculated(calculated, snapshot) {
     scorecard.cohort.eligiblePlanCount !== eligible
   )
     errors.push("Scorecard cohort is not anchored to the snapshot");
+  const l1Population = scorecard.metrics.find(
+    (metric) => metric.metricId === "L1",
+  )?.population;
+  const l1Coverage = snapshot.cohortAccounting?.metricCoverage?.L1;
+  if (
+    !l1Population ||
+    !l1Coverage ||
+    l1Coverage.complete !== l1Population.included ||
+    l1Coverage.incomplete !== l1Population.incomplete ||
+    l1Coverage.ineligible !== l1Population.ineligible ||
+    (l1Coverage.excluded || 0) !== l1Population.excluded
+  )
+    errors.push("Published L1 coverage does not reconcile with the engine");
   for (const metric of scorecard.metrics) {
     const population = metric.population;
     if (
@@ -278,6 +360,12 @@ function validateCalculated(calculated, snapshot) {
         if (!bucket.count && (bucket.p50 !== null || bucket.p90 !== null))
           errors.push(`${metric.metricId}: empty bucket has statistics`);
       }
+      if (
+        metric.metricId === "L1" &&
+        metric.periodStatistics.rolling90Days?.p90Change?.outcome !==
+          "insufficient-data"
+      )
+        errors.push("L1 rolling 90-day P90 must not publish a comparison");
     }
   }
 }
@@ -387,6 +475,31 @@ function validateFixtures(engine) {
     released.metrics.find((metric) => metric.metricId === "S5").value !== 48
   )
     errors.push("Dynamic release-boundary fixture failed");
+  releaseFact.artifacts[0].prAttempts = [
+    {
+      id: "sdk-first",
+      createdAt: "2024-01-01T18:00:00.000Z",
+      mergedAt: null,
+      closedAt: "2024-01-02T12:00:00.000Z",
+    },
+    {
+      id: "sdk-final",
+      createdAt: "2024-01-02T12:00:00.000Z",
+      mergedAt: "2024-01-03T00:00:00.000Z",
+      closedAt: "2024-01-03T00:00:00.000Z",
+    },
+  ];
+  const sdkDelivery = engine
+    .derivePlanAnalytics(releaseFact)
+    .metrics.find((metric) => metric.metricId === "S4");
+  if (sdkDelivery.value !== 30 || sdkDelivery.definitionVersion !== 2)
+    errors.push("Cross-attempt S4 delivery-cycle fixture failed");
+  releaseFact.artifacts[0].prMergedAt = null;
+  const activeReplacement = engine
+    .derivePlanAnalytics(releaseFact)
+    .metrics.find((metric) => metric.metricId === "S4");
+  if (activeReplacement.outcome !== "incomplete")
+    errors.push("Open replacement S4 delivery-cycle fixture failed");
 }
 
 function listFiles(directory, root = directory) {

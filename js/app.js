@@ -21,6 +21,7 @@ Alpine.data("timelineApp", () => ({
   plan: null,
   selectedEvent: null,
   selectedCohort: null,
+  cohortEvidenceOpen: false,
   search: "",
   stateFilter: "all",
   delayedMetricFilters: [],
@@ -253,26 +254,58 @@ Alpine.data("timelineApp", () => ({
   },
 
   scorecardPeriods(metric) {
+    if (metric.metricId === "L1")
+      return [
+        {
+          id: "full-month",
+          label: "Full month",
+          statistics: metric.periodStatistics.monthly,
+          showP50: true,
+          showP90: false,
+        },
+        {
+          id: "rolling-month",
+          label: "Rolling 1mo",
+          statistics: metric.periodStatistics.rollingMonth,
+          showP50: true,
+          showP90: false,
+        },
+        {
+          id: "rolling-90-days",
+          label: "Rolling 90d",
+          statistics: metric.periodStatistics.rolling90Days,
+          showP50: false,
+          showP90: true,
+        },
+      ];
     return [
       {
         id: "full-month",
         label: "Full month",
         statistics: metric.periodStatistics.monthly,
+        showP50: true,
+        showP90: true,
       },
       {
         id: "rolling-month",
         label: "Rolling 1mo",
         statistics: metric.periodStatistics.rollingMonth,
+        showP50: true,
+        showP90: true,
       },
       {
         id: "full-week",
         label: "Full week",
         statistics: metric.periodStatistics.weekly,
+        showP50: true,
+        showP90: true,
       },
       {
         id: "rolling-week",
         label: "Rolling 7d",
         statistics: metric.periodStatistics.rollingWeek,
+        showP50: true,
+        showP90: true,
       },
     ];
   },
@@ -459,6 +492,7 @@ Alpine.data("timelineApp", () => ({
   },
 
   closeDrawers() {
+    this.cohortEvidenceOpen = false;
     if (this.selectedCohort) this.closeCohort();
     if (this.selectedEvent) this.closeEvent();
   },

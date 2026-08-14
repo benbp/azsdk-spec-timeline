@@ -71,14 +71,6 @@
           <section class="panel scorecard">
             <div
               class="section-heading scorecard-toggle"
-              role="button"
-              tabindex="0"
-              aria-controls="scorecard-trends"
-              :aria-expanded="trendsExpanded"
-              :aria-label="trendsExpanded ? 'Collapse scorecard trends' : 'Expand scorecard trends'"
-              @click="trendsExpanded = !trendsExpanded"
-              @keydown.enter.prevent="trendsExpanded = !trendsExpanded"
-              @keydown.space.prevent="trendsExpanded = !trendsExpanded"
             >
               <div>
                 <p class="eyebrow">Finished release scorecard</p>
@@ -87,14 +79,25 @@
                   <span>Each period vs prior 3mo P50</span>
                 </div>
               </div>
-              <span
+              <button
+                type="button"
                 class="trend-toggle"
                 :class="{ expanded: trendsExpanded }"
-                aria-hidden="true"
+                aria-controls="scorecard-trends"
+                :aria-expanded="trendsExpanded"
+                :aria-label="trendsExpanded ? 'Collapse scorecard trends' : 'Expand scorecard trends'"
+                @click="trendsExpanded = !trendsExpanded"
               >
                 <span x-text="trendsExpanded ? 'Collapse trend charts' : 'Expand trend charts'"></span>
                 <i :class="{ open: trendsExpanded }">⌄</i>
-              </span>
+              </button>
+              <button
+                class="cohort-evidence-button"
+                type="button"
+                @click.stop="cohortEvidenceOpen = true"
+              >
+                Cohort coverage
+              </button>
             </div>
             <div class="metric-strip">
               <template
@@ -133,7 +136,7 @@
                             x-text="`n=${period.statistics.count}`"
                           ></small>
                         </div>
-                        <span class="period-stat p50">
+                        <span class="period-stat p50" x-show="period.showP50">
                           <small>P50</small>
                           <b
                             x-text="formatCompactDuration(period.statistics.p50)"
@@ -145,7 +148,7 @@
                             x-text="formatTrendChange(period.statistics.change)"
                           ></b>
                         </span>
-                        <span class="period-stat p90">
+                        <span class="period-stat p90" x-show="period.showP90">
                           <small>P90</small>
                           <b
                             x-text="formatCompactDuration(period.statistics.p90)"
@@ -161,7 +164,7 @@
                     </template>
                   </div>
                   <div class="compact-trends">
-                    <div>
+                    <div x-show="metric.metricId !== 'L1'">
                       <span>WoW</span>
                       <div
                         class="mini-column-chart"
@@ -236,12 +239,12 @@
                   </header>
                   <div class="chart-legend" aria-label="Chart legend">
                     <span><i class="legend-column p50"></i>P50 duration</span>
-                    <span><i class="legend-column p90"></i>P90 duration</span>
+                    <span x-show="metric.metricId !== 'L1'"><i class="legend-column p90"></i>P90 duration</span>
                     <span><i class="legend-line"></i>Full-cohort P50 benchmark</span>
                     <span class="scale-note">Square-root Y scale</span>
                   </div>
                   <div class="trend-graphs">
-                    <section>
+                    <section x-show="metric.metricId !== 'L1'">
                       <div>
                         <strong>Week over week</strong>
                       </div>
@@ -302,7 +305,7 @@
                                     <button
                                       type="button"
                                       class="chart-column p90"
-                                      x-show="bucket.p90 !== null"
+                                      x-show="metric.metricId !== 'L1' && bucket.p90 !== null"
                                       :style="columnStyle(bucket.p90, metric, metric.trends.weekly)"
                                       :class="tooltipEdgeClass(index, metric.trends.weekly.series.length)"
                                       :data-tooltip="columnTooltip(bucket, 'p90')"
@@ -382,7 +385,7 @@
                                     <button
                                       type="button"
                                       class="chart-column p90"
-                                      x-show="bucket.p90 !== null"
+                                      x-show="metric.metricId !== 'L1' && bucket.p90 !== null"
                                       :style="columnStyle(bucket.p90, metric, metric.trends.monthly)"
                                       :class="tooltipEdgeClass(index, metric.trends.monthly.series.length)"
                                       :data-tooltip="columnTooltip(bucket, 'p90')"
@@ -798,7 +801,7 @@
 
     <div
       class="drawer-backdrop"
-      x-show="selectedEvent || selectedCohort"
+      x-show="selectedEvent || selectedCohort || cohortEvidenceOpen"
       x-transition.opacity
       @click="closeDrawers()"
     ></div>
@@ -922,6 +925,109 @@
                   <b x-text="formatDuration(releasePlan.p50)"></b>
                   <small x-text="cohortPlanSummary(releasePlan)"></small>
                 </span>
+              </a>
+            </template>
+          </div>
+        </div>
+      </template>
+    </aside>
+    <aside
+      class="event-drawer cohort-drawer evidence-drawer"
+      :class="{ open: cohortEvidenceOpen }"
+      aria-label="Cohort coverage and exclusions"
+      :aria-hidden="!cohortEvidenceOpen"
+    >
+      <button class="drawer-close" type="button" @click="cohortEvidenceOpen = false">
+        <span class="sr-only">Close cohort coverage</span>×
+      </button>
+      <template x-if="cohortEvidenceOpen && snapshot?.cohortAccounting">
+        <div>
+          <p class="eyebrow">Measurement population</p>
+          <h2>Cohort coverage</h2>
+          <p class="evidence-summary">
+            This tracked cohort is bounded by the collection horizon. Missing
+            evidence and reporting-period exclusions remain visible rather than being
+            treated as successful observations.
+          </p>
+          <dl>
+            <div>
+              <dt>Management plane</dt>
+              <dd x-text="snapshot.cohortAccounting.inventory.managementPlane"></dd>
+            </div>
+            <div>
+              <dt>Core correlated</dt>
+              <dd x-text="snapshot.cohortAccounting.inventory.coreCorrelated"></dd>
+            </div>
+            <div>
+              <dt>Published flows</dt>
+              <dd x-text="snapshot.cohortAccounting.inventory.published"></dd>
+            </div>
+            <div>
+              <dt>Excluded plans</dt>
+              <dd x-text="snapshot.cohortAccounting.inventory.excluded"></dd>
+            </div>
+          </dl>
+          <div class="coverage-grid">
+            <article>
+              <strong x-text="snapshot.cohortAccounting.metricCoverage.L1.complete"></strong>
+              <span>Complete L1</span>
+            </article>
+            <article>
+              <strong x-text="snapshot.cohortAccounting.metricCoverage.L1.incomplete"></strong>
+              <span>Incomplete L1</span>
+            </article>
+            <article>
+              <strong x-text="snapshot.cohortAccounting.metricCoverage.L1.ineligible"></strong>
+              <span>Ineligible L1</span>
+            </article>
+          </div>
+          <div class="cohort-plan-heading">
+            <strong>Release boundary sources</strong>
+          </div>
+          <div class="boundary-source-list">
+            <template
+              x-for="[sourceName, count] in Object.entries(snapshot.cohortAccounting.boundarySources)"
+              :key="sourceName"
+            >
+              <span>
+                <b x-text="sourceName"></b>
+                <strong x-text="count"></strong>
+              </span>
+            </template>
+          </div>
+          <div class="cohort-plan-heading">
+            <strong>Incomplete L1 evidence</strong>
+            <span x-text="snapshot.cohortAccounting.metricCoverage.L1.incompletePlans.length"></span>
+          </div>
+          <div class="cohort-plan-list evidence-plan-list">
+            <template
+              x-for="releasePlan in snapshot.cohortAccounting.metricCoverage.L1.incompletePlans"
+              :key="`incomplete:${releasePlan.id}`"
+            >
+              <a :href="releasePlan.sourceUrl" target="_blank" rel="noreferrer">
+                <span>
+                  <strong x-text="releasePlan.service"></strong>
+                  <small x-text="releasePlan.reason"></small>
+                </span>
+                <b>Evidence ↗</b>
+              </a>
+            </template>
+          </div>
+          <div class="cohort-plan-heading">
+            <strong>Excluded plans</strong>
+            <span x-text="snapshot.cohortAccounting.exclusions.length"></span>
+          </div>
+          <div class="cohort-plan-list evidence-plan-list">
+            <template
+              x-for="releasePlan in snapshot.cohortAccounting.exclusions"
+              :key="`excluded:${releasePlan.stage}:${releasePlan.id}`"
+            >
+              <a :href="releasePlan.sourceUrl" target="_blank" rel="noreferrer">
+                <span>
+                  <strong x-text="releasePlan.title"></strong>
+                  <small x-text="`${releasePlan.stage} · ${releasePlan.reason}`"></small>
+                </span>
+                <b>Plan ↗</b>
               </a>
             </template>
           </div>

@@ -1,4 +1,4 @@
-export const CALCULATION_ENGINE_VERSION = 4;
+export const CALCULATION_ENGINE_VERSION = 5;
 
 export const METRIC_DEFINITIONS = [
   {
@@ -37,9 +37,10 @@ export const METRIC_DEFINITIONS = [
   },
   {
     id: "S4",
-    version: 1,
-    name: "SDK PR cycle time",
-    description: "SDK PR creation to merge.",
+    version: 2,
+    name: "SDK delivery cycle",
+    description:
+      "Earliest attributed SDK PR creation to the final successful SDK PR merge.",
     unit: "hours",
     readiness: "validated",
   },
@@ -48,7 +49,7 @@ export const METRIC_DEFINITIONS = [
     version: 1,
     name: "Release latency",
     description:
-      "SDK PR merge to the Release Plan's observed released status.",
+      "SDK PR merge to the trusted package-release boundary.",
     unit: "hours",
     readiness: "provisional",
   },
@@ -75,7 +76,11 @@ export function calculateSnapshot(snapshot) {
     .map((metric) => metric.value);
   return {
     definitions: METRIC_DEFINITIONS,
-    scorecard: buildScorecard(snapshot.facts.plans, snapshot.generatedAt),
+    scorecard: buildScorecard(
+      snapshot.facts.plans,
+      snapshot.generatedAt,
+      snapshot.selection.metricStartAt,
+    ),
     portfolio: {
       ...snapshot.portfolio,
       generatedAt: snapshot.generatedAt,
@@ -137,7 +142,23 @@ export function derivePlanAnalytics(fact) {
   const specMerged = latest(fact.specPrs.map((pr) => pr.mergedAt));
   const releases = [];
   for (const artifact of fact.artifacts) {
-    const releaseAt = releaseBoundary(artifact);
+    const release = releaseBoundary(artifact);
+    const releaseAt = release?.occurredAt || null;
+    const attempts =
+      artifact.prAttempts?.length > 0
+        ? artifact.prAttempts
+        : artifact.prId
+          ? [
+              {
+                id: artifact.prId,
+                createdAt: artifact.prCreatedAt,
+                mergedAt: artifact.prMergedAt,
+                closedAt: artifact.prClosedAt,
+              },
+            ]
+          : [];
+    const s4Start = earliest(attempts.map((attempt) => attempt.createdAt));
+    const s4End = artifact.prMergedAt;
     metrics.push(
       durationMetric(
         "S4",
@@ -145,11 +166,12 @@ export function derivePlanAnalytics(fact) {
           planId: fact.id,
           language: artifact.language,
           package: artifact.package,
-          prId: artifact.prId,
+          prIds: attempts.map((attempt) => attempt.id),
         },
-        artifact.prCreatedAt,
-        artifact.prMergedAt,
+        s4Start,
+        s4End,
         "authoritative",
+        2,
       ),
       durationMetric(
         "S2",
@@ -170,10 +192,10 @@ export function derivePlanAnalytics(fact) {
         { planId: fact.id, language: artifact.language },
         artifact.prMergedAt,
         releaseAt,
-        "observed",
+        release?.confidence || "observed",
       ),
     );
-    if (releaseAt) releases.push(releaseAt);
+    if (releaseAt) releases.push(release);
     if (artifact.prId)
       intervals.push(
         prInterval(
@@ -190,7 +212,7 @@ export function derivePlanAnalytics(fact) {
     if (
       artifact.generationStartAt &&
       artifact.prCreatedAt &&
-      hours(artifact.generationStartAt, artifact.prCreatedAt) >= 0
+      nonNegativeDuration(artifact.generationStartAt, artifact.prCreatedAt)
     )
       intervals.push({
         id: `interval:${fact.id}:${artifact.language}:generation`,
@@ -206,7 +228,7 @@ export function derivePlanAnalytics(fact) {
     if (
       artifact.prMergedAt &&
       releaseAt &&
-      hours(artifact.prMergedAt, releaseAt) >= 0
+      nonNegativeDuration(artifact.prMergedAt, releaseAt)
     )
       intervals.push({
         id: `interval:${fact.id}:${artifact.language}:release`,
@@ -227,8 +249,12 @@ export function derivePlanAnalytics(fact) {
     "L1",
     { planId: fact.id },
     specCreated,
-    allIntendedReleased ? latest(releases) : null,
-    "observed",
+    allIntendedReleased
+      ? latest(releases.map((release) => release.occurredAt))
+      : null,
+    releases.some((release) => release.confidence === "inferred")
+      ? "inferred"
+      : "observed",
   );
   if (!fact.artifacts.length) {
     l1.outcome = "ineligible";
@@ -262,10 +288,14 @@ export function derivePlanAnalytics(fact) {
   };
 }
 
-export function buildScorecard(planFacts, generatedAt) {
+export function buildScorecard(planFacts, generatedAt, metricStartAt = null) {
   const anchor = validDate(generatedAt, "generatedAt");
+  const metricStart = metricStartAt
+    ? validDate(metricStartAt, "metricStartAt")
+    : null;
   const eligibleFacts = planFacts.filter((plan) => plan.state === "finished");
   const rollingWeekStart = new Date(anchor.getTime() - 7 * 86_400_000);
+  const rolling90DaysStart = new Date(anchor.getTime() - 90 * 86_400_000);
   const rollingMonthStart = shiftUtcMonthClamped(anchor, -1);
   return {
     schemaVersion: 3,
@@ -287,7 +317,21 @@ export function buildScorecard(planFacts, generatedAt) {
       const results = eligibleFacts.flatMap((fact) =>
         derivePlanAnalytics(fact).metrics
           .filter((metric) => metric.metricId === definition.id)
-          .map((metric) => ({ ...metric, cohortPlan: fact.cohortPlan })),
+          .map((metric) => {
+            if (
+              metric.outcome === "complete" &&
+              metricStart &&
+              new Date(metric.evidence.endAt) < metricStart
+            )
+              return {
+                ...metric,
+                outcome: "excluded",
+                value: null,
+                missingBoundaryReason: "before-metric-period",
+                cohortPlan: fact.cohortPlan,
+              };
+            return { ...metric, cohortPlan: fact.cohortPlan };
+          }),
       );
       const completeResults = results.filter(
         (metric) => metric.outcome === "complete",
@@ -321,6 +365,16 @@ export function buildScorecard(planFacts, generatedAt) {
             anchor,
             true,
           ),
+          rolling90Days: {
+            ...aggregatePeriod(
+              completeResults,
+              "rolling-90-days",
+              rolling90DaysStart,
+              anchor,
+              true,
+            ),
+            p90Change: insufficientChange(),
+          },
           monthly: completedPeriodStatistics(trends.monthly),
         },
         historicalStatistics: {
@@ -346,7 +400,11 @@ export function buildScorecard(planFacts, generatedAt) {
             (metric) =>
               metric.outcome === "complete" && metric.confidence === "observed",
           ).length,
-          inferred: 0,
+          inferred: results.filter(
+            (metric) =>
+              metric.outcome === "complete" &&
+              metric.confidence === "inferred",
+          ).length,
         },
         trends,
       };
@@ -359,19 +417,35 @@ function countOutcome(results, outcome) {
 }
 
 function releaseBoundary(artifact) {
+  if (artifact.releaseBoundaryAt)
+    return {
+      occurredAt: artifact.releaseBoundaryAt,
+      confidence:
+        artifact.releaseBoundaryConfidence === "inferred"
+          ? "inferred"
+          : "observed",
+    };
   if (!artifact.releasedVersion) return null;
-  return earliest(
+  const occurredAt = earliest(
     (artifact.releaseEvents || [])
       .filter((event) => /released/i.test(event.value))
       .map((event) => event.occurredAt),
   );
+  return occurredAt ? { occurredAt, confidence: "observed" } : null;
 }
 
-function durationMetric(metricId, scope, start, end, confidence) {
-  const complete = Boolean(start && end && hours(start, end) >= 0);
+function durationMetric(
+  metricId,
+  scope,
+  start,
+  end,
+  confidence,
+  definitionVersion = 1,
+) {
+  const complete = Boolean(start && end && nonNegativeDuration(start, end));
   return {
     metricId,
-    definitionVersion: 1,
+    definitionVersion,
     scope,
     outcome: complete ? "complete" : "incomplete",
     value: complete ? hours(start, end) : null,
@@ -678,6 +752,10 @@ function latest(values) {
 
 function hours(start, end) {
   return Math.round(((new Date(end) - new Date(start)) / 3_600_000) * 10) / 10;
+}
+
+function nonNegativeDuration(start, end) {
+  return new Date(end).getTime() >= new Date(start).getTime();
 }
 
 function validDate(value, name) {

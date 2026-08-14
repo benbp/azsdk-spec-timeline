@@ -1,0 +1,696 @@
+{
+  "schemaVersion": 2,
+  "id": "32723",
+  "correlation": {
+    "policyVersion": 1,
+    "preflight": "passed"
+  },
+  "releasePlanId": "2089",
+  "title": "Release Plan - 2089 - GA - Certificate Registration",
+  "service": "Certificate Registration",
+  "product": "Release",
+  "path": null,
+  "state": "abandoned",
+  "plane": "management",
+  "releaseType": "APEX GA",
+  "intendedMonth": "March 2026",
+  "createdAt": "2026-02-11T23:56:57.723Z",
+  "completedAt": "2026-02-12T19:33:52.97Z",
+  "sourceUrl": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723",
+  "range": {
+    "start": "2026-01-12T09:48:18.000Z",
+    "end": "2026-02-12T19:33:52.970Z"
+  },
+  "intendedArtifacts": [
+    {
+      "prId": null,
+      "language": ".NET",
+      "package": null,
+      "version": null,
+      "outcome": "not-released",
+      "generationPipelineUrl": null,
+      "releasePipelineUrl": null
+    },
+    {
+      "prId": null,
+      "language": "JavaScript",
+      "package": "@azure/arm-certificateregistration",
+      "version": null,
+      "outcome": "not-released",
+      "generationPipelineUrl": null,
+      "releasePipelineUrl": null
+    },
+    {
+      "prId": null,
+      "language": "Python",
+      "package": "azure-mgmt-certificateregistration",
+      "version": null,
+      "outcome": "not-released",
+      "generationPipelineUrl": null,
+      "releasePipelineUrl": null
+    },
+    {
+      "prId": null,
+      "language": "Java",
+      "package": "azure-resourcemanager-certificateregistration",
+      "version": null,
+      "outcome": "not-released",
+      "generationPipelineUrl": null,
+      "releasePipelineUrl": null
+    },
+    {
+      "prId": null,
+      "language": "Go",
+      "package": "sdk/resourcemanager/certificateregistration/armcertificateregistration",
+      "version": null,
+      "outcome": "not-released",
+      "generationPipelineUrl": null,
+      "releasePipelineUrl": null
+    }
+  ],
+  "links": [
+    {
+      "artifactId": "github:Azure/azure-rest-api-specs#39581",
+      "role": "spec-pr",
+      "url": "https://github.com/Azure/azure-rest-api-specs/pull/39581",
+      "releasePlanIds": []
+    }
+  ],
+  "tracks": [
+    {
+      "id": "plan",
+      "kind": "plan",
+      "label": "Release Plan",
+      "detail": "APEX GA"
+    },
+    {
+      "id": "spec:github:Azure/azure-rest-api-specs#39581",
+      "kind": "spec",
+      "label": "Spec PR",
+      "detail": "azure-rest-api-specs #39581",
+      "artifactId": "github:Azure/azure-rest-api-specs#39581",
+      "state": "merged"
+    },
+    {
+      "id": "sdk:.NET:.NET",
+      "kind": "sdk",
+      "label": ".NET",
+      "detail": "Package not recorded",
+      "artifactId": null,
+      "state": "missing"
+    },
+    {
+      "id": "sdk:JavaScript:@azure/arm-certificateregistration",
+      "kind": "sdk",
+      "label": "JavaScript",
+      "detail": "@azure/arm-certificateregistration",
+      "artifactId": null,
+      "state": "missing"
+    },
+    {
+      "id": "sdk:Python:azure-mgmt-certificateregistration",
+      "kind": "sdk",
+      "label": "Python",
+      "detail": "azure-mgmt-certificateregistration",
+      "artifactId": null,
+      "state": "missing"
+    },
+    {
+      "id": "sdk:Java:azure-resourcemanager-certificateregistration",
+      "kind": "sdk",
+      "label": "Java",
+      "detail": "azure-resourcemanager-certificateregistration",
+      "artifactId": null,
+      "state": "missing"
+    },
+    {
+      "id": "sdk:Go:sdk/resourcemanager/certificateregistration/armcertificateregistration",
+      "kind": "sdk",
+      "label": "Go",
+      "detail": "sdk/resourcemanager/certificateregistration/armcertificateregistration",
+      "artifactId": null,
+      "state": "missing"
+    }
+  ],
+  "events": [
+    {
+      "id": "github:Azure/azure-rest-api-specs#39581:commit:ed74821fe653:spec:github:Azure/azure-rest-api-specs#39581",
+      "type": "commit.pushed",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-12T09:48:18Z",
+      "observedAt": "2026-01-12T09:48:18Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39581",
+      "title": "Commit pushed",
+      "actor": {
+        "kind": "human",
+        "publicId": "v-xuto"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39581",
+        "url": "https://github.com/Azure/azure-rest-api-specs/commit/ed74821fe653c4002b74c2218e73e1c1ae8a93af"
+      },
+      "confidence": "authoritative",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39581:pr.created:spec:github:Azure/azure-rest-api-specs#39581",
+      "type": "pr.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-12T09:51:29Z",
+      "observedAt": "2026-01-12T09:51:29Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39581",
+      "title": "PR opened",
+      "actor": {
+        "kind": "human",
+        "publicId": "v-xuto"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39581",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39581"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39581:comment:3737703392:spec:github:Azure/azure-rest-api-specs#39581",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-12T09:51:46Z",
+      "observedAt": "2026-01-12T09:51:46Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39581",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39581",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39581#issuecomment-3737703392"
+      },
+      "confidence": "authoritative",
+      "excerpt": "<h2>Next Steps to Merge</h2>Next steps that must be taken to merge this PR: <br/><ul><li>❌ This PR is in purview of the ARM review (label: <code>ARMReview</code>). This PR must get <code>ARMSignedOff</code> label from an ARM reviewer.<br/>T",
+      "stack": 2
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39581:comment:3737720103:spec:github:Azure/azure-rest-api-specs#39581",
+      "type": "comment.created",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-12T09:55:56Z",
+      "observedAt": "2026-01-12T09:55:56Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39581",
+      "title": "Comment",
+      "actor": {
+        "kind": "bot",
+        "publicId": "github-actions[bot]"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39581",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39581#issuecomment-3737720103"
+      },
+      "confidence": "authoritative",
+      "excerpt": "## API Change Check APIView identified API level changes in this PR and created the following API reviews | Language | API Review for Package | |----------|---------| | Swagger | [Microsoft.CertificateRegistration-CertificateRegistration](h",
+      "stack": 3
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39581:review:3654016460:spec:github:Azure/azure-rest-api-specs#39581",
+      "type": "review.submitted",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-13T06:14:05Z",
+      "observedAt": "2026-01-13T06:14:05Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39581",
+      "title": "Review approved",
+      "actor": {
+        "kind": "human",
+        "publicId": "qiaozha"
+      },
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39581",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39581#pullrequestreview-3654016460"
+      },
+      "confidence": "authoritative",
+      "excerpt": "",
+      "reviewState": "approved",
+      "stack": 0
+    },
+    {
+      "id": "github:Azure/azure-rest-api-specs#39581:pr.merged:spec:github:Azure/azure-rest-api-specs#39581",
+      "type": "pr.merged",
+      "phase": "spec-review",
+      "occurredAt": "2026-01-13T06:53:39Z",
+      "observedAt": "2026-01-13T06:53:39Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39581",
+      "title": "PR merged",
+      "source": {
+        "system": "github",
+        "entity": "Azure/azure-rest-api-specs#39581",
+        "url": "https://github.com/Azure/azure-rest-api-specs/pull/39581"
+      },
+      "confidence": "authoritative",
+      "stack": 1
+    },
+    {
+      "id": "ado:32723:created",
+      "type": "plan.created",
+      "phase": "plan",
+      "occurredAt": "2026-02-11T23:56:57.723Z",
+      "observedAt": "2026-02-11T23:56:57.723Z",
+      "trackId": "plan",
+      "title": "Release Plan created",
+      "confidence": "authoritative",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "stack": 0
+    },
+    {
+      "id": "ado:32723:1:System.State",
+      "type": "plan.state_changed",
+      "phase": "plan",
+      "occurredAt": "2026-02-11T23:56:57.723Z",
+      "observedAt": "2026-02-11T23:56:57.723Z",
+      "trackId": "plan",
+      "value": "New",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Plan state changed",
+      "stack": 1
+    },
+    {
+      "id": "ado:32723:1:Custom.APISpecApprovalStatus",
+      "type": "spec.approval_changed",
+      "phase": "spec-review",
+      "occurredAt": "2026-02-11T23:56:57.723Z",
+      "observedAt": "2026-02-11T23:56:57.723Z",
+      "trackId": "plan",
+      "value": "Not Available",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Spec approval changed",
+      "stack": 2
+    },
+    {
+      "id": "ado:32723:1:Custom.GenerationStatusForDotnet",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:56:57.723Z",
+      "observedAt": "2026-02-11T23:56:57.723Z",
+      "trackId": "sdk:.NET:.NET",
+      "value": "Not applicable",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 0
+    },
+    {
+      "id": "ado:32723:1:Custom.GenerationStatusForJavaScript",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:56:57.723Z",
+      "observedAt": "2026-02-11T23:56:57.723Z",
+      "trackId": "sdk:JavaScript:@azure/arm-certificateregistration",
+      "value": "Not applicable",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 0
+    },
+    {
+      "id": "ado:32723:1:Custom.GenerationStatusForPython",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:56:57.723Z",
+      "observedAt": "2026-02-11T23:56:57.723Z",
+      "trackId": "sdk:Python:azure-mgmt-certificateregistration",
+      "value": "Not applicable",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 0
+    },
+    {
+      "id": "ado:32723:1:Custom.GenerationStatusForJava",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:56:57.723Z",
+      "observedAt": "2026-02-11T23:56:57.723Z",
+      "trackId": "sdk:Java:azure-resourcemanager-certificateregistration",
+      "value": "Not applicable",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 0
+    },
+    {
+      "id": "ado:32723:1:Custom.GenerationStatusForGo",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:56:57.723Z",
+      "observedAt": "2026-02-11T23:56:57.723Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/certificateregistration/armcertificateregistration",
+      "value": "Not applicable",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 0
+    },
+    {
+      "id": "ado:32723:5:System.State",
+      "type": "plan.state_changed",
+      "phase": "plan",
+      "occurredAt": "2026-02-11T23:57:18.35Z",
+      "observedAt": "2026-02-11T23:57:18.35Z",
+      "trackId": "plan",
+      "value": "In Progress",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Plan state changed",
+      "stack": 3
+    },
+    {
+      "id": "ado:32724:2:Custom.ActiveSpecPullRequestUrl",
+      "type": "spec.pr_linked",
+      "phase": "spec-review",
+      "occurredAt": "2026-02-11T23:57:56.483Z",
+      "observedAt": "2026-02-11T23:57:56.483Z",
+      "trackId": "spec:github:Azure/azure-rest-api-specs#39581",
+      "value": "https://github.com/Azure/azure-rest-api-specs/pull/39581",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32724",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32724"
+      },
+      "title": "Spec PR linked",
+      "stack": 0
+    },
+    {
+      "id": "ado:32723:7:Custom.GenerationStatusForDotnet",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:57:59.523Z",
+      "observedAt": "2026-02-11T23:57:59.523Z",
+      "trackId": "sdk:.NET:.NET",
+      "value": "Pending",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 1
+    },
+    {
+      "id": "ado:32723:7:Custom.GenerationStatusForJavaScript",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:57:59.523Z",
+      "observedAt": "2026-02-11T23:57:59.523Z",
+      "trackId": "sdk:JavaScript:@azure/arm-certificateregistration",
+      "value": "Pending",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 1
+    },
+    {
+      "id": "ado:32723:7:Custom.GenerationStatusForPython",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:57:59.523Z",
+      "observedAt": "2026-02-11T23:57:59.523Z",
+      "trackId": "sdk:Python:azure-mgmt-certificateregistration",
+      "value": "Pending",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 1
+    },
+    {
+      "id": "ado:32723:7:Custom.GenerationStatusForJava",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:57:59.523Z",
+      "observedAt": "2026-02-11T23:57:59.523Z",
+      "trackId": "sdk:Java:azure-resourcemanager-certificateregistration",
+      "value": "Pending",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 1
+    },
+    {
+      "id": "ado:32723:7:Custom.GenerationStatusForGo",
+      "type": "generation.status_changed",
+      "phase": "generation",
+      "occurredAt": "2026-02-11T23:57:59.523Z",
+      "observedAt": "2026-02-11T23:57:59.523Z",
+      "trackId": "sdk:Go:sdk/resourcemanager/certificateregistration/armcertificateregistration",
+      "value": "Pending",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Generation status changed",
+      "stack": 1
+    },
+    {
+      "id": "ado:32723:22:System.State",
+      "type": "plan.state_changed",
+      "phase": "plan",
+      "occurredAt": "2026-02-12T19:33:52.97Z",
+      "observedAt": "2026-02-12T19:33:52.97Z",
+      "trackId": "plan",
+      "value": "Abandoned",
+      "confidence": "observed",
+      "source": {
+        "system": "azure-devops",
+        "entity": "work-item:32723",
+        "url": "https://dev.azure.com/azure-sdk/Release/_workitems/edit/32723"
+      },
+      "title": "Plan state changed",
+      "stack": 0
+    }
+  ],
+  "quality": {
+    "warnings": [
+      "API specification path is missing"
+    ],
+    "unavailablePullRequests": 0,
+    "unavailablePipelineRuns": 0
+  },
+  "boundaryFacts": {
+    "id": "32723",
+    "state": "abandoned",
+    "specPrs": [
+      {
+        "id": "github:Azure/azure-rest-api-specs#39581",
+        "trackId": "spec:github:Azure/azure-rest-api-specs#39581",
+        "createdAt": "2026-01-12T09:51:29Z",
+        "mergedAt": "2026-01-13T06:53:39Z",
+        "closedAt": "2026-01-13T06:53:39Z",
+        "available": true
+      }
+    ],
+    "artifacts": [
+      {
+        "language": ".NET",
+        "package": null,
+        "trackId": "sdk:.NET:.NET",
+        "prId": null,
+        "prCreatedAt": null,
+        "prMergedAt": null,
+        "prClosedAt": null,
+        "prAttempts": [],
+        "generationRunId": null,
+        "generationStartAt": null,
+        "releaseEvents": [],
+        "releasedVersion": null,
+        "releaseBoundaryAt": null,
+        "releaseBoundarySource": "missing",
+        "releaseBoundaryConfidence": "missing",
+        "releaseBoundaryUrl": null,
+        "releaseTag": null,
+        "releaseMatchMethod": null,
+        "provenance": {
+          "pr": "missing",
+          "generation": "missing",
+          "release": "missing"
+        }
+      },
+      {
+        "language": "JavaScript",
+        "package": "@azure/arm-certificateregistration",
+        "trackId": "sdk:JavaScript:@azure/arm-certificateregistration",
+        "prId": null,
+        "prCreatedAt": null,
+        "prMergedAt": null,
+        "prClosedAt": null,
+        "prAttempts": [],
+        "generationRunId": null,
+        "generationStartAt": null,
+        "releaseEvents": [],
+        "releasedVersion": null,
+        "releaseBoundaryAt": null,
+        "releaseBoundarySource": "missing",
+        "releaseBoundaryConfidence": "missing",
+        "releaseBoundaryUrl": null,
+        "releaseTag": null,
+        "releaseMatchMethod": null,
+        "provenance": {
+          "pr": "missing",
+          "generation": "missing",
+          "release": "missing"
+        }
+      },
+      {
+        "language": "Python",
+        "package": "azure-mgmt-certificateregistration",
+        "trackId": "sdk:Python:azure-mgmt-certificateregistration",
+        "prId": null,
+        "prCreatedAt": null,
+        "prMergedAt": null,
+        "prClosedAt": null,
+        "prAttempts": [],
+        "generationRunId": null,
+        "generationStartAt": null,
+        "releaseEvents": [],
+        "releasedVersion": null,
+        "releaseBoundaryAt": null,
+        "releaseBoundarySource": "missing",
+        "releaseBoundaryConfidence": "missing",
+        "releaseBoundaryUrl": null,
+        "releaseTag": null,
+        "releaseMatchMethod": null,
+        "provenance": {
+          "pr": "missing",
+          "generation": "missing",
+          "release": "missing"
+        }
+      },
+      {
+        "language": "Java",
+        "package": "azure-resourcemanager-certificateregistration",
+        "trackId": "sdk:Java:azure-resourcemanager-certificateregistration",
+        "prId": null,
+        "prCreatedAt": null,
+        "prMergedAt": null,
+        "prClosedAt": null,
+        "prAttempts": [],
+        "generationRunId": null,
+        "generationStartAt": null,
+        "releaseEvents": [],
+        "releasedVersion": null,
+        "releaseBoundaryAt": null,
+        "releaseBoundarySource": "missing",
+        "releaseBoundaryConfidence": "missing",
+        "releaseBoundaryUrl": null,
+        "releaseTag": null,
+        "releaseMatchMethod": null,
+        "provenance": {
+          "pr": "missing",
+          "generation": "missing",
+          "release": "missing"
+        }
+      },
+      {
+        "language": "Go",
+        "package": "sdk/resourcemanager/certificateregistration/armcertificateregistration",
+        "trackId": "sdk:Go:sdk/resourcemanager/certificateregistration/armcertificateregistration",
+        "prId": null,
+        "prCreatedAt": null,
+        "prMergedAt": null,
+        "prClosedAt": null,
+        "prAttempts": [],
+        "generationRunId": null,
+        "generationStartAt": null,
+        "releaseEvents": [],
+        "releasedVersion": null,
+        "releaseBoundaryAt": null,
+        "releaseBoundarySource": "missing",
+        "releaseBoundaryConfidence": "missing",
+        "releaseBoundaryUrl": null,
+        "releaseTag": null,
+        "releaseMatchMethod": null,
+        "provenance": {
+          "pr": "missing",
+          "generation": "missing",
+          "release": "missing"
+        }
+      }
+    ],
+    "cohortPlan": {
+      "id": "32723",
+      "releasePlanId": "2089",
+      "title": "Release Plan - 2089 - GA - Certificate Registration",
+      "service": "Certificate Registration",
+      "state": "abandoned"
+    },
+    "quality": {
+      "warnings": [
+        "API specification path is missing"
+      ],
+      "unavailablePullRequests": 0,
+      "unavailablePipelineRuns": 0
+    }
+  },
+  "summary": {
+    "durationHours": 19.6,
+    "pullRequestCount": 1,
+    "humanReviewCount": 1,
+    "humanCommentCount": 0
+  }
+}

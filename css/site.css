@@ -275,8 +275,26 @@ select:focus-visible {
 }
 
 .scorecard-toggle {
+  gap: 1rem;
   cursor: pointer;
   transition: background 120ms ease;
+}
+
+.cohort-evidence-button {
+  background: white;
+  border: 1px solid #b9c8d1;
+  border-radius: 8px;
+  color: var(--navy);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.68rem 0.8rem;
+}
+
+.cohort-evidence-button:hover,
+.cohort-evidence-button:focus-visible {
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 .scorecard-toggle:hover {
@@ -1851,6 +1869,68 @@ select:focus-visible {
 
 .cohort-drawer {
   max-width: 520px;
+}
+
+.evidence-drawer {
+  max-width: 600px;
+}
+
+.evidence-summary {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.coverage-grid {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1.2rem;
+}
+
+.coverage-grid article {
+  background: #f3f7f9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+}
+
+.coverage-grid strong {
+  color: var(--navy);
+  font-size: 1.2rem;
+}
+
+.coverage-grid span,
+.boundary-source-list span {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.boundary-source-list {
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 0.8rem;
+}
+
+.boundary-source-list span {
+  align-items: center;
+  background: #f7f9fa;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.55rem 0.7rem;
+}
+
+.boundary-source-list b {
+  color: var(--navy);
+}
+
+.evidence-plan-list {
+  max-height: 310px;
+  overflow-y: auto;
 }
 
 .cohort-drawer .drawer-badges {

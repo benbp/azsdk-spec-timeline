@@ -9,15 +9,16 @@ Use this skill when asked to gather, refresh, backfill, or publish timeline data
 
 ## What the pipeline does
 
-The refresh is a five-stage, zero-dependency pipeline:
+The refresh is a six-stage, zero-dependency pipeline:
 
 1. `collect-release-plans.js` queries Azure DevOps Release Plan work items and API Spec children, reads their revisions, and writes sanitized normalized input to `cache/v2/release-plans.json`.
 2. `collect-github-prs.js` follows only exact PR links found in those work items and revisions, enriches them from GitHub, and writes `cache/v2/github-prs.json`.
-3. `collect-pipeline-runs.js` follows only exact Azure Pipeline build URLs and writes `cache/v2/pipeline-runs.json`.
-4. `build-view-data.js` derives events, intervals, metrics, aggregates, plan files, service indexes, hashes, and `data/manifest.json`.
-5. `validate-data.js` checks referential and metric integrity and scans every published JSON file for email addresses and credential-like values.
+3. `collect-github-releases.js` uses package-specific tag conventions, monthly `Azure/azure-sdk/_data/releases` metadata, linked SDK PR version evidence, and GitHub Release `publishedAt` as a conservative fallback for missing historical release evidence.
+4. `collect-pipeline-runs.js` follows only exact Azure Pipeline build URLs and writes `cache/v2/pipeline-runs.json`.
+5. `build-view-data.js` derives events, intervals, metrics, aggregates, plan files, hashes, and `data/snapshot.json`.
+6. `validate-data.js` checks referential and metric integrity and scans every published JSON file for email addresses and credential-like values.
 
-`cache/` is private, ignored, and reusable. `data/builds/<build-id>/` is public and immutable. The dashboard switches datasets through `data/manifest.json`.
+`cache/` is private, ignored, and reusable. `data/builds/<build-id>/` is public and immutable. The dashboard switches datasets through `data/snapshot.json`.
 
 ## Preconditions
 
@@ -41,8 +42,8 @@ Never print, persist, or pass either access token manually. The scripts acquire 
 
 For the dashboard's current production cohort, use:
 
-- `--mode all-management`: core-correlated management-plane Release Plans **created** in the lookback window whose earliest collected event also remains inside the window.
-- `--days 180`: the current rolling lookback. The Release Plan collector fast-fails snapshots missing either correlation root before fetching revisions or downstream source history.
+- `--mode all-management`: core-correlated management-plane Release Plans changed in the bounded inventory window. Their full flow history may begin before that window.
+- `--start-at 2026-03-01T00:00:00.000Z`: the earliest metric completion period. The ChangedDate query keeps discovery bounded while retaining older-starting flows that complete during or after March.
 - `--limit 0`: collect every eligible plan. A positive value is for small development samples only.
 - `--build-id`: a unique UTC identifier. Build directories are immutable and the builder refuses to overwrite one.
 
@@ -55,6 +56,7 @@ Create a unique build ID and run the orchestrator:
 ```bash
 BUILD_ID="$(date -u +%Y%m%dT%H%M%SZ)"
 node scripts/refresh-v2-data.js \
+  --start-at 2026-03-01T00:00:00.000Z \
   --days 180 \
   --limit 0 \
   --mode all-management \
@@ -71,8 +73,9 @@ Each stage reads the previous stage's cached JSON, so rerun only the failed stag
 
 ```bash
 node scripts/collect-release-plans.js \
-  --days 180 --limit 0 --mode all-management
+  --start-at 2026-03-01T00:00:00.000Z --days 180 --limit 0 --mode all-management
 node scripts/collect-github-prs.js
+node scripts/collect-github-releases.js
 node scripts/collect-pipeline-runs.js
 node scripts/build-view-data.js --build-id "$BUILD_ID"
 node scripts/validate-data.js
@@ -86,9 +89,9 @@ Confirm that the final output reports successful validation, then inspect:
 
 ```bash
 node -e '
-const m = require("./data/manifest.json");
+const m = require("./data/snapshot.json");
 console.log({
-  buildId: m.buildId,
+  buildId: m.snapshotId,
   generatedAt: m.generatedAt,
   cadence: m.cadence,
   counts: m.counts,
@@ -111,7 +114,7 @@ Verify that the portfolio loads the new build, summary counts render, and at lea
 
 ## Persist the refresh
 
-Include the new `data/builds/<build-id>/` directory and updated `data/manifest.json` together. Never commit `cache/`, tokens, or temporary diagnostics. Do not remove prior immutable builds unless the repository's retention policy explicitly requires it.
+Include the new `data/builds/<build-id>/` directory and updated `data/snapshot.json` together. Never commit `cache/`, tokens, or temporary diagnostics. Do not remove prior immutable builds unless the repository's retention policy explicitly requires it.
 
 For design rationale and known source limitations, consult:
 

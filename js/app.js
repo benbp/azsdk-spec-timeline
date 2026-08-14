@@ -272,10 +272,11 @@ Alpine.data("timelineApp", () => ({
         },
         {
           id: "rolling-90-days",
-          label: "Rolling 90d",
+          label: "Rolling 3mo",
           statistics: metric.periodStatistics.rolling90Days,
           showP50: false,
           showP90: true,
+          showP90Change: false,
         },
       ];
     return [

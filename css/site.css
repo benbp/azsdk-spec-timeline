@@ -314,6 +314,8 @@ select:focus-visible {
 
 .metric-strip article {
   border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
   padding: 1.4rem 0.3rem;
 }
 
@@ -413,6 +415,11 @@ select:focus-visible {
 
 .period-summary-row .period-stat.p90 {
   transform: translateX(14px);
+}
+
+.period-summary-row .period-stat.p90.p50-column {
+  grid-column: 2;
+  transform: translateX(28px);
 }
 
 .period-summary-row .period-stat > b {
@@ -515,8 +522,12 @@ select:focus-visible {
 
 .compact-trends {
   border-top: 1px solid #edf0f2;
-  margin-top: 0.7rem;
+  margin-top: auto;
   padding-top: 0.35rem;
+}
+
+.compact-trends > .placeholder {
+  visibility: hidden;
 }
 
 .compact-trends > div {

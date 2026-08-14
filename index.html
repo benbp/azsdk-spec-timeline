@@ -148,7 +148,11 @@
                             x-text="formatTrendChange(period.statistics.change)"
                           ></b>
                         </span>
-                        <span class="period-stat p90" x-show="period.showP90">
+                        <span
+                          class="period-stat p90"
+                          :class="{ 'p50-column': !period.showP50 }"
+                          x-show="period.showP90"
+                        >
                           <small>P90</small>
                           <b
                             x-text="formatCompactDuration(period.statistics.p90)"
@@ -158,13 +162,17 @@
                             :class="period.statistics.p90Change.direction"
                             :title="trendComparisonTitle(period.statistics.p90Change)"
                             x-text="formatTrendChange(period.statistics.p90Change)"
+                            x-show="period.showP90Change !== false"
                           ></b>
                         </span>
                       </section>
                     </template>
                   </div>
                   <div class="compact-trends">
-                    <div x-show="metric.metricId !== 'L1'">
+                    <div
+                      :class="{ placeholder: metric.metricId === 'L1' }"
+                      :aria-hidden="metric.metricId === 'L1'"
+                    >
                       <span>WoW</span>
                       <div
                         class="mini-column-chart"
